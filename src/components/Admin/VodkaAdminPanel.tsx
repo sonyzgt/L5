@@ -10,13 +10,14 @@ import { erc20Abi } from "@/lib/contracts/erc20Abi";
 import { formatTokenAmount, formatAddress } from "@/lib/utils/formatters";
 import { TransactionModal } from "../Transaction/TransactionModal";
 import { WalletConnectModal } from "../Wallet/WalletConnectModal";
-import { ShieldCheck, ShieldAlert, Lock, ArrowDownToLine, Wallet, RefreshCw, CheckCircle2, ExternalLink } from "lucide-react";
+import { ShieldCheck, ShieldAlert, Lock, ArrowDownToLine, Wallet, RefreshCw, CheckCircle2, ExternalLink, Zap } from "lucide-react";
 
 export const VodkaAdminPanel: React.FC = () => {
   const { address, isConnected } = useAccount();
   const [walletModalOpen, setWalletModalOpen] = useState(false);
   const [usdgWithdrawAmount, setUsdgWithdrawAmount] = useState("");
   const [kawaWithdrawAmount, setKawaWithdrawAmount] = useState("");
+  const [rewardRateInput, setRewardRateInput] = useState("");
   const [txState, setTxState] = useState<{
     step: "IDLE" | "CONFIRMING" | "PENDING" | "SUCCESS" | "FAILED";
     title: string;
@@ -73,11 +74,20 @@ export const VodkaAdminPanel: React.FC = () => {
     query: { enabled: Boolean(contractAddress && rewardTokenAddress), refetchInterval: 5000 },
   });
 
+  // 5. Read Contract's Reward Emission Rate (Speed)
+  const { data: rewardRateRaw, refetch: refetchRewardRate } = useReadContract({
+    address: contractAddress,
+    abi: kawaStakingAbi,
+    functionName: "rewardRate",
+    query: { enabled: Boolean(contractAddress), refetchInterval: 5000 },
+  });
+
   const { writeContractAsync } = useWriteContract();
 
   const totalStakedBig = totalStakedRaw ? BigInt(totalStakedRaw.toString()) : 0n;
   const contractUsdgBig = contractUsdgBalanceRaw ? BigInt(contractUsdgBalanceRaw.toString()) : 0n;
   const contractKawaBig = contractKawaBalanceRaw ? BigInt(contractKawaBalanceRaw.toString()) : 0n;
+  const rewardRateBig = rewardRateRaw ? BigInt(rewardRateRaw.toString()) : 0n;
 
   // Stake token uses 6 decimals (USDG)
   const USDG_DECIMALS = 6;
@@ -85,7 +95,7 @@ export const VodkaAdminPanel: React.FC = () => {
   const KAWA_DECIMALS = 18;
 
   const handleRefreshAll = async () => {
-    await Promise.all([refetchTotalStaked(), refetchContractUsdg(), refetchContractKawa()]);
+    await Promise.all([refetchTotalStaked(), refetchContractUsdg(), refetchContractKawa(), refetchRewardRate()]);
   };
 
   // Withdraw USDG
@@ -172,6 +182,51 @@ export const VodkaAdminPanel: React.FC = () => {
         step: "FAILED",
         title: "TRANSACTION FAILED",
         description: err?.shortMessage || err?.message || "Failed to execute KAWA withdrawal.",
+      });
+    }
+  };
+
+  // Update Reward Emission Rate
+  const handleSetRewardRate = async (customRate?: string) => {
+    const rateToUse = customRate !== undefined ? customRate : rewardRateInput;
+    if (!contractAddress || !rateToUse || parseFloat(rateToUse) < 0) return;
+    try {
+      const rateWei = parseUnits(rateToUse, KAWA_DECIMALS);
+      setTxState({
+        step: "CONFIRMING",
+        title: "CONFIRM REWARD SPEED UPDATE",
+        description: `Setting reward speed to ${rateToUse} KAWA/sec in your wallet...`,
+      });
+
+      const hash = await writeContractAsync({
+        address: contractAddress,
+        abi: kawaStakingAbi,
+        functionName: "setRewardRate",
+        args: [rateWei],
+      });
+
+      setTxState({
+        step: "PENDING",
+        title: "UPDATING REWARD SPEED",
+        description: "Transaction submitted to Robinhood Chain...",
+        txHash: hash,
+      });
+
+      setRewardRateInput("");
+      setTimeout(async () => {
+        setTxState({
+          step: "SUCCESS",
+          title: "REWARD SPEED UPDATED",
+          description: `Reward emission rate successfully set to ${rateToUse} KAWA/sec.`,
+          txHash: hash,
+        });
+        await handleRefreshAll();
+      }, 2000);
+    } catch (err: any) {
+      setTxState({
+        step: "FAILED",
+        title: "TRANSACTION FAILED",
+        description: err?.shortMessage || err?.message || "Failed to update reward rate.",
       });
     }
   };
@@ -276,8 +331,9 @@ export const VodkaAdminPanel: React.FC = () => {
           </p>
         </div>
       ) : (
-        /* Authenticated Admin View: Exactly 2 core cards */
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        /* Authenticated Admin View: Pools & Emission Controls */
+        <div className="space-y-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* CARD 1: USDG Staking Asset */}
           <div className="border border-white/[0.1] rounded-2xl p-6 sm:p-8 bg-[#121418] space-y-6 shadow-xl flex flex-col justify-between">
             <div className="space-y-4">
@@ -452,6 +508,78 @@ export const VodkaAdminPanel: React.FC = () => {
               <ArrowDownToLine className="w-4 h-4" /> {rewardTokenAddress ? "WITHDRAW KAWA TO ADMIN" : "TOKEN NOT CONFIGURED"}
             </button>
           </div>
+        </div>
+
+        {/* Reward Emission Rate (Speed) Card */}
+        <div className="border border-white/10 rounded-2xl p-6 sm:p-8 bg-[#121418] space-y-6 shadow-xl">
+          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-4">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-full bg-[#1b2216] border border-[#c8f53c]/30 flex items-center justify-center text-[#c8f53c] shrink-0">
+                <Zap className="w-5 h-5" />
+              </div>
+              <div>
+                <h2 className="text-lg font-mono font-medium tracking-[0.1em] uppercase text-white">
+                  REWARD EMISSION SPEED
+                </h2>
+                <span className="text-[10px] font-mono text-[#8e95a2] uppercase tracking-wider">
+                  Block-by-block distribution rate
+                </span>
+              </div>
+            </div>
+            <div className="text-right">
+              <div className="text-xs font-mono text-[#8e95a2] uppercase tracking-wider">CURRENT SPEED</div>
+              <div className="text-xl font-mono font-semibold text-[#c8f53c]">
+                {formatTokenAmount(rewardRateBig, KAWA_DECIMALS, 4)} KAWA/sec
+              </div>
+              <span className="text-[10px] text-neutral-500 font-mono">
+                ≈ {(parseFloat(formatTokenAmount(rewardRateBig, KAWA_DECIMALS, 4)) * 86400).toLocaleString()} KAWA/day
+              </span>
+            </div>
+          </div>
+
+          <div className="space-y-3">
+            <div className="flex items-center justify-between">
+              <label className="text-[10px] font-mono text-[#8e95a2] uppercase tracking-wider">
+                SET NEW SPEED (KAWA PER SECOND)
+              </label>
+              <div className="flex items-center gap-1.5">
+                <span className="text-[10px] font-mono text-neutral-500">Presets:</span>
+                {["0.01", "0.1", "0.5", "1.0", "2.0"].map((preset) => (
+                  <button
+                    key={preset}
+                    type="button"
+                    onClick={() => setRewardRateInput(preset)}
+                    className="px-2 py-0.5 rounded bg-[#1a1c22] hover:bg-[#252830] border border-white/10 text-[10px] font-mono text-[#c8f53c] transition"
+                  >
+                    {preset}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div className="border border-white/10 rounded-xl p-3.5 bg-[#0a0b0d] flex items-center justify-between focus-within:border-[#c8f53c] transition">
+              <input
+                type="number"
+                step="0.0001"
+                placeholder="e.g. 1.0"
+                value={rewardRateInput}
+                onChange={(e) => setRewardRateInput(e.target.value)}
+                className="w-full bg-transparent font-mono text-xl sm:text-2xl text-white outline-none placeholder:text-neutral-600 font-light"
+              />
+              <span className="text-xs font-mono text-[#8e95a2] uppercase ml-3 shrink-0">
+                KAWA / SEC
+              </span>
+            </div>
+          </div>
+
+          <button
+            onClick={() => handleSetRewardRate()}
+            disabled={!rewardRateInput || parseFloat(rewardRateInput) < 0}
+            className="w-full py-3.5 px-6 rounded-full bg-[#c8f53c] text-[#090a0c] font-mono text-xs tracking-[0.2em] uppercase font-semibold hover:bg-[#b8e52c] disabled:opacity-30 disabled:cursor-not-allowed transition duration-200 flex items-center justify-center gap-2 shadow-lg shadow-[#c8f53c]/20"
+          >
+            <Zap className="w-4 h-4 fill-current" /> UPDATE REWARD SPEED
+          </button>
+        </div>
         </div>
       )}
 
