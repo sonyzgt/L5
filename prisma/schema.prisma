@@ -1,0 +1,75 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Wallet {
+  id        String   @id @default(cuid())
+  address   String   @unique
+  createdAt DateTime @default(now())
+  lastSeen  DateTime @default(now())
+
+  positions StakingPosition[]
+  events    StakingEvent[]
+
+  @@map("wallets")
+}
+
+model StakingPosition {
+  id              String   @id @default(cuid())
+  walletAddress   String   @unique
+  stakedAmount    String   @default("0")
+  rewardsClaimed  String   @default("0")
+  stakingSince    DateTime?
+  state           String   @default("dormant") // dormant, activated, growing, mature, awakened
+  updatedAt       DateTime @updatedAt
+
+  wallet          Wallet   @relation(fields: [walletAddress], references: [address], onDelete: Cascade)
+
+  @@map("staking_positions")
+}
+
+model StakingEvent {
+  id              String   @id @default(cuid())
+  walletAddress   String
+  eventType       String   // STAKE, UNSTAKE, CLAIM
+  amount          String
+  transactionHash String
+  logIndex        Int      @default(0)
+  blockNumber     Int
+  timestamp       DateTime @default(now())
+
+  wallet          Wallet   @relation(fields: [walletAddress], references: [address], onDelete: Cascade)
+
+  @@unique([transactionHash, logIndex])
+  @@index([walletAddress])
+  @@map("staking_events")
+}
+
+model ProtocolStat {
+  id           String   @id @default(cuid())
+  tvl          String   @default("0")
+  totalStaked  String   @default("0")
+  totalRewards String   @default("0")
+  totalStakers Int      @default(0)
+  currentApy   String   @default("0")
+  timestamp    DateTime @default(now())
+
+  @@map("protocol_stats")
+}
+
+model PriceSnapshot {
+  id          String   @id @default(cuid())
+  tokenSymbol String
+  priceUsd    Float
+  timestamp   DateTime @default(now())
+
+  @@map("price_snapshots")
+}
