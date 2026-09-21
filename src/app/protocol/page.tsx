@@ -170,7 +170,7 @@ export default function ProtocolPage() {
           <div className="space-y-3 font-mono text-xs">
             <div className="p-4 rounded-xl bg-[#121418] border border-white/[0.08] flex flex-col sm:flex-row sm:items-center justify-between gap-2">
               <span className="text-[#8e95a2] uppercase text-[10px] tracking-wider">KAWAStaking Contract</span>
-              <span className="text-neutral-400 font-medium">To Be Announced (TBA)</span>
+              <span className="text-[#c8f53c] font-medium select-all">0x4944EDF557C36e9b4964fc5988871ea61748d918</span>
             </div>
             <div className="p-4 rounded-xl bg-[#121418] border border-white/[0.08] flex flex-col sm:flex-row sm:items-center justify-between gap-2">
               <span className="text-[#8e95a2] uppercase text-[10px] tracking-wider">Staking Asset (USDG)</span>
@@ -178,7 +178,7 @@ export default function ProtocolPage() {
             </div>
             <div className="p-4 rounded-xl bg-[#121418] border border-white/[0.08] flex flex-col sm:flex-row sm:items-center justify-between gap-2">
               <span className="text-[#8e95a2] uppercase text-[10px] tracking-wider">Reward Token (KAWA)</span>
-              <span className="text-neutral-400 font-medium">To Be Announced (TBA)</span>
+              <span className="text-white font-medium select-all">0xdcc66603f5f60cf154366b5d7901f3c30639c3b4</span>
             </div>
           </div>
         </section>
