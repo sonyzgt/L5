@@ -19,13 +19,13 @@ async function main() {
   const newRate = hre.ethers.parseUnits("5", 18);
   console.log("Setting New Reward Rate to:", hre.ethers.formatUnits(newRate, 18), "L5/sec");
 
-  const tx = await KAWAStaking.setRewardRate(newRate);
+  const tx = await Layer5Staking.setRewardRate(newRate);
   console.log("Transaction Hash:", tx.hash);
   console.log("Waiting for confirmation...");
   const receipt = await tx.wait();
   console.log("Transaction confirmed in block:", receipt.blockNumber);
 
-  const updatedRate = await KAWAStaking.rewardRate();
+  const updatedRate = await Layer5Staking.rewardRate();
   console.log("Updated Reward Rate:", hre.ethers.formatUnits(updatedRate, 18), "L5/sec");
   console.log("SUCCESS!");
 }
