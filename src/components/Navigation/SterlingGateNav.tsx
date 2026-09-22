@@ -11,6 +11,7 @@ import { WalletConnectModal } from "../Wallet/WalletConnectModal";
 import { Layer5Emblem } from "../Brand/Layer5Emblem";
 import { LiquidButton } from "@/components/ui/liquid-glass-button";
 import { Wallet, ShieldCheck, ExternalLink } from "lucide-react";
+import { protocolConfig } from "@/lib/blockchain/config";
 import "./kinetic-nav.css";
 
 interface NavItem {
@@ -510,7 +511,7 @@ export const SterlingGateNav: React.FC = () => {
               <div className="flex flex-wrap items-center gap-3">
                 <div className="sg-menu-badge">
                   <span className="w-2 h-2 rounded-full bg-[#c8f53c] animate-pulse" />
-                  <span>Robinhood Chain Testnet (42161)</span>
+                  <span>Robinhood Chain Mainnet ({protocolConfig.chainId})</span>
                 </div>
                 <div className="sg-menu-badge">
                   <ShieldCheck className="w-3.5 h-3.5 text-[#c8f53c]" />
