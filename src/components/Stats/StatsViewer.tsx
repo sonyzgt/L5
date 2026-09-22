@@ -163,29 +163,29 @@ export const StatsViewer: React.FC = () => {
       </div>
 
       {/* 3. Top 4-Metric Institutional KPI Ribbon in 3-Tier Layered Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4">
         {/* Metric 1: Total Staked */}
         <div className="sg-tier-container">
           <div className="sg-tier-underlay-1" />
           <div className="sg-tier-underlay-2" />
-          <div className="sg-tier-main p-6 space-y-3">
+          <div className="sg-tier-main p-3.5 sm:p-6 space-y-2 sm:space-y-3">
             <div className="flex items-center justify-between">
-              <span className="text-[11px] font-mono tracking-[0.15em] text-[#8e95a2] uppercase">
-                TOTAL ASSETS STAKED
+              <span className="text-[10px] sm:text-[11px] font-mono tracking-[0.1em] sm:tracking-[0.15em] text-[#8e95a2] uppercase">
+                TOTAL ASSETS
               </span>
-              <div className="p-2 rounded-xl bg-white/5 border border-white/10">
-                <Coins className="w-4 h-4 text-[#c8f53c]" />
+              <div className="p-1.5 sm:p-2 rounded-xl bg-white/5 border border-white/10">
+                <Coins className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#c8f53c]" />
               </div>
             </div>
             <div>
-              <div className="font-mono text-xl sm:text-2xl font-bold text-white tracking-tight truncate">
+              <div className="font-mono text-lg sm:text-2xl font-bold text-white tracking-tight truncate">
                 {stakedFormatted}
               </div>
-              <div className="flex items-center gap-2 mt-1.5">
-                <span className="text-[10px] font-mono text-[#c8f53c] bg-[#c8f53c]/10 px-2 py-0.5 rounded flex items-center gap-1">
-                  <TrendingUp className="w-3 h-3" /> Solvency Verified
+              <div className="flex flex-wrap items-center gap-1 sm:gap-2 mt-1 sm:mt-1.5">
+                <span className="text-[9px] sm:text-[10px] font-mono text-[#c8f53c] bg-[#c8f53c]/10 px-1.5 py-0.5 rounded flex items-center gap-1">
+                  <TrendingUp className="w-2.5 h-2.5 sm:w-3 sm:h-3" /> Solvency
                 </span>
-                <span className="text-[10px] font-mono text-[#8e95a2]">Principal Backed</span>
+                <span className="text-[9px] sm:text-[10px] font-mono text-[#8e95a2] hidden sm:inline">Principal Backed</span>
               </div>
             </div>
           </div>
@@ -195,24 +195,24 @@ export const StatsViewer: React.FC = () => {
         <div className="sg-tier-container">
           <div className="sg-tier-underlay-1" />
           <div className="sg-tier-underlay-2" />
-          <div className="sg-tier-main p-6 space-y-3">
+          <div className="sg-tier-main p-3.5 sm:p-6 space-y-2 sm:space-y-3">
             <div className="flex items-center justify-between">
-              <span className="text-[11px] font-mono tracking-[0.15em] text-[#8e95a2] uppercase">
-                ANNUALIZED REWARD YIELD
+              <span className="text-[10px] sm:text-[11px] font-mono tracking-[0.1em] sm:tracking-[0.15em] text-[#8e95a2] uppercase">
+                REWARD APY
               </span>
-              <div className="p-2 rounded-xl bg-white/5 border border-white/10">
-                <Zap className="w-4 h-4 text-[#c8f53c]" />
+              <div className="p-1.5 sm:p-2 rounded-xl bg-white/5 border border-white/10">
+                <Zap className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#c8f53c]" />
               </div>
             </div>
             <div>
-              <div className="font-mono text-xl sm:text-2xl font-bold text-[#c8f53c] tracking-tight truncate">
+              <div className="font-mono text-lg sm:text-2xl font-bold text-[#c8f53c] tracking-tight truncate">
                 {apyDisplay}
               </div>
-              <div className="flex items-center gap-2 mt-1.5">
-                <span className="text-[10px] font-mono text-white/70 bg-white/5 px-2 py-0.5 rounded">
-                  Per Block Accrual
+              <div className="flex flex-wrap items-center gap-1 sm:gap-2 mt-1 sm:mt-1.5">
+                <span className="text-[9px] sm:text-[10px] font-mono text-white/70 bg-white/5 px-1.5 py-0.5 rounded">
+                  Per Block
                 </span>
-                <span className="text-[10px] font-mono text-[#8e95a2]">Continuous Accrual</span>
+                <span className="text-[9px] sm:text-[10px] font-mono text-[#8e95a2] hidden sm:inline">Continuous</span>
               </div>
             </div>
           </div>
@@ -222,24 +222,24 @@ export const StatsViewer: React.FC = () => {
         <div className="sg-tier-container">
           <div className="sg-tier-underlay-1" />
           <div className="sg-tier-underlay-2" />
-          <div className="sg-tier-main p-6 space-y-3">
+          <div className="sg-tier-main p-3.5 sm:p-6 space-y-2 sm:space-y-3">
             <div className="flex items-center justify-between">
-              <span className="text-[11px] font-mono tracking-[0.15em] text-[#8e95a2] uppercase">
-                L5 HARVESTED TO DATE
+              <span className="text-[10px] sm:text-[11px] font-mono tracking-[0.1em] sm:tracking-[0.15em] text-[#8e95a2] uppercase">
+                HARVESTED
               </span>
-              <div className="p-2 rounded-xl bg-white/5 border border-white/10">
-                <Activity className="w-4 h-4 text-[#c8f53c]" />
+              <div className="p-1.5 sm:p-2 rounded-xl bg-white/5 border border-white/10">
+                <Activity className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#c8f53c]" />
               </div>
             </div>
             <div>
-              <div className="font-mono text-xl sm:text-2xl font-bold text-white tracking-tight truncate">
+              <div className="font-mono text-lg sm:text-2xl font-bold text-white tracking-tight truncate">
                 {rewardsDistributedFormatted}
               </div>
-              <div className="flex items-center gap-2 mt-1.5">
-                <span className="text-[10px] font-mono text-[#c8f53c] bg-[#c8f53c]/10 px-2 py-0.5 rounded">
+              <div className="flex flex-wrap items-center gap-1 sm:gap-2 mt-1 sm:mt-1.5">
+                <span className="text-[9px] sm:text-[10px] font-mono text-[#c8f53c] bg-[#c8f53c]/10 px-1.5 py-0.5 rounded">
                   Non-Dilutive
                 </span>
-                <span className="text-[10px] font-mono text-[#8e95a2]">Zero Slashing</span>
+                <span className="text-[9px] sm:text-[10px] font-mono text-[#8e95a2] hidden sm:inline">Zero Slashing</span>
               </div>
             </div>
           </div>
@@ -249,24 +249,24 @@ export const StatsViewer: React.FC = () => {
         <div className="sg-tier-container">
           <div className="sg-tier-underlay-1" />
           <div className="sg-tier-underlay-2" />
-          <div className="sg-tier-main p-6 space-y-3">
+          <div className="sg-tier-main p-3.5 sm:p-6 space-y-2 sm:space-y-3">
             <div className="flex items-center justify-between">
-              <span className="text-[11px] font-mono tracking-[0.15em] text-[#8e95a2] uppercase">
-                STAKING PARTICIPANTS
+              <span className="text-[10px] sm:text-[11px] font-mono tracking-[0.1em] sm:tracking-[0.15em] text-[#8e95a2] uppercase">
+                PARTICIPANTS
               </span>
-              <div className="p-2 rounded-xl bg-white/5 border border-white/10">
-                <Layers className="w-4 h-4 text-[#c8f53c]" />
+              <div className="p-1.5 sm:p-2 rounded-xl bg-white/5 border border-white/10">
+                <Layers className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#c8f53c]" />
               </div>
             </div>
             <div>
-              <div className="font-mono text-xl sm:text-2xl font-bold text-white tracking-tight truncate">
+              <div className="font-mono text-lg sm:text-2xl font-bold text-white tracking-tight truncate">
                 {stakersCount}
               </div>
-              <div className="flex items-center gap-2 mt-1.5">
-                <span className="text-[10px] font-mono text-[#c8f53c] bg-[#c8f53c]/10 px-2 py-0.5 rounded">
+              <div className="flex flex-wrap items-center gap-1 sm:gap-2 mt-1 sm:mt-1.5">
+                <span className="text-[9px] sm:text-[10px] font-mono text-[#c8f53c] bg-[#c8f53c]/10 px-1.5 py-0.5 rounded">
                   Live On-Chain
                 </span>
-                <span className="text-[10px] font-mono text-[#8e95a2]">Unique Addresses</span>
+                <span className="text-[9px] sm:text-[10px] font-mono text-[#8e95a2] hidden sm:inline">Unique Addrs</span>
               </div>
             </div>
           </div>

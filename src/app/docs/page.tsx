@@ -223,11 +223,36 @@ export default function DocsPage() {
           </div>
         </div>
 
+        {/* Mobile Section Nav (Horizontal scroll on < lg) */}
+        <div className="lg:hidden flex items-center gap-2 overflow-x-auto pb-2 -mx-4 px-4 scrollbar-none">
+          {filteredSections.map((sec) => {
+            const isActive = activeSection === sec.id;
+            const Icon = sec.icon;
+            return (
+              <button
+                key={sec.id}
+                type="button"
+                onClick={() => {
+                  setActiveSection(sec.id);
+                }}
+                className={`shrink-0 flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-mono transition whitespace-nowrap ${
+                  isActive
+                    ? "bg-[#c8f53c] text-[#08090c] font-bold shadow-[0_0_15px_rgba(200,245,60,0.3)]"
+                    : "liquid-glass-subcard text-neutral-300 border border-white/10"
+                }`}
+              >
+                <Icon className={`w-3.5 h-3.5 ${isActive ? "text-[#08090c]" : "text-[#c8f53c]"}`} />
+                <span>{sec.title}</span>
+              </button>
+            );
+          })}
+        </div>
+
         {/* Documentation Main Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
-          {/* Left Sticky Navigation Column */}
-          <aside className="lg:col-span-4 xl:col-span-3 lg:sticky lg:top-28 space-y-2">
+          {/* Left Sticky Navigation Column (Desktop only) */}
+          <aside className="hidden lg:block lg:col-span-4 xl:col-span-3 lg:sticky lg:top-28 space-y-2">
             <div className="liquid-glass-subcard rounded-2xl p-3 border border-white/[0.08] space-y-1">
               <div className="px-3 py-2 text-[10px] font-mono tracking-widest text-[#8e95a2] uppercase border-b border-white/[0.06] mb-1">
                 SECTIONS ({filteredSections.length})

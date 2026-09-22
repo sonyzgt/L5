@@ -335,7 +335,7 @@ export const VodkaAdminPanel: React.FC = () => {
         <div className="space-y-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* CARD 1: USDG Staking Asset */}
-          <div className="border border-white/[0.1] rounded-2xl p-6 sm:p-8 bg-[#121418] space-y-6 shadow-xl flex flex-col justify-between">
+          <div className="border border-white/[0.1] rounded-2xl p-4 sm:p-8 bg-[#121418] space-y-6 shadow-xl flex flex-col justify-between">
             <div className="space-y-4">
               <div className="flex items-center justify-between border-b border-white/10 pb-4">
                 <div className="flex items-center gap-3">
@@ -425,7 +425,7 @@ export const VodkaAdminPanel: React.FC = () => {
           </div>
 
           {/* CARD 2: KAWA Reward Asset */}
-          <div className="border border-white/[0.1] rounded-2xl p-6 sm:p-8 bg-[#121418] space-y-6 shadow-xl flex flex-col justify-between">
+          <div className="border border-white/[0.1] rounded-2xl p-4 sm:p-8 bg-[#121418] space-y-6 shadow-xl flex flex-col justify-between">
             <div className="space-y-4">
               <div className="flex items-center justify-between border-b border-white/10 pb-4">
                 <div className="flex items-center gap-3">

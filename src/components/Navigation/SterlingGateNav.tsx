@@ -200,14 +200,14 @@ export const SterlingGateNav: React.FC = () => {
     <div ref={containerRef} className="relative z-50">
       {/* Top Header Bar */}
       <header
-        className={`sg-header-wrapper px-4 sm:px-8 transition-all duration-500 ${
-          isScrolled ? "py-3" : "py-6"
+        className={`sg-header-wrapper px-2 sm:px-8 transition-all duration-500 ${
+          isScrolled ? "py-2 sm:py-3" : "py-3 sm:py-6"
         }`}
       >
         <div
           className={`mx-auto flex items-center justify-between transition-all duration-500 pointer-events-auto ${
             isScrolled
-              ? "max-w-6xl px-6 py-2.5 rounded-full liquid-glass-nav shadow-2xl shadow-black/70 border border-white/15"
+              ? "max-w-6xl px-3 sm:px-6 py-2 sm:py-2.5 rounded-full liquid-glass-nav shadow-2xl shadow-black/70 border border-white/15"
               : "max-w-7xl px-2 py-1 bg-transparent"
           }`}
         >
@@ -215,24 +215,22 @@ export const SterlingGateNav: React.FC = () => {
           <Link
             href="/"
             onClick={closeMenu}
-            className="pointer-events-auto flex items-center gap-3 group select-none"
+            className="pointer-events-auto flex items-center gap-2 sm:gap-3 group select-none"
           >
             <div className="transition-transform duration-300 group-hover:scale-105 group-hover:rotate-6">
-              <Layer5Emblem size={28} variant="white" animate={false} />
+              <Layer5Emblem size={26} variant="white" animate={false} />
             </div>
             <div className="flex flex-col">
-              <span className="text-base font-bold tracking-[0.22em] text-white uppercase font-sans">
+              <span className="text-sm sm:text-base font-bold tracking-[0.2em] sm:tracking-[0.22em] text-white uppercase font-sans">
                 Layer5
               </span>
               {!isScrolled && (
-                <span className="text-[8px] font-mono tracking-[0.3em] text-[#8e95a2] uppercase">
+                <span className="hidden sm:inline text-[8px] font-mono tracking-[0.3em] text-[#8e95a2] uppercase">
                   ROBINHOOD CHAIN
                 </span>
               )}
             </div>
           </Link>
-
-
 
           {/* Right Action Cluster: Wallet Connect + Sterling Gate Kinetic Trigger */}
           <div className="sg-nav-right">
@@ -247,7 +245,7 @@ export const SterlingGateNav: React.FC = () => {
                     setWalletModalOpen(true);
                   }
                 }}
-                className="group relative flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-[#10131d] border border-white/20 hover:border-[#c8f53c] transition-all duration-300 shadow-xl shadow-black/60 hover:shadow-[0_0_18px_rgba(200,245,60,0.25)] cursor-pointer select-none"
+                className="group relative flex items-center gap-1.5 sm:gap-2.5 px-2.5 sm:px-3.5 py-1.5 rounded-full bg-[#10131d] border border-white/20 hover:border-[#c8f53c] transition-all duration-300 shadow-xl shadow-black/60 hover:shadow-[0_0_18px_rgba(200,245,60,0.25)] cursor-pointer select-none"
                 title="View Connected Account & Balances"
               >
                 <span className="relative flex h-2 w-2">
@@ -273,7 +271,7 @@ export const SterlingGateNav: React.FC = () => {
                     setWalletModalOpen(true);
                   }
                 }}
-                className="group relative flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#c8f53c] text-[#08090c] hover:bg-[#d5fa5b] border border-[#c8f53c] font-mono text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-[0_0_20px_rgba(200,245,60,0.3)] hover:shadow-[0_0_28px_rgba(200,245,60,0.5)] hover:scale-[1.03] active:scale-[0.97] cursor-pointer select-none"
+                className="group relative flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-4 py-1.5 rounded-full bg-[#c8f53c] text-[#08090c] hover:bg-[#d5fa5b] border border-[#c8f53c] font-mono text-[11px] sm:text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-[0_0_20px_rgba(200,245,60,0.3)] hover:shadow-[0_0_28px_rgba(200,245,60,0.5)] hover:scale-[1.03] active:scale-[0.97] cursor-pointer select-none"
                 title="Connect Web3 Wallet"
               >
                 <Wallet className="w-3.5 h-3.5 text-[#08090c] transition-transform group-hover:scale-110" />

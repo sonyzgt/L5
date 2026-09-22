@@ -178,16 +178,16 @@ export const StakingDashboard: React.FC = () => {
       </div>
 
       {/* 2. Top 4-Metric Protocol Ribbon with Sterling Gate Quiet Luxury Styling */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4">
         <div className="sg-tier-container">
           <div className="sg-tier-underlay-1" />
           <div className="sg-tier-underlay-2" />
-          <div className="sg-tier-main p-5 space-y-1">
+          <div className="sg-tier-main p-3.5 sm:p-5 space-y-1">
             <div className="flex items-center justify-between text-[#8e95a2] text-[10px] font-mono uppercase">
               <span>POOL LIQUIDITY</span>
               <Image src="/usdg-icon.png" alt="USDG" width={14} height={14} className="rounded-full" />
             </div>
-            <div className="font-mono text-xl sm:text-2xl font-bold text-white tracking-tight truncate">
+            <div className="font-mono text-lg sm:text-2xl font-bold text-white tracking-tight truncate">
               {totalStaked > 0n ? `$${formatTokenAmount(totalStaked, stakeDecimals, 2)}` : "$0.00"}
             </div>
             <div className="text-[10px] font-mono text-[#c8f53c] flex items-center gap-1">
@@ -199,12 +199,12 @@ export const StakingDashboard: React.FC = () => {
         <div className="sg-tier-container">
           <div className="sg-tier-underlay-1" />
           <div className="sg-tier-underlay-2" />
-          <div className="sg-tier-main p-5 space-y-1">
+          <div className="sg-tier-main p-3.5 sm:p-5 space-y-1">
             <div className="flex items-center justify-between text-[#8e95a2] text-[10px] font-mono uppercase">
               <span>REWARD RATE</span>
               <Sparkles className="w-3.5 h-3.5 text-[#c8f53c]" />
             </div>
-            <div className="font-mono text-xl sm:text-2xl font-bold text-[#c8f53c] tracking-tight truncate">
+            <div className="font-mono text-lg sm:text-2xl font-bold text-[#c8f53c] tracking-tight truncate">
               {calculatedApy !== undefined && calculatedApy > 0 ? formatApy(calculatedApy) : "0.00% APY"}
             </div>
             <div className="text-[10px] font-mono text-neutral-400">Synthetix Constant O(1)</div>
@@ -214,12 +214,12 @@ export const StakingDashboard: React.FC = () => {
         <div className="sg-tier-container">
           <div className="sg-tier-underlay-1" />
           <div className="sg-tier-underlay-2" />
-          <div className="sg-tier-main p-5 space-y-1">
+          <div className="sg-tier-main p-3.5 sm:p-5 space-y-1">
             <div className="flex items-center justify-between text-[#8e95a2] text-[10px] font-mono uppercase">
               <span>TOTAL DISTRIBUTED</span>
               <Layers className="w-3.5 h-3.5 text-neutral-400" />
             </div>
-            <div className="font-mono text-xl sm:text-2xl font-bold text-white tracking-tight truncate">
+            <div className="font-mono text-lg sm:text-2xl font-bold text-white tracking-tight truncate">
               0.00
             </div>
             <div className="text-[10px] font-mono text-[#8e95a2]">L5 Streamed</div>
@@ -229,12 +229,12 @@ export const StakingDashboard: React.FC = () => {
         <div className="sg-tier-container">
           <div className="sg-tier-underlay-1" />
           <div className="sg-tier-underlay-2" />
-          <div className="sg-tier-main p-5 space-y-1">
+          <div className="sg-tier-main p-3.5 sm:p-5 space-y-1">
             <div className="flex items-center justify-between text-[#8e95a2] text-[10px] font-mono uppercase">
               <span>NETWORK</span>
               <Activity className="w-3.5 h-3.5 text-[#c8f53c]" />
             </div>
-            <div className="font-mono text-lg sm:text-xl font-bold text-white tracking-tight truncate">ROBINHOOD</div>
+            <div className="font-mono text-base sm:text-xl font-bold text-white tracking-tight truncate">ROBINHOOD</div>
             <div className="text-[10px] font-mono text-[#c8f53c]">Sub-second finality</div>
           </div>
         </div>
@@ -247,10 +247,10 @@ export const StakingDashboard: React.FC = () => {
           <div className="sg-tier-container">
             <div className="sg-tier-underlay-1" />
             <div className="sg-tier-underlay-2" />
-            <div className="sg-tier-main p-6 sm:p-8 space-y-6">
+            <div className="sg-tier-main p-4 sm:p-8 space-y-5 sm:space-y-6">
               {/* Tab Switcher: DEPOSIT vs WITHDRAW in Kinetic Pill */}
-              <div className="flex items-center justify-between border-b border-white/[0.08] pb-4">
-                <div className="flex items-center gap-2 liquid-glass-pill rounded-full p-1 border border-white/15">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-white/[0.08] pb-4">
+                <div className="flex items-center gap-1.5 sm:gap-2 liquid-glass-pill rounded-full p-1 border border-white/15 w-fit">
                   <LiquidButton
                     type="button"
                     size="sm"
@@ -286,7 +286,7 @@ export const StakingDashboard: React.FC = () => {
                 </div>
 
                 {/* Balance display */}
-                <div className="text-right text-xs font-mono">
+                <div className="text-left sm:text-right text-xs font-mono">
                   <span className="text-[#8e95a2] block text-[10px] uppercase">
                     {activeTab === "stake" ? "WALLET BALANCE" : "STAKED BALANCE"}
                   </span>
@@ -301,8 +301,8 @@ export const StakingDashboard: React.FC = () => {
 
               {/* Input Module with Preset Shortcut Pills */}
               <div className="space-y-3">
-                <div className="flex items-center justify-between text-xs font-mono text-[#8e95a2]">
-                  <label className="text-[10px] uppercase tracking-wider block flex items-center gap-2">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs font-mono text-[#8e95a2]">
+                  <label className="text-[10px] uppercase tracking-wider flex items-center justify-between sm:justify-start gap-2">
                     <span>AMOUNT TO {activeTab === "stake" ? "DEPOSIT" : "WITHDRAW"}</span>
                     <span className="font-cursive text-[#c8f53c] text-sm lowercase tracking-normal">
                       ~ {activeTab === "stake" ? "zero fee" : "instant unlock"} ~
@@ -310,14 +310,14 @@ export const StakingDashboard: React.FC = () => {
                   </label>
                   
                   {/* Percentage shortcuts */}
-                  <div className="flex items-center gap-1.5">
+                  <div className="flex items-center gap-1.5 self-end sm:self-auto">
                     {[25, 50, 75, 100].map((pct) => (
                       <LiquidButton
                         key={pct}
                         type="button"
                         size="sm"
                         onClick={() => handlePercentage(pct)}
-                        className="px-3 py-1 h-7 text-[10px] font-mono text-neutral-300 hover:text-[#c8f53c] hover:border-[#c8f53c]/40 transition"
+                        className="px-2.5 sm:px-3 py-1 h-7 text-[10px] font-mono text-neutral-300 hover:text-[#c8f53c] hover:border-[#c8f53c]/40 transition"
                       >
                         {pct === 100 ? "MAX" : `${pct}%`}
                       </LiquidButton>

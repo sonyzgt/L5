@@ -15,8 +15,8 @@ export const Footer: React.FC = () => {
   }
 
   return (
-    <footer className="w-full border-t border-white/[0.08] liquid-glass-subcard py-12 px-6 sm:px-12 text-xs font-mono text-[#8e95a2] mt-auto">
-      <div className="max-w-6xl mx-auto space-y-8">
+    <footer className="w-full border-t border-white/[0.08] liquid-glass-subcard py-8 sm:py-12 px-4 sm:px-12 text-xs font-mono text-[#8e95a2] mt-auto">
+      <div className="max-w-6xl mx-auto space-y-6 sm:space-y-8">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
           {/* Brand & Editorial Signature */}
           <div className="space-y-2">
@@ -32,7 +32,7 @@ export const Footer: React.FC = () => {
           </div>
 
           {/* Navigation Links */}
-          <div className="flex flex-wrap items-center gap-6 text-xs font-mono uppercase tracking-wider">
+          <div className="flex flex-wrap items-center gap-4 sm:gap-6 text-xs font-mono uppercase tracking-wider">
             <Link href="/" className="text-neutral-400 hover:text-[#c8f53c] transition">
               Protocol
             </Link>
@@ -62,16 +62,16 @@ export const Footer: React.FC = () => {
 
         {/* Bottom Metadata & Badges */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-6 border-t border-white/[0.06] text-[11px]">
-          <div className="flex items-center gap-3">
+          <div className="flex flex-wrap items-center gap-2 sm:gap-3">
             <span className="inline-flex items-center gap-1.5 text-[#c8f53c]">
               <ShieldCheck className="w-3.5 h-3.5" /> Synthetix Non-Custodial Architecture
             </span>
-            <span className="text-neutral-600">•</span>
+            <span className="text-neutral-600 hidden sm:inline">•</span>
             <span>Robinhood Chain L2</span>
           </div>
 
           <div className="text-neutral-500 uppercase tracking-widest font-mono text-[10px]">
-            &copy; 2026 KAWA PROTOCOL • ALL RIGHTS RESERVED
+            &copy; 2026 LAYER5 PROTOCOL • ALL RIGHTS RESERVED
           </div>
         </div>
       </div>

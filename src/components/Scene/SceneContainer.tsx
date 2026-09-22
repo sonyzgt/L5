@@ -149,17 +149,17 @@ export const SceneContainer: React.FC = () => {
   return (
     <div ref={trackRef} className="relative w-full h-[600vh] bg-[#08090c] text-white">
       {/* =====================================================================
-          FIXED VIEWPORT CINEMATIC CANVAS (100vw x 100vh)
+          FIXED VIEWPORT CINEMATIC CANVAS (100% width x 100dvh)
           ===================================================================== */}
-      <div className="sticky top-0 h-screen w-screen overflow-hidden flex items-center justify-center select-none bg-[#08090c]">
+      <div className="sticky top-0 h-[100dvh] w-full max-w-full overflow-hidden flex items-center justify-center select-none bg-[#08090c]">
         {/* Subtle Ambient Background Lighting Layers */}
         <div className="absolute inset-0 pointer-events-none -z-30">
           <motion.div
             style={{ opacity: core_glow_opacity }}
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#c8f53c] blur-[220px] rounded-full"
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] sm:w-[800px] h-[320px] sm:h-[800px] bg-[#c8f53c] blur-[140px] sm:blur-[220px] rounded-full"
           />
-          <div className="absolute bottom-10 right-10 w-[600px] h-[500px] bg-indigo-600/[0.04] blur-[180px] rounded-full" />
-          <div className="absolute top-10 left-10 w-[500px] h-[400px] bg-sky-500/[0.03] blur-[160px] rounded-full" />
+          <div className="absolute bottom-10 right-10 w-[300px] sm:w-[600px] h-[250px] sm:h-[500px] bg-indigo-600/[0.04] blur-[120px] sm:blur-[180px] rounded-full" />
+          <div className="absolute top-10 left-10 w-[250px] sm:w-[500px] h-[200px] sm:h-[400px] bg-sky-500/[0.03] blur-[100px] sm:blur-[160px] rounded-full" />
         </div>
 
         {/* 21st.dev Auralis WebGL Ambient Fluid Background (Cyber Electric Lime Theme) */}
@@ -183,7 +183,7 @@ export const SceneContainer: React.FC = () => {
               rotate: core_rotate,
               borderRadius: core_borderRadius,
             }}
-            className="w-[360px] h-[360px] sm:w-[540px] sm:h-[540px] lg:w-[680px] lg:h-[680px] border border-white/[0.07] flex items-center justify-center transition-colors duration-700"
+            className="w-[280px] h-[280px] sm:w-[540px] sm:h-[540px] lg:w-[680px] lg:h-[680px] border border-white/[0.07] flex items-center justify-center transition-colors duration-700"
           >
             {/* Inner Counter-Rotating Ring */}
             <motion.div
@@ -206,11 +206,11 @@ export const SceneContainer: React.FC = () => {
             filter: f1_blur,
             pointerEvents: f1_pointer as any,
           }}
-          className="absolute inset-0 flex flex-col justify-center items-center px-6 sm:px-12 text-center max-w-5xl mx-auto"
+          className="absolute inset-0 flex flex-col justify-center items-center px-4 sm:px-12 text-center max-w-5xl mx-auto"
         >
-          <div className="space-y-6">
-            <motion.div style={{ x: f1_title_x, y: f1_title_y }} className="space-y-6">
-              <h1 className="font-editorial text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-[-0.02em] uppercase leading-[0.95] text-white">
+          <div className="space-y-4 sm:space-y-6">
+            <motion.div style={{ x: f1_title_x, y: f1_title_y }} className="space-y-3 sm:space-y-6">
+              <h1 className="font-editorial text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-[-0.02em] uppercase leading-[0.98] sm:leading-[0.95] text-white">
                 FLOW CAPITAL.
                 <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-[#c8f53c] to-white">
@@ -218,27 +218,27 @@ export const SceneContainer: React.FC = () => {
                 </span>
               </h1>
 
-              <p className="text-sm sm:text-base md:text-lg text-neutral-300 max-w-2xl mx-auto font-sans leading-relaxed">
+              <p className="text-xs sm:text-base md:text-lg text-neutral-300 max-w-2xl mx-auto font-sans leading-relaxed px-2">
                 Deposit USDG to continuously stream cryptographic Layer5 (L5) yield per block.
                 Zero lockup epochs. Sub-second Robinhood Chain finality.
               </p>
 
-              <div className="flex items-center justify-center gap-2 pt-1 font-cursive text-xl sm:text-2xl text-[#c8f53c]">
+              <div className="flex items-center justify-center gap-2 pt-0.5 sm:pt-1 font-cursive text-lg sm:text-2xl text-[#c8f53c]">
                 ~ autonomous non-custodial liquidity ~
               </div>
             </motion.div>
 
             <motion.div
               style={{ x: f1_actions_x, y: f1_actions_y }}
-              className="flex flex-wrap items-center justify-center gap-4 pt-4"
+              className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 pt-2 sm:pt-4 w-full sm:w-auto"
             >
               <LiquidButton
                 size="xl"
                 variant="kawa"
                 href="/stake"
-                className="px-9 font-mono text-xs tracking-widest uppercase font-bold shadow-2xl shadow-[#c8f53c]/30 group"
+                className="w-full sm:w-auto px-7 sm:px-9 font-mono text-xs tracking-widest uppercase font-bold shadow-2xl shadow-[#c8f53c]/30 group"
               >
-                <span className="flex items-center gap-2.5">
+                <span className="flex items-center justify-center gap-2.5">
                   <span>START STAKING</span>
                   <ArrowDownRight className="w-4 h-4 text-[#08090c]" />
                 </span>
@@ -248,7 +248,7 @@ export const SceneContainer: React.FC = () => {
                 size="xl"
                 variant="default"
                 href="/position"
-                className="px-8 font-mono text-xs tracking-widest uppercase text-neutral-300 hover:text-white"
+                className="w-full sm:w-auto px-6 sm:px-8 font-mono text-xs tracking-widest uppercase text-neutral-300 hover:text-white"
               >
                 <span>VIEW POSITION</span>
               </LiquidButton>
@@ -267,34 +267,34 @@ export const SceneContainer: React.FC = () => {
             filter: f2_blur,
             pointerEvents: f2_pointer as any,
           }}
-          className="absolute inset-0 flex flex-col justify-center items-center px-6 sm:px-12 max-w-6xl mx-auto"
+          className="absolute inset-0 flex flex-col justify-center items-center px-4 sm:px-12 max-w-6xl mx-auto"
         >
-          <div className="w-full space-y-10">
+          <div className="w-full space-y-4 sm:space-y-10">
             {/* Header comes from TOP */}
-            <motion.div style={{ y: f2_header_y }} className="space-y-3 text-center sm:text-left">
-              <h2 className="font-editorial text-2xl sm:text-4xl lg:text-5xl font-extrabold uppercase tracking-tight text-white leading-tight">
+            <motion.div style={{ y: f2_header_y }} className="space-y-1.5 sm:space-y-3 text-center sm:text-left">
+              <h2 className="font-editorial text-xl sm:text-4xl lg:text-5xl font-extrabold uppercase tracking-tight text-white leading-tight">
                 CAPITAL THAT <span className="text-[#c8f53c]">KEEPS MOVING</span>
               </h2>
-              <p className="text-xs sm:text-sm font-mono text-neutral-400 max-w-xl">
+              <p className="text-[11px] sm:text-sm font-mono text-neutral-400 max-w-xl">
                 Traditional staking traps liquidity in multi-week cooldown epochs. Layer5 replaces friction with continuous streaming yield.
               </p>
             </motion.div>
 
             {/* 3 Physical Architecture Cards with Inward Kinetic Entrance */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-2.5 sm:gap-5">
               <motion.div style={{ x: f2_p1_x }} className="sg-tier-container">
                 <div className="sg-tier-underlay-1" />
                 <div className="sg-tier-underlay-2" />
-                <div className="sg-tier-main p-6 sm:p-7 space-y-4">
+                <div className="sg-tier-main p-3.5 sm:p-7 space-y-2 sm:space-y-4">
                   <div className="flex items-center justify-between">
                     <span className="font-mono text-xs font-bold text-[#c8f53c]">01</span>
-                    <Lock className="w-4 h-4 text-[#c8f53c]" />
+                    <Lock className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#c8f53c]" />
                   </div>
-                  <h3 className="font-editorial text-2xl font-bold uppercase text-white">ZERO LOCKUPS</h3>
-                  <p className="text-xs text-neutral-300 font-sans leading-relaxed">
+                  <h3 className="font-editorial text-base sm:text-2xl font-bold uppercase text-white">ZERO LOCKUPS</h3>
+                  <p className="text-[11px] sm:text-xs text-neutral-300 font-sans leading-relaxed">
                     Deposit or exit your USDG principal at any second. Zero unbonding delays or lockup penalties.
                   </p>
-                  <div className="text-[10px] font-mono text-neutral-500 pt-2 border-t border-white/5">
+                  <div className="text-[9px] sm:text-[10px] font-mono text-neutral-500 pt-1.5 sm:pt-2 border-t border-white/5">
                     INSTANT CAPITAL MOBILITY
                   </div>
                 </div>
@@ -303,16 +303,16 @@ export const SceneContainer: React.FC = () => {
               <motion.div style={{ y: f2_p2_y }} className="sg-tier-container">
                 <div className="sg-tier-underlay-1" />
                 <div className="sg-tier-underlay-2" />
-                <div className="sg-tier-main p-6 sm:p-7 space-y-4">
+                <div className="sg-tier-main p-3.5 sm:p-7 space-y-2 sm:space-y-4">
                   <div className="flex items-center justify-between">
                     <span className="font-mono text-xs font-bold text-[#c8f53c]">02</span>
-                    <Cpu className="w-4 h-4 text-[#c8f53c]" />
+                    <Cpu className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#c8f53c]" />
                   </div>
-                  <h3 className="font-editorial text-2xl font-bold uppercase text-white">O(1) ACCOUNTING</h3>
-                  <p className="text-xs text-neutral-300 font-sans leading-relaxed">
+                  <h3 className="font-editorial text-base sm:text-2xl font-bold uppercase text-white">O(1) ACCOUNTING</h3>
+                  <p className="text-[11px] sm:text-xs text-neutral-300 font-sans leading-relaxed">
                     Synthetix constant-time algorithmic indices. Gas fees remain micro-cent whether 10 or 1,000,000 stakers.
                   </p>
-                  <div className="text-[10px] font-mono text-neutral-500 pt-2 border-t border-white/5">
+                  <div className="text-[9px] sm:text-[10px] font-mono text-neutral-500 pt-1.5 sm:pt-2 border-t border-white/5">
                     CONSTANT-TIME EFFICIENCY
                   </div>
                 </div>
@@ -321,16 +321,16 @@ export const SceneContainer: React.FC = () => {
               <motion.div style={{ x: f2_p3_x }} className="sg-tier-container">
                 <div className="sg-tier-underlay-1" />
                 <div className="sg-tier-underlay-2" />
-                <div className="sg-tier-main p-6 sm:p-7 space-y-4">
+                <div className="sg-tier-main p-3.5 sm:p-7 space-y-2 sm:space-y-4">
                   <div className="flex items-center justify-between">
                     <span className="font-mono text-xs font-bold text-[#c8f53c]">03</span>
-                    <Activity className="w-4 h-4 text-[#c8f53c]" />
+                    <Activity className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#c8f53c]" />
                   </div>
-                  <h3 className="font-editorial text-2xl font-bold uppercase text-white">BLOCK ACCRUAL</h3>
-                  <p className="text-xs text-neutral-300 font-sans leading-relaxed">
+                  <h3 className="font-editorial text-base sm:text-2xl font-bold uppercase text-white">BLOCK ACCRUAL</h3>
+                  <p className="text-[11px] sm:text-xs text-neutral-300 font-sans leading-relaxed">
                     Rewards accrue continuously per confirmed block on Robinhood Chain, streamed directly into your ledger balance.
                   </p>
-                  <div className="text-[10px] font-mono text-neutral-500 pt-2 border-t border-white/5">
+                  <div className="text-[9px] sm:text-[10px] font-mono text-neutral-500 pt-1.5 sm:pt-2 border-t border-white/5">
                     SUB-SECOND TICK FINALITY
                   </div>
                 </div>
@@ -339,9 +339,6 @@ export const SceneContainer: React.FC = () => {
           </div>
         </motion.div>
 
-        {/* ===================================================================
-            FRAME 03: THE CAPITAL PIPELINE (40% -> 60%)
-            =================================================================== */}
         {/* ===================================================================
             FRAME 03: THE CAPITAL PIPELINE (40% -> 60%)
             Multidirectional: Header from LEFT, Stage 1 Top-Left, Stage 2 Bottom,
@@ -354,76 +351,76 @@ export const SceneContainer: React.FC = () => {
             filter: f3_blur,
             pointerEvents: f3_pointer as any,
           }}
-          className="absolute inset-0 flex flex-col justify-center items-center px-6 sm:px-12 max-w-6xl mx-auto"
+          className="absolute inset-0 flex flex-col justify-center items-center px-4 sm:px-12 max-w-6xl mx-auto"
         >
-          <div className="w-full space-y-8">
+          <div className="w-full space-y-4 sm:space-y-8">
             {/* Header sweeps in from LEFT */}
-            <motion.div style={{ x: f3_header_x }} className="space-y-2 text-center sm:text-left">
-              <h2 className="font-editorial text-2xl sm:text-4xl lg:text-5xl font-extrabold uppercase tracking-tight text-white leading-tight">
+            <motion.div style={{ x: f3_header_x }} className="space-y-1 sm:space-y-2 text-center sm:text-left">
+              <h2 className="font-editorial text-xl sm:text-4xl lg:text-5xl font-extrabold uppercase tracking-tight text-white leading-tight">
                 THE 4-STAGE <span className="text-[#c8f53c]">CAPITAL STREAM</span>
               </h2>
             </motion.div>
 
-            {/* 4 Continuous Interconnected Pipeline Conduits with Multidirectional Weave */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {/* 4 Continuous Interconnected Pipeline Conduits - 2x2 grid on mobile, 4 in row on lg */}
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4">
               <motion.div
                 style={{ opacity: pipe_stage1, x: f3_s1_x, y: f3_s1_y }}
-                className="p-5 rounded-2xl liquid-glass-card border border-white/10 space-y-3"
+                className="p-3 sm:p-5 rounded-xl sm:rounded-2xl liquid-glass-card border border-white/10 space-y-1.5 sm:space-y-3"
               >
-                <div className="flex items-center justify-between text-xs font-mono">
+                <div className="flex items-center justify-between text-[10px] sm:text-xs font-mono">
                   <span className="text-[#c8f53c] font-bold">STAGE 01</span>
-                  <Coins className="w-4 h-4 text-[#c8f53c]" />
+                  <Coins className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#c8f53c]" />
                 </div>
-                <h4 className="font-editorial text-xl font-bold uppercase text-white">USDG DEPOSIT</h4>
-                <p className="text-xs text-neutral-400 leading-relaxed font-sans">
+                <h4 className="font-editorial text-sm sm:text-xl font-bold uppercase text-white">USDG DEPOSIT</h4>
+                <p className="text-[10px] sm:text-xs text-neutral-400 leading-relaxed font-sans line-clamp-2 sm:line-clamp-none">
                   Approved ERC-20 commit. Principal is 100% backed and non-custodial.
                 </p>
-                <div className="text-[10px] font-mono text-[#c8f53c]">0s Lockup Period</div>
+                <div className="text-[9px] sm:text-[10px] font-mono text-[#c8f53c]">0s Lockup Period</div>
               </motion.div>
 
               <motion.div
                 style={{ opacity: pipe_stage2, y: f3_s2_y }}
-                className="p-5 rounded-2xl liquid-glass-card border border-white/10 space-y-3"
+                className="p-3 sm:p-5 rounded-xl sm:rounded-2xl liquid-glass-card border border-white/10 space-y-1.5 sm:space-y-3"
               >
-                <div className="flex items-center justify-between text-xs font-mono">
+                <div className="flex items-center justify-between text-[10px] sm:text-xs font-mono">
                   <span className="text-[#c8f53c] font-bold">STAGE 02</span>
-                  <Zap className="w-4 h-4 text-[#c8f53c]" />
+                  <Zap className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#c8f53c]" />
                 </div>
-                <h4 className="font-editorial text-xl font-bold uppercase text-white">INDEX SNAPSHOT</h4>
-                <p className="text-xs text-neutral-400 leading-relaxed font-sans">
+                <h4 className="font-editorial text-sm sm:text-xl font-bold uppercase text-white">INDEX SNAPSHOT</h4>
+                <p className="text-[10px] sm:text-xs text-neutral-400 leading-relaxed font-sans line-clamp-2 sm:line-clamp-none">
                   Captures global reward index. O(1) mathematical allocation begins.
                 </p>
-                <div className="text-[10px] font-mono text-[#c8f53c]">&lt;0.0001 ETH Gas</div>
+                <div className="text-[9px] sm:text-[10px] font-mono text-[#c8f53c]">&lt;0.0001 ETH Gas</div>
               </motion.div>
 
               <motion.div
                 style={{ opacity: pipe_stage3, y: f3_s3_y }}
-                className="p-5 rounded-2xl liquid-glass-card border border-white/10 space-y-3"
+                className="p-3 sm:p-5 rounded-xl sm:rounded-2xl liquid-glass-card border border-white/10 space-y-1.5 sm:space-y-3"
               >
-                <div className="flex items-center justify-between text-xs font-mono">
+                <div className="flex items-center justify-between text-[10px] sm:text-xs font-mono">
                   <span className="text-[#c8f53c] font-bold">STAGE 03</span>
-                  <TrendingUp className="w-4 h-4 text-[#c8f53c]" />
+                  <TrendingUp className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#c8f53c]" />
                 </div>
-                <h4 className="font-editorial text-xl font-bold uppercase text-white">STREAM YIELD</h4>
-                <p className="text-xs text-neutral-400 leading-relaxed font-sans">
+                <h4 className="font-editorial text-sm sm:text-xl font-bold uppercase text-white">STREAM YIELD</h4>
+                <p className="text-[10px] sm:text-xs text-neutral-400 leading-relaxed font-sans line-clamp-2 sm:line-clamp-none">
                   Newly minted Layer5 (L5) tokens stream per block into your position.
                 </p>
-                <div className="text-[10px] font-mono text-[#c8f53c]">Real-Time Accrual</div>
+                <div className="text-[9px] sm:text-[10px] font-mono text-[#c8f53c]">Real-Time Accrual</div>
               </motion.div>
 
               <motion.div
                 style={{ opacity: pipe_stage4, x: f3_s4_x, y: f3_s4_y }}
-                className="p-5 rounded-2xl liquid-glass-card border border-white/10 space-y-3"
+                className="p-3 sm:p-5 rounded-xl sm:rounded-2xl liquid-glass-card border border-white/10 space-y-1.5 sm:space-y-3"
               >
-                <div className="flex items-center justify-between text-xs font-mono">
+                <div className="flex items-center justify-between text-[10px] sm:text-xs font-mono">
                   <span className="text-[#c8f53c] font-bold">STAGE 04</span>
-                  <ShieldCheck className="w-4 h-4 text-[#c8f53c]" />
+                  <ShieldCheck className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#c8f53c]" />
                 </div>
-                <h4 className="font-editorial text-xl font-bold uppercase text-white">CLAIM & EXIT</h4>
-                <p className="text-xs text-neutral-400 leading-relaxed font-sans">
+                <h4 className="font-editorial text-sm sm:text-xl font-bold uppercase text-white">CLAIM & EXIT</h4>
+                <p className="text-[10px] sm:text-xs text-neutral-400 leading-relaxed font-sans line-clamp-2 sm:line-clamp-none">
                   Claim rewards anytime or withdraw 100% of your principal immediately.
                 </p>
-                <div className="text-[10px] font-mono text-[#c8f53c]">Instant Settlement</div>
+                <div className="text-[9px] sm:text-[10px] font-mono text-[#c8f53c]">Instant Settlement</div>
               </motion.div>
             </div>
           </div>
@@ -441,50 +438,50 @@ export const SceneContainer: React.FC = () => {
             filter: f4_blur,
             pointerEvents: f4_pointer as any,
           }}
-          className="absolute inset-0 flex flex-col justify-center items-center px-6 sm:px-12 max-w-6xl mx-auto"
+          className="absolute inset-0 flex flex-col justify-center items-center px-4 sm:px-12 max-w-6xl mx-auto"
         >
-          <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+          <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-3 sm:gap-6 items-center">
             {/* Left Big Telemetry Dashboard (7 cols) - Slides from FAR LEFT */}
             <motion.div style={{ x: f4_left_x }} className="lg:col-span-7">
               <div className="sg-tier-container">
                 <div className="sg-tier-underlay-1" />
                 <div className="sg-tier-underlay-2" />
-                <div className="sg-tier-main p-8 sm:p-10 space-y-6">
-                  <div className="flex items-center justify-between border-b border-white/10 pb-4 font-mono text-xs">
-                    <span className="text-[#8e95a2] uppercase tracking-wider flex items-center gap-2">
-                      <TrendingUp className="w-4 h-4 text-[#c8f53c]" /> CURRENT EMISSION APY
+                <div className="sg-tier-main p-4 sm:p-10 space-y-3 sm:space-y-6">
+                  <div className="flex items-center justify-between border-b border-white/10 pb-2.5 sm:pb-4 font-mono text-[10px] sm:text-xs">
+                    <span className="text-[#8e95a2] uppercase tracking-wider flex items-center gap-1.5 sm:gap-2">
+                      <TrendingUp className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#c8f53c]" /> CURRENT EMISSION APY
                     </span>
-                    <span className="text-[#c8f53c] px-3 py-1 rounded-full bg-[#c8f53c]/10 border border-[#c8f53c]/30 font-bold">
+                    <span className="text-[#c8f53c] px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-[#c8f53c]/10 border border-[#c8f53c]/30 font-bold">
                       SYNTHETIX O(1)
                     </span>
                   </div>
 
-                  <div className="space-y-2">
-                    <div className="font-mono text-3xl sm:text-4xl md:text-5xl font-bold text-[#c8f53c] tracking-tight">
+                  <div className="space-y-1 sm:space-y-2">
+                    <div className="font-mono text-2xl sm:text-4xl md:text-5xl font-bold text-[#c8f53c] tracking-tight">
                       {formatApy(calculatedApy)}
                     </div>
-                    <div className="text-xs font-mono text-neutral-300 flex items-center gap-2 pt-1">
-                      <span className="w-2 h-2 rounded-full bg-[#c8f53c] animate-ping" />
+                    <div className="text-[10px] sm:text-xs font-mono text-neutral-300 flex items-center gap-2 pt-0.5 sm:pt-1">
+                      <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[#c8f53c] animate-ping" />
                       <span>Continuous L5 Block Streaming on Robinhood Chain</span>
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-3 gap-3 pt-4 border-t border-white/10 font-mono text-xs">
-                    <div className="p-3 rounded-xl bg-[#131622] border border-white/5">
-                      <span className="text-[10px] text-[#8e95a2] block uppercase">DAILY</span>
-                      <span className="text-white font-bold text-sm">
+                  <div className="grid grid-cols-3 gap-2 sm:gap-3 pt-2 sm:pt-4 border-t border-white/10 font-mono text-xs">
+                    <div className="p-2 sm:p-3 rounded-lg sm:rounded-xl bg-[#131622] border border-white/5">
+                      <span className="text-[9px] sm:text-[10px] text-[#8e95a2] block uppercase">DAILY</span>
+                      <span className="text-white font-bold text-xs sm:text-sm">
                         {calculatedApy ? `+${(calculatedApy / 365).toFixed(3)}%` : "0.00%"}
                       </span>
                     </div>
-                    <div className="p-3 rounded-xl bg-[#131622] border border-white/5">
-                      <span className="text-[10px] text-[#8e95a2] block uppercase">MONTHLY</span>
-                      <span className="text-white font-bold text-sm">
+                    <div className="p-2 sm:p-3 rounded-lg sm:rounded-xl bg-[#131622] border border-white/5">
+                      <span className="text-[9px] sm:text-[10px] text-[#8e95a2] block uppercase">MONTHLY</span>
+                      <span className="text-white font-bold text-xs sm:text-sm">
                         {calculatedApy ? `+${(calculatedApy / 12).toFixed(2)}%` : "0.00%"}
                       </span>
                     </div>
-                    <div className="p-3 rounded-xl bg-[#131622] border border-white/5">
-                      <span className="text-[10px] text-[#8e95a2] block uppercase">1 YEAR</span>
-                      <span className="text-[#c8f53c] font-bold text-sm">
+                    <div className="p-2 sm:p-3 rounded-lg sm:rounded-xl bg-[#131622] border border-white/5">
+                      <span className="text-[9px] sm:text-[10px] text-[#8e95a2] block uppercase">1 YEAR</span>
+                      <span className="text-[#c8f53c] font-bold text-xs sm:text-sm">
                         {calculatedApy ? `+${calculatedApy.toFixed(2)}%` : "0.00%"}
                       </span>
                     </div>
@@ -495,17 +492,17 @@ export const SceneContainer: React.FC = () => {
 
             {/* Right Radar Visualizer (5 cols) - Slides from FAR RIGHT */}
             <motion.div style={{ x: f4_right_x }} className="lg:col-span-5">
-              <div className="p-8 rounded-3xl bg-[#090b12]/80 border border-white/10 space-y-6 text-center">
-                <div className="w-16 h-16 rounded-full bg-[#c8f53c]/10 border border-[#c8f53c]/30 flex items-center justify-center mx-auto text-[#c8f53c]">
-                  <Sparkles className="w-8 h-8 animate-pulse" />
+              <div className="p-4 sm:p-8 rounded-2xl sm:rounded-3xl bg-[#090b12]/80 border border-white/10 space-y-3 sm:space-y-6 text-center">
+                <div className="w-10 h-10 sm:w-16 sm:h-16 rounded-full bg-[#c8f53c]/10 border border-[#c8f53c]/30 flex items-center justify-center mx-auto text-[#c8f53c]">
+                  <Sparkles className="w-5 h-5 sm:w-8 sm:h-8 animate-pulse" />
                 </div>
-                <div className="space-y-2">
-                  <h3 className="font-editorial text-2xl font-bold uppercase text-white">AUTONOMOUS HARVEST</h3>
-                  <p className="text-xs text-neutral-400 font-sans leading-relaxed">
+                <div className="space-y-1 sm:space-y-2">
+                  <h3 className="font-editorial text-lg sm:text-2xl font-bold uppercase text-white">AUTONOMOUS HARVEST</h3>
+                  <p className="text-[11px] sm:text-xs text-neutral-400 font-sans leading-relaxed line-clamp-2 sm:line-clamp-none">
                     Zero lockup constraints. Rewards compound every single block and can be harvested at any millisecond with micro-cent network gas.
                   </p>
                 </div>
-                <div className="p-4 rounded-2xl liquid-glass-subcard border border-white/10 flex items-center justify-between font-mono text-xs">
+                <div className="p-2.5 sm:p-4 rounded-xl sm:rounded-2xl liquid-glass-subcard border border-white/10 flex items-center justify-between font-mono text-[10px] sm:text-xs">
                   <span className="text-neutral-400 uppercase">Settlement Time</span>
                   <span className="text-[#c8f53c] font-bold">&lt; 1 Second</span>
                 </div>
@@ -526,11 +523,11 @@ export const SceneContainer: React.FC = () => {
             filter: f5_blur,
             pointerEvents: f5_pointer as any,
           }}
-          className="absolute inset-0 flex flex-col justify-center items-center px-6 sm:px-12 text-center max-w-4xl mx-auto"
+          className="absolute inset-0 flex flex-col justify-center items-center px-4 sm:px-12 text-center max-w-4xl mx-auto"
         >
-          <div className="space-y-8">
+          <div className="space-y-5 sm:space-y-8">
             {/* Header drops from TOP */}
-            <motion.div style={{ y: f5_header_y }} className="space-y-4">
+            <motion.div style={{ y: f5_header_y }} className="space-y-2 sm:space-y-4">
               <h2 className="font-editorial text-2xl sm:text-4xl lg:text-5xl font-extrabold uppercase tracking-tight text-white leading-tight">
                 READY TO PUT YOUR
                 <br />
@@ -539,7 +536,7 @@ export const SceneContainer: React.FC = () => {
                 </span>
               </h2>
 
-              <p className="text-sm sm:text-base text-neutral-300 max-w-xl mx-auto leading-relaxed font-sans">
+              <p className="text-xs sm:text-base text-neutral-300 max-w-xl mx-auto leading-relaxed font-sans px-2">
                 Deposit USDG and begin generating non-custodial Layer5 (L5) yield on Robinhood Chain in under 60 seconds. Zero lockups, micro-cent gas.
               </p>
             </motion.div>
@@ -547,15 +544,15 @@ export const SceneContainer: React.FC = () => {
             {/* Action buttons rise from BOTTOM */}
             <motion.div
               style={{ y: f5_actions_y }}
-              className="flex flex-wrap items-center justify-center gap-4 pt-2"
+              className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 pt-1 sm:pt-2 w-full sm:w-auto"
             >
               <LiquidButton
                 size="xl"
                 variant="kawa"
                 href="/stake"
-                className="px-9 font-mono text-xs tracking-widest uppercase font-bold shadow-2xl shadow-[#c8f53c]/25 group"
+                className="w-full sm:w-auto px-7 sm:px-9 font-mono text-xs tracking-widest uppercase font-bold shadow-2xl shadow-[#c8f53c]/25 group"
               >
-                <span className="flex items-center gap-2">
+                <span className="flex items-center justify-center gap-2">
                   <span>ENTER STAKING TERMINAL</span>
                   <ArrowDownRight className="w-4 h-4 text-[#08090c]" />
                 </span>
@@ -565,7 +562,7 @@ export const SceneContainer: React.FC = () => {
                 size="xl"
                 variant="default"
                 href="/stats"
-                className="px-8 font-mono text-xs tracking-widest uppercase text-neutral-300 hover:text-white"
+                className="w-full sm:w-auto px-6 sm:px-8 font-mono text-xs tracking-widest uppercase text-neutral-300 hover:text-white"
               >
                 <span>VIEW GLOBAL STATS</span>
               </LiquidButton>
@@ -574,10 +571,10 @@ export const SceneContainer: React.FC = () => {
             {/* Security badges zoom from CENTER */}
             <motion.div
               style={{ scale: f5_footer_scale }}
-              className="pt-8 border-t border-white/10 flex flex-wrap items-center justify-center gap-6 text-xs font-mono text-neutral-400"
+              className="pt-4 sm:pt-8 border-t border-white/10 flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-[10px] sm:text-xs font-mono text-neutral-400"
             >
               <span className="flex items-center gap-1.5 text-[#c8f53c]">
-                <ShieldCheck className="w-4 h-4" /> Synthetix Non-Custodial
+                <ShieldCheck className="w-3.5 h-3.5 sm:w-4 sm:h-4" /> Synthetix Non-Custodial
               </span>
               <span>•</span>
               <span>Robinhood Chain L2</span>

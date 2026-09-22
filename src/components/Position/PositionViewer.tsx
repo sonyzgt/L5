@@ -85,13 +85,13 @@ export const PositionViewer: React.FC = () => {
       </div>
 
       {/* 2. Top Metric Ribbon (4 Tiered Tiles) */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4">
         <div className="sg-tier-container">
           <div className="sg-tier-underlay-1" />
           <div className="sg-tier-underlay-2" />
-          <div className="sg-tier-main p-5 space-y-1">
+          <div className="sg-tier-main p-3.5 sm:p-5 space-y-1">
             <span className="text-[10px] font-mono text-[#8e95a2] uppercase block">TOTAL STAKED</span>
-            <div className="font-mono text-xl sm:text-2xl font-bold text-white tracking-tight truncate">
+            <div className="font-mono text-lg sm:text-2xl font-bold text-white tracking-tight truncate">
               {isConnected ? formatTokenAmount(stakedBalance, stakeDecimals, 2) : "0.00"}
             </div>
             <span className="text-[10px] font-mono text-[#c8f53c]">USDG Principal</span>
@@ -101,9 +101,9 @@ export const PositionViewer: React.FC = () => {
         <div className="sg-tier-container">
           <div className="sg-tier-underlay-1" />
           <div className="sg-tier-underlay-2" />
-          <div className="sg-tier-main p-5 space-y-1">
+          <div className="sg-tier-main p-3.5 sm:p-5 space-y-1">
             <span className="text-[10px] font-mono text-[#8e95a2] uppercase block">UNCLAIMED REWARDS</span>
-            <div className="font-mono text-xl sm:text-2xl font-bold text-[#c8f53c] tracking-tight truncate">
+            <div className="font-mono text-lg sm:text-2xl font-bold text-[#c8f53c] tracking-tight truncate">
               {isConnected ? formatTokenAmount(pendingRewards, 18, 4) : "0.0000"}
             </div>
             <span className="text-[10px] font-mono text-neutral-400">L5 Streamed</span>
@@ -113,9 +113,9 @@ export const PositionViewer: React.FC = () => {
         <div className="sg-tier-container">
           <div className="sg-tier-underlay-1" />
           <div className="sg-tier-underlay-2" />
-          <div className="sg-tier-main p-5 space-y-1">
+          <div className="sg-tier-main p-3.5 sm:p-5 space-y-1">
             <span className="text-[10px] font-mono text-[#8e95a2] uppercase block">EFFECTIVE RATE</span>
-            <div className="font-mono text-xl sm:text-2xl font-bold text-white tracking-tight truncate">
+            <div className="font-mono text-lg sm:text-2xl font-bold text-white tracking-tight truncate">
               {calculatedApy !== undefined && calculatedApy > 0 ? formatApy(calculatedApy) : "0.00%"}
             </div>
             <span className="text-[10px] font-mono text-[#8e95a2]">Synthetix O(1)</span>
@@ -125,9 +125,9 @@ export const PositionViewer: React.FC = () => {
         <div className="sg-tier-container">
           <div className="sg-tier-underlay-1" />
           <div className="sg-tier-underlay-2" />
-          <div className="sg-tier-main p-5 space-y-1">
+          <div className="sg-tier-main p-3.5 sm:p-5 space-y-1">
             <span className="text-[10px] font-mono text-[#8e95a2] uppercase block">STAKING DURATION</span>
-            <div className="font-mono text-xl sm:text-2xl font-bold text-white tracking-tight truncate">
+            <div className="font-mono text-lg sm:text-2xl font-bold text-white tracking-tight truncate">
               {isConnected && hasStaked ? formatDuration(stakingDuration) : "0d"}
             </div>
             <span className="text-[10px] font-mono text-[#c8f53c]">0s Lockup</span>
@@ -142,14 +142,14 @@ export const PositionViewer: React.FC = () => {
           <div className="sg-tier-container">
             <div className="sg-tier-underlay-1" />
             <div className="sg-tier-underlay-2" />
-            <div className="sg-tier-main p-6 sm:p-8 space-y-6">
-              <div className="flex items-center justify-between border-b border-white/[0.08] pb-4">
+            <div className="sg-tier-main p-4 sm:p-8 space-y-5 sm:space-y-6">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-white/[0.08] pb-4">
                 <div className="flex items-center gap-3">
-                  <div className="p-3 rounded-2xl liquid-glass-subcard border border-white/10">
-                    <Layer5Emblem size={28} variant="white" animate={hasStaked} state={kawaState} />
+                  <div className="p-2.5 sm:p-3 rounded-2xl liquid-glass-subcard border border-white/10 shrink-0">
+                    <Layer5Emblem size={24} variant="white" animate={hasStaked} state={kawaState} />
                   </div>
                   <div>
-                    <h2 className="font-editorial text-2xl font-bold uppercase text-white">
+                    <h2 className="font-editorial text-lg sm:text-2xl font-bold uppercase text-white">
                       LIQUID POSITION STATUS
                     </h2>
                     <span className="text-xs font-mono text-[#8e95a2]">
@@ -158,13 +158,13 @@ export const PositionViewer: React.FC = () => {
                   </div>
                 </div>
 
-                <span className="liquid-glass-pill px-3 py-1 rounded-full text-xs font-mono text-[#c8f53c] font-semibold border border-[#c8f53c]/30">
+                <span className="w-fit liquid-glass-pill px-3 py-1 rounded-full text-xs font-mono text-[#c8f53c] font-semibold border border-[#c8f53c]/30">
                   {hasStaked ? "ACTIVE" : "INACTIVE"}
                 </span>
               </div>
 
               {/* State Narrative */}
-              <div className="p-4 rounded-2xl liquid-glass-subcard border border-white/5 space-y-1 text-xs font-mono">
+              <div className="p-3.5 sm:p-4 rounded-2xl liquid-glass-subcard border border-white/5 space-y-1 text-xs font-mono">
                 <span className="text-[#8e95a2] uppercase tracking-wider text-[10px] block">
                   POSITION STATE DIAGNOSTIC
                 </span>
@@ -172,7 +172,7 @@ export const PositionViewer: React.FC = () => {
               </div>
 
               {/* Position Action Trigger Buttons */}
-              <div className="flex flex-wrap items-center gap-4 pt-2">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 pt-2">
                 {isConnected ? (
                   <>
                     <LiquidButton
@@ -180,7 +180,7 @@ export const PositionViewer: React.FC = () => {
                       size="xl"
                       onClick={claim}
                       disabled={!hasRewards}
-                      className="flex-1 font-mono text-xs uppercase tracking-wider font-bold shadow-xl shadow-[#c8f53c]/20"
+                      className="w-full sm:flex-1 font-mono text-xs uppercase tracking-wider font-bold shadow-xl shadow-[#c8f53c]/20"
                     >
                       <span className="flex items-center justify-center gap-2">
                         CLAIM REWARDS <Sparkles className="w-4 h-4 text-[#c8f53c]" />
@@ -192,7 +192,7 @@ export const PositionViewer: React.FC = () => {
                       size="xl"
                       onClick={() => setUnstakeModalOpen(true)}
                       disabled={!hasStaked}
-                      className="flex-1 font-mono text-xs uppercase tracking-wider text-neutral-300 hover:text-white"
+                      className="w-full sm:flex-1 font-mono text-xs uppercase tracking-wider text-neutral-300 hover:text-white"
                     >
                       UNSTAKE LIQUIDITY
                     </LiquidButton>
@@ -201,7 +201,7 @@ export const PositionViewer: React.FC = () => {
                       variant="default"
                       size="xl"
                       href="/stake"
-                      className="px-6 font-mono text-xs uppercase tracking-wider text-neutral-300 hover:text-white"
+                      className="w-full sm:w-auto px-6 font-mono text-xs uppercase tracking-wider text-neutral-300 hover:text-white"
                     >
                       + ADD CAPITAL
                     </LiquidButton>

@@ -1,12 +1,19 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { Providers } from "@/components/Providers";
 import { Navbar } from "@/components/Navigation/Navbar";
 import { Footer } from "@/components/Navigation/Footer";
 import { Auralis } from "@/components/ui/auralis";
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: "#08090c",
+};
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://layer5.network"),
+  metadataBase: new URL("https://layerfive.io"),
   title: "Layer5 — Staking on Robinhood Chain",
   description: "Layer5 is a staking protocol built on Robinhood Chain. Stake, flow, grow, and earn.",
   keywords: ["Layer5", "Robinhood Chain", "Staking", "DeFi", "Web3", "Ethereum", "EVM"],
