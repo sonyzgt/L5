@@ -1,14 +1,14 @@
 import React from "react";
-import { KawaEmblem } from "@/components/Brand/KawaEmblem";
+import { Layer5Emblem } from "@/components/Brand/Layer5Emblem";
 
 export const metadata = {
-  title: "Protocol • KAWA",
-  description: "Comprehensive specification and architectural lore of KAWA Staking Protocol on Robinhood Chain.",
+  title: "Protocol • Layer5",
+  description: "Comprehensive specification and architectural lore of Layer5 Staking Protocol on Robinhood Chain.",
 };
 
 export default function ProtocolPage() {
   return (
-    <div className="relative min-h-screen pt-24 pb-20 px-6 sm:px-12 bg-[#090a0c] text-white font-sans overflow-hidden">
+    <div className="relative min-h-screen pt-24 pb-20 px-6 sm:px-12 bg-transparent text-white font-sans overflow-hidden">
       <article className="relative z-10 max-w-3xl mx-auto space-y-16">
         {/* Editorial Header */}
         <header className="space-y-4 text-center sm:text-left border-b border-white/10 pb-12">
@@ -17,7 +17,7 @@ export default function ProtocolPage() {
               SPECIFICATION • ARCHITECTURE 01
             </span>
             <div className="hidden sm:block">
-              <KawaEmblem size={28} variant="white" animate={false} />
+              <Layer5Emblem size={28} variant="white" animate={false} />
             </div>
           </div>
           <h1 className="text-4xl sm:text-6xl font-light tracking-[0.1em] text-white uppercase font-sans">
@@ -104,15 +104,15 @@ export default function ProtocolPage() {
                 Continuous Stream
               </span>
               <span className="text-xs sm:text-sm text-[#8e95a2] sm:w-2/3 leading-relaxed">
-                KAWA yield accrues seamlessly every second without requiring manual re-staking or lock-in penalties.
+                Layer5 (L5) yield accrues seamlessly every second without requiring manual re-staking or lock-in penalties.
               </span>
             </div>
             <div className="p-5 flex flex-col sm:flex-row justify-between gap-2">
               <span className="font-mono text-xs font-semibold uppercase tracking-wider text-white sm:w-1/3">
-                Claim (Harvest KAWA)
+                Claim (Harvest L5)
               </span>
               <span className="text-xs sm:text-sm text-[#8e95a2] sm:w-2/3 leading-relaxed">
-                Accrued KAWA rewards are transferred directly to the user wallet while USDG principal remains actively staked.
+                Accrued Layer5 (L5) rewards are transferred directly to the user wallet while USDG principal remains actively staked.
               </span>
             </div>
             <div className="p-5 flex flex-col sm:flex-row justify-between gap-2">
@@ -169,26 +169,26 @@ export default function ProtocolPage() {
 
           <div className="space-y-3 font-mono text-xs">
             <div className="p-4 rounded-xl bg-[#121418] border border-white/[0.08] flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-              <span className="text-[#8e95a2] uppercase text-[10px] tracking-wider">KAWAStaking Contract</span>
-              <span className="text-[#c8f53c] font-medium select-all">0x4944EDF557C36e9b4964fc5988871ea61748d918</span>
+              <span className="text-[#8e95a2] uppercase text-[10px] tracking-wider">Staking Vault Contract</span>
+              <span className="text-[#c8f53c] font-medium font-mono text-[11px]">TBA (Announced at Mainnet Launch)</span>
             </div>
             <div className="p-4 rounded-xl bg-[#121418] border border-white/[0.08] flex flex-col sm:flex-row sm:items-center justify-between gap-2">
               <span className="text-[#8e95a2] uppercase text-[10px] tracking-wider">Staking Asset (USDG)</span>
-              <span className="text-white font-medium select-all">0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168</span>
+              <span className="text-white font-medium font-mono text-[11px]">TBA (Announced at Mainnet Launch)</span>
             </div>
             <div className="p-4 rounded-xl bg-[#121418] border border-white/[0.08] flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-              <span className="text-[#8e95a2] uppercase text-[10px] tracking-wider">Reward Token (KAWA)</span>
-              <span className="text-white font-medium select-all">0xdcc66603f5f60cf154366b5d7901f3c30639c3b4</span>
+              <span className="text-[#8e95a2] uppercase text-[10px] tracking-wider">Reward Token (L5)</span>
+              <span className="text-white font-medium font-mono text-[11px]">TBA (Announced at Mainnet Launch)</span>
             </div>
           </div>
         </section>
 
         {/* Editorial Colophon */}
         <footer className="pt-12 border-t border-white/10 text-center text-xs font-mono text-[#8e95a2] uppercase tracking-widest space-y-3">
-          <div>KAWA PROTOCOL • SPECIFICATION RELEASE 1.0</div>
+          <div>LAYER5 PROTOCOL • SPECIFICATION RELEASE 1.0</div>
           <div className="flex items-center justify-center gap-2">
             <a
-              href="https://x.com/kawafiORG"
+              href="https://x.com/layer5dotio"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 text-neutral-300 hover:text-[#c8f53c] transition lowercase text-xs"
@@ -196,7 +196,7 @@ export default function ProtocolPage() {
               <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
               </svg>
-              <span>@kawafiORG</span>
+              <span>@layer5dotio</span>
             </a>
           </div>
           <div className="text-[10px] text-neutral-500">ROBINHOOD CHAIN MAINNET • ARCHITECTURAL SPECIFICATION</div>

@@ -52,7 +52,13 @@ export function formatDuration(seconds: number): string {
 
 export function formatApy(apyPercent: number | undefined): string {
   if (apyPercent === undefined || isNaN(apyPercent) || apyPercent <= 0) {
-    return "—%";
+    return "0.00%";
+  }
+  if (apyPercent >= 1_000_000) {
+    return `${(apyPercent / 1_000_000).toFixed(1)}M%`;
+  }
+  if (apyPercent >= 10_000) {
+    return `${(apyPercent / 1_000).toFixed(1)}K%`;
   }
   return `${apyPercent.toFixed(2)}%`;
 }

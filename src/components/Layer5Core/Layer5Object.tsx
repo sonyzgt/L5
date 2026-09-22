@@ -3,13 +3,15 @@
 import React, { useRef, useMemo } from "react";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
-import { KawaCoreState } from "@/lib/blockchain/config";
+import { Layer5CoreState } from "@/lib/blockchain/config";
 
-interface KawaObjectProps {
-  state: KawaCoreState;
+export interface Layer5ObjectProps {
+  state: Layer5CoreState;
 }
 
-export const KawaObject: React.FC<KawaObjectProps> = ({ state }) => {
+export type KawaObjectProps = Layer5ObjectProps;
+
+export const Layer5Object: React.FC<Layer5ObjectProps> = ({ state }) => {
   const coreRef = useRef<THREE.Mesh>(null);
   const outerRingRef = useRef<THREE.Mesh>(null);
   const innerRingRef = useRef<THREE.Mesh>(null);
@@ -197,3 +199,5 @@ export const KawaObject: React.FC<KawaObjectProps> = ({ state }) => {
     </group>
   );
 };
+
+export const KawaObject = Layer5Object;

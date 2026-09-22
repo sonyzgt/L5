@@ -2,17 +2,19 @@
 
 import React, { Suspense, useState, useEffect } from "react";
 import { Canvas } from "@react-three/fiber";
-import { KawaObject } from "./KawaObject";
-import { KawaFallback } from "./KawaFallback";
-import { KawaCoreState } from "@/lib/blockchain/config";
+import { Layer5Object } from "./Layer5Object";
+import { Layer5Fallback } from "./Layer5Fallback";
+import { Layer5CoreState } from "@/lib/blockchain/config";
 
-interface KawaCanvasProps {
-  state?: KawaCoreState;
+export interface Layer5CanvasProps {
+  state?: Layer5CoreState;
   className?: string;
   interactive?: boolean;
 }
 
-export const KawaCanvas: React.FC<KawaCanvasProps> = ({
+export type KawaCanvasProps = Layer5CanvasProps;
+
+export const Layer5Canvas: React.FC<Layer5CanvasProps> = ({
   state = "dormant",
   className = "w-full h-full",
   interactive = false,
@@ -40,20 +42,23 @@ export const KawaCanvas: React.FC<KawaCanvasProps> = ({
   }, []);
 
   if (hasWebGL === false || reducedMotion) {
-    return <KawaFallback state={state} className={className} />;
+    return <Layer5Fallback state={state} className={className} />;
   }
 
   return (
     <div className={`relative overflow-hidden pointer-events-none ${className}`}>
-      <Suspense fallback={<KawaFallback state={state} className="w-full h-full" />}>
+      <Suspense fallback={<Layer5Fallback state={state} className="w-full h-full" />}>
         <Canvas
           camera={{ position: [0, 0, 5.5], fov: 45 }}
           gl={{ antialias: true, alpha: true }}
           className="w-full h-full"
         >
-          <KawaObject state={state} />
+          <Layer5Object state={state} />
         </Canvas>
       </Suspense>
     </div>
   );
 };
+
+export const KawaCanvas = Layer5Canvas;
+

@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { KawaEmblem } from "../Brand/KawaEmblem";
+import { Layer5Emblem } from "../Brand/Layer5Emblem";
 
 export const Scene05TheEnd: React.FC = () => {
   return (
@@ -21,12 +21,12 @@ export const Scene05TheEnd: React.FC = () => {
         className="relative z-10 max-w-xl mx-auto flex flex-col items-center space-y-8"
       >
         <div className="py-4">
-          <KawaEmblem size={96} variant="white" animate={false} />
+          <Layer5Emblem size={96} variant="white" animate={false} />
         </div>
 
         <div className="space-y-4">
           <h2 className="text-4xl sm:text-6xl font-light tracking-[0.25em] text-white uppercase font-sans">
-            KAWA
+            LAYER5
           </h2>
           <p className="text-xs sm:text-sm font-mono tracking-[0.2em] text-[#8e95a2] uppercase leading-relaxed max-w-md mx-auto">
             THE RIVER DOES NOT RUSH TO THE SEA;
@@ -45,9 +45,9 @@ export const Scene05TheEnd: React.FC = () => {
 
       {/* Minimal Editorial Colophon */}
       <footer className="relative z-10 w-full max-w-4xl mx-auto pt-12 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-[10px] font-mono tracking-[0.25em] text-neutral-500 uppercase gap-4">
-        <span>&copy; 2026 KAWA PROTOCOL</span>
+        <span>&copy; 2026 LAYER5 PROTOCOL</span>
         <a
-          href="https://x.com/kawafiORG"
+          href="https://x.com/layer5dotio"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-1.5 text-neutral-400 hover:text-[#c8f53c] transition lowercase font-mono text-xs tracking-wider"
@@ -55,7 +55,7 @@ export const Scene05TheEnd: React.FC = () => {
           <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
           </svg>
-          <span>@kawafiORG</span>
+          <span>@layer5dotio</span>
         </a>
         <span>ROBINHOOD CHAIN MAINNET</span>
         <span className="text-[#c8f53c]">IMMUTABLE • VERIFIED</span>

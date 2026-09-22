@@ -82,7 +82,7 @@ export const Scene02TheFlow: React.FC = () => {
               GROW
             </div>
             <div className="text-xs font-mono tracking-[0.25em] text-[#8e95a2] uppercase max-w-xs">
-              KAWA REWARDS ACCUMULATE
+              L5 REWARDS ACCUMULATE
             </div>
           </motion.div>
 
@@ -95,7 +95,7 @@ export const Scene02TheFlow: React.FC = () => {
               REWARD
             </div>
             <div className="text-xs font-mono tracking-[0.25em] text-[#8e95a2] uppercase max-w-xs">
-              CLAIM HARVESTED KAWA TOKENS
+              CLAIM HARVESTED L5 TOKENS
             </div>
           </motion.div>
         </div>

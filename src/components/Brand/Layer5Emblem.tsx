@@ -1,24 +1,26 @@
 "use client";
 
 import React from "react";
-import { KawaCoreState } from "@/lib/blockchain/config";
+import { Layer5CoreState } from "@/lib/blockchain/config";
 
-interface KawaEmblemProps {
+export interface Layer5EmblemProps {
   size?: number | string;
   className?: string;
-  state?: KawaCoreState;
+  state?: Layer5CoreState;
   animate?: boolean;
   variant?: "black" | "white";
 }
 
-export const KawaEmblem: React.FC<KawaEmblemProps> = ({
+export type KawaEmblemProps = Layer5EmblemProps;
+
+export const Layer5Emblem: React.FC<Layer5EmblemProps> = ({
   size = 64,
   className = "",
   state = "dormant",
   animate = false,
   variant = "white",
 }) => {
-  const src = variant === "black" ? "/kawa-logo-black-trimmed.png" : "/kawa-logo-white-trimmed.png";
+  const src = variant === "black" ? "/layer5-logo-black-trimmed.png" : "/layer5-logo-white-trimmed.png";
 
   return (
     <div
@@ -32,10 +34,12 @@ export const KawaEmblem: React.FC<KawaEmblemProps> = ({
       >
         <img
           src={src}
-          alt="KAWA Logo"
+          alt="Layer5 Logo"
           className="w-full h-full object-contain pointer-events-none transition-transform duration-700 hover:scale-105"
         />
       </div>
     </div>
   );
 };
+
+export const KawaEmblem = Layer5Emblem;

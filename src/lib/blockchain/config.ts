@@ -5,7 +5,7 @@ export interface ProtocolConfig {
   chainId: number;
   chainName: string;
   stakeAsset: "USDG";
-  rewardAsset: "KAWA";
+  rewardAsset: "L5";
   gasAsset: "ETH";
   currencySymbol: "USDG";
   rpcUrl: string;
@@ -28,23 +28,23 @@ export const protocolConfig: ProtocolConfig = {
   chainId: robinhoodChain.id,
   chainName: robinhoodChain.name,
   stakeAsset: "USDG",
-  rewardAsset: "KAWA",
+  rewardAsset: "L5",
   gasAsset: "ETH",
   currencySymbol: "USDG",
   rpcUrl: robinhoodChain.rpcUrls.default.http[0],
   explorerUrl: robinhoodChain.blockExplorers?.default.url || "",
   stakingContractAddress: parseAddress(
-    process.env.STAKING_CONTRACT_ADDRESS || process.env.NEXT_PUBLIC_STAKING_CONTRACT_ADDRESS || "0x4944EDF557C36e9b4964fc5988871ea61748d918"
+    process.env.STAKING_CONTRACT_ADDRESS || process.env.NEXT_PUBLIC_STAKING_CONTRACT_ADDRESS
   ),
   stakeTokenAddress: parseAddress(
-    process.env.STAKE_TOKEN_ADDRESS || process.env.NEXT_PUBLIC_STAKE_TOKEN_ADDRESS || "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168"
+    process.env.STAKE_TOKEN_ADDRESS || process.env.NEXT_PUBLIC_STAKE_TOKEN_ADDRESS
   ),
   rewardTokenAddress: parseAddress(
-    process.env.REWARD_TOKEN_ADDRESS || process.env.NEXT_PUBLIC_REWARD_TOKEN_ADDRESS || "0xdcc66603f5f60cf154366b5d7901f3c30639c3b4"
+    process.env.REWARD_TOKEN_ADDRESS || process.env.NEXT_PUBLIC_REWARD_TOKEN_ADDRESS
   ),
   isConfigured: Boolean(
     parseAddress(
-      process.env.STAKING_CONTRACT_ADDRESS || process.env.NEXT_PUBLIC_STAKING_CONTRACT_ADDRESS || "0x4944EDF557C36e9b4964fc5988871ea61748d918"
+      process.env.STAKING_CONTRACT_ADDRESS || process.env.NEXT_PUBLIC_STAKING_CONTRACT_ADDRESS
     )
   ),
   isDevMode: process.env.NEXT_PUBLIC_ENABLE_TESTNET_MODE === "true",
@@ -52,9 +52,10 @@ export const protocolConfig: ProtocolConfig = {
 
 export const SUPPORTED_CHAINS = [robinhoodChain, hardhatChain] as const;
 
-export type KawaCoreState = "dormant" | "activated" | "growing" | "mature" | "awakened";
+export type Layer5CoreState = "dormant" | "activated" | "growing" | "mature" | "awakened";
+export type KawaCoreState = Layer5CoreState;
 
-export function deriveKawaState(stakedAmount: bigint, durationSeconds: number): KawaCoreState {
+export function deriveLayer5State(stakedAmount: bigint, durationSeconds: number): Layer5CoreState {
   if (stakedAmount === 0n) {
     return "dormant";
   }
@@ -72,3 +73,5 @@ export function deriveKawaState(stakedAmount: bigint, durationSeconds: number): 
     return "awakened";
   }
 }
+
+export const deriveKawaState = deriveLayer5State;

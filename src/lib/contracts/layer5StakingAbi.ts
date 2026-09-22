@@ -1,4 +1,4 @@
-export const kawaStakingAbi = [
+export const layer5StakingAbi = [
   {
     "inputs": [
       {
@@ -559,3 +559,5 @@ export const kawaStakingAbi = [
     "type": "function"
   }
 ] as const;
+
+export const kawaStakingAbi = layer5StakingAbi;

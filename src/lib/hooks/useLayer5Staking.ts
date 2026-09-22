@@ -10,8 +10,8 @@ import {
   useBalance,
 } from "wagmi";
 import { parseUnits } from "viem";
-import { protocolConfig, deriveKawaState, KawaCoreState } from "../blockchain/config";
-import { kawaStakingAbi } from "../contracts/kawaStakingAbi";
+import { protocolConfig, deriveLayer5State, Layer5CoreState, deriveKawaState, KawaCoreState } from "../blockchain/config";
+import { layer5StakingAbi } from "../contracts/layer5StakingAbi";
 import { erc20Abi } from "../contracts/erc20Abi";
 import { parseWeb3Error } from "../utils/errors";
 
@@ -25,7 +25,7 @@ export interface TransactionState {
   error?: string;
 }
 
-export function useKawaStaking() {
+export function useLayer5Staking() {
   const { address, isConnected, chainId: accountChainId, chain } = useAccount();
   const currentChainId = useChainId();
   const { switchChain } = useSwitchChain();
@@ -57,7 +57,7 @@ export function useKawaStaking() {
   // Staked USDG balance in contract
   const { data: stakedBalanceRaw, refetch: refetchStaked } = useReadContract({
     address: contractAddress,
-    abi: kawaStakingAbi,
+    abi: layer5StakingAbi,
     functionName: "stakedBalance",
     args: address ? [address] : undefined,
     query: {
@@ -69,7 +69,7 @@ export function useKawaStaking() {
   // Pending KAWA rewards in contract
   const { data: pendingRewardsRaw, refetch: refetchRewards } = useReadContract({
     address: contractAddress,
-    abi: kawaStakingAbi,
+    abi: layer5StakingAbi,
     functionName: "pendingRewards",
     args: address ? [address] : undefined,
     query: {
@@ -81,7 +81,7 @@ export function useKawaStaking() {
   // Staking duration in seconds
   const { data: stakingDurationRaw, refetch: refetchDuration } = useReadContract({
     address: contractAddress,
-    abi: kawaStakingAbi,
+    abi: layer5StakingAbi,
     functionName: "getStakingDuration",
     args: address ? [address] : undefined,
     query: {
@@ -93,7 +93,7 @@ export function useKawaStaking() {
   // Total USDG staked across protocol
   const { data: totalStakedRaw, refetch: refetchTotalStaked } = useReadContract({
     address: contractAddress,
-    abi: kawaStakingAbi,
+    abi: layer5StakingAbi,
     functionName: "totalStaked",
     query: {
       enabled: Boolean(contractAddress),
@@ -104,7 +104,7 @@ export function useKawaStaking() {
   // KAWA reward rate per second
   const { data: rewardRateRaw } = useReadContract({
     address: contractAddress,
-    abi: kawaStakingAbi,
+    abi: layer5StakingAbi,
     functionName: "rewardRate",
     query: {
       enabled: Boolean(contractAddress),
@@ -114,7 +114,7 @@ export function useKawaStaking() {
   // Total unique stakers count
   const { data: totalStakersRaw } = useReadContract({
     address: contractAddress,
-    abi: kawaStakingAbi,
+    abi: layer5StakingAbi,
     functionName: "totalStakers",
     query: {
       enabled: Boolean(contractAddress),
@@ -207,7 +207,8 @@ export function useKawaStaking() {
     }
   }
 
-  const kawaState: KawaCoreState = deriveKawaState(stakedBig, durationSeconds);
+  const layer5State: Layer5CoreState = deriveLayer5State(stakedBig, durationSeconds);
+  const kawaState: KawaCoreState = layer5State;
 
   // Approve USDG
   const approveToken = async (amountWei: bigint) => {
@@ -279,7 +280,7 @@ export function useKawaStaking() {
 
       const hash = await writeContractAsync({
         address: contractAddress,
-        abi: kawaStakingAbi,
+        abi: layer5StakingAbi,
         functionName: "stake",
         args: [amountWei],
       });
@@ -296,7 +297,7 @@ export function useKawaStaking() {
         setTxState({
           step: "SUCCESS",
           title: "STAKE CONFIRMED",
-          description: `${amountStr} USDG is now actively generating KAWA rewards.`,
+          description: `${amountStr} USDG is now actively generating Layer5 (L5) rewards.`,
           txHash: hash,
         });
       }, 2500);
@@ -326,7 +327,7 @@ export function useKawaStaking() {
 
       const hash = await writeContractAsync({
         address: contractAddress,
-        abi: kawaStakingAbi,
+        abi: layer5StakingAbi,
         functionName: "unstake",
         args: [amountWei],
       });
@@ -358,26 +359,26 @@ export function useKawaStaking() {
     }
   };
 
-  // Claim KAWA rewards
+  // Claim Layer5 (L5) rewards
   const claim = async () => {
     if (!contractAddress) return;
     try {
       setTxState({
         step: "CONFIRMING",
-        title: "CLAIMING KAWA",
-        description: "Confirm KAWA reward claim in your wallet (Network Fee: ETH)...",
+        title: "CLAIMING L5 REWARDS",
+        description: "Confirm L5 reward claim in your wallet (Network Fee: ETH)...",
       });
 
       const hash = await writeContractAsync({
         address: contractAddress,
-        abi: kawaStakingAbi,
+        abi: layer5StakingAbi,
         functionName: "claim",
       });
 
       setTxState({
         step: "PENDING",
         title: "CLAIM PENDING",
-        description: "Transferring KAWA rewards on Robinhood Chain...",
+        description: "Transferring L5 rewards on Robinhood Chain...",
         txHash: hash,
       });
 
@@ -385,8 +386,8 @@ export function useKawaStaking() {
         refetchAll();
         setTxState({
           step: "SUCCESS",
-          title: "KAWA REWARDS CLAIMED",
-          description: "Accumulated KAWA rewards have been transferred to your wallet.",
+          title: "L5 REWARDS CLAIMED",
+          description: "Accumulated Layer5 (L5) rewards have been transferred to your wallet.",
           txHash: hash,
         });
       }, 2500);
@@ -421,6 +422,7 @@ export function useKawaStaking() {
     totalStakers: totalStakersRaw ? Number(totalStakersRaw) : 0,
     stakingDuration: durationSeconds,
     calculatedApy,
+    layer5State,
     kawaState,
     // Transactions
     txState,
@@ -431,3 +433,5 @@ export function useKawaStaking() {
     refetchAll,
   };
 }
+
+export const useKawaStaking = useLayer5Staking;

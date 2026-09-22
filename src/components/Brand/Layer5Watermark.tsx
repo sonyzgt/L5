@@ -2,13 +2,15 @@
 
 import React from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { KawaEmblem } from "./KawaEmblem";
+import { Layer5Emblem } from "./Layer5Emblem";
 
-interface KawaWatermarkProps {
+export interface Layer5WatermarkProps {
   className?: string;
 }
 
-export const KawaWatermark: React.FC<KawaWatermarkProps> = ({ className = "" }) => {
+export type KawaWatermarkProps = Layer5WatermarkProps;
+
+export const Layer5Watermark: React.FC<Layer5WatermarkProps> = ({ className = "" }) => {
   const { scrollYProgress } = useScroll();
 
   // Subtle rotation and scale tied directly to overall document scroll progress
@@ -28,7 +30,7 @@ export const KawaWatermark: React.FC<KawaWatermarkProps> = ({ className = "" }) 
         style={{ rotate, scale }}
         className="w-[700px] h-[700px] sm:w-[900px] sm:h-[900px] lg:w-[1100px] lg:h-[1100px] text-black opacity-[0.025] shrink-0"
       >
-        <KawaEmblem
+        <Layer5Emblem
           size="100%"
           animate={false}
           className="w-full h-full"
@@ -37,3 +39,5 @@ export const KawaWatermark: React.FC<KawaWatermarkProps> = ({ className = "" }) 
     </div>
   );
 };
+
+export const KawaWatermark = Layer5Watermark;

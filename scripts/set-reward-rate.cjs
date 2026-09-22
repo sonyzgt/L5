@@ -5,15 +5,19 @@ async function main() {
   console.log("Calling setRewardRate on Robinhood Chain...");
   console.log("Signer / Owner:", signer.address);
 
-  const contractAddress = "0x4944EDF557C36e9b4964fc5988871ea61748d918";
-  const KAWAStaking = await hre.ethers.getContractAt("KAWAStaking", contractAddress);
+  const contractAddress = process.env.STAKING_CONTRACT_ADDRESS || "";
+  if (!contractAddress) {
+    console.error("Please set STAKING_CONTRACT_ADDRESS in environment.");
+    process.exit(1);
+  }
+  const Layer5Staking = await hre.ethers.getContractAt("Layer5Staking", contractAddress);
 
-  const currentRate = await KAWAStaking.rewardRate();
-  console.log("Current Reward Rate:", hre.ethers.formatUnits(currentRate, 18), "KAWA/sec");
+  const currentRate = await Layer5Staking.rewardRate();
+  console.log("Current Reward Rate:", hre.ethers.formatUnits(currentRate, 18), "L5/sec");
 
-  // Setting back to 1 KAWA per second (1e18) like before
-  const newRate = hre.ethers.parseUnits("1", 18);
-  console.log("Setting New Reward Rate to:", hre.ethers.formatUnits(newRate, 18), "KAWA/sec");
+  // Setting to 5 L5 per second (5x speed)
+  const newRate = hre.ethers.parseUnits("5", 18);
+  console.log("Setting New Reward Rate to:", hre.ethers.formatUnits(newRate, 18), "L5/sec");
 
   const tx = await KAWAStaking.setRewardRate(newRate);
   console.log("Transaction Hash:", tx.hash);
@@ -22,7 +26,7 @@ async function main() {
   console.log("Transaction confirmed in block:", receipt.blockNumber);
 
   const updatedRate = await KAWAStaking.rewardRate();
-  console.log("Updated Reward Rate:", hre.ethers.formatUnits(updatedRate, 18), "KAWA/sec");
+  console.log("Updated Reward Rate:", hre.ethers.formatUnits(updatedRate, 18), "L5/sec");
   console.log("SUCCESS!");
 }
 

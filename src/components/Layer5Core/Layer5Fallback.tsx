@@ -1,14 +1,16 @@
 "use client";
 
 import React from "react";
-import { KawaCoreState } from "@/lib/blockchain/config";
+import { Layer5CoreState } from "@/lib/blockchain/config";
 
-interface KawaFallbackProps {
-  state?: KawaCoreState;
+export interface Layer5FallbackProps {
+  state?: Layer5CoreState;
   className?: string;
 }
 
-export const KawaFallback: React.FC<KawaFallbackProps> = ({
+export type KawaFallbackProps = Layer5FallbackProps;
+
+export const Layer5Fallback: React.FC<Layer5FallbackProps> = ({
   state = "dormant",
   className = "w-full h-full",
 }) => {
@@ -81,3 +83,5 @@ export const KawaFallback: React.FC<KawaFallbackProps> = ({
     </div>
   );
 };
+
+export const KawaFallback = Layer5Fallback;

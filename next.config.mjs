@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  webpack: (config) => {
+  webpack: (config, { webpack, isServer }) => {
     config.resolve.fallback = {
       ...config.resolve.fallback,
       fs: false,
@@ -9,12 +9,20 @@ const nextConfig = {
       tls: false,
       crypto: false,
     };
-    if (Array.isArray(config.externals)) {
-      config.externals.push("pino-pretty", "lokijs", "encoding");
-    } else if (config.externals) {
-      config.externals = [config.externals, "pino-pretty", "lokijs", "encoding"];
-    } else {
-      config.externals = ["pino-pretty", "lokijs", "encoding"];
+    config.plugins.push(
+      new webpack.IgnorePlugin({
+        resourceRegExp: /^(@x402|@react-native-async-storage)/,
+      })
+    );
+    if (isServer) {
+      const externals = ["pino-pretty", "lokijs", "encoding"];
+      if (Array.isArray(config.externals)) {
+        config.externals.push(...externals);
+      } else if (config.externals) {
+        config.externals = [config.externals, ...externals];
+      } else {
+        config.externals = externals;
+      }
     }
     return config;
   },

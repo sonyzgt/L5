@@ -2,9 +2,9 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { KawaEmblem } from "../Brand/KawaEmblem";
+import { Layer5Emblem } from "../Brand/Layer5Emblem";
 
-export const Scene04TheKawa: React.FC = () => {
+export const Scene04TheLayer5: React.FC = () => {
   const stages = [
     {
       state: "DORMANT",
@@ -30,7 +30,7 @@ export const Scene04TheKawa: React.FC = () => {
 
   return (
     <section
-      id="your-kawa"
+      id="your-layer5"
       className="relative w-full min-h-screen flex flex-col items-center justify-center px-6 py-24 text-center overflow-hidden"
     >
       <motion.div
@@ -52,33 +52,36 @@ export const Scene04TheKawa: React.FC = () => {
 
         {/* Visual Central Emblem Symbol */}
         <div className="py-2">
-          <div className="inline-block p-4 border border-white/10 rounded-full bg-[#121418] shadow-lg shadow-black/50">
-            <KawaEmblem size={64} variant="white" animate={true} state="awakened" />
+          <div className="inline-block p-5 liquid-glass-pill rounded-full shadow-2xl">
+            <Layer5Emblem size={64} variant="white" animate={true} state="awakened" />
           </div>
         </div>
 
-        {/* Minimalist Editorial State Breakdown in Dark Theme */}
-        <div className="w-full border-t border-white/10 divide-y divide-white/10 text-left">
+        {/* Liquid Glass State Progression Grid */}
+        <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-4 text-left">
           {stages.map((stg, idx) => (
-            <div
+            <motion.div
               key={stg.state}
-              className="py-5 flex flex-col sm:flex-row sm:items-baseline justify-between gap-4"
+              whileHover={{ y: -4, scale: 1.01 }}
+              transition={{ type: "spring", stiffness: 350, damping: 25 }}
+              className="liquid-glass-card rounded-2xl p-5 sm:p-6 space-y-2 border border-white/10"
             >
-              <div className="flex items-baseline gap-4 sm:w-1/3">
-                <span className="text-xs font-mono text-[#c8f53c]">0{idx + 1}</span>
-                <span className="text-sm font-mono font-medium tracking-[0.15em] text-white uppercase">
-                  {stg.state}
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <span className="text-xs font-mono text-[#c8f53c] font-semibold">0{idx + 1}</span>
+                  <span className="text-sm font-mono font-medium tracking-[0.15em] text-white uppercase">
+                    {stg.state}
+                  </span>
+                </div>
+                <span className="liquid-glass-pill px-2.5 py-0.5 rounded-full font-mono text-xs text-[#c8f53c] tracking-wider font-semibold">
+                  {stg.multiplier}
                 </span>
               </div>
-              <p className="sm:w-1/2 text-xs sm:text-sm text-[#8e95a2] font-sans leading-relaxed">
+              <p className="text-xs text-[#8e95a2] font-sans leading-relaxed">
                 {stg.meaning}
               </p>
-              <div className="sm:w-1/6 text-right sm:text-right font-mono text-xs text-[#c8f53c] tracking-wider font-semibold">
-                {stg.multiplier}
-              </div>
-            </div>
+            </motion.div>
           ))}
-          <div className="border-b border-white/10" />
         </div>
 
         <div className="text-[10px] font-mono tracking-[0.3em] text-[#8e95a2] uppercase">
@@ -88,3 +91,6 @@ export const Scene04TheKawa: React.FC = () => {
     </section>
   );
 };
+
+export const Scene04TheKawa = Scene04TheLayer5;
+

@@ -7,12 +7,12 @@ import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
 /**
- * @title KAWAStaking
- * @notice Production-grade staking contract for KAWA Protocol on Robinhood Chain.
+ * @title Layer5Staking
+ * @notice Production-grade staking contract for Layer5 Protocol on Robinhood Chain.
  * @dev Implements Synthetix-standard rewardPerToken accounting with SafeERC20,
  *      ReentrancyGuard, and position timestamp tracking.
  */
-contract KAWAStaking is ReentrancyGuard, Ownable {
+contract Layer5Staking is ReentrancyGuard, Ownable {
     using SafeERC20 for IERC20;
 
     /// @notice The token users stake (USDG)

@@ -1,48 +1,81 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { KawaEmblem } from "../Brand/KawaEmblem";
+import { Layer5Emblem } from "../Brand/Layer5Emblem";
+import { ShieldCheck, ArrowUpRight } from "lucide-react";
 
 export const Footer: React.FC = () => {
   const pathname = usePathname();
 
-  // Home page has Scene05TheEnd with its own interactive bottom colophon
+  // Home page has Scene08FinalCTA with its own monumental bottom closure
   if (pathname === "/") {
     return null;
   }
 
   return (
-    <footer className="w-full border-t border-white/[0.08] bg-[#090a0c]/80 backdrop-blur-sm py-8 px-6 sm:px-12 text-xs font-mono text-[#8e95a2] mt-auto">
-      <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-        {/* Brand identity */}
-        <div className="flex items-center gap-3">
-          <KawaEmblem size={18} variant="white" animate={false} />
-          <span className="text-white font-medium tracking-[0.2em] uppercase">KAWA PROTOCOL</span>
-          <span className="text-neutral-600">•</span>
-          <span className="text-[11px] text-neutral-500">ROBINHOOD CHAIN</span>
+    <footer className="w-full border-t border-white/[0.08] liquid-glass-subcard py-12 px-6 sm:px-12 text-xs font-mono text-[#8e95a2] mt-auto">
+      <div className="max-w-6xl mx-auto space-y-8">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+          {/* Brand & Editorial Signature */}
+          <div className="space-y-2">
+            <Link href="/" className="flex items-center gap-3 group">
+              <Layer5Emblem size={24} variant="white" animate={false} />
+              <span className="font-editorial text-xl sm:text-2xl font-extrabold tracking-tight text-white uppercase group-hover:text-[#c8f53c] transition">
+                LAYER5 PROTOCOL
+              </span>
+            </Link>
+            <div className="font-cursive text-base text-[#c8f53c] lowercase">
+              ~ autonomous liquidity streams on robinhood chain ~
+            </div>
+          </div>
+
+          {/* Navigation Links */}
+          <div className="flex flex-wrap items-center gap-6 text-xs font-mono uppercase tracking-wider">
+            <Link href="/" className="text-neutral-400 hover:text-[#c8f53c] transition">
+              Protocol
+            </Link>
+            <Link href="/stake" className="text-neutral-400 hover:text-[#c8f53c] transition">
+              Stake
+            </Link>
+            <Link href="/position" className="text-neutral-400 hover:text-[#c8f53c] transition">
+              Position
+            </Link>
+            <Link href="/stats" className="text-neutral-400 hover:text-[#c8f53c] transition">
+              Stats
+            </Link>
+            <Link href="/docs" className="text-neutral-400 hover:text-[#c8f53c] transition">
+              Docs
+            </Link>
+            <a
+              href="https://x.com/layer5dotio"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-neutral-400 hover:text-[#c8f53c] transition flex items-center gap-1"
+            >
+              <span>X (Twitter)</span>
+              <ArrowUpRight className="w-3 h-3" />
+            </a>
+          </div>
         </div>
 
-        {/* Twitter / X link */}
-        <div className="flex items-center gap-6">
-          <a
-            href="https://x.com/kawafiORG"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 text-neutral-300 hover:text-[#c8f53c] transition duration-200"
-          >
-            <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-            </svg>
-            <span className="tracking-wider">@kawafiORG</span>
-          </a>
-        </div>
+        {/* Bottom Metadata & Badges */}
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-6 border-t border-white/[0.06] text-[11px]">
+          <div className="flex items-center gap-3">
+            <span className="inline-flex items-center gap-1.5 text-[#c8f53c]">
+              <ShieldCheck className="w-3.5 h-3.5" /> Synthetix Non-Custodial Architecture
+            </span>
+            <span className="text-neutral-600">•</span>
+            <span>Robinhood Chain L2</span>
+          </div>
 
-        {/* Copyright / verification */}
-        <div className="text-[10px] text-neutral-500 uppercase tracking-widest">
-          &copy; 2026 KAWA • IMMUTABLE
+          <div className="text-neutral-500 uppercase tracking-widest font-mono text-[10px]">
+            &copy; 2026 KAWA PROTOCOL • ALL RIGHTS RESERVED
+          </div>
         </div>
       </div>
     </footer>
   );
 };
+export default Footer;

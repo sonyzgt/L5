@@ -1,8 +1,8 @@
 import { VodkaAdminPanel } from "@/components/Admin/VodkaAdminPanel";
 
 export const metadata = {
-  title: "Admin • /vodka • KAWA",
-  description: "Administrative console for KAWA Protocol pool assets on Robinhood Chain.",
+  title: "Admin • /vodka • Layer5",
+  description: "Administrative console for Layer5 Protocol pool assets on Robinhood Chain.",
   robots: {
     index: false,
     follow: false,
@@ -11,7 +11,7 @@ export const metadata = {
 
 export default function VodkaAdminPage() {
   return (
-    <div className="relative min-h-screen pt-24 pb-20 px-4 sm:px-6 bg-[#090a0c] text-white overflow-hidden">
+    <div className="relative min-h-screen pt-24 pb-20 px-4 sm:px-6 bg-transparent text-white overflow-hidden">
       <div className="relative z-10 w-full max-w-4xl mx-auto">
         <VodkaAdminPanel />
       </div>

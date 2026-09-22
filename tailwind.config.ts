@@ -11,10 +11,18 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        kawa: {
+          lime: "#c8f53c",
+          dark: "#08090c",
+          card: "#12141a",
+          subtle: "#1c1f28",
+        },
       },
       fontFamily: {
-        mono: ["Geist Mono", "ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "monospace"],
-        sans: ["Geist", "Inter", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "sans-serif"],
+        editorial: ["Syne", "PP Neue Corp Tight", "-apple-system", "sans-serif"],
+        cursive: ["Caveat", "cursive", "Georgia", "serif"],
+        mono: ["Space Grotesk", "Geist Mono", "ui-monospace", "monospace"],
+        sans: ["Geist", "Inter", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "sans-serif"],
       },
     },
   },

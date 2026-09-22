@@ -3,12 +3,12 @@ const fs = require('fs');
 
 async function makeFavicons() {
   // 1. Generate 32x32 and 64x64 PNG icons
-  await sharp('public/kawa-logo-black-trimmed.png')
+  await sharp('public/layer5-logo-black-trimmed.png')
     .resize(32, 32, { fit: 'contain', background: { r: 0, g: 0, b: 0, alpha: 0 } })
     .png()
     .toFile('public/favicon-32x32.png');
 
-  await sharp('public/kawa-logo-black-trimmed.png')
+  await sharp('public/layer5-logo-black-trimmed.png')
     .resize(64, 64, { fit: 'contain', background: { r: 0, g: 0, b: 0, alpha: 0 } })
     .png()
     .toFile('src/app/icon.png');

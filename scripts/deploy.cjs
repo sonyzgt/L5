@@ -29,12 +29,12 @@ async function main() {
     console.log("Mock Reward Token deployed to:", rewardTokenAddress);
   }
 
-  // Initial reward rate: 0.0001 tokens per second (~8.64 KAWA/day)
-  const initialRewardRate = hre.ethers.parseUnits("0.0001", 18);
+  // Initial reward rate: 0.0005 tokens per second (~43.2 L5/day, 5x speed)
+  const initialRewardRate = hre.ethers.parseUnits("0.0005", 18);
 
-  console.log("\nDeploying KAWAStaking contract...");
-  const KAWAStaking = await hre.ethers.getContractFactory("KAWAStaking");
-  const stakingContract = await KAWAStaking.deploy(
+  console.log("\nDeploying Layer5Staking contract...");
+  const Layer5Staking = await hre.ethers.getContractFactory("Layer5Staking");
+  const stakingContract = await Layer5Staking.deploy(
     stakingTokenAddress,
     rewardTokenAddress,
     initialRewardRate
@@ -42,7 +42,7 @@ async function main() {
   await stakingContract.waitForDeployment();
   const stakingContractAddress = await stakingContract.getAddress();
 
-  console.log("KAWAStaking contract deployed to:", stakingContractAddress);
+  console.log("Layer5Staking contract deployed to:", stakingContractAddress);
   console.log("----------------------------------------------------");
   console.log("\nEnvironment configuration variables for .env:");
   console.log(`STAKING_CONTRACT_ADDRESS=${stakingContractAddress}`);

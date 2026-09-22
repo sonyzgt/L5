@@ -1,15 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Syne:wght@700;800&family=Space+Grotesk:wght@500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --background: #090a0c;
-  --background-subtle: #121418;
-  --background-elevated: #181a20;
-  --foreground: #f3f4f6;
+  --background: #08090c;
+  --background-subtle: #0f1117;
+  --background-elevated: #151821;
+  --foreground: #f4f5f8;
   --foreground-muted: #8e95a2;
   --border-hairline: rgba(255, 255, 255, 0.08);
   --accent-lime: #c8f53c;
+  --accent-lime-glow: rgba(200, 245, 60, 0.35);
 }
 
 body {
@@ -21,27 +24,150 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Custom Dark Minimalist Scrollbar */
+/* Custom Minimalist Agency Scrollbar */
 ::-webkit-scrollbar {
   width: 4px;
   height: 4px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #090a0c;
+  background: #08090c;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #23262d;
+  background: #1f232e;
   border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #363a45;
+  background: #313747;
 }
 
 /* Electric Lime selection */
 ::selection {
   background: #c8f53c;
-  color: #090a0c;
+  color: #08090c;
+}
+
+@layer utilities {
+  /* Sterling Gate Quiet Luxury Surfaces (replaces old glossy liquid-glass) */
+  .liquid-glass-card {
+    background: #0e1017;
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    box-shadow: 
+      0 24px 64px -12px rgba(0, 0, 0, 0.8),
+      inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .liquid-glass-card:hover {
+    border-color: rgba(255, 255, 255, 0.16);
+  }
+
+  .liquid-glass-subcard {
+    background: #131620;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    transition: border-color 0.25s ease;
+  }
+
+  .liquid-glass-subcard:hover {
+    border-color: rgba(255, 255, 255, 0.14);
+  }
+
+  .liquid-glass-input {
+    background: #090a0e;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.6);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .liquid-glass-input:focus-within {
+    border-color: rgba(200, 245, 60, 0.5);
+    box-shadow: 0 0 16px rgba(200, 245, 60, 0.12), inset 0 2px 4px rgba(0, 0, 0, 0.6);
+  }
+
+  .liquid-glass-pill {
+    background: #141722;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.25s ease;
+  }
+
+  .liquid-glass-nav {
+    background: rgba(10, 12, 17, 0.88);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7);
+  }
+
+  .liquid-glass-modal {
+    background: #0d0f15;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow: 
+      0 32px 80px rgba(0, 0, 0, 0.9),
+      0 0 40px rgba(200, 245, 60, 0.08);
+  }
+
+  /* Sterling Gate 3-Tier Layer Card Container */
+  .sg-tier-container {
+    position: relative;
+    border-radius: 2rem;
+  }
+
+  .sg-tier-underlay-1 {
+    position: absolute;
+    inset: -2px;
+    border-radius: 2.1rem;
+    background: linear-gradient(135deg, rgba(200, 245, 60, 0.45) 0%, rgba(99, 102, 241, 0.15) 50%, transparent 100%);
+    z-index: 0;
+    filter: blur(6px);
+    opacity: 0.5;
+    pointer-events: none;
+    transition: opacity 0.4s ease, filter 0.4s ease;
+  }
+
+  .sg-tier-container:hover .sg-tier-underlay-1 {
+    opacity: 0.85;
+    filter: blur(10px);
+  }
+
+  .sg-tier-underlay-2 {
+    position: absolute;
+    inset: 0;
+    border-radius: 2rem;
+    background: #121520;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .sg-tier-main {
+    position: relative;
+    border-radius: 2rem;
+    background: #0d0f17;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 2;
+    overflow: hidden;
+  }
+
+  /* Kinetic Typography Hover Roll-Up Utility */
+  .sg-roll-up {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    line-height: 0.9;
+  }
+
+  .sg-roll-up-text {
+    display: inline-block;
+    transition: transform 0.5s cubic-bezier(0.65, 0.05, 0, 1);
+    text-shadow: 0px 1em 0px #c8f53c;
+  }
+
+  .group:hover .sg-roll-up-text,
+  .sg-roll-up:hover .sg-roll-up-text {
+    transform: translateY(-1em);
+  }
 }

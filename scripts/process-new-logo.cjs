@@ -7,8 +7,8 @@ const srcImg = 'C:/Users/ADMIN/.gemini/antigravity/brain/cee0058e-0a8b-4618-90f2
 async function processLogo() {
   console.log('Processing new KAWA logo from user upload...');
 
-  // 1. Save original image to public/kawa-logo-original.jpg
-  fs.copyFileSync(srcImg, 'public/kawa-logo-original.jpg');
+  // 1. Save original image to public/layer5-logo-original.jpg
+  fs.copyFileSync(srcImg, 'public/layer5-logo-original.jpg');
 
   // Read raw pixels
   const { data, info } = await sharp(srcImg)
@@ -105,26 +105,26 @@ async function processLogo() {
   // Save white and black transparent PNGs
   await sharp(whiteData, { raw: { width, height, channels: 4 } })
     .png()
-    .toFile('public/kawa-logo-white.png');
+    .toFile('public/layer5-logo-white.png');
 
   await sharp(blackData, { raw: { width, height, channels: 4 } })
     .png()
-    .toFile('public/kawa-logo-black.png');
+    .toFile('public/layer5-logo-black.png');
 
   // Trim to bounding box with padding
-  await sharp('public/kawa-logo-white.png')
+  await sharp('public/layer5-logo-white.png')
     .trim()
     .extend({ top: 40, bottom: 40, left: 40, right: 40, background: { r: 0, g: 0, b: 0, alpha: 0 } })
     .png()
-    .toFile('public/kawa-logo-white-trimmed.png');
+    .toFile('public/layer5-logo-white-trimmed.png');
 
-  await sharp('public/kawa-logo-black.png')
+  await sharp('public/layer5-logo-black.png')
     .trim()
     .extend({ top: 40, bottom: 40, left: 40, right: 40, background: { r: 0, g: 0, b: 0, alpha: 0 } })
     .png()
-    .toFile('public/kawa-logo-black-trimmed.png');
+    .toFile('public/layer5-logo-black-trimmed.png');
 
-  console.log('Saved public/kawa-logo-white-trimmed.png and public/kawa-logo-black-trimmed.png');
+  console.log('Saved public/layer5-logo-white-trimmed.png and public/layer5-logo-black-trimmed.png');
 
   // Generate Favicons:
   // For favicon, white trimmed on dark background or transparent white logo looks magnificent in browser tabs!
@@ -134,13 +134,13 @@ async function processLogo() {
   
   // Square icon with subtle dark circle or transparent background
   // Let's create a 32x32 transparent favicon
-  await sharp('public/kawa-logo-white-trimmed.png')
+  await sharp('public/layer5-logo-white-trimmed.png')
     .resize(32, 32, { fit: 'contain', background: { r: 0, g: 0, b: 0, alpha: 0 } })
     .png()
     .toFile('public/favicon-32x32.png');
 
   // 64x64 icon
-  await sharp('public/kawa-logo-white-trimmed.png')
+  await sharp('public/layer5-logo-white-trimmed.png')
     .resize(64, 64, { fit: 'contain', background: { r: 0, g: 0, b: 0, alpha: 0 } })
     .png()
     .toFile('src/app/icon.png');
@@ -158,7 +158,7 @@ async function processLogo() {
   fs.writeFileSync('src/app/favicon.svg', svgContent);
 
   // Apple touch icon 180x180 with sleek dark background
-  await sharp('public/kawa-logo-white-trimmed.png')
+  await sharp('public/layer5-logo-white-trimmed.png')
     .resize(140, 140, { fit: 'contain', background: { r: 0, g: 0, b: 0, alpha: 0 } })
     .extend({ top: 20, bottom: 20, left: 20, right: 20, background: { r: 9, g: 10, b: 12, alpha: 1 } })
     .png()

@@ -1,23 +1,24 @@
-# KAWA — Web3 Staking Protocol on Robinhood Chain
+# Layer5 — Web3 Staking Protocol on Robinhood Chain
 
 > **STAKE → FLOW → GROW → REWARD**  
 > A minimal, futuristic, cinematic staking protocol built natively for **Robinhood Chain**.
+> Hosted at: [layerfive.io](https://layerfive.io)
 
 ---
 
 ## 1. Overview & Architecture
 
-KAWA is designed as an independent living protocol with its own world and identity. Value is not treated as static rows in a table, but as a continuous kinetic stream.
+Layer5 is designed as an independent living protocol with its own world and identity. Value is not treated as static rows in a table, but as a continuous kinetic stream.
 
-- **Settlement Layer**: Robinhood Chain (Sub-second finality, negligible transaction gas costs).
-- **Core Visual Artifact**: `KawaCore` — An abstract 3D geometric object rendered in Three.js / React Three Fiber that reactively evolves across 5 staking phases:
+- **Settlement Layer**: Robinhood Chain (Sub-second finality, negligible transaction gas costs, Chain ID: 4663).
+- **Core Visual Artifact**: `Layer5Core` — An abstract 3D geometric object rendered in Three.js / React Three Fiber that reactively evolves across 5 staking phases:
   1. `Dormant` (0 tokens staked)
   2. `Activated` (Staked > 0, duration < 1 day)
   3. `Growing` (Duration 1–7 days)
   4. `Mature` (Duration 7–30 days)
   5. `Awakened` (Duration 30+ days)
 - **Mathematical Yield Model**: Synthetix-standard $O(1)$ `rewardPerToken` accounting implemented in Solidity 0.8.20.
-- **Web3 Engine**: Wagmi v2 + Viem + TanStack Query with automatic wrong-network detection and "Switch to Robinhood Chain" recovery.
+- **Web3 Engine**: Wagmi v2 + RainbowKit + Viem + TanStack Query with automatic wrong-network detection and "Switch to Robinhood Chain" recovery.
 - **Transaction State System**: Transparent transitions across `IDLE`, `CONFIRMING`, `PENDING`, `SUCCESS`, and `FAILED` with humane error message translation.
 
 ---
@@ -26,24 +27,26 @@ KAWA is designed as an independent living protocol with its own world and identi
 
 ```text
 ├── contracts/
-│   ├── KAWAStaking.sol          # Core Synthetix-standard staking & reward engine
+│   ├── Layer5Staking.sol        # Core Synthetix-standard staking & reward engine
 │   └── MockToken.sol            # Test ERC20 token for testnets and simulation
 ├── test/
-│   └── KAWAStaking.test.cjs     # 18 passing tests covering all staking mechanics
+│   └── Layer5Staking.test.cjs   # 18 passing tests covering all staking mechanics
 ├── scripts/
-│   └── deploy.cjs               # Deployment script for Robinhood Chain
+│   ├── deploy.cjs               # Deployment script for Robinhood Chain
+│   ├── deploy-layer5.cjs        # Mainnet deployment script
+│   └── set-reward-rate.cjs      # Admin reward rate configuration
 ├── src/
 │   ├── app/
 │   │   ├── layout.tsx           # SEO metadata, Open Graph, fonts & Web3 providers
-│   │   ├── page.tsx             # Cinematic scene-based experience (Scenes 01-06)
+│   │   ├── page.tsx             # Cinematic scene-based experience
 │   │   ├── stake/page.tsx       # Dedicated staking console
-│   │   ├── position/page.tsx    # Dedicated personal position & 3D KawaCore viewer
+│   │   ├── position/page.tsx    # Dedicated personal position & 3D Layer5Core viewer
 │   │   ├── stats/page.tsx       # On-chain network statistics & verified contracts
-│   │   ├── docs/page.tsx        # Technical documentation (8 sections)
+│   │   ├── docs/page.tsx        # Technical documentation
 │   │   └── api/                 # Analytics & indexing endpoints
 │   ├── components/
-│   │   ├── KawaCore/            # 3D R3F artifact + CSS fallback
-│   │   ├── Scene/               # Scenes 01 to 06 and SceneContainer
+│   │   ├── Layer5Core/          # 3D R3F artifact + CSS fallback
+│   │   ├── Scene/               # Cinematic scenes and SceneContainer
 │   │   ├── Navigation/          # Minimal navbar & mobile drawer
 │   │   ├── Staking/             # Clean staking dashboard & actions
 │   │   ├── Position/            # Position card & state derivation
@@ -53,7 +56,7 @@ KAWA is designed as an independent living protocol with its own world and identi
 │   └── lib/
 │       ├── blockchain/          # Centralized Robinhood Chain config & Wagmi
 │       ├── contracts/           # Centralized ABI definitions
-│       └── hooks/               # useKawaStaking unified hook
+│       └── hooks/               # useLayer5Staking unified hook
 └── prisma/
     └── schema.prisma            # Database models for indexing & analytics
 ```
@@ -63,7 +66,7 @@ KAWA is designed as an independent living protocol with its own world and identi
 ## 3. Quick Start
 
 ### Prerequisites
-- Node.js 18+ (tested on v22)
+- Node.js 18+ (tested on v20 and v22)
 - pnpm 9+ / 11+ or npm
 
 ### Installation
@@ -91,49 +94,53 @@ pnpm start
 
 ---
 
-## 4. Environment Variables
+## 4. VPS Deployment Guide (domain: layerfive.io)
 
-Create `.env.local` based on `.env.example`:
-
-```env
-# Robinhood Chain
-NEXT_PUBLIC_ROBINHOOD_CHAIN_ID=999999
-NEXT_PUBLIC_ROBINHOOD_CHAIN_NAME="Robinhood Chain"
-NEXT_PUBLIC_ROBINHOOD_RPC_URL="https://rpc.robinhood-chain.network"
-NEXT_PUBLIC_ROBINHOOD_EXPLORER_URL="https://explorer.robinhood-chain.network"
-NEXT_PUBLIC_ROBINHOOD_CURRENCY_SYMBOL="ETH"
-
-# Contracts
-NEXT_PUBLIC_STAKING_CONTRACT_ADDRESS=""
-NEXT_PUBLIC_STAKE_TOKEN_ADDRESS=""   # USDG Token
-NEXT_PUBLIC_REWARD_TOKEN_ADDRESS=""  # KAWA Token
-
-# Web3 (Optional WalletConnect project ID)
-NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID=""
-
-# Database
-DATABASE_URL="file:./dev.db"
-```
-
----
-
-## 5. Smart Contract Deployment to Robinhood Chain
-
-When deploying to live Robinhood Chain:
+### Step 1: Clone Repository on VPS
 ```bash
-# Set private key and RPC
-export DEPLOYER_PRIVATE_KEY="0x..."
-export ROBINHOOD_RPC_URL="https://rpc.robinhood-chain.network"
-export ROBINHOOD_CHAIN_ID="999999"
-
-# Deploy
-node scripts/deploy.cjs
+git clone https://github.com/sonyzgt/L5.git
+cd L5
 ```
-Copy the logged contract addresses into your `.env.production`.
+
+### Step 2: Install Dependencies & Setup Environment
+```bash
+pnpm install
+cp .env.example .env
+# Edit .env with your environment settings
+nano .env
+```
+
+### Step 3: Build & Start with PM2
+```bash
+pnpm build
+pm2 start pnpm --name "layer5" -- start
+pm2 save
+```
+
+### Step 4: Configure Nginx & SSL
+Point `layerfive.io` to your VPS IP:
+```nginx
+server {
+    server_name layerfive.io www.layerfive.io;
+
+    location / {
+        proxy_pass http://127.0.0.1:3023; # or your configured port
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+    }
+}
+```
+Issue SSL certificate with Certbot:
+```bash
+certbot --nginx -d layerfive.io -d www.layerfive.io
+```
 
 ---
 
-## 6. Security Standards
+## 5. Security Standards
 - OpenZeppelin `SafeERC20` guards all transfers.
 - `ReentrancyGuard` protects all mutative operations (`stake`, `unstake`, `claim`, `exit`).
 - Pure on-chain mathematical source of truth.
