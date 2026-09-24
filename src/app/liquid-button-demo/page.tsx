@@ -5,12 +5,12 @@ import { Button, LiquidButton, MetalButton } from "@/components/ui/liquid-glass-
 
 export default function LiquidButtonDemoPage() {
   return (
-    <div className="relative min-h-screen pt-28 pb-20 px-6 flex flex-col items-center justify-center text-center space-y-12">
+    <div className="relative min-h-screen pt-28 pb-20 px-6 flex flex-col items-center justify-center text-center space-y-12 bg-[#F6F3EC] text-[#1C1B18]">
       <div className="space-y-3">
-        <h1 className="text-3xl font-bold tracking-tight text-white">
+        <h1 className="text-3xl font-bold tracking-tight text-[#1C1B18]">
           Liquid Glass & Metal Buttons
         </h1>
-        <p className="text-sm font-mono text-neutral-400">
+        <p className="text-sm font-mono text-[#6B665E]">
           Shadcn / Tailwind CSS / Radix UI Slot
         </p>
       </div>

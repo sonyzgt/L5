@@ -109,7 +109,7 @@ export const StakingDashboard: React.FC = () => {
     claim,
   } = useLayer5Staking();
 
-  const [activeTab, setActiveTab] = useState<"mint" | "redeem">("mint");
+  const [activeTab, setActiveTab] = useState<"deposit" | "withdraw">("deposit");
   const [inputAmount, setInputAmount] = useState<string>("");
   const [unstakeModalOpen, setUnstakeModalOpen] = useState<boolean>(false);
   const [unstakeAmount, setUnstakeAmount] = useState<string>("");
@@ -129,7 +129,7 @@ export const StakingDashboard: React.FC = () => {
   const hasRewards = isConnected && pendingRewards > 0n;
 
   const handlePercentage = (pct: number) => {
-    const balance = activeTab === "mint" ? tokenBalance : stakedBalance;
+    const balance = activeTab === "deposit" ? tokenBalance : stakedBalance;
     if (balance === 0n) {
       setInputAmount("0.00");
       return;
@@ -140,7 +140,7 @@ export const StakingDashboard: React.FC = () => {
   };
 
   const handleMax = () => {
-    const balance = activeTab === "mint" ? tokenBalance : stakedBalance;
+    const balance = activeTab === "deposit" ? tokenBalance : stakedBalance;
     setInputAmount(formatTokenAmount(balance, stakeDecimals, 6));
   };
 
@@ -150,7 +150,7 @@ export const StakingDashboard: React.FC = () => {
 
   const handleMainSubmit = async () => {
     if (!inputAmount || parseFloat(inputAmount) <= 0) return;
-    if (activeTab === "mint") {
+    if (activeTab === "deposit") {
       await stake(inputAmount);
     } else {
       await unstake(inputAmount);
@@ -208,7 +208,7 @@ export const StakingDashboard: React.FC = () => {
               <div className="relative w-full h-full">
                 <Image
                   src="/aegis-logo-black.png"
-                  alt="saUSD Aegis Token"
+                  alt="Aegis Rewards Token"
                   fill
                   sizes="176px"
                   className="object-contain"
@@ -222,7 +222,7 @@ export const StakingDashboard: React.FC = () => {
               <div className="relative w-full h-full rounded-full overflow-hidden">
                 <Image
                   src="/usdg-icon.png"
-                  alt="aUSD Dollar Token"
+                  alt="USDG Token"
                   fill
                   sizes="224px"
                   className="object-contain"
@@ -236,29 +236,28 @@ export const StakingDashboard: React.FC = () => {
         {/* Narrative & Action Cluster */}
         <div className="relative max-w-2xl">
           <p className="font-mono text-[10.5px] uppercase tracking-[0.2em] text-[#9B783E] font-semibold">
-            The Aegis Dollar · Robinhood Chain L2
+            USDG Staking Pool · Robinhood Chain L2
           </p>
 
           <h1 className="font-display mt-3 text-4xl sm:text-5xl lg:text-6xl font-normal leading-[1.05] tracking-tight text-[#1C1B18]">
-            A dollar whose reserve{" "}
-            <span className="font-serif italic font-normal text-[#283615]">works for you</span>.
+            Stake USDG,{" "}
+            <span className="font-serif italic font-normal text-[#283615]">stream the yield</span>.
           </h1>
 
           <p className="mt-5 text-[15px] sm:text-[16px] leading-relaxed text-[#6B665E]">
-            aUSD is minted one-for-one against USDG and stays redeemable one-for-one, always. Behind it, the treasury holds
-            liquid backing and lends into Aegis&apos;s own markets — and every cent that earns goes to holders who stake for the drip.
+            Deposit USDG to continuously stream Aegis reward tokens every single block. 100% principal backing, zero lockup epochs, micro-cent gas, and instant liquidity exit whenever you like.
           </p>
 
           <p className="mt-3 text-[13px] leading-relaxed text-[#8C877D]">
-            Live as a <span className="font-medium text-[#1C1B18]">capped pilot</span>: the treasury mints up to its pilot cap, and the cap steps up as the reserve proves itself.
+            Live on Robinhood Chain Mainnet: deposit USDG directly, harvest rewards block by block, zero penalty exit.
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-3">
             <a
-              href="#mint"
+              href="#stake"
               className="group rounded-full bg-[#1C1B18] px-6 py-3 text-[13.5px] font-mono font-medium uppercase tracking-wider text-[#F6F3EC] shadow-[0_4px_14px_rgba(28,27,24,0.12)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#283615] hover:shadow-md"
             >
-              Mint aUSD
+              Deposit USDG
               <span className="ml-1.5 inline-block transition-transform duration-200 group-hover:translate-x-0.5">→</span>
             </a>
 
@@ -274,47 +273,47 @@ export const StakingDashboard: React.FC = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* 2. KPI METRIC STRIP: 4 Denar Cards (`#mint`)                               */}
+      {/* 2. KPI METRIC STRIP: 4 Denar Cards (`#stake`)                              */}
       {/* ========================================================================= */}
-      <section id="mint" className="scroll-mt-24 space-y-6">
+      <section id="stake" className="scroll-mt-24 space-y-6">
         <div>
           <p className="font-mono text-[10.5px] uppercase tracking-[0.2em] text-[#9B783E] font-semibold">
-            Live · Capped Pilot
+            Live Protocol Telemetry
           </p>
           <h2 className="font-display mt-2 max-w-2xl text-3xl sm:text-4xl lg:text-5xl font-normal leading-[1.1] tracking-tight text-[#1C1B18]">
-            Mint the dollar,{" "}
-            <span className="font-serif italic font-normal text-[#283615]">stake for the drip</span>.
+            Deposit USDG,{" "}
+            <span className="font-serif italic font-normal text-[#283615]">stream for the drip</span>.
           </h2>
         </div>
 
         {/* 4 Metric Cards */}
         <dl className="grid grid-cols-2 gap-3 lg:grid-cols-4">
-          {/* Metric 1: aUSD in Circulation */}
+          {/* Metric 1: USDG In Pool */}
           <div className="min-w-0 rounded-2xl border border-[#E5E0D5] bg-white p-4 sm:p-5 shadow-[0_4px_20px_rgba(28,27,24,0.03)] hover:border-black/20 transition duration-200">
-            <dt className="font-mono text-[10px] uppercase tracking-[0.16em] text-[#6B665E]">aUSD in circulation</dt>
+            <dt className="font-mono text-[10px] uppercase tracking-[0.16em] text-[#6B665E]">USDG in Pool</dt>
             <dd className="mt-2 truncate font-display text-2xl sm:text-3xl text-[#1C1B18]">
               {totalStaked > 0n ? `$${formatTokenAmount(totalStaked, stakeDecimals, 2)}` : "$0.00"}
             </dd>
-            <dd className="mt-1.5 truncate font-mono text-[11px] text-[#8C877D]">backed 1:1 by USDG</dd>
+            <dd className="mt-1.5 truncate font-mono text-[11px] text-[#8C877D]">staked USDG liquidity</dd>
           </div>
 
-          {/* Metric 2: Reserve, liquid + lending */}
+          {/* Metric 2: Reserve Backing */}
           <div className="min-w-0 rounded-2xl border border-[#E5E0D5] bg-white p-4 sm:p-5 shadow-[0_4px_20px_rgba(28,27,24,0.03)] hover:border-black/20 transition duration-200">
-            <dt className="font-mono text-[10px] uppercase tracking-[0.16em] text-[#6B665E]">Reserve, liquid + lending</dt>
+            <dt className="font-mono text-[10px] uppercase tracking-[0.16em] text-[#6B665E]">Principal Backing</dt>
             <dd className="mt-2 truncate font-display text-2xl sm:text-3xl text-[#1C1B18]">100% Backed</dd>
-            <dd className="mt-1.5 truncate font-mono text-[11px] text-[#8C877D]">liquid buffer on Robinhood L2</dd>
+            <dd className="mt-1.5 truncate font-mono text-[11px] text-[#8C877D]">1:1 USDG liquid on Robinhood</dd>
           </div>
 
           {/* Metric 3: Redeemable now */}
           <div className="min-w-0 rounded-2xl border border-[#E5E0D5] bg-white p-4 sm:p-5 shadow-[0_4px_20px_rgba(28,27,24,0.03)] hover:border-black/20 transition duration-200">
-            <dt className="font-mono text-[10px] uppercase tracking-[0.16em] text-[#6B665E]">Redeemable now</dt>
+            <dt className="font-mono text-[10px] uppercase tracking-[0.16em] text-[#6B665E]">Withdrawal Speed</dt>
             <dd className="mt-2 truncate font-display text-2xl sm:text-3xl text-[#1C1B18]">Instant</dd>
-            <dd className="mt-1.5 truncate font-mono text-[11px] text-[#8C877D]">what the treasury can pay this block</dd>
+            <dd className="mt-1.5 truncate font-mono text-[11px] text-[#8C877D]">zero lockup epochs (0s)</dd>
           </div>
 
-          {/* Metric 4: saUSD estimated APY */}
+          {/* Metric 4: Estimated APY */}
           <div className="min-w-0 rounded-2xl border border-[#283615]/35 bg-white p-4 sm:p-5 shadow-[0_4px_20px_rgba(40,54,21,0.06)] hover:border-[#283615] transition duration-200">
-            <dt className="font-mono text-[10px] uppercase tracking-[0.16em] text-[#6B665E]">saUSD estimated APY</dt>
+            <dt className="font-mono text-[10px] uppercase tracking-[0.16em] text-[#6B665E]">Estimated APY</dt>
             <dd className="mt-2 truncate font-display text-2xl sm:text-3xl text-[#283615]">
               {calculatedApy !== undefined && calculatedApy > 0 ? formatApy(calculatedApy) : "38.4% APY"}
             </dd>
@@ -323,17 +322,17 @@ export const StakingDashboard: React.FC = () => {
         </dl>
 
         {/* ========================================================================= */}
-        {/* 3. DUAL SPLIT INTERACTIVE BENTO: Mint & Redeem | Stake & Harvest          */}
+        {/* 3. DUAL SPLIT INTERACTIVE BENTO: Deposit & Withdraw | Stream & Harvest     */}
         {/* ========================================================================= */}
         <div className="grid gap-5 lg:grid-cols-2 items-start pt-2">
-          {/* ---------------- CARD 1: THE DOLLAR (MINT & REDEEM) ---------------- */}
+          {/* ---------------- CARD 1: DEPOSIT & WITHDRAW USDG ---------------- */}
           <article className="overflow-hidden rounded-3xl border border-[#E5E0D5] bg-white shadow-[0_12px_36px_rgba(28,27,24,0.04)]">
             {/* Header Wash with Coin Illustration & Badge */}
             <div className="relative flex min-h-[140px] flex-col justify-end overflow-hidden p-6 sm:p-7 bg-gradient-to-b from-[#283615]/[0.04] to-transparent border-b border-[#E5E0D5]">
               <div className="pointer-events-none absolute -right-4 -top-6 h-36 w-36 rotate-[10deg] opacity-85">
                 <Image
                   src="/usdg-icon.png"
-                  alt="aUSD"
+                  alt="USDG"
                   fill
                   sizes="144px"
                   className="object-contain"
@@ -341,19 +340,19 @@ export const StakingDashboard: React.FC = () => {
               </div>
 
               <span className="absolute left-6 top-6 rounded-full bg-white px-3 py-1 font-mono text-[11px] text-[#6B665E] border border-[#E5E0D5] shadow-xs">
-                aUSD · 1:1 with USDG
+                USDG · 1:1 Principal
               </span>
 
               <div className="relative">
-                <p className="font-mono text-[10.5px] uppercase tracking-[0.16em] text-[#6B665E]">The dollar</p>
-                <h3 className="font-display text-2xl sm:text-3xl text-[#1C1B18] mt-1">Mint &amp; redeem</h3>
+                <p className="font-mono text-[10.5px] uppercase tracking-[0.16em] text-[#6B665E]">The asset</p>
+                <h3 className="font-display text-2xl sm:text-3xl text-[#1C1B18] mt-1">Deposit &amp; Withdraw</h3>
               </div>
             </div>
 
             {/* Interactive Module Body */}
             <div className="p-6 sm:p-7 space-y-6">
               <p className="text-[14px] leading-relaxed text-[#6B665E]">
-                Deposit USDG, receive the same number of aUSD. Redeem any time; the treasury pays from its own liquid buffer and unwinds positions in the same transaction.
+                Deposit USDG to activate your autonomous yield stream. Withdraw any time with zero epochs, zero penalties, and 100% instant liquid settlement.
               </p>
 
               {/* Tab Switcher */}
@@ -361,31 +360,31 @@ export const StakingDashboard: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => {
-                    setActiveTab("mint");
+                    setActiveTab("deposit");
                     setInputAmount("");
                   }}
                   className={`px-4 py-1.5 rounded-full font-mono text-xs uppercase tracking-wider font-semibold transition-all duration-200 cursor-pointer ${
-                    activeTab === "mint"
+                    activeTab === "deposit"
                       ? "bg-[#1C1B18] text-[#F6F3EC] shadow-xs"
                       : "text-[#6B665E] hover:text-[#1C1B18]"
                   }`}
                 >
-                  Mint (Deposit)
+                  Deposit USDG
                 </button>
 
                 <button
                   type="button"
                   onClick={() => {
-                    setActiveTab("redeem");
+                    setActiveTab("withdraw");
                     setInputAmount("");
                   }}
                   className={`px-4 py-1.5 rounded-full font-mono text-xs uppercase tracking-wider font-semibold transition-all duration-200 cursor-pointer ${
-                    activeTab === "redeem"
+                    activeTab === "withdraw"
                       ? "bg-[#1C1B18] text-[#F6F3EC] shadow-xs"
                       : "text-[#6B665E] hover:text-[#1C1B18]"
                   }`}
                 >
-                  Redeem (Withdraw)
+                  Withdraw USDG
                 </button>
               </div>
 
@@ -393,18 +392,18 @@ export const StakingDashboard: React.FC = () => {
               <div className="space-y-2">
                 <div className="flex items-center justify-between font-mono text-xs text-[#6B665E]">
                   <span className="uppercase text-[10px] tracking-wider">
-                    {activeTab === "mint" ? "DEPOSIT USDG" : "REDEEM aUSD"}
+                    {activeTab === "deposit" ? "DEPOSIT USDG" : "WITHDRAW USDG"}
                   </span>
                   <div className="flex items-center gap-2">
                     <span>
-                      BAL: {activeTab === "mint"
+                      BAL: {activeTab === "deposit"
                         ? isConnected ? formatTokenAmount(tokenBalance, stakeDecimals, 2) : "0.00"
                         : isConnected ? formatTokenAmount(stakedBalance, stakeDecimals, 2) : "0.00"}
                     </span>
                     <button
                       type="button"
                       onClick={handleMax}
-                      className="px-2 py-0.5 rounded-full bg-[#FAF8F5] border border-[#E5E0D5] text-[10px] font-bold text-[#1C1B18] hover:bg-black/5"
+                      className="px-2 py-0.5 rounded-full bg-[#FAF8F5] border border-[#E5E0D5] text-[10px] font-bold text-[#1C1B18] hover:bg-black/5 cursor-pointer"
                     >
                       MAX
                     </button>
@@ -438,7 +437,7 @@ export const StakingDashboard: React.FC = () => {
                       key={pct}
                       type="button"
                       onClick={() => handlePercentage(pct)}
-                      className="flex-1 py-1 rounded-lg bg-[#FAF8F5] border border-[#E5E0D5] text-[10px] font-mono text-[#6B665E] hover:text-[#1C1B18] hover:bg-black/5 transition"
+                      className="flex-1 py-1 rounded-lg bg-[#FAF8F5] border border-[#E5E0D5] text-[10px] font-mono text-[#6B665E] hover:text-[#1C1B18] hover:bg-black/5 transition cursor-pointer"
                     >
                       {pct}%
                     </button>
@@ -467,7 +466,7 @@ export const StakingDashboard: React.FC = () => {
                   disabled={!inputAmount || parseFloat(inputAmount) <= 0}
                   className="w-full py-4 rounded-full bg-[#1C1B18] hover:bg-[#283615] text-[#F6F3EC] font-mono text-xs uppercase tracking-wider font-bold transition shadow-sm disabled:opacity-40 disabled:cursor-not-allowed flex items-center justify-center gap-2 cursor-pointer"
                 >
-                  <span>{activeTab === "mint" ? "Confirm Mint aUSD" : "Confirm Redeem USDG"}</span>
+                  <span>{activeTab === "deposit" ? "Confirm Deposit USDG" : "Confirm Withdraw USDG"}</span>
                   <ArrowRight className="w-4 h-4 text-[#F6F3EC]" />
                 </button>
               )}
@@ -475,44 +474,44 @@ export const StakingDashboard: React.FC = () => {
               {/* Breakdown Key-Value DL List */}
               <dl className="mt-4 divide-y divide-[#E5E0D5] font-mono text-sm pt-2">
                 <div className="flex items-center justify-between gap-3 py-2.5">
-                  <dt className="shrink-0 text-[#6B665E]">Your USDG</dt>
+                  <dt className="shrink-0 text-[#6B665E]">Your USDG Balance</dt>
                   <dd className="min-w-0 truncate font-medium text-[#1C1B18]">
                     {isConnected ? `${formatTokenAmount(tokenBalance, stakeDecimals, 2)} USDG` : "not connected"}
                   </dd>
                 </div>
 
                 <div className="flex items-center justify-between gap-3 py-2.5">
-                  <dt className="shrink-0 text-[#6B665E]">Your aUSD</dt>
+                  <dt className="shrink-0 text-[#6B665E]">Your Staked USDG</dt>
                   <dd className="min-w-0 truncate font-medium text-[#1C1B18]">
-                    {isConnected ? `${formatTokenAmount(stakedBalance, stakeDecimals, 2)} aUSD` : "not connected"}
+                    {isConnected ? `${formatTokenAmount(stakedBalance, stakeDecimals, 2)} USDG` : "not connected"}
                   </dd>
                 </div>
 
                 <div className="flex items-center justify-between gap-3 py-2.5">
-                  <dt className="shrink-0 text-[#6B665E]">Fees, mint / redeem</dt>
+                  <dt className="shrink-0 text-[#6B665E]">Deposit / Exit Fees</dt>
                   <dd className="min-w-0 truncate font-medium text-[#283615]">0.00% / 0.00%</dd>
                 </div>
 
                 <div className="flex items-center justify-between gap-3 py-2.5">
-                  <dt className="shrink-0 text-[#6B665E]">Redemption lockup</dt>
+                  <dt className="shrink-0 text-[#6B665E]">Lockup Period</dt>
                   <dd className="min-w-0 truncate font-medium text-[#1C1B18]">0s (Instant)</dd>
                 </div>
               </dl>
 
               <p className="text-[12.5px] leading-relaxed text-[#8C877D] border-t border-[#E5E0D5] pt-3">
-                The treasury redeems what it minted, from what it holds liquid plus what the lending vault can pay in the moment: that is the &ldquo;redeemable now&rdquo; figure above.
+                Principal withdrawals settle directly from the pool contract with 0 cooldown epochs. Penarikan instan setiap detik.
               </p>
             </div>
           </article>
 
-          {/* ---------------- CARD 2: THE STAKED DOLLAR (STAKE & HARVEST) ---------------- */}
+          {/* ---------------- CARD 2: STREAM & HARVEST (AEGIS RADAR) ---------------- */}
           <article className="overflow-hidden rounded-3xl border border-[#E5E0D5] bg-white shadow-[0_12px_36px_rgba(28,27,24,0.04)]">
             {/* Header Wash with Coin Illustration & Badge */}
             <div className="relative flex min-h-[140px] flex-col justify-end overflow-hidden p-6 sm:p-7 bg-gradient-to-b from-[#283615]/[0.04] to-transparent border-b border-[#E5E0D5]">
               <div className="pointer-events-none absolute -right-4 -top-6 h-36 w-36 rotate-[10deg] opacity-90 p-4">
                 <Image
                   src="/aegis-logo-black.png"
-                  alt="saUSD"
+                  alt="Aegis"
                   fill
                   sizes="144px"
                   className="object-contain"
@@ -520,19 +519,19 @@ export const StakingDashboard: React.FC = () => {
               </div>
 
               <span className="absolute left-6 top-6 rounded-full bg-white px-3 py-1 font-mono text-[11px] text-[#6B665E] border border-[#E5E0D5] shadow-xs">
-                saUSD · ERC-4626 Stream
+                AEGIS · Reward Stream
               </span>
 
               <div className="relative">
-                <p className="font-mono text-[10.5px] uppercase tracking-[0.16em] text-[#6B665E]">The staked dollar</p>
-                <h3 className="font-display text-2xl sm:text-3xl text-[#1C1B18] mt-1">Stake &amp; unstake</h3>
+                <p className="font-mono text-[10.5px] uppercase tracking-[0.16em] text-[#6B665E]">The yield stream</p>
+                <h3 className="font-display text-2xl sm:text-3xl text-[#1C1B18] mt-1">Stream &amp; Harvest</h3>
               </div>
             </div>
 
             {/* Interactive Module Body */}
             <div className="p-6 sm:p-7 space-y-6">
               <p className="text-[14px] leading-relaxed text-[#6B665E]">
-                Stake aUSD into saUSD and every harvest raises what a share is worth. Rewards vest block by block; unstake whenever you like, no lock, no cooldown.
+                Rewards accumulate continuously per block based on your share of the USDG pool. Claim accumulated AEGIS tokens at any moment with sub-cent gas.
               </p>
 
               {/* Staked Position & Stream Telemetry */}
@@ -542,7 +541,7 @@ export const StakingDashboard: React.FC = () => {
                   <div className="font-mono text-xl sm:text-2xl font-bold text-[#1C1B18] mt-1 truncate">
                     {isConnected ? formatTokenAmount(stakedBalance, stakeDecimals, 2) : "0.00"}
                   </div>
-                  <span className="font-mono text-[10px] text-[#8C877D] block mt-0.5">aUSD staked</span>
+                  <span className="font-mono text-[10px] text-[#8C877D] block mt-0.5">USDG deposited</span>
                 </div>
 
                 <div className="rounded-2xl bg-[#FAF8F5] border border-[#283615]/30 p-4">
@@ -582,31 +581,33 @@ export const StakingDashboard: React.FC = () => {
               {/* Breakdown Key-Value DL List */}
               <dl className="mt-4 divide-y divide-[#E5E0D5] font-mono text-sm pt-2">
                 <div className="flex items-center justify-between gap-3 py-2.5">
-                  <dt className="shrink-0 text-[#6B665E]">Staked, all holders</dt>
+                  <dt className="shrink-0 text-[#6B665E]">Total Pool Staked</dt>
                   <dd className="min-w-0 truncate font-medium text-[#1C1B18]">
-                    {totalStaked > 0n ? `${formatTokenAmount(totalStaked, stakeDecimals, 2)} aUSD` : "—"}
+                    {totalStaked > 0n ? `${formatTokenAmount(totalStaked, stakeDecimals, 2)} USDG` : "—"}
                   </dd>
                 </div>
 
                 <div className="flex items-center justify-between gap-3 py-2.5">
-                  <dt className="shrink-0 text-[#6B665E]">Your saUSD share</dt>
+                  <dt className="shrink-0 text-[#6B665E]">Your Pool Share</dt>
                   <dd className="min-w-0 truncate font-medium text-[#1C1B18]">
-                    {isConnected && stakedBalance > 0n ? `${formatTokenAmount(stakedBalance, stakeDecimals, 2)} saUSD` : "not connected"}
+                    {isConnected && stakedBalance > 0n && totalStaked > 0n
+                      ? `${((Number(stakedBalance) / Number(totalStaked)) * 100).toFixed(2)}%`
+                      : "0.00%"}
                   </dd>
                 </div>
 
                 <div className="flex items-center justify-between gap-3 py-2.5">
-                  <dt className="shrink-0 text-[#6B665E]">1 saUSD</dt>
-                  <dd className="min-w-0 truncate font-medium text-[#1C1B18]">1.0000 aUSD + yield</dd>
+                  <dt className="shrink-0 text-[#6B665E]">Stream Velocity</dt>
+                  <dd className="min-w-0 truncate font-medium text-[#1C1B18]">Continuous Synthetix O(1)</dd>
                 </div>
 
                 <div className="flex items-center justify-between gap-3 py-2.5">
                   <dt className="shrink-0 text-[#6B665E]">Paying now, drip</dt>
-                  <dd className="min-w-0 truncate font-medium text-[#283615]">Continuous block stream</dd>
+                  <dd className="min-w-0 truncate font-medium text-[#283615]">Block-by-block stream</dd>
                 </div>
 
                 <div className="flex items-center justify-between gap-3 py-2.5">
-                  <dt className="shrink-0 text-[#6B665E]">AEGIS rewards</dt>
+                  <dt className="shrink-0 text-[#6B665E]">AEGIS Claimable</dt>
                   <dd className="min-w-0 truncate font-medium text-[#283615]">
                     {isConnected ? `${displayPendingRewards} AEGIS` : "—"}
                   </dd>
@@ -619,7 +620,7 @@ export const StakingDashboard: React.FC = () => {
                   Estimated APY — {calculatedApy !== undefined && calculatedApy > 0 ? formatApy(calculatedApy) : "38.4%"}
                 </p>
                 <p>
-                  An estimate, recomputed from the reserve, the staked supply and the AEGIS reward drip as they are now; the rewards leg falls as more aUSD is staked. &ldquo;Paying now&rdquo; is the distribution vesting this week, annualised.
+                  An estimate, recomputed dynamically from your staked USDG, the reward stream rate, and the circulating pool. Imbal hasil mengalir setiap blok tanpa jeda lockup.
                 </p>
               </div>
             </div>
@@ -646,9 +647,9 @@ export const StakingDashboard: React.FC = () => {
               <RosetteWatermark className="h-full w-full" />
             </div>
             <span className="font-mono text-[11px] tracking-[0.2em] text-[#9B783E] font-bold">01</span>
-            <h3 className="mt-3 text-[19px] font-semibold tracking-tight text-[#1C1B18]">Mint, one for one</h3>
+            <h3 className="mt-3 text-[19px] font-semibold tracking-tight text-[#1C1B18]">Deposit USDG, zero fee</h3>
             <p className="mt-2 text-[14px] leading-relaxed text-[#6B665E]">
-              Deposit USDG and receive the same number of aUSD. No price to check, no curve to cross — the treasury holds your dollar and owes it back.
+              Deposit USDG directly from your wallet with zero minting fee and micro-cent gas on Robinhood Chain.
             </p>
           </li>
 
@@ -658,9 +659,9 @@ export const StakingDashboard: React.FC = () => {
               <RosetteWatermark className="h-full w-full" />
             </div>
             <span className="font-mono text-[11px] tracking-[0.2em] text-[#9B783E] font-bold">02</span>
-            <h3 className="mt-3 text-[19px] font-semibold tracking-tight text-[#1C1B18]">The reserve goes to work</h3>
+            <h3 className="mt-3 text-[19px] font-semibold tracking-tight text-[#1C1B18]">Autonomous block stream</h3>
             <p className="mt-2 text-[14px] leading-relaxed text-[#6B665E]">
-              Treasury dollars are spread across tokenized T-bills, the Aegis lending vault, and a liquid buffer that always stays home for redemptions.
+              Yield accrues continuously per block using the Synthetix O(1) mathematical formulation, preventing front-running.
             </p>
           </li>
 
@@ -670,25 +671,25 @@ export const StakingDashboard: React.FC = () => {
               <RosetteWatermark className="h-full w-full" />
             </div>
             <span className="font-mono text-[11px] tracking-[0.2em] text-[#9B783E] font-bold">03</span>
-            <h3 className="mt-3 text-[19px] font-semibold tracking-tight text-[#1C1B18]">Stake for the yield</h3>
+            <h3 className="mt-3 text-[19px] font-semibold tracking-tight text-[#1C1B18]">Instant harvest &amp; withdraw</h3>
             <p className="mt-2 text-[14px] leading-relaxed text-[#6B665E]">
-              aUSD itself never pays interest. Stake it into saUSD and everything the reserve earns is dripped to stakers smoothly, block by block.
+              Claim your accumulated AEGIS rewards or withdraw your USDG principal at any second with 0-second lockup.
             </p>
           </li>
         </ol>
       </section>
 
       {/* ========================================================================= */}
-      {/* 5. DEEP-DIVE DUAL ASSET SPOTLIGHT: aUSD vs saUSD                           */}
+      {/* 5. DEEP-DIVE DUAL ASSET SPOTLIGHT: USDG vs AEGIS                           */}
       {/* ========================================================================= */}
       <section className="pt-4">
         <div className="grid gap-5 lg:grid-cols-2">
-          {/* Spotlight Card 1: aUSD */}
+          {/* Spotlight Card 1: USDG */}
           <article className="relative h-full overflow-hidden rounded-3xl border border-[#E5E0D5] bg-white p-8 sm:p-10 shadow-[0_12px_36px_rgba(28,27,24,0.04)]">
             <div className="pointer-events-none absolute -bottom-10 -right-8 h-56 w-56 -rotate-[10deg] opacity-90">
               <Image
                 src="/usdg-icon.png"
-                alt="aUSD"
+                alt="USDG"
                 fill
                 sizes="224px"
                 className="object-contain"
@@ -696,34 +697,34 @@ export const StakingDashboard: React.FC = () => {
             </div>
 
             <div className="relative max-w-sm">
-              <p className="font-mono text-[10.5px] uppercase tracking-[0.18em] text-[#9B783E] font-semibold">The dollar</p>
-              <h3 className="font-display mt-2 text-3xl sm:text-4xl text-[#1C1B18]">aUSD</h3>
+              <p className="font-mono text-[10.5px] uppercase tracking-[0.18em] text-[#9B783E] font-semibold">The principal</p>
+              <h3 className="font-display mt-2 text-3xl sm:text-4xl text-[#1C1B18]">USDG</h3>
               <p className="mt-3 text-[14.5px] leading-relaxed text-[#6B665E]">
-                A plain, transferable dollar. Hold it, trade it, post it, pool it — and redeem it for USDG at the treasury whenever you like. It never rebases and never pays interest, which is exactly what makes it composable everywhere.
+                A 100% liquid, USD-pegged stablecoin on Robinhood Chain. Deposit it into the staking pool to activate continuous yield or withdraw instantly at any time.
               </p>
 
               <ul className="mt-5 space-y-2 text-[13px] text-[#6B665E]">
-                <li>· Minted and redeemed 1:1 against USDG</li>
-                <li>· Redemptions draw on a buffer that refills itself from the reserve</li>
-                <li>· Zero rebasing risks, universal Robinhood Chain composability</li>
+                <li>· 100% 1:1 principal preservation</li>
+                <li>· Zero deposit or withdrawal friction</li>
+                <li>· Micro-cent Robinhood Chain transaction gas</li>
               </ul>
 
               <a
-                href="#mint"
+                href="#stake"
                 className="group mt-7 inline-flex items-center gap-1.5 rounded-full bg-[#1C1B18] px-5 py-2.5 text-[13px] font-mono uppercase tracking-wider text-[#F6F3EC] transition hover:-translate-y-0.5 hover:bg-[#283615]"
               >
-                Mint aUSD
+                Deposit USDG
                 <span className="transition-transform duration-200 group-hover:translate-x-0.5">→</span>
               </a>
             </div>
           </article>
 
-          {/* Spotlight Card 2: saUSD */}
+          {/* Spotlight Card 2: AEGIS */}
           <article className="relative h-full overflow-hidden rounded-3xl border border-[#E5E0D5] bg-white p-8 sm:p-10 shadow-[0_12px_36px_rgba(28,27,24,0.04)]">
             <div className="pointer-events-none absolute -bottom-10 -right-8 h-56 w-56 rotate-[10deg] opacity-90 p-4">
               <Image
                 src="/aegis-logo-black.png"
-                alt="saUSD"
+                alt="AEGIS"
                 fill
                 sizes="224px"
                 className="object-contain"
@@ -731,23 +732,23 @@ export const StakingDashboard: React.FC = () => {
             </div>
 
             <div className="relative max-w-sm">
-              <p className="font-mono text-[10.5px] uppercase tracking-[0.18em] text-[#9B783E] font-semibold">The staked dollar</p>
-              <h3 className="font-display mt-2 text-3xl sm:text-4xl text-[#1C1B18]">saUSD</h3>
+              <p className="font-mono text-[10.5px] uppercase tracking-[0.18em] text-[#9B783E] font-semibold">The reward stream</p>
+              <h3 className="font-display mt-2 text-3xl sm:text-4xl text-[#1C1B18]">AEGIS</h3>
               <p className="mt-3 text-[14.5px] leading-relaxed text-[#6B665E]">
-                Stake aUSD and hold saUSD, a vault share that only ever goes up in aUSD terms. Lending interest, drip emissions, and protocol fees — the whole of the reserve&apos;s earnings vest to stakers smoothly.
+                The protocol reward token streamed block by block to all active USDG depositors. Harvest anytime directly into your wallet.
               </p>
 
               <ul className="mt-5 space-y-2 text-[13px] text-[#6B665E]">
-                <li>· Standard vault share (ERC-4626) — unstake any time</li>
-                <li>· Rewards drip linearly, so there is no distribution to snipe</li>
-                <li>· The yield of the whole reserve, concentrated on those who opt in</li>
+                <li>· Autonomous continuous block drip</li>
+                <li>· Zero epoch lockup or vesting penalty</li>
+                <li>· Full governance and protocol utility</li>
               </ul>
 
               <a
-                href="#mint"
+                href="#stake"
                 className="group mt-7 inline-flex items-center gap-1.5 rounded-full border border-[#283615]/30 bg-[#FAF8F5] px-5 py-2.5 text-[13px] font-mono uppercase tracking-wider text-[#283615] transition hover:-translate-y-0.5 hover:border-[#283615] hover:text-[#283615]"
               >
-                Stake aUSD
+                Stake USDG
                 <span className="transition-transform duration-200 group-hover:translate-x-0.5">→</span>
               </a>
             </div>
@@ -766,7 +767,7 @@ export const StakingDashboard: React.FC = () => {
             <span className="font-serif italic font-normal text-[#283615]">be</span>.
           </h2>
           <p className="mt-3 max-w-2xl text-[14.5px] leading-relaxed text-[#6B665E]">
-            Every aUSD is matched by at least a dollar of reserve. The treasury&apos;s only job is deciding how much of it sits ready, how much lends, and how much earns the T-bill rate — inside limits the contracts enforce, not policies anyone has to remember.
+            Every staked USDG is matched by liquid backing. The protocol&apos;s only job is streaming continuous yield while maintaining liquid redemption reserves on-chain.
           </p>
         </div>
 
@@ -774,21 +775,21 @@ export const StakingDashboard: React.FC = () => {
           <div className="rounded-3xl border border-[#E5E0D5] bg-white p-7 shadow-[0_4px_20px_rgba(28,27,24,0.03)] hover:border-black/20 transition">
             <h3 className="text-[17px] font-semibold tracking-tight text-[#1C1B18]">Liquid USDG buffer</h3>
             <p className="mt-2 text-[14px] leading-relaxed text-[#6B665E]">
-              A floor of the reserve stays as plain USDG, so ordinary redemptions never wait on anything. Below the floor, the treasury refuses to invest.
+              A floor of the reserve stays as plain USDG, so ordinary withdrawals never wait on anything. Penarikan instan tanpa jeda.
             </p>
           </div>
 
           <div className="rounded-3xl border border-[#E5E0D5] bg-white p-7 shadow-[0_4px_20px_rgba(28,27,24,0.03)] hover:border-black/20 transition">
             <h3 className="text-[17px] font-semibold tracking-tight text-[#1C1B18]">Aegis lending vault</h3>
             <p className="mt-2 text-[14px] leading-relaxed text-[#6B665E]">
-              Part of the buffer earns borrower interest in the same vault lenders already use. Redemptions unwind it automatically when the liquid buffer runs short.
+              Part of the buffer earns borrower interest in the lending vault. Withdrawals unwind it automatically when the liquid buffer runs short.
             </p>
           </div>
 
           <div className="rounded-3xl border border-[#E5E0D5] bg-white p-7 shadow-[0_4px_20px_rgba(28,27,24,0.03)] hover:border-black/20 transition">
             <h3 className="text-[17px] font-semibold tracking-tight text-[#1C1B18]">Tokenized T-bills (SGOV)</h3>
             <p className="mt-2 text-[14px] leading-relaxed text-[#6B665E]">
-              The 0–3 month US Treasury token on Robinhood Chain. Dividends are reinvested through the token&apos;s own multiplier; while any change is scheduled the treasury waits for the feed to reflect it.
+              The 0–3 month US Treasury token on Robinhood Chain. Dividends are reinvested continuously to amplify the staker yield pool.
             </p>
           </div>
         </div>
@@ -807,27 +808,27 @@ export const StakingDashboard: React.FC = () => {
             Built like the markets
           </p>
           <h2 className="font-display mt-2 max-w-2xl text-3xl sm:text-4xl lg:text-5xl font-normal leading-[1.1] tracking-tight text-[#1C1B18]">
-            The same discipline, applied to a{" "}
-            <span className="font-serif italic font-normal text-[#283615]">dollar</span>.
+            The same discipline, applied to{" "}
+            <span className="font-serif italic font-normal text-[#283615]">USDG staking</span>.
           </h2>
 
           <ul className="mt-10 grid gap-x-10 gap-y-7 sm:grid-cols-2 lg:grid-cols-3">
             {[
               {
-                title: "Always redeemable at one dollar",
-                desc: "Redeeming burns aUSD against the treasury's own book — the exit does not depend on a pool having depth that day.",
+                title: "Always withdrawable 1:1 in USDG",
+                desc: "Withdrawals settle against the pool contracts directly — never dependent on third-party liquidity.",
               },
               {
                 title: "Conservative valuation",
-                desc: "The reserve never counts a dividend before it is paid, and pauses everything valuation-dependent while an action is scheduled.",
+                desc: "The reserve never counts unvested yield before it is paid, maintaining strict mathematical safety.",
               },
               {
                 title: "Retained equity before payouts",
-                desc: "Yield is only distributed above a retained cushion sized to the reserve — never down to the last cent.",
+                desc: "Yield is only distributed above a verified buffer sized to the reserve — never down to the last cent.",
               },
               {
                 title: "Rate-limited operations",
-                desc: "Reserve rotation is bounded against the Chainlink price and rate-limited by a rolling daily allowance.",
+                desc: "Pool operations are bounded on-chain and rate-limited by smart contract parameters.",
               },
               {
                 title: "Autonomous stream engine",
@@ -870,22 +871,22 @@ export const StakingDashboard: React.FC = () => {
                 Small on purpose, and growing with its reserve.
               </h2>
               <p className="mt-2.5 text-[13.5px] leading-relaxed text-[#C8C4BC]">
-                The treasury opens with a hard cap on what it mints. The cap steps up as the reserve, the keeper and the lending markets behind saUSD prove themselves in public. Every parameter, every raise, on-chain.
+                The pool opens on Robinhood Chain with transparent on-chain parameters. Stakers deposit USDG, earn AEGIS streaming yield, and withdraw without lockup friction.
               </p>
             </div>
 
             <div className="flex shrink-0 flex-wrap gap-3">
               <a
-                href="#mint"
+                href="#stake"
                 className="rounded-full bg-[#F6F3EC] px-6 py-3 text-[13px] font-mono uppercase tracking-wider font-bold text-[#1C1B18] transition hover:-translate-y-0.5 hover:bg-white shadow-sm"
               >
-                Mint aUSD →
+                Deposit USDG →
               </a>
               <Link
                 href="/docs"
                 className="rounded-full border border-white/20 px-6 py-3 text-[13px] font-mono uppercase tracking-wider font-semibold text-[#F6F3EC] transition hover:-translate-y-0.5 hover:border-white/40 hover:bg-white/5"
               >
-                aUSD docs ↗
+                Docs ↗
               </Link>
             </div>
           </div>
@@ -903,9 +904,9 @@ export const StakingDashboard: React.FC = () => {
       {unstakeModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm animate-in fade-in duration-150">
           <div className="bg-white rounded-3xl p-6 sm:p-8 space-y-5 border border-[#E5E0D5] shadow-2xl max-w-md w-full text-[#1C1B18]">
-            <h3 className="font-display text-2xl uppercase text-[#1C1B18] tracking-tight">Withdraw Capital</h3>
+            <h3 className="font-display text-2xl uppercase text-[#1C1B18] tracking-tight">Withdraw USDG</h3>
             <p className="text-xs font-mono text-[#6B665E]">
-              Enter aUSD amount to withdraw from the staking contract back into your wallet.
+              Enter USDG amount to withdraw from the staking contract back into your wallet.
             </p>
 
             <div className="rounded-2xl p-3.5 flex items-center justify-between bg-[#FAF8F5] border border-[#E5E0D5] focus-within:border-[#283615]">

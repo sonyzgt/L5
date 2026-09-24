@@ -1,9 +1,9 @@
 import { StakingDashboard } from "@/components/Staking/StakingDashboard";
 
 export const metadata = {
-  title: "aUSD — Aegis",
+  title: "Stake USDG — Aegis",
   description:
-    "aUSD is Aegis's reserve-backed dollar: minted 1:1 against USDG, backed by tokenized liquid reserves and the lending markets, with all yield flowing to stakers.",
+    "Stake USDG to continuously stream Aegis reward tokens on Robinhood Chain with zero lockup epochs and instant withdrawals.",
 };
 
 export default function StakePage() {

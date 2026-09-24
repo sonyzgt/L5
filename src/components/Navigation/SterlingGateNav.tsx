@@ -219,14 +219,14 @@ export const SterlingGateNav: React.FC = () => {
             className="pointer-events-auto flex items-center gap-2 sm:gap-3 group select-none"
           >
             <div className="transition-transform duration-300 group-hover:scale-105 group-hover:rotate-6">
-              <Layer5Emblem size={26} variant="white" animate={false} />
+              <Layer5Emblem size={26} variant={isScrolled ? "white" : "black"} animate={false} />
             </div>
             <div className="flex flex-col">
-              <span className="text-sm sm:text-base font-bold tracking-[0.2em] sm:tracking-[0.22em] text-white uppercase font-sans">
+              <span className={`text-sm sm:text-base font-bold tracking-[0.2em] sm:tracking-[0.22em] uppercase font-sans ${isScrolled ? "text-white" : "text-[#1C1B18]"}`}>
                 Aegis
               </span>
               {!isScrolled && (
-                <span className="hidden sm:inline text-[8px] font-mono tracking-[0.3em] text-[#8e95a2] uppercase">
+                <span className="hidden sm:inline text-[8px] font-mono tracking-[0.3em] text-[#6B665E] uppercase">
                   ROBINHOOD CHAIN
                 </span>
               )}
