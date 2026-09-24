@@ -4,14 +4,17 @@ import React, { useRef, useMemo, useState, useEffect, Suspense } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 
-interface LiquidEntityProps {
+interface AegisShieldProps {
   scrollProgress?: number;
 }
 
-const LiquidFlowEntity: React.FC<LiquidEntityProps> = ({ scrollProgress = 0 }) => {
-  const meshRef = useRef<THREE.Mesh>(null);
+const AegisShieldArtifact: React.FC<AegisShieldProps> = ({ scrollProgress = 0 }) => {
+  const rootGroupRef = useRef<THREE.Group>(null);
+  const medallionRef = useRef<THREE.Group>(null);
   const innerRingRef = useRef<THREE.Mesh>(null);
-  const outerWireRef = useRef<THREE.Mesh>(null);
+  const outerRingRef = useRef<THREE.Mesh>(null);
+  const haloRingRef = useRef<THREE.Mesh>(null);
+  const satellitesRef = useRef<THREE.Group>(null);
   const particlesRef = useRef<THREE.Points>(null);
 
   // Mouse tracking with smooth lerp
@@ -26,85 +29,199 @@ const LiquidFlowEntity: React.FC<LiquidEntityProps> = ({ scrollProgress = 0 }) =
     return () => window.removeEventListener("mousemove", onMouseMove);
   }, []);
 
-  // Generate stream particles
-  const [particlePositions] = useMemo(() => {
-    const count = 180;
+  // Load the Aegis Emblem texture
+  const emblemTexture = useMemo(() => {
+    const loader = new THREE.TextureLoader();
+    const tex = loader.load("/aegis-logo-transparent.png");
+    tex.colorSpace = THREE.SRGBColorSpace;
+    tex.generateMipmaps = true;
+    tex.minFilter = THREE.LinearMipmapLinearFilter;
+    tex.magFilter = THREE.LinearFilter;
+    return tex;
+  }, []);
+
+  // Ascending Celestial Starlight / Ember Particles
+  const [particlePositions, particleScales] = useMemo(() => {
+    const count = 160;
     const pos = new Float32Array(count * 3);
+    const scales = new Float32Array(count);
     for (let i = 0; i < count; i++) {
-      const u = Math.random() * Math.PI * 2;
-      const v = (Math.random() - 0.5) * Math.PI;
-      const radius = 2.2 + Math.random() * 0.9;
-      pos[i * 3] = radius * Math.cos(v) * Math.cos(u);
-      pos[i * 3 + 1] = radius * Math.sin(v);
-      pos[i * 3 + 2] = radius * Math.cos(v) * Math.sin(u);
+      const angle = Math.random() * Math.PI * 2;
+      const radius = 1.3 + Math.random() * 1.6;
+      pos[i * 3] = radius * Math.cos(angle);
+      pos[i * 3 + 1] = (Math.random() - 0.5) * 4.0;
+      pos[i * 3 + 2] = radius * Math.sin(angle);
+      scales[i] = 0.5 + Math.random() * 0.8;
     }
-    return [pos];
+    return [pos, scales];
   }, []);
 
   useFrame((state, delta) => {
     const t = state.clock.getElapsedTime();
 
-    // Lerp mouse
-    mouse.current.x += (mouse.current.targetX - mouse.current.x) * 0.04;
-    mouse.current.y += (mouse.current.targetY - mouse.current.y) * 0.04;
+    // Lerp mouse coordinates smoothly
+    mouse.current.x += (mouse.current.targetX - mouse.current.x) * 0.05;
+    mouse.current.y += (mouse.current.targetY - mouse.current.y) * 0.05;
 
-    if (meshRef.current) {
-      // Slow organic rotation + mouse tilt + scroll spin
-      meshRef.current.rotation.x = t * 0.12 + mouse.current.y * 0.25 + scrollProgress * 1.5;
-      meshRef.current.rotation.y = t * 0.18 + mouse.current.x * 0.35 + scrollProgress * 2.2;
-      meshRef.current.rotation.z = t * 0.08;
-
-      // Subtle breathing scale
-      const breath = 1 + Math.sin(t * 0.8) * 0.035;
-      const scrollScale = 1 + scrollProgress * 0.35;
-      meshRef.current.scale.set(breath * scrollScale, breath * scrollScale, breath * scrollScale);
+    // Root Group breathing levitation & gentle tilt
+    if (rootGroupRef.current) {
+      rootGroupRef.current.position.y = Math.sin(t * 1.4) * 0.08;
+      rootGroupRef.current.rotation.x = mouse.current.y * 0.25;
+      rootGroupRef.current.rotation.y = mouse.current.x * 0.35 + scrollProgress * 1.2;
     }
 
+    // Shield Medallion slow majestic yaw swing
+    if (medallionRef.current) {
+      medallionRef.current.rotation.y = Math.sin(t * 0.4) * 0.22;
+      medallionRef.current.rotation.z = Math.cos(t * 0.5) * 0.04;
+    }
+
+    // Inner Luminous Lime Gyro Ring
     if (innerRingRef.current) {
-      innerRingRef.current.rotation.x = -t * 0.22 - scrollProgress * 1.8;
-      innerRingRef.current.rotation.y = -t * 0.15;
+      innerRingRef.current.rotation.x = t * 0.35;
+      innerRingRef.current.rotation.z = -t * 0.25;
     }
 
-    if (outerWireRef.current) {
-      outerWireRef.current.rotation.z = t * 0.09;
-      outerWireRef.current.rotation.y = t * 0.06;
+    // Outer Celestial Ivory Ring
+    if (outerRingRef.current) {
+      outerRingRef.current.rotation.y = -t * 0.28;
+      outerRingRef.current.rotation.x = t * 0.15;
     }
 
+    // Polar Halo Ring
+    if (haloRingRef.current) {
+      haloRingRef.current.rotation.z = t * 0.18;
+    }
+
+    // Orbiting Satellite Beacons
+    if (satellitesRef.current) {
+      satellitesRef.current.rotation.y = t * 0.45;
+      satellitesRef.current.rotation.x = Math.sin(t * 0.3) * 0.15;
+    }
+
+    // Particle Swarm slow vertical drift
     if (particlesRef.current) {
-      particlesRef.current.rotation.y = t * 0.05 + scrollProgress * 0.8;
+      const positions = particlesRef.current.geometry.attributes.position.array as Float32Array;
+      for (let i = 0; i < positions.length / 3; i++) {
+        positions[i * 3 + 1] += delta * 0.25;
+        if (positions[i * 3 + 1] > 2.0) {
+          positions[i * 3 + 1] = -2.0;
+        }
+      }
+      particlesRef.current.geometry.attributes.position.needsUpdate = true;
+      particlesRef.current.rotation.y = t * 0.04;
     }
   });
 
   return (
-    <group position={[0, 0, 0]}>
-      {/* Central Flowing Liquid Obsidian Entity */}
-      <mesh ref={meshRef}>
-        <torusKnotGeometry args={[1.35, 0.42, 160, 32, 2, 3]} />
-        <meshPhysicalMaterial
-          color="#141f11"
-          roughness={0.16}
-          metalness={0.88}
-          clearcoat={1.0}
-          clearcoatRoughness={0.08}
-          transmission={0.22}
-          ior={1.55}
-          reflectivity={0.9}
-        />
-      </mesh>
+    <group ref={rootGroupRef} position={[0, 0, 0]}>
+      {/* Central Shield Talisman Medallion */}
+      <group ref={medallionRef}>
+        {/* Front Shield Emblem Plane */}
+        <mesh position={[0, 0, 0.04]}>
+          <planeGeometry args={[2.25, 2.25]} />
+          <meshBasicMaterial
+            map={emblemTexture}
+            transparent
+            side={THREE.FrontSide}
+            depthWrite={false}
+          />
+        </mesh>
 
-      {/* Counter-Rotating Kinetic Inner Ring */}
+        {/* Back Shield Emblem Plane (mirrored back) */}
+        <mesh position={[0, 0, -0.04]} rotation={[0, Math.PI, 0]}>
+          <planeGeometry args={[2.25, 2.25]} />
+          <meshBasicMaterial
+            map={emblemTexture}
+            transparent
+            side={THREE.FrontSide}
+            depthWrite={false}
+          />
+        </mesh>
+
+        {/* Solid Dark Metallic Backplate Core */}
+        <mesh position={[0, 0, 0]} rotation={[Math.PI / 2, 0, 0]}>
+          <cylinderGeometry args={[1.22, 1.25, 0.06, 64]} />
+          <meshPhysicalMaterial
+            color="#141c11"
+            roughness={0.2}
+            metalness={0.9}
+            clearcoat={1.0}
+            clearcoatRoughness={0.1}
+            reflectivity={0.9}
+          />
+        </mesh>
+
+        {/* Gilded Inner Bevel Rim */}
+        <mesh position={[0, 0, 0]} rotation={[Math.PI / 2, 0, 0]}>
+          <torusGeometry args={[1.25, 0.035, 16, 64]} />
+          <meshStandardMaterial
+            color="#B8F34A"
+            metalness={0.85}
+            roughness={0.25}
+            emissive="#B8F34A"
+            emissiveIntensity={0.15}
+          />
+        </mesh>
+
+        {/* Subtle Protective Glass Shield Shell */}
+        <mesh position={[0, 0, 0]}>
+          <sphereGeometry args={[1.35, 32, 32]} />
+          <meshPhysicalMaterial
+            color="#B8F34A"
+            roughness={0.08}
+            metalness={0.1}
+            transmission={0.95}
+            ior={1.45}
+            transparent
+            opacity={0.12}
+            depthWrite={false}
+          />
+        </mesh>
+      </group>
+
+      {/* Gyroscopic Celestial Ring 1 - Luminous Moss Lime */}
       <mesh ref={innerRingRef}>
-        <torusGeometry args={[1.9, 0.02, 16, 100]} />
-        <meshBasicMaterial color="#B8F34A" opacity={0.65} transparent />
+        <torusGeometry args={[1.72, 0.018, 16, 80]} />
+        <meshBasicMaterial color="#B8F34A" opacity={0.7} transparent />
       </mesh>
 
-      {/* Outer Thin Technical Orbit Ring */}
-      <mesh ref={outerWireRef}>
-        <torusGeometry args={[2.55, 0.012, 16, 120]} />
-        <meshBasicMaterial color="#F4F1E8" opacity={0.22} transparent wireframe />
+      {/* Gyroscopic Celestial Ring 2 - Wireframe Ivory */}
+      <mesh ref={outerRingRef}>
+        <torusGeometry args={[2.15, 0.012, 16, 96]} />
+        <meshBasicMaterial color="#F4F1E8" opacity={0.35} transparent wireframe />
       </mesh>
 
-      {/* Orbiting Yield Stream Particles */}
+      {/* Outer Halo Perimeter */}
+      <mesh ref={haloRingRef}>
+        <torusGeometry args={[2.45, 0.008, 16, 110]} />
+        <meshBasicMaterial color="#A0AA98" opacity={0.2} transparent />
+      </mesh>
+
+      {/* Orbiting Satellite Crystals */}
+      <group ref={satellitesRef}>
+        {[0, (Math.PI * 2) / 3, (Math.PI * 4) / 3].map((angle, i) => (
+          <mesh
+            key={i}
+            position={[
+              Math.cos(angle) * 1.9,
+              Math.sin(angle * 2) * 0.35,
+              Math.sin(angle) * 1.9,
+            ]}
+          >
+            <octahedronGeometry args={[0.07, 0]} />
+            <meshStandardMaterial
+              color={i === 0 ? "#B8F34A" : "#F4F1E8"}
+              emissive={i === 0 ? "#B8F34A" : "#F4F1E8"}
+              emissiveIntensity={0.6}
+              roughness={0.1}
+              metalness={0.9}
+            />
+          </mesh>
+        ))}
+      </group>
+
+      {/* Ascending Starlight / Ember Particles */}
       <points ref={particlesRef}>
         <bufferGeometry>
           <bufferAttribute
@@ -118,30 +235,40 @@ const LiquidFlowEntity: React.FC<LiquidEntityProps> = ({ scrollProgress = 0 }) =
           size={0.035}
           color="#B8F34A"
           transparent
-          opacity={0.8}
+          opacity={0.75}
           blending={THREE.AdditiveBlending}
+          depthWrite={false}
         />
       </points>
 
-      {/* Volumetric Light Sources */}
-      {/* Luminous Moss Lime Key Edge Light */}
-      <pointLight position={[3.5, 3.0, 2.5]} intensity={9.0} color="#B8F34A" distance={10} />
-      {/* Deep Forest Moss Fill Light (#283615) */}
-      <pointLight position={[-3.5, -2.5, -2.0]} intensity={5.0} color="#283615" distance={10} />
-      {/* Warm Ivory Rim Reflection */}
-      <pointLight position={[0, -3.5, 3.5]} intensity={4.0} color="#F4F1E8" distance={8} />
-      <ambientLight intensity={0.5} />
+      {/* Volumetric Lights */}
+      {/* Front Specular Highlight Light */}
+      <directionalLight position={[2, 3, 4]} intensity={2.8} color="#FFFFF8" />
+      {/* Luminous Key Light */}
+      <pointLight position={[3, 2, 2]} intensity={7.0} color="#B8F34A" distance={8} />
+      {/* Deep Forest Fill Light */}
+      <pointLight position={[-3, -2, -2]} intensity={5.0} color="#283615" distance={8} />
+      {/* Ivory Rim Light */}
+      <pointLight position={[0, -3, 3]} intensity={4.5} color="#F4F1E8" distance={8} />
+      <ambientLight intensity={1.2} />
     </group>
   );
 };
 
-// Graceful CSS Fallback for low-power devices / disabled WebGL
+// Graceful Fallback for devices without WebGL
 const HeroVisualFallback: React.FC = () => {
   return (
-    <div className="relative w-full h-full flex items-center justify-center select-none pointer-events-none">
-      <div className="relative w-[300px] sm:w-[480px] h-[300px] sm:h-[480px] rounded-full border border-white/[0.08] flex items-center justify-center animate-[spin_40s_linear_infinite]">
-        <div className="w-[75%] h-[75%] rounded-full border border-dashed border-[#C7FF28]/30 flex items-center justify-center animate-[spin_25s_linear_infinite_reverse]">
-          <div className="w-[50%] h-[50%] rounded-full bg-gradient-to-tr from-[#C7FF28]/20 via-[#0a120c] to-transparent border border-white/10 shadow-[0_0_80px_rgba(199,255,40,0.15)]" />
+    <div className="relative w-full h-full flex items-center justify-center select-none pointer-events-none p-6">
+      <div className="relative w-full max-w-[340px] aspect-square rounded-full border border-white/[0.08] flex items-center justify-center animate-[spin_60s_linear_infinite]">
+        <div className="w-[84%] h-[84%] rounded-full border border-dashed border-[#B8F34A]/30 flex items-center justify-center animate-[spin_35s_linear_infinite_reverse]">
+          <div className="relative w-[70%] h-[70%] flex items-center justify-center">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/aegis-logo-transparent.png"
+              alt="Aegis Shield"
+              className="w-full h-full object-contain drop-shadow-[0_0_35px_rgba(184,243,74,0.35)]"
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -174,14 +301,14 @@ export const HeroVisual3D: React.FC<HeroVisual3DProps> = ({
   }
 
   return (
-    <div className={`relative overflow-hidden pointer-events-none ${className}`}>
+    <div className={`relative overflow-hidden ${className}`}>
       <Suspense fallback={<HeroVisualFallback />}>
         <Canvas
-          camera={{ position: [0, 0, 5.8], fov: 42 }}
+          camera={{ position: [0, 0, 5.2], fov: 42 }}
           gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
-          className="w-full h-full"
+          className="w-full h-full pointer-events-auto"
         >
-          <LiquidFlowEntity scrollProgress={scrollProgress} />
+          <AegisShieldArtifact scrollProgress={scrollProgress} />
         </Canvas>
       </Suspense>
     </div>
