@@ -20,7 +20,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 }) => {
   return (
     <section className="relative min-h-[100dvh] w-full flex flex-col justify-between pt-32 sm:pt-36 lg:pt-40 pb-10 sm:pb-12 px-4 sm:px-8 lg:px-12 select-none overflow-hidden bg-[#F6F3EC]">
-      {/* Background Heroic Artwork */}
+      {/* Background Heroic Artwork - Inverted High-Key Classical Etching (100% Bright, Zero Dark Smudge) */}
       <div className="absolute inset-0 pointer-events-none select-none overflow-hidden" aria-hidden="true">
         <Image
           src="/aegis-hero-bg.jpg"
@@ -28,9 +28,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           fill
           priority
           sizes="100vw"
-          className="object-cover object-[center_32%] opacity-[0.18] filter contrast-110 mix-blend-multiply"
+          className="object-cover object-[center_32%] opacity-[0.20] mix-blend-multiply filter invert grayscale brightness-[1.25] contrast-[1.12]"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#F6F3EC]/90 via-[#F6F3EC]/70 to-[#F6F3EC]" />
+        {/* Radial highlight to keep center text area completely luminous and clean */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(246,243,236,0.92)_20%,rgba(246,243,236,0.5)_65%,transparent_100%)]" />
       </div>
 
       {/* Ambient Warm Paper Lighting Fields */}
@@ -39,41 +40,26 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       {/* Main Hero Content */}
       <div className="max-w-5xl mx-auto w-full text-center space-y-8 sm:space-y-10 my-auto py-6 sm:py-12">
         {/* Main Headline */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-          className="space-y-3"
-        >
+        <div className="space-y-3">
           <h1 className="font-display font-black text-5xl sm:text-7xl md:text-8xl lg:text-[7.25rem] xl:text-[8.25rem] leading-[0.95] tracking-tight uppercase text-[#1C1B18]">
             FLOW CAPITAL.
             <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1C1B18] via-[#283615] to-[#1C1B18]">
+            <span className="text-[#283615]">
               STREAM YIELD.
             </span>
           </h1>
-        </motion.div>
+        </div>
 
         {/* Narrative Description */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          className="font-sans text-base sm:text-lg md:text-xl text-[#6B665E] leading-relaxed max-w-2xl mx-auto font-normal"
-        >
+        <p className="font-sans text-base sm:text-lg md:text-xl text-[#5A554E] leading-relaxed max-w-2xl mx-auto font-normal">
           Autonomous non-custodial staking infrastructure on Robinhood Chain. Deposit USDG and continuously stream cryptographic Aegis rewards every single block with zero lockup friction.
-        </motion.p>
+        </p>
 
         {/* Action Buttons */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.28, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-3.5 sm:gap-5 pt-2"
-        >
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 sm:gap-5 pt-2">
           <Link
             href="/stake"
-            className="w-full sm:w-auto px-9 py-4.5 rounded-full bg-[#1C1B18] hover:bg-[#2d2b27] text-[#F6F3EC] font-display text-xs sm:text-sm font-bold uppercase tracking-[0.12em] transition-all duration-300 shadow-[0_4px_24px_rgba(0,0,0,0.14)] hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2"
+            className="w-full sm:w-auto px-9 py-4.5 rounded-full bg-[#1C1B18] hover:bg-[#283615] text-[#F6F3EC] font-display text-xs sm:text-sm font-bold uppercase tracking-[0.12em] transition-all duration-300 shadow-[0_4px_24px_rgba(28,27,24,0.18)] hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2 cursor-pointer"
           >
             <span>START STAKING NOW</span>
             <ArrowUpRight className="w-4 h-4 text-[#F6F3EC]" />
@@ -81,19 +67,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
           <Link
             href="/position"
-            className="w-full sm:w-auto px-8 py-4.5 rounded-full bg-white hover:bg-[#FAF8F5] text-[#1C1B18] font-mono text-xs sm:text-sm font-medium uppercase tracking-[0.1em] border border-black/[0.12] hover:border-black/30 transition-all duration-300 shadow-sm flex items-center justify-center gap-2"
+            className="w-full sm:w-auto px-8 py-4.5 rounded-full bg-white hover:bg-[#FAF8F5] text-[#1C1B18] font-mono text-xs sm:text-sm font-medium uppercase tracking-[0.1em] border border-[#E5E0D5] hover:border-black/30 transition-all duration-300 shadow-sm flex items-center justify-center gap-2 cursor-pointer"
           >
             <span>VIEW PORTFOLIO</span>
           </Link>
-        </motion.div>
+        </div>
 
         {/* Live Telemetry Bar */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
-          className="pt-6"
-        >
+        <div className="pt-6">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 p-4 sm:p-5 rounded-3xl bg-white/80 border border-black/[0.08] backdrop-blur-md max-w-4xl mx-auto font-mono text-left shadow-[0_8px_30px_rgba(0,0,0,0.04)]">
             <div className="space-y-1 p-2">
               <span className="text-[10px] text-[#6B665E] uppercase tracking-wider block">
@@ -138,7 +119,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               </div>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
 
       {/* Hero Bottom Hairline & Coordinate Markers */}

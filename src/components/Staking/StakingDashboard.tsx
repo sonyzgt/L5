@@ -181,19 +181,18 @@ export const StakingDashboard: React.FC = () => {
       {/* 1. HERO BANNER: Denar-style Editorial Hero with Dual Floating Emblems      */}
       {/* ========================================================================= */}
       <section className="relative overflow-hidden rounded-3xl border border-[#E5E0D5] bg-white p-7 sm:p-12 md:p-14 shadow-[0_12px_40px_rgba(28,27,24,0.04)]">
-        {/* Background Artwork */}
+        {/* Background Artwork - Inverted High-Key Classical Etching */}
         <div className="absolute inset-0 pointer-events-none select-none overflow-hidden" aria-hidden="true">
           <Image
             src="/aegis-hero-bg.jpg"
             alt="Aegis Heroic Background"
             fill
             sizes="(max-width: 1280px) 100vw, 1280px"
-            className="object-cover object-[center_28%] opacity-[0.28] filter contrast-[1.08]"
+            className="object-cover object-[center_28%] opacity-[0.22] mix-blend-multiply filter invert grayscale brightness-[1.25] contrast-[1.15]"
             priority
           />
           {/* Subtle gradient wash for maximum legibility */}
-          <div className="absolute inset-0 bg-gradient-to-r from-white via-white/85 to-white/30" />
-          <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent opacity-80" />
+          <div className="absolute inset-0 bg-gradient-to-r from-white via-white/80 to-transparent" />
         </div>
 
         {/* Guilloche ornament at top border */}
