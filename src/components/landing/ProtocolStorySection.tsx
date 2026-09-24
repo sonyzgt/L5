@@ -12,11 +12,11 @@ interface WordProps {
 }
 
 const Word: React.FC<WordProps> = ({ children, range, progress }) => {
-  const opacity = useTransform(progress, range, [0.18, 1]);
+  const opacity = useTransform(progress, range, [0.2, 1]);
   const color = useTransform(
     progress,
     range,
-    ["rgba(245, 247, 242, 0.22)", "rgba(245, 247, 242, 1)"]
+    ["rgba(28, 27, 24, 0.22)", "rgba(28, 27, 24, 1.0)"]
   );
   return (
     <motion.span style={{ opacity, color }} className="inline-block mr-[0.3em] transition-colors">
@@ -64,26 +64,26 @@ export const ProtocolStorySection: React.FC = () => {
   return (
     <section
       ref={containerRef}
-      className="relative w-full py-28 sm:py-36 lg:py-48 px-4 sm:px-8 lg:px-12 bg-[#10170e] border-t border-white/[0.06] overflow-hidden"
+      className="relative w-full py-28 sm:py-36 lg:py-48 px-4 sm:px-8 lg:px-12 bg-[#F6F3EC] border-t border-black/[0.08] overflow-hidden"
     >
       {/* Ambient background glow */}
-      <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[500px] h-[500px] bg-[#283615]/[0.35] blur-[160px] rounded-full pointer-events-none -z-10" />
+      <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[500px] h-[500px] bg-[#EAE4D6]/50 blur-[160px] rounded-full pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto space-y-24 sm:space-y-32">
         {/* Section Header */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 border-b border-white/[0.08] pb-8">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 border-b border-black/[0.08] pb-8">
           <div className="space-y-3">
-            <div className="flex items-center gap-2 text-xs font-mono tracking-[0.25em] text-[#B8F34A] uppercase">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#B8F34A]" />
+            <div className="flex items-center gap-2 text-xs font-mono tracking-[0.25em] text-[#283615] uppercase font-bold">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#283615]" />
               <span>02 // ARCHITECTURAL PARADIGM</span>
             </div>
-            <h2 className="font-display font-black text-3xl sm:text-5xl lg:text-6xl tracking-[-0.03em] uppercase text-[#F4F1E8]">
+            <h2 className="font-display font-black text-3xl sm:text-5xl lg:text-6xl tracking-[-0.03em] uppercase text-[#1C1B18]">
               CAPITAL THAT NEVER
               <br />
-              <span className="text-[#B8F34A]">STOPS MOVING.</span>
+              <span className="text-[#283615]">STOPS MOVING.</span>
             </h2>
           </div>
-          <div className="font-mono text-xs text-[#A0AA98] uppercase tracking-widest max-w-xs text-left sm:text-right">
+          <div className="font-mono text-xs text-[#6B665E] uppercase tracking-widest max-w-xs text-left sm:text-right">
             CONTINUOUS EMISSION PROTOCOL // NON-CUSTODIAL VAULT
           </div>
         </div>
@@ -110,35 +110,35 @@ export const ProtocolStorySection: React.FC = () => {
             return (
               <div
                 key={pillar.num}
-                className="group relative p-8 rounded-2xl bg-[#151e12] border border-white/[0.08] hover:border-[#B8F34A]/50 transition-all duration-500 hover:shadow-[0_12px_40px_rgba(0,0,0,0.6)] flex flex-col justify-between space-y-8"
+                className="group relative p-8 rounded-2xl bg-white border border-black/[0.08] hover:border-black/30 transition-all duration-500 shadow-[0_8px_30px_rgba(0,0,0,0.03)] hover:shadow-[0_16px_40px_rgba(0,0,0,0.08)] flex flex-col justify-between space-y-8"
               >
                 {/* Top Corner Identity */}
                 <div className="flex items-center justify-between">
-                  <span className="font-mono text-xs text-[#A0AA98] tracking-widest">
+                  <span className="font-mono text-xs text-[#6B665E] tracking-widest">
                     [{pillar.num}]
                   </span>
-                  <div className="w-10 h-10 rounded-full bg-white/[0.03] border border-white/[0.08] flex items-center justify-center group-hover:border-[#B8F34A]/50 group-hover:bg-[#B8F34A]/[0.1] transition-all duration-300">
-                    <Icon className="w-4 h-4 text-[#F4F1E8] group-hover:text-[#B8F34A] transition-colors" />
+                  <div className="w-10 h-10 rounded-full bg-[#FAF8F5] border border-black/[0.08] flex items-center justify-center group-hover:bg-[#1C1B18] group-hover:text-[#F6F3EC] transition-all duration-300">
+                    <Icon className="w-4 h-4 text-[#1C1B18] group-hover:text-[#F6F3EC] transition-colors" />
                   </div>
                 </div>
 
                 {/* Content */}
                 <div className="space-y-3">
-                  <span className="font-mono text-[10px] tracking-[0.2em] text-[#B8F34A] uppercase block font-semibold">
+                  <span className="font-mono text-[10px] tracking-[0.2em] text-[#283615] uppercase block font-bold">
                     {pillar.tag}
                   </span>
-                  <h3 className="font-display font-bold text-xl sm:text-2xl text-[#F4F1E8] tracking-tight group-hover:text-[#F4F1E8]">
+                  <h3 className="font-display font-bold text-xl sm:text-2xl text-[#1C1B18] tracking-tight">
                     {pillar.title}
                   </h3>
-                  <p className="font-sans text-sm text-[#A0AA98] leading-relaxed">
+                  <p className="font-sans text-sm text-[#6B665E] leading-relaxed">
                     {pillar.desc}
                   </p>
                 </div>
 
                 {/* Bottom line hint */}
-                <div className="pt-4 border-t border-white/[0.06] flex items-center justify-between text-xs font-mono text-[#A0AA98]">
+                <div className="pt-4 border-t border-black/[0.06] flex items-center justify-between text-xs font-mono text-[#6B665E]">
                   <span>VERIFIED ON-CHAIN</span>
-                  <span className="text-[#B8F34A] opacity-0 group-hover:opacity-100 transition-opacity">
+                  <span className="text-[#283615] font-semibold opacity-0 group-hover:opacity-100 transition-opacity">
                     READY
                   </span>
                 </div>
@@ -148,14 +148,14 @@ export const ProtocolStorySection: React.FC = () => {
         </div>
 
         {/* Minimal inline link to Position/Stake */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-6 text-xs font-mono text-[#A0AA98]">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-6 text-xs font-mono text-[#6B665E]">
           <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-[#B8F34A]" />
-            <span>CONTRACT: ROBINHOOD MAINNET VERIFIED</span>
+            <span className="w-2 h-2 rounded-full bg-emerald-600" />
+            <span className="text-[#1C1B18]">CONTRACT: ROBINHOOD MAINNET VERIFIED</span>
           </div>
           <Link
             href="/stake"
-            className="group inline-flex items-center gap-2 text-[#F4F1E8] hover:text-[#B8F34A] transition-colors uppercase tracking-widest font-semibold"
+            className="group inline-flex items-center gap-2 text-[#1C1B18] hover:text-[#283615] transition-colors uppercase tracking-widest font-bold"
           >
             <span>DEPOSIT USDG NOW</span>
             <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
@@ -165,3 +165,5 @@ export const ProtocolStorySection: React.FC = () => {
     </section>
   );
 };
+
+export default ProtocolStorySection;

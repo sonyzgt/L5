@@ -31,7 +31,7 @@ export const LandingContainer: React.FC = () => {
   return (
     <div
       ref={containerRef}
-      className="relative min-h-screen w-full bg-[#10170e] text-[#F4F1E8] overflow-x-hidden selection:bg-[#B8F34A] selection:text-[#10170e]"
+      className="relative min-h-screen w-full bg-[#F6F3EC] text-[#1C1B18] overflow-x-hidden selection:bg-[#1C1B18] selection:text-[#F6F3EC]"
     >
       {/* Intro sequence */}
       <IntroLoader />

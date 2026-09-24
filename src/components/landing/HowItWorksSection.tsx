@@ -48,36 +48,35 @@ export const HowItWorksSection: React.FC = () => {
   ];
 
   return (
-    <section className="relative w-full py-28 sm:py-36 lg:py-48 px-4 sm:px-8 lg:px-12 bg-[#151e12] border-t border-white/[0.06] overflow-hidden">
+    <section className="relative w-full py-28 sm:py-36 lg:py-48 px-4 sm:px-8 lg:px-12 bg-[#EFECE3] border-t border-black/[0.08] overflow-hidden">
       {/* Decorative background grid and glow */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none" />
-      <div className="absolute bottom-10 right-10 w-[450px] h-[450px] bg-[#283615]/[0.45] blur-[150px] rounded-full pointer-events-none -z-10" />
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000008_1px,transparent_1px),linear-gradient(to_bottom,#00000008_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto space-y-20 sm:space-y-28 relative z-10">
         {/* Section Header */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 border-b border-white/[0.08] pb-10">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 border-b border-black/[0.08] pb-10">
           <div className="space-y-3">
-            <div className="flex items-center gap-2 text-xs font-mono tracking-[0.25em] text-[#B8F34A] uppercase">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#B8F34A]" />
+            <div className="flex items-center gap-2 text-xs font-mono tracking-[0.25em] text-[#283615] uppercase font-bold">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#283615]" />
               <span>03 // EXECUTION ARCHITECTURE</span>
             </div>
-            <h2 className="font-display font-black text-3xl sm:text-5xl lg:text-7xl tracking-[-0.04em] uppercase text-[#F4F1E8]">
+            <h2 className="font-display font-black text-3xl sm:text-5xl lg:text-7xl tracking-[-0.04em] uppercase text-[#1C1B18]">
               HOW CAPITAL
               <br />
-              <span className="text-[#B8F34A]">STREAMS.</span>
+              <span className="text-[#283615]">STREAMS.</span>
             </h2>
           </div>
           <div className="max-w-md space-y-3">
-            <p className="font-sans text-sm sm:text-base text-[#A0AA98] leading-relaxed">
+            <p className="font-sans text-sm sm:text-base text-[#6B665E] leading-relaxed">
               Three streamlined steps engineered for maximum capital efficiency and security on Robinhood Chain L2.
             </p>
-            <div className="flex items-center gap-4 text-xs font-mono text-[#F4F1E8]">
-              <span className="flex items-center gap-1.5 text-[#B8F34A]">
+            <div className="flex items-center gap-4 text-xs font-mono text-[#1C1B18]">
+              <span className="flex items-center gap-1.5 text-[#283615] font-semibold">
                 <Shield className="w-3.5 h-3.5" /> NON-CUSTODIAL
               </span>
-              <span className="text-white/20">•</span>
-              <span className="flex items-center gap-1.5">
-                <Layers className="w-3.5 h-3.5 text-[#A0AA98]" /> ROBINHOOD CHAIN
+              <span className="text-black/20">•</span>
+              <span className="flex items-center gap-1.5 text-[#6B665E]">
+                <Layers className="w-3.5 h-3.5" /> ROBINHOOD CHAIN
               </span>
             </div>
           </div>
@@ -85,30 +84,30 @@ export const HowItWorksSection: React.FC = () => {
 
         {/* 3 Step Editorial Timeline Cards */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {steps.map((step, idx) => (
+          {steps.map((step) => (
             <div
               key={step.number}
-              className="group relative flex flex-col justify-between p-8 sm:p-10 rounded-2xl bg-[#10170e] border border-white/[0.08] hover:border-[#B8F34A]/50 transition-all duration-500 hover:shadow-[0_20px_50px_rgba(0,0,0,0.8)]"
+              className="group relative flex flex-col justify-between p-8 sm:p-10 rounded-2xl bg-white border border-black/[0.08] hover:border-black/30 transition-all duration-500 shadow-[0_8px_30px_rgba(0,0,0,0.03)] hover:shadow-[0_16px_40px_rgba(0,0,0,0.08)]"
             >
               {/* Step Counter Top Row */}
-              <div className="flex items-center justify-between pb-8 border-b border-white/[0.06]">
-                <span className="font-display font-black text-4xl sm:text-5xl text-white/20 group-hover:text-[#B8F34A] transition-colors">
+              <div className="flex items-center justify-between pb-8 border-b border-black/[0.06]">
+                <span className="font-display font-black text-4xl sm:text-5xl text-black/15 group-hover:text-[#283615] transition-colors">
                   {step.number}
                 </span>
-                <span className="font-mono text-[10px] tracking-[0.25em] text-[#A0AA98] uppercase px-3 py-1 rounded-full bg-white/[0.03] border border-white/[0.06]">
+                <span className="font-mono text-[10px] tracking-[0.25em] text-[#6B665E] uppercase px-3 py-1 rounded-full bg-[#FAF8F5] border border-black/[0.08]">
                   {step.tag}
                 </span>
               </div>
 
               {/* Main Content */}
               <div className="py-8 space-y-4">
-                <div className="font-mono text-xs text-[#B8F34A] tracking-widest uppercase font-semibold">
+                <div className="font-mono text-xs text-[#283615] tracking-widest uppercase font-bold">
                   {step.action}
                 </div>
-                <h3 className="font-display font-bold text-xl sm:text-2xl text-[#F4F1E8] tracking-tight">
+                <h3 className="font-display font-bold text-xl sm:text-2xl text-[#1C1B18] tracking-tight">
                   {step.title}
                 </h3>
-                <p className="font-sans text-sm text-[#A0AA98] leading-relaxed">
+                <p className="font-sans text-sm text-[#6B665E] leading-relaxed">
                   {step.summary}
                 </p>
 
@@ -117,9 +116,9 @@ export const HowItWorksSection: React.FC = () => {
                   {step.details.map((detail, dIdx) => (
                     <div
                       key={dIdx}
-                      className="flex items-center gap-2.5 text-xs font-mono text-[#F4F1E8]/80"
+                      className="flex items-center gap-2.5 text-xs font-mono text-[#1C1B18]/90"
                     >
-                      <CheckCircle2 className="w-3.5 h-3.5 text-[#B8F34A] shrink-0" />
+                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
                       <span>{detail}</span>
                     </div>
                   ))}
@@ -127,13 +126,13 @@ export const HowItWorksSection: React.FC = () => {
               </div>
 
               {/* Card Footer Link */}
-              <div className="pt-6 border-t border-white/[0.06] flex items-center justify-between">
-                <span className="font-mono text-[11px] text-[#A0AA98] uppercase">
+              <div className="pt-6 border-t border-black/[0.06] flex items-center justify-between">
+                <span className="font-mono text-[11px] text-[#6B665E] uppercase">
                   VERIFIABLE CONTRACT
                 </span>
                 <Link
                   href="/stake"
-                  className="inline-flex items-center gap-1 font-mono text-xs text-[#F4F1E8] group-hover:text-[#B8F34A] transition-colors uppercase font-medium"
+                  className="inline-flex items-center gap-1 font-mono text-xs text-[#1C1B18] group-hover:text-[#283615] transition-colors uppercase font-bold"
                 >
                   <span>EXECUTE</span>
                   <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -144,16 +143,16 @@ export const HowItWorksSection: React.FC = () => {
         </div>
 
         {/* Timeline Bottom Interactive Bar */}
-        <div className="p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-white/[0.02] via-[#283615]/30 to-white/[0.02] border border-white/[0.08] flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div className="p-6 sm:p-8 rounded-2xl bg-white border border-black/[0.08] shadow-sm flex flex-col sm:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-4 text-left">
-            <div className="w-10 h-10 rounded-full bg-[#B8F34A]/10 border border-[#B8F34A]/30 flex items-center justify-center shrink-0">
-              <Sparkles className="w-5 h-5 text-[#B8F34A]" />
+            <div className="w-10 h-10 rounded-full bg-[#FAF8F5] border border-black/[0.08] flex items-center justify-center shrink-0">
+              <Sparkles className="w-5 h-5 text-[#283615]" />
             </div>
             <div>
-              <div className="font-display font-bold text-sm sm:text-base text-[#F4F1E8] uppercase">
+              <div className="font-display font-bold text-sm sm:text-base text-[#1C1B18] uppercase">
                 Ready to begin streaming?
               </div>
-              <div className="font-sans text-xs sm:text-sm text-[#A0AA98]">
+              <div className="font-sans text-xs sm:text-sm text-[#6B665E]">
                 Connect your Web3 wallet and deposit USDG to start accumulating Aegis yield instantly.
               </div>
             </div>
@@ -161,13 +160,13 @@ export const HowItWorksSection: React.FC = () => {
           <div className="flex items-center gap-3 shrink-0">
             <Link
               href="/stake"
-              className="px-6 py-3 rounded-full bg-[#B8F34A] hover:bg-[#c7fa5e] text-[#10170e] font-display text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-[0_0_20px_rgba(184,243,74,0.3)] hover:scale-[1.02]"
+              className="px-6 py-3 rounded-full bg-[#1C1B18] hover:bg-[#2d2b27] text-[#F6F3EC] font-display text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-sm hover:scale-[1.02]"
             >
               LAUNCH STAKING
             </Link>
             <Link
               href="/docs"
-              className="px-6 py-3 rounded-full bg-white/[0.03] hover:bg-white/[0.08] text-[#F4F1E8] font-mono text-xs uppercase tracking-wider border border-white/[0.1] transition-all"
+              className="px-6 py-3 rounded-full bg-[#FAF8F5] hover:bg-white text-[#1C1B18] font-mono text-xs uppercase tracking-wider border border-black/[0.1] transition-all"
             >
               READ SPECS
             </Link>
@@ -177,3 +176,5 @@ export const HowItWorksSection: React.FC = () => {
     </section>
   );
 };
+
+export default HowItWorksSection;

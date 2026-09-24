@@ -9,7 +9,7 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
-  themeColor: "#10170e",
+  themeColor: "#F6F3EC",
 };
 
 export const metadata: Metadata = {
@@ -58,7 +58,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" className="light">
       <head>
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />
@@ -70,20 +70,11 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="bg-[#10170e] text-[#F4F1E8] antialiased selection:bg-[#B8F34A] selection:text-[#10170e] min-h-screen flex flex-col relative overflow-x-hidden">
-        {/* Subtle Aegis Mythic Moss Ambient Background Glows & Auralis WebGL */}
+      <body className="bg-[#F6F3EC] text-[#1C1B18] antialiased selection:bg-[#1C1B18] selection:text-[#F6F3EC] min-h-screen flex flex-col relative overflow-x-hidden">
+        {/* Warm Paper Atmospheric Background Grain & Glow */}
         <div className="fixed inset-0 pointer-events-none -z-20 overflow-hidden">
-          <div className="absolute top-0 right-1/4 w-[600px] h-[500px] bg-[#283615]/[0.35] blur-[170px] rounded-full" />
-          <div className="absolute bottom-1/4 left-1/4 w-[700px] h-[600px] bg-[#B8F34A]/[0.04] blur-[180px] rounded-full" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,transparent_0%,#10170e_85%)]" />
-          <div className="absolute inset-0 opacity-40">
-            <Auralis
-              colors={["#283615", "#3a4f20", "#B8F34A"]}
-              speed={0.16}
-              grain={0.3}
-              className="w-full h-full bg-transparent"
-            />
-          </div>
+          <div className="absolute top-0 right-1/4 w-[600px] h-[500px] bg-[#EAE4D6]/60 blur-[160px] rounded-full" />
+          <div className="absolute bottom-1/4 left-1/4 w-[700px] h-[600px] bg-[#E2DDD0]/50 blur-[170px] rounded-full" />
         </div>
 
         <Providers>

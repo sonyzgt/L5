@@ -154,7 +154,7 @@ export default function DocsPage() {
   const nextSection = currentIndex < sections.length - 1 ? sections[currentIndex + 1] : null;
 
   return (
-    <div className="relative min-h-screen bg-[#10170e] text-[#F4F1E8] pt-28 pb-20 px-4 sm:px-8 lg:px-12 select-none">
+    <div className="relative min-h-screen bg-[#F6F3EC] text-[#1C1B18] pt-28 pb-20 px-4 sm:px-8 lg:px-12 select-none">
       <div className="max-w-7xl mx-auto space-y-8">
         
         {/* Top Header Banner */}
