@@ -4,9 +4,11 @@ import React, { useRef } from "react";
 import { useScroll, useSpring } from "framer-motion";
 import { IntroLoader } from "./IntroLoader";
 import { HeroSection } from "./HeroSection";
+import { MarqueeTicker } from "./MarqueeTicker";
 import { ProtocolStorySection } from "./ProtocolStorySection";
 import { HowItWorksSection } from "./HowItWorksSection";
 import { LiveMetricsSection } from "./LiveMetricsSection";
+import { ProtocolFaqSection } from "./ProtocolFaqSection";
 import { FinalCTASection } from "./FinalCTASection";
 import { useLayer5Staking } from "@/lib/hooks/useLayer5Staking";
 
@@ -34,12 +36,15 @@ export const LandingContainer: React.FC = () => {
       {/* Intro sequence */}
       <IntroLoader />
 
-      {/* Top Hero Section with 3D liquid entity & massive typography */}
+      {/* Hero Section */}
       <HeroSection
         scrollProgress={scrollYProgress}
         smoothProgress={smoothProgress}
         calculatedApy={calculatedApy}
       />
+
+      {/* Marquee Streaming Ribbon (Inspired by royalty.global) */}
+      <MarqueeTicker />
 
       {/* Section 2: Architectural Story with scroll-driven illuminating words */}
       <ProtocolStorySection />
@@ -55,8 +60,16 @@ export const LandingContainer: React.FC = () => {
         stakeDecimals={stakeDecimals}
       />
 
-      {/* Section 5 & Footer: Final invitation to stake */}
+      {/* Reverse Marquee Ribbon */}
+      <MarqueeTicker reverse />
+
+      {/* Section 5: Protocol Intelligence FAQ Accordion */}
+      <ProtocolFaqSection />
+
+      {/* Section 6 & Footer: Final invitation to stake */}
       <FinalCTASection />
     </div>
   );
 };
+
+export default LandingContainer;

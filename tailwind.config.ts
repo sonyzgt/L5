@@ -44,6 +44,21 @@ const config: Config = {
         mono: ["Space Grotesk", "Geist Mono", "ui-monospace", "monospace"],
         sans: ["Geist", "Inter", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "sans-serif"],
       },
+      keyframes: {
+        marquee: {
+          "0%": { transform: "translateX(0%)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
+        marqueeReverse: {
+          "0%": { transform: "translateX(-50%)" },
+          "100%": { transform: "translateX(0%)" },
+        },
+      },
+      animation: {
+        marquee: "marquee 26s linear infinite",
+        marqueeSlow: "marquee 42s linear infinite",
+        marqueeReverse: "marqueeReverse 26s linear infinite",
+      },
     },
   },
   plugins: [],

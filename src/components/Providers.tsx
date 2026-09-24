@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { RainbowKitProvider, darkTheme } from "@rainbow-me/rainbowkit";
 import "@rainbow-me/rainbowkit/styles.css";
 import { wagmiConfig } from "@/lib/blockchain/wagmi";
+import { SmoothScrollProvider } from "@/components/Providers/SmoothScrollProvider";
 
 export function Providers({ children }: { children: React.ReactNode }) {
   const [queryClient] = useState(
@@ -27,14 +28,14 @@ export function Providers({ children }: { children: React.ReactNode }) {
           locale="id-ID"
           modalSize="wide"
           theme={darkTheme({
-            accentColor: "#c8f53c",
-            accentColorForeground: "#090a0c",
+            accentColor: "#B8F34A",
+            accentColorForeground: "#10170e",
             borderRadius: "large",
             fontStack: "system",
             overlayBlur: "small",
           })}
         >
-          {children}
+          <SmoothScrollProvider>{children}</SmoothScrollProvider>
         </RainbowKitProvider>
       </QueryClientProvider>
     </WagmiProvider>
