@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Syne:wght@700;800&family=Space+Grotesk:wght@500;600;700&display=swap');
 
 :root {
-  --sg-color-primary: #c8f53c;
-  --sg-color-primary-glow: rgba(200, 245, 60, 0.35);
-  --sg-color-dark: #f5f6f8;
-  --sg-color-neutral-100: #12141a;
-  --sg-color-neutral-200: #1b1e26;
-  --sg-color-neutral-300: #08090c;
-  --sg-color-neutral-800: #252834;
+  --sg-color-primary: #B8F34A;
+  --sg-color-primary-glow: rgba(184, 243, 74, 0.35);
+  --sg-color-dark: #F4F1E8;
+  --sg-color-neutral-100: #151e12;
+  --sg-color-neutral-200: #1a2517;
+  --sg-color-neutral-300: #10170e;
+  --sg-color-neutral-800: #283615;
   --sg-cubic: cubic-bezier(0.65, 0.05, 0, 1);
 }
 
@@ -193,8 +193,8 @@
 }
 
 .sg-backdrop-layer.main {
-  background: radial-gradient(circle at 100% 0%, #151820 0%, #08090c 70%);
-  border-left: 1px solid rgba(200, 245, 60, 0.2);
+  background: radial-gradient(circle at 100% 0%, #1a2517 0%, #10170e 70%);
+  border-left: 1px solid rgba(184, 243, 74, 0.2);
   z-index: 3;
 }
 

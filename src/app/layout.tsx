@@ -9,7 +9,7 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
-  themeColor: "#08090c",
+  themeColor: "#10170e",
 };
 
 export const metadata: Metadata = {
@@ -70,17 +70,17 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="bg-[#08090c] text-[#f4f5f8] antialiased selection:bg-[#c8f53c] selection:text-[#08090c] min-h-screen flex flex-col relative overflow-x-hidden">
-        {/* Subtle Sterling Gate Ambient Background Glows & Auralis WebGL */}
+      <body className="bg-[#10170e] text-[#F4F1E8] antialiased selection:bg-[#B8F34A] selection:text-[#10170e] min-h-screen flex flex-col relative overflow-x-hidden">
+        {/* Subtle Aegis Mythic Moss Ambient Background Glows & Auralis WebGL */}
         <div className="fixed inset-0 pointer-events-none -z-20 overflow-hidden">
-          <div className="absolute top-0 right-1/4 w-[600px] h-[500px] bg-[#c8f53c]/[0.035] blur-[160px] rounded-full" />
-          <div className="absolute bottom-1/4 left-1/4 w-[700px] h-[600px] bg-indigo-600/[0.03] blur-[180px] rounded-full" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,transparent_0%,#08090c_85%)]" />
+          <div className="absolute top-0 right-1/4 w-[600px] h-[500px] bg-[#283615]/[0.35] blur-[170px] rounded-full" />
+          <div className="absolute bottom-1/4 left-1/4 w-[700px] h-[600px] bg-[#B8F34A]/[0.04] blur-[180px] rounded-full" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,transparent_0%,#10170e_85%)]" />
           <div className="absolute inset-0 opacity-40">
             <Auralis
-              colors={["#c8f53c", "#22c55e", "#10b981"]}
-              speed={0.2}
-              grain={0.35}
+              colors={["#283615", "#3a4f20", "#B8F34A"]}
+              speed={0.16}
+              grain={0.3}
               className="w-full h-full bg-transparent"
             />
           </div>

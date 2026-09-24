@@ -65,7 +65,7 @@ export const LandingNav: React.FC = () => {
         <div
           className={`max-w-7xl mx-auto flex items-center justify-between pointer-events-auto transition-all duration-500 ${
             isScrolled
-              ? "bg-[#050706]/85 backdrop-blur-xl px-5 sm:px-7 py-3 rounded-full border border-white/[0.08] shadow-[0_12px_40px_rgba(0,0,0,0.8)]"
+              ? "bg-[#10170e]/85 backdrop-blur-xl px-5 sm:px-7 py-3 rounded-full border border-white/[0.08] shadow-[0_12px_40px_rgba(0,0,0,0.8)]"
               : "bg-transparent px-2 py-1"
           }`}
         >
@@ -79,10 +79,10 @@ export const LandingNav: React.FC = () => {
               <Layer5Emblem size={30} variant="white" animate={false} />
             </div>
             <div className="flex flex-col text-left">
-              <span className="font-display text-sm sm:text-base font-extrabold tracking-[-0.02em] text-[#F5F7F2] uppercase leading-none">
+              <span className="font-display text-sm sm:text-base font-extrabold tracking-[-0.02em] text-[#F4F1E8] uppercase leading-none">
                 Aegis
               </span>
-              <span className="text-[8px] font-mono tracking-[0.25em] text-[#9AA09A] uppercase pt-1 leading-none">
+              <span className="text-[8px] font-mono tracking-[0.25em] text-[#A0AA98] uppercase pt-1 leading-none">
                 ROBINHOOD CHAIN
               </span>
             </div>
@@ -101,14 +101,14 @@ export const LandingNav: React.FC = () => {
                     setWalletModalOpen(true);
                   }
                 }}
-                className="group relative flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.12] hover:border-[#C7FF28]/60 transition-all duration-300 font-mono text-[11px] sm:text-xs text-[#F5F7F2] shadow-sm select-none cursor-pointer"
+                className="group relative flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.12] hover:border-[#B8F34A]/60 transition-all duration-300 font-mono text-[11px] sm:text-xs text-[#F4F1E8] shadow-sm select-none cursor-pointer"
                 title="Account Settings"
               >
                 <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#C7FF28] opacity-75" />
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#C7FF28]" />
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#B8F34A] opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#B8F34A]" />
                 </span>
-                <span className="font-semibold tracking-wider group-hover:text-[#C7FF28] transition-colors">
+                <span className="font-semibold tracking-wider group-hover:text-[#B8F34A] transition-colors">
                   {formatAddress(address)}
                 </span>
               </button>
@@ -122,10 +122,10 @@ export const LandingNav: React.FC = () => {
                     setWalletModalOpen(true);
                   }
                 }}
-                className="group relative flex items-center gap-2 px-3.5 sm:px-5 py-2 rounded-full bg-[#C7FF28] hover:bg-[#d5fa5b] text-[#050706] font-display text-[10px] sm:text-xs font-bold uppercase tracking-[0.1em] transition-all duration-300 shadow-[0_0_24px_rgba(199,255,40,0.25)] hover:shadow-[0_0_32px_rgba(199,255,40,0.45)] hover:scale-[1.02] active:scale-[0.98] select-none cursor-pointer"
+                className="group relative flex items-center gap-2 px-3.5 sm:px-5 py-2 rounded-full bg-[#B8F34A] hover:bg-[#c7fa5e] text-[#10170e] font-display text-[10px] sm:text-xs font-bold uppercase tracking-[0.1em] transition-all duration-300 shadow-[0_0_24px_rgba(184,243,74,0.25)] hover:shadow-[0_0_32px_rgba(184,243,74,0.45)] hover:scale-[1.02] active:scale-[0.98] select-none cursor-pointer"
                 title="Connect Web3 Wallet"
               >
-                <Wallet className="w-3.5 h-3.5 text-[#050706]" />
+                <Wallet className="w-3.5 h-3.5 text-[#10170e]" />
                 <span>
                   <span className="hidden sm:inline">CONNECT </span>WALLET
                 </span>
@@ -136,13 +136,13 @@ export const LandingNav: React.FC = () => {
             <button
               type="button"
               onClick={() => setIsOpen(!isOpen)}
-              className="group flex items-center gap-2 px-3.5 sm:px-4.5 py-2 rounded-full bg-[#080B09]/90 hover:bg-[#121614] border border-white/[0.12] hover:border-[#C7FF28]/50 text-[#F5F7F2] font-mono text-xs uppercase tracking-widest transition-all duration-300 select-none cursor-pointer"
+              className="group flex items-center gap-2 px-3.5 sm:px-4.5 py-2 rounded-full bg-[#151e12]/90 hover:bg-[#1a2517] border border-white/[0.12] hover:border-[#B8F34A]/50 text-[#F4F1E8] font-mono text-xs uppercase tracking-widest transition-all duration-300 select-none cursor-pointer"
               aria-label="Toggle Navigation Menu"
             >
               <span className="text-[11px] font-bold">
                 {isOpen ? "CLOSE" : "MENU"}
               </span>
-              <span className="text-sm font-light text-[#C7FF28] transition-transform duration-300 group-hover:rotate-90">
+              <span className="text-sm font-light text-[#B8F34A] transition-transform duration-300 group-hover:rotate-90">
                 {isOpen ? "×" : "+"}
               </span>
             </button>
@@ -159,18 +159,18 @@ export const LandingNav: React.FC = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed inset-0 z-40 bg-[#050706]/98 backdrop-blur-2xl flex flex-col justify-between p-6 sm:p-12 lg:p-20 overflow-y-auto"
+            className="fixed inset-0 z-40 bg-[#0e140c]/98 backdrop-blur-2xl flex flex-col justify-between p-6 sm:p-12 lg:p-20 overflow-y-auto"
           >
             {/* Top Bar inside Menu */}
             <div className="flex items-center justify-between w-full pt-2 border-b border-white/[0.08] pb-6">
               <div className="flex items-center gap-3">
                 <Layer5Emblem size={26} variant="white" animate={false} />
-                <span className="font-display font-bold text-sm tracking-widest text-[#F5F7F2] uppercase">
+                <span className="font-display font-bold text-sm tracking-widest text-[#F4F1E8] uppercase">
                   AEGIS PROTOCOL
                 </span>
               </div>
-              <div className="flex items-center gap-2 text-[10px] font-mono tracking-widest text-[#9AA09A] uppercase">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#C7FF28]" />
+              <div className="flex items-center gap-2 text-[10px] font-mono tracking-widest text-[#A0AA98] uppercase">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#B8F34A]" />
                 <span>ROBINHOOD CHAIN ({protocolConfig.chainId})</span>
               </div>
             </div>
@@ -199,15 +199,15 @@ export const LandingNav: React.FC = () => {
                         className="flex items-baseline justify-between w-full text-left"
                       >
                         <div className="flex items-baseline gap-4 sm:gap-8">
-                          <span className="font-mono text-xs sm:text-sm tracking-widest text-[#9AA09A] group-hover:text-[#C7FF28] transition-colors">
+                          <span className="font-mono text-xs sm:text-sm tracking-widest text-[#A0AA98] group-hover:text-[#B8F34A] transition-colors">
                             {item.num}
                           </span>
-                          <span className="font-display font-extrabold text-3xl sm:text-6xl md:text-7xl lg:text-8xl tracking-[-0.03em] uppercase text-[#F5F7F2] group-hover:text-[#C7FF28] transition-all duration-300 group-hover:translate-x-3">
+                          <span className="font-display font-extrabold text-3xl sm:text-6xl md:text-7xl lg:text-8xl tracking-[-0.03em] uppercase text-[#F4F1E8] group-hover:text-[#B8F34A] transition-all duration-300 group-hover:translate-x-3">
                             {item.label}
                           </span>
                         </div>
-                        <span className="font-mono text-xs sm:text-sm text-[#9AA09A] opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
-                          EXPLORE <ArrowUpRight className="w-4 h-4 text-[#C7FF28]" />
+                        <span className="font-mono text-xs sm:text-sm text-[#A0AA98] opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
+                          EXPLORE <ArrowUpRight className="w-4 h-4 text-[#B8F34A]" />
                         </span>
                       </Link>
                     </motion.li>
@@ -217,13 +217,13 @@ export const LandingNav: React.FC = () => {
             </div>
 
             {/* Footer Metadata in Fullscreen Overlay */}
-            <div className="w-full pt-6 border-t border-white/[0.08] flex flex-col sm:flex-row sm:items-center justify-between gap-4 font-mono text-xs text-[#9AA09A]">
+            <div className="w-full pt-6 border-t border-white/[0.08] flex flex-col sm:flex-row sm:items-center justify-between gap-4 font-mono text-xs text-[#A0AA98]">
               <div className="flex flex-wrap items-center gap-6">
                 <a
                   href="https://x.com/layer5dotio"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-[#C7FF28] transition-colors flex items-center gap-1.5 uppercase"
+                  className="hover:text-[#B8F34A] transition-colors flex items-center gap-1.5 uppercase"
                 >
                   <span>X / Twitter (@layer5dotio)</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />
@@ -232,15 +232,15 @@ export const LandingNav: React.FC = () => {
                   href="https://github.com/sonyzgt/L5"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-[#C7FF28] transition-colors flex items-center gap-1.5 uppercase"
+                  className="hover:text-[#B8F34A] transition-colors flex items-center gap-1.5 uppercase"
                 >
                   <span>GitHub Repository</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />
                 </a>
               </div>
 
-              <div className="flex items-center gap-2 text-[11px] text-[#9AA09A]">
-                <ShieldCheck className="w-3.5 h-3.5 text-[#C7FF28]" />
+              <div className="flex items-center gap-2 text-[11px] text-[#A0AA98]">
+                <ShieldCheck className="w-3.5 h-3.5 text-[#B8F34A]" />
                 <span>SYNTHETIX O(1) CONSTANT-TIME ARCHITECTURE</span>
               </div>
             </div>

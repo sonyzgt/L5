@@ -272,10 +272,10 @@ export const SterlingGateNav: React.FC = () => {
                     setWalletModalOpen(true);
                   }
                 }}
-                className="group relative flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-4 py-1.5 rounded-full bg-[#c8f53c] text-[#08090c] hover:bg-[#d5fa5b] border border-[#c8f53c] font-mono text-[11px] sm:text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-[0_0_20px_rgba(200,245,60,0.3)] hover:shadow-[0_0_28px_rgba(200,245,60,0.5)] hover:scale-[1.03] active:scale-[0.97] cursor-pointer select-none"
+                className="group relative flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-4 py-1.5 rounded-full bg-[#B8F34A] text-[#10170e] hover:bg-[#cbfb65] border border-[#B8F34A] font-mono text-[11px] sm:text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-[0_0_20px_rgba(184,243,74,0.3)] hover:shadow-[0_0_28px_rgba(184,243,74,0.5)] hover:scale-[1.03] active:scale-[0.97] cursor-pointer select-none"
                 title="Connect Web3 Wallet"
               >
-                <Wallet className="w-3.5 h-3.5 text-[#08090c] transition-transform group-hover:scale-110" />
+                <Wallet className="w-3.5 h-3.5 text-[#10170e] transition-transform group-hover:scale-110" />
                 <span>
                   <span className="hidden sm:inline">CONNECT </span>WALLET
                 </span>

@@ -58,8 +58,8 @@ void main() {
   
   float light = pow(abs(n2), 2.5) * 0.5; 
 
-  // Deep obsidian onyx background tone (#08090c)
-  vec3 col = vec3(0.03, 0.035, 0.045); 
+  // Deep moss forest background tone (#10170e)
+  vec3 col = vec3(0.062, 0.090, 0.055); 
 
   col += u_colors[0] * smoothstep(0.1, 1.0, n1) * 0.45;
   col += u_colors[1] * light * 0.85;
@@ -208,7 +208,7 @@ export const Auralis: React.FC<AuralisProps> = ({
     <div
       ref={containerRef}
       style={{ height }}
-      className={cn("relative w-full overflow-hidden bg-[#08090c]", className)}
+      className={cn("relative w-full overflow-hidden bg-[#10170e]", className)}
     >
       <canvas
         ref={canvasRef}

@@ -60,19 +60,19 @@ const liquidbuttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-[#131622] text-white border border-white/12 hover:border-white/30 hover:bg-[#1a1e2e] hover:scale-[1.03] active:scale-[0.97] shadow-lg shadow-black/50",
+          "bg-[#151e12] text-[#F4F1E8] border border-white/12 hover:border-white/30 hover:bg-[#1a2517] hover:scale-[1.03] active:scale-[0.97] shadow-lg shadow-black/50",
         kawa:
-          "bg-[#c8f53c] text-[#08090c] font-bold border border-[#c8f53c] hover:bg-[#d4fa58] hover:shadow-[0_0_24px_rgba(200,245,60,0.45)] hover:scale-[1.03] active:scale-[0.97]",
+          "bg-[#B8F34A] text-[#10170e] font-bold border border-[#B8F34A] hover:bg-[#cbfb65] hover:shadow-[0_0_24px_rgba(184,243,74,0.45)] hover:scale-[1.03] active:scale-[0.97]",
         secondary:
-          "bg-[#181b28] text-neutral-200 border border-white/10 hover:border-[#c8f53c]/40 hover:text-white hover:scale-[1.02] active:scale-[0.97]",
+          "bg-[#1a2517] text-[#A0AA98] border border-white/10 hover:border-[#B8F34A]/40 hover:text-[#F4F1E8] hover:scale-[1.02] active:scale-[0.97]",
         outline:
-          "bg-transparent text-white border border-white/15 hover:border-white/40 hover:bg-white/5",
+          "bg-transparent text-[#F4F1E8] border border-white/15 hover:border-white/40 hover:bg-white/5",
         ghost:
-          "bg-transparent text-neutral-400 hover:text-white hover:bg-white/5",
+          "bg-transparent text-[#A0AA98] hover:text-[#F4F1E8] hover:bg-white/5",
         destructive:
           "bg-rose-600 text-white hover:bg-rose-500 shadow-lg shadow-rose-900/30",
         link:
-          "text-[#c8f53c] underline-offset-4 hover:underline bg-transparent",
+          "text-[#B8F34A] underline-offset-4 hover:underline bg-transparent",
       },
       size: {
         default: "h-9 px-4 py-2 text-xs",
@@ -151,8 +151,8 @@ export const MetalButton = React.forwardRef<HTMLButtonElement, MetalButtonProps>
         className={cn(
           "px-5 py-2 rounded-full font-mono text-xs font-semibold uppercase tracking-wider transition-all duration-300",
           variant === "primary" || variant === "accent"
-            ? "bg-[#c8f53c] text-[#08090c] border border-[#c8f53c] hover:shadow-[0_0_20px_rgba(200,245,60,0.4)] hover:scale-105"
-            : "bg-[#141722] text-white border border-white/12 hover:border-white/30 hover:bg-[#1a1e2b] hover:scale-105",
+            ? "bg-[#B8F34A] text-[#10170e] border border-[#B8F34A] hover:shadow-[0_0_20px_rgba(184,243,74,0.4)] hover:scale-105"
+            : "bg-[#151e12] text-[#F4F1E8] border border-white/12 hover:border-white/30 hover:bg-[#1a2517] hover:scale-105",
           className
         )}
         {...props}

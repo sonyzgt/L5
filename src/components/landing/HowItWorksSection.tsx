@@ -48,36 +48,36 @@ export const HowItWorksSection: React.FC = () => {
   ];
 
   return (
-    <section className="relative w-full py-28 sm:py-36 lg:py-48 px-4 sm:px-8 lg:px-12 bg-[#080B09] border-t border-white/[0.06] overflow-hidden">
+    <section className="relative w-full py-28 sm:py-36 lg:py-48 px-4 sm:px-8 lg:px-12 bg-[#151e12] border-t border-white/[0.06] overflow-hidden">
       {/* Decorative background grid and glow */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none" />
-      <div className="absolute bottom-10 right-10 w-[450px] h-[450px] bg-[#C7FF28]/[0.025] blur-[150px] rounded-full pointer-events-none -z-10" />
+      <div className="absolute bottom-10 right-10 w-[450px] h-[450px] bg-[#283615]/[0.45] blur-[150px] rounded-full pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto space-y-20 sm:space-y-28 relative z-10">
         {/* Section Header */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 border-b border-white/[0.08] pb-10">
           <div className="space-y-3">
-            <div className="flex items-center gap-2 text-xs font-mono tracking-[0.25em] text-[#C7FF28] uppercase">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#C7FF28]" />
+            <div className="flex items-center gap-2 text-xs font-mono tracking-[0.25em] text-[#B8F34A] uppercase">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#B8F34A]" />
               <span>03 // EXECUTION ARCHITECTURE</span>
             </div>
-            <h2 className="font-display font-black text-3xl sm:text-5xl lg:text-7xl tracking-[-0.04em] uppercase text-[#F5F7F2]">
+            <h2 className="font-display font-black text-3xl sm:text-5xl lg:text-7xl tracking-[-0.04em] uppercase text-[#F4F1E8]">
               HOW CAPITAL
               <br />
-              <span className="text-[#C7FF28]">STREAMS.</span>
+              <span className="text-[#B8F34A]">STREAMS.</span>
             </h2>
           </div>
           <div className="max-w-md space-y-3">
-            <p className="font-sans text-sm sm:text-base text-[#9AA09A] leading-relaxed">
+            <p className="font-sans text-sm sm:text-base text-[#A0AA98] leading-relaxed">
               Three streamlined steps engineered for maximum capital efficiency and security on Robinhood Chain L2.
             </p>
-            <div className="flex items-center gap-4 text-xs font-mono text-[#F5F7F2]">
-              <span className="flex items-center gap-1.5 text-[#C7FF28]">
+            <div className="flex items-center gap-4 text-xs font-mono text-[#F4F1E8]">
+              <span className="flex items-center gap-1.5 text-[#B8F34A]">
                 <Shield className="w-3.5 h-3.5" /> NON-CUSTODIAL
               </span>
               <span className="text-white/20">•</span>
               <span className="flex items-center gap-1.5">
-                <Layers className="w-3.5 h-3.5 text-[#9AA09A]" /> ROBINHOOD CHAIN
+                <Layers className="w-3.5 h-3.5 text-[#A0AA98]" /> ROBINHOOD CHAIN
               </span>
             </div>
           </div>
@@ -88,27 +88,27 @@ export const HowItWorksSection: React.FC = () => {
           {steps.map((step, idx) => (
             <div
               key={step.number}
-              className="group relative flex flex-col justify-between p-8 sm:p-10 rounded-2xl bg-[#050706] border border-white/[0.08] hover:border-[#C7FF28]/50 transition-all duration-500 hover:shadow-[0_20px_50px_rgba(0,0,0,0.8)]"
+              className="group relative flex flex-col justify-between p-8 sm:p-10 rounded-2xl bg-[#10170e] border border-white/[0.08] hover:border-[#B8F34A]/50 transition-all duration-500 hover:shadow-[0_20px_50px_rgba(0,0,0,0.8)]"
             >
               {/* Step Counter Top Row */}
               <div className="flex items-center justify-between pb-8 border-b border-white/[0.06]">
-                <span className="font-display font-black text-4xl sm:text-5xl text-white/20 group-hover:text-[#C7FF28] transition-colors">
+                <span className="font-display font-black text-4xl sm:text-5xl text-white/20 group-hover:text-[#B8F34A] transition-colors">
                   {step.number}
                 </span>
-                <span className="font-mono text-[10px] tracking-[0.25em] text-[#9AA09A] uppercase px-3 py-1 rounded-full bg-white/[0.03] border border-white/[0.06]">
+                <span className="font-mono text-[10px] tracking-[0.25em] text-[#A0AA98] uppercase px-3 py-1 rounded-full bg-white/[0.03] border border-white/[0.06]">
                   {step.tag}
                 </span>
               </div>
 
               {/* Main Content */}
               <div className="py-8 space-y-4">
-                <div className="font-mono text-xs text-[#C7FF28] tracking-widest uppercase font-semibold">
+                <div className="font-mono text-xs text-[#B8F34A] tracking-widest uppercase font-semibold">
                   {step.action}
                 </div>
-                <h3 className="font-display font-bold text-xl sm:text-2xl text-[#F5F7F2] tracking-tight">
+                <h3 className="font-display font-bold text-xl sm:text-2xl text-[#F4F1E8] tracking-tight">
                   {step.title}
                 </h3>
-                <p className="font-sans text-sm text-[#9AA09A] leading-relaxed">
+                <p className="font-sans text-sm text-[#A0AA98] leading-relaxed">
                   {step.summary}
                 </p>
 
@@ -117,9 +117,9 @@ export const HowItWorksSection: React.FC = () => {
                   {step.details.map((detail, dIdx) => (
                     <div
                       key={dIdx}
-                      className="flex items-center gap-2.5 text-xs font-mono text-[#F5F7F2]/80"
+                      className="flex items-center gap-2.5 text-xs font-mono text-[#F4F1E8]/80"
                     >
-                      <CheckCircle2 className="w-3.5 h-3.5 text-[#C7FF28] shrink-0" />
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#B8F34A] shrink-0" />
                       <span>{detail}</span>
                     </div>
                   ))}
@@ -128,12 +128,12 @@ export const HowItWorksSection: React.FC = () => {
 
               {/* Card Footer Link */}
               <div className="pt-6 border-t border-white/[0.06] flex items-center justify-between">
-                <span className="font-mono text-[11px] text-[#9AA09A] uppercase">
+                <span className="font-mono text-[11px] text-[#A0AA98] uppercase">
                   VERIFIABLE CONTRACT
                 </span>
                 <Link
                   href="/stake"
-                  className="inline-flex items-center gap-1 font-mono text-xs text-[#F5F7F2] group-hover:text-[#C7FF28] transition-colors uppercase font-medium"
+                  className="inline-flex items-center gap-1 font-mono text-xs text-[#F4F1E8] group-hover:text-[#B8F34A] transition-colors uppercase font-medium"
                 >
                   <span>EXECUTE</span>
                   <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -144,16 +144,16 @@ export const HowItWorksSection: React.FC = () => {
         </div>
 
         {/* Timeline Bottom Interactive Bar */}
-        <div className="p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-white/[0.02] via-[#C7FF28]/[0.04] to-white/[0.02] border border-white/[0.08] flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div className="p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-white/[0.02] via-[#283615]/30 to-white/[0.02] border border-white/[0.08] flex flex-col sm:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-4 text-left">
-            <div className="w-10 h-10 rounded-full bg-[#C7FF28]/10 border border-[#C7FF28]/30 flex items-center justify-center shrink-0">
-              <Sparkles className="w-5 h-5 text-[#C7FF28]" />
+            <div className="w-10 h-10 rounded-full bg-[#B8F34A]/10 border border-[#B8F34A]/30 flex items-center justify-center shrink-0">
+              <Sparkles className="w-5 h-5 text-[#B8F34A]" />
             </div>
             <div>
-              <div className="font-display font-bold text-sm sm:text-base text-[#F5F7F2] uppercase">
+              <div className="font-display font-bold text-sm sm:text-base text-[#F4F1E8] uppercase">
                 Ready to begin streaming?
               </div>
-              <div className="font-sans text-xs sm:text-sm text-[#9AA09A]">
+              <div className="font-sans text-xs sm:text-sm text-[#A0AA98]">
                 Connect your Web3 wallet and deposit USDG to start accumulating Aegis yield instantly.
               </div>
             </div>
@@ -161,13 +161,13 @@ export const HowItWorksSection: React.FC = () => {
           <div className="flex items-center gap-3 shrink-0">
             <Link
               href="/stake"
-              className="px-6 py-3 rounded-full bg-[#C7FF28] hover:bg-[#d5fa5b] text-[#050706] font-display text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-[0_0_20px_rgba(199,255,40,0.3)] hover:scale-[1.02]"
+              className="px-6 py-3 rounded-full bg-[#B8F34A] hover:bg-[#c7fa5e] text-[#10170e] font-display text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-[0_0_20px_rgba(184,243,74,0.3)] hover:scale-[1.02]"
             >
               LAUNCH STAKING
             </Link>
             <Link
               href="/docs"
-              className="px-6 py-3 rounded-full bg-white/[0.03] hover:bg-white/[0.08] text-[#F5F7F2] font-mono text-xs uppercase tracking-wider border border-white/[0.1] transition-all"
+              className="px-6 py-3 rounded-full bg-white/[0.03] hover:bg-white/[0.08] text-[#F4F1E8] font-mono text-xs uppercase tracking-wider border border-white/[0.1] transition-all"
             >
               READ SPECS
             </Link>

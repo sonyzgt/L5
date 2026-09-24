@@ -28,8 +28,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       </div>
 
       {/* Atmospheric Ambient Light Fields */}
-      <div className="absolute top-1/4 left-1/10 w-[450px] sm:w-[650px] h-[450px] sm:h-[650px] bg-[#C7FF28]/[0.035] blur-[150px] rounded-full pointer-events-none -z-10" />
-      <div className="absolute bottom-10 right-1/4 w-[500px] h-[500px] bg-[#15803d]/[0.025] blur-[170px] rounded-full pointer-events-none -z-10" />
+      <div className="absolute top-1/4 left-1/10 w-[450px] sm:w-[650px] h-[450px] sm:h-[650px] bg-[#283615]/[0.45] blur-[160px] rounded-full pointer-events-none -z-10" />
+      <div className="absolute bottom-10 right-1/4 w-[500px] h-[500px] bg-[#B8F34A]/[0.04] blur-[170px] rounded-full pointer-events-none -z-10" />
 
       {/* Top Protocol Status Eyebrow */}
       <div className="relative z-10 max-w-7xl mx-auto w-full">
@@ -37,20 +37,20 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="flex items-center gap-3 text-xs font-mono uppercase tracking-[0.2em] text-[#9AA09A] pb-6 sm:pb-8"
+          className="flex items-center gap-3 text-xs font-mono uppercase tracking-[0.2em] text-[#A0AA98] pb-6 sm:pb-8"
         >
           <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] backdrop-blur-md">
-            <span className="w-2 h-2 rounded-full bg-[#C7FF28] animate-pulse" />
-            <span className="text-[#F5F7F2] font-semibold">ROBINHOOD CHAIN L2</span>
+            <span className="w-2 h-2 rounded-full bg-[#B8F34A] animate-pulse" />
+            <span className="text-[#F4F1E8] font-semibold">ROBINHOOD CHAIN L2</span>
           </div>
           <span className="hidden sm:inline text-white/20">•</span>
-          <span className="hidden sm:inline text-[#9AA09A]">
+          <span className="hidden sm:inline text-[#A0AA98]">
             SYNTHETIX O(1) ENGINE
           </span>
           {calculatedApy !== undefined && calculatedApy > 0 && (
             <>
               <span className="hidden md:inline text-white/20">•</span>
-              <span className="hidden md:inline-flex items-center gap-1.5 text-[#C7FF28] font-bold">
+              <span className="hidden md:inline-flex items-center gap-1.5 text-[#B8F34A] font-bold">
                 <TrendingUp className="w-3.5 h-3.5" />
                 {formatApy(calculatedApy)}
               </span>
@@ -67,10 +67,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           className="space-y-2 sm:space-y-4 text-left"
         >
-          <h1 className="font-display font-black text-[3.25rem] sm:text-[5.5rem] md:text-[6.8rem] lg:text-[8rem] xl:text-[9.5rem] leading-[0.88] tracking-[-0.04em] uppercase text-[#F5F7F2]">
+          <h1 className="font-display font-black text-[3.25rem] sm:text-[5.5rem] md:text-[6.8rem] lg:text-[8rem] xl:text-[9.5rem] leading-[0.88] tracking-[-0.04em] uppercase text-[#F4F1E8]">
             FLOW CAPITAL.
             <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F5F7F2] via-[#C7FF28] to-[#F5F7F2]">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F4F1E8] via-[#B8F34A] to-[#F4F1E8]">
               STREAM YIELD.
             </span>
           </h1>
@@ -85,16 +85,16 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         >
           {/* Supporting Copy */}
           <div className="lg:col-span-6 space-y-4">
-            <p className="text-base sm:text-lg md:text-xl text-[#F5F7F2]/90 font-sans leading-relaxed font-normal max-w-xl">
+            <p className="text-base sm:text-lg md:text-xl text-[#F4F1E8]/90 font-sans leading-relaxed font-normal max-w-xl">
               Deposit USDG to continuously stream cryptographic Aegis yield per block.
             </p>
-            <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs sm:text-sm font-mono text-[#9AA09A] uppercase tracking-wider">
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs sm:text-sm font-mono text-[#A0AA98] uppercase tracking-wider">
               <span className="flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#C7FF28]" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#B8F34A]" />
                 Zero lockup epochs
               </span>
               <span className="flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#C7FF28]" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#B8F34A]" />
                 Sub-second Robinhood Chain finality
               </span>
             </div>
@@ -104,7 +104,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           <div className="lg:col-span-6 flex flex-col sm:flex-row items-stretch sm:items-center justify-start lg:justify-end gap-3 sm:gap-4">
             <Link
               href="/stake"
-              className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-[#C7FF28] hover:bg-[#d6ff47] text-[#050706] font-display text-xs sm:text-sm font-bold uppercase tracking-[0.12em] transition-all duration-300 shadow-[0_0_30px_rgba(199,255,40,0.3)] hover:shadow-[0_0_45px_rgba(199,255,40,0.55)] hover:scale-[1.02] active:scale-[0.98]"
+              className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-[#B8F34A] hover:bg-[#c7fa5e] text-[#10170e] font-display text-xs sm:text-sm font-bold uppercase tracking-[0.12em] transition-all duration-300 shadow-[0_0_30px_rgba(184,243,74,0.3)] hover:shadow-[0_0_45px_rgba(184,243,74,0.55)] hover:scale-[1.02] active:scale-[0.98]"
             >
               <span>START STAKING</span>
               <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
@@ -112,7 +112,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
             <Link
               href="/position"
-              className="group inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white/[0.03] hover:bg-white/[0.08] text-[#F5F7F2] font-mono text-xs sm:text-sm font-medium uppercase tracking-[0.1em] border border-white/[0.12] hover:border-[#C7FF28]/60 transition-all duration-300"
+              className="group inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white/[0.03] hover:bg-white/[0.08] text-[#F4F1E8] font-mono text-xs sm:text-sm font-medium uppercase tracking-[0.1em] border border-white/[0.12] hover:border-[#B8F34A]/60 transition-all duration-300"
             >
               <span>VIEW POSITION</span>
             </Link>
@@ -121,9 +121,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       </div>
 
       {/* Hero Bottom Hairline & Coordinate Markers */}
-      <div className="relative z-10 max-w-7xl mx-auto w-full pt-10 sm:pt-14 border-t border-white/[0.08] flex items-center justify-between text-[11px] font-mono text-[#9AA09A] uppercase tracking-widest">
+      <div className="relative z-10 max-w-7xl mx-auto w-full pt-10 sm:pt-14 border-t border-white/[0.08] flex items-center justify-between text-[11px] font-mono text-[#A0AA98] uppercase tracking-widest">
         <div className="flex items-center gap-3">
-          <span className="text-[#C7FF28] font-bold">01 // DISCOVERY</span>
+          <span className="text-[#B8F34A] font-bold">01 // DISCOVERY</span>
           <span className="hidden sm:inline text-white/20">|</span>
           <span className="hidden sm:inline">AUTONOMOUS NON-CUSTODIAL LIQUIDITY</span>
         </div>

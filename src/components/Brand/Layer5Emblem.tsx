@@ -20,7 +20,7 @@ export const Layer5Emblem: React.FC<Layer5EmblemProps> = ({
   animate = false,
   variant = "white",
 }) => {
-  const src = variant === "black" ? "/layer5-logo-black-trimmed.png" : "/layer5-logo-white-trimmed.png";
+  const src = "/aegis-logo-transparent.png";
 
   return (
     <div
@@ -34,7 +34,7 @@ export const Layer5Emblem: React.FC<Layer5EmblemProps> = ({
       >
         <img
           src={src}
-          alt="Layer5 Logo"
+          alt="Aegis Emblem"
           className="w-full h-full object-contain pointer-events-none transition-transform duration-700 hover:scale-105"
         />
       </div>
@@ -42,4 +42,5 @@ export const Layer5Emblem: React.FC<Layer5EmblemProps> = ({
   );
 };
 
+export const AegisEmblem = Layer5Emblem;
 export const KawaEmblem = Layer5Emblem;

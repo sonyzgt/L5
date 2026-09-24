@@ -81,7 +81,7 @@ const LiquidFlowEntity: React.FC<LiquidEntityProps> = ({ scrollProgress = 0 }) =
       <mesh ref={meshRef}>
         <torusKnotGeometry args={[1.35, 0.42, 160, 32, 2, 3]} />
         <meshPhysicalMaterial
-          color="#060907"
+          color="#141f11"
           roughness={0.16}
           metalness={0.88}
           clearcoat={1.0}
@@ -95,13 +95,13 @@ const LiquidFlowEntity: React.FC<LiquidEntityProps> = ({ scrollProgress = 0 }) =
       {/* Counter-Rotating Kinetic Inner Ring */}
       <mesh ref={innerRingRef}>
         <torusGeometry args={[1.9, 0.02, 16, 100]} />
-        <meshBasicMaterial color="#C7FF28" opacity={0.6} transparent />
+        <meshBasicMaterial color="#B8F34A" opacity={0.65} transparent />
       </mesh>
 
       {/* Outer Thin Technical Orbit Ring */}
       <mesh ref={outerWireRef}>
         <torusGeometry args={[2.55, 0.012, 16, 120]} />
-        <meshBasicMaterial color="#ffffff" opacity={0.18} transparent wireframe />
+        <meshBasicMaterial color="#F4F1E8" opacity={0.22} transparent wireframe />
       </mesh>
 
       {/* Orbiting Yield Stream Particles */}
@@ -116,21 +116,21 @@ const LiquidFlowEntity: React.FC<LiquidEntityProps> = ({ scrollProgress = 0 }) =
         </bufferGeometry>
         <pointsMaterial
           size={0.035}
-          color="#C7FF28"
+          color="#B8F34A"
           transparent
-          opacity={0.7}
+          opacity={0.8}
           blending={THREE.AdditiveBlending}
         />
       </points>
 
       {/* Volumetric Light Sources */}
-      {/* Acid Lime Key Edge Light */}
-      <pointLight position={[3.5, 3.0, 2.5]} intensity={8.5} color="#C7FF28" distance={10} />
-      {/* Deep Emerald Fill Light */}
-      <pointLight position={[-3.5, -2.5, -2.0]} intensity={4.0} color="#15803d" distance={10} />
-      {/* Cool Rim Reflection */}
-      <pointLight position={[0, -3.5, 3.5]} intensity={3.5} color="#9AA09A" distance={8} />
-      <ambientLight intensity={0.45} />
+      {/* Luminous Moss Lime Key Edge Light */}
+      <pointLight position={[3.5, 3.0, 2.5]} intensity={9.0} color="#B8F34A" distance={10} />
+      {/* Deep Forest Moss Fill Light (#283615) */}
+      <pointLight position={[-3.5, -2.5, -2.0]} intensity={5.0} color="#283615" distance={10} />
+      {/* Warm Ivory Rim Reflection */}
+      <pointLight position={[0, -3.5, 3.5]} intensity={4.0} color="#F4F1E8" distance={8} />
+      <ambientLight intensity={0.5} />
     </group>
   );
 };
