@@ -63,6 +63,12 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700;800;900&family=Syne:wght@700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+          rel="stylesheet"
+        />
       </head>
       <body className="bg-[#08090c] text-[#f4f5f8] antialiased selection:bg-[#c8f53c] selection:text-[#08090c] min-h-screen flex flex-col relative overflow-x-hidden">
         {/* Subtle Sterling Gate Ambient Background Glows & Auralis WebGL */}
