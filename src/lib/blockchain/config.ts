@@ -5,7 +5,7 @@ export interface ProtocolConfig {
   chainId: number;
   chainName: string;
   stakeAsset: "USDG";
-  rewardAsset: "L5";
+  rewardAsset: "AEGIS";
   gasAsset: "ETH";
   currencySymbol: "USDG";
   rpcUrl: string;
@@ -28,7 +28,7 @@ export const protocolConfig: ProtocolConfig = {
   chainId: robinhoodChain.id,
   chainName: robinhoodChain.name,
   stakeAsset: "USDG",
-  rewardAsset: "L5",
+  rewardAsset: "AEGIS",
   gasAsset: "ETH",
   currencySymbol: "USDG",
   rpcUrl: robinhoodChain.rpcUrls.default.http[0],
@@ -52,10 +52,11 @@ export const protocolConfig: ProtocolConfig = {
 
 export const SUPPORTED_CHAINS = [robinhoodChain, hardhatChain] as const;
 
-export type Layer5CoreState = "dormant" | "activated" | "growing" | "mature" | "awakened";
-export type KawaCoreState = Layer5CoreState;
+export type AegisCoreState = "dormant" | "activated" | "growing" | "mature" | "awakened";
+export type Layer5CoreState = AegisCoreState;
+export type KawaCoreState = AegisCoreState;
 
-export function deriveLayer5State(stakedAmount: bigint, durationSeconds: number): Layer5CoreState {
+export function deriveAegisState(stakedAmount: bigint, durationSeconds: number): AegisCoreState {
   if (stakedAmount === 0n) {
     return "dormant";
   }
@@ -74,4 +75,5 @@ export function deriveLayer5State(stakedAmount: bigint, durationSeconds: number)
   }
 }
 
-export const deriveKawaState = deriveLayer5State;
+export const deriveLayer5State = deriveAegisState;
+export const deriveKawaState = deriveAegisState;

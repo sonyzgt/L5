@@ -522,12 +522,12 @@ export const SterlingGateNav: React.FC = () => {
               <div className="sg-details-meta">
                 <div className="sg-socials-row">
                   <a
-                    href="https://x.com/layer5dotio"
+                    href="https://x.com/aegistak"
                     target="_blank"
                     rel="noreferrer"
                     className="sg-social-link"
                   >
-                    X (Twitter)
+                    X (@aegistak)
                   </a>
                 </div>
                 <span className="text-[10px] text-neutral-500 font-mono">

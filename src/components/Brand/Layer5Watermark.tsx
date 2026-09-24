@@ -40,4 +40,5 @@ export const Layer5Watermark: React.FC<Layer5WatermarkProps> = ({ className = ""
   );
 };
 
+export const AegisWatermark = Layer5Watermark;
 export const KawaWatermark = Layer5Watermark;

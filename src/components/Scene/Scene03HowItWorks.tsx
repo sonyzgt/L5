@@ -53,14 +53,14 @@ export const Scene03HowItWorks: React.FC = () => {
     },
     {
       id: "reward",
-      title: "L5 HARVEST",
+      title: "AEGIS HARVEST",
       stage: "STAGE 04",
       iconLucide: Coins,
       tagline: "Instantaneous Non-Custodial Yield",
       description:
-        "Harvest accumulated Layer5 (L5) rewards directly into your wallet whenever you desire. Or withdraw your full USDG principal at any moment with single-slot finality.",
+        "Harvest accumulated Aegis (AEGIS) rewards directly into your wallet whenever you desire. Or withdraw your full USDG principal at any moment with single-slot finality.",
       metrics: [
-        { label: "REWARD ASSET", value: "Layer5 (L5) Token" },
+        { label: "REWARD ASSET", value: "Aegis (AEGIS) Token" },
         { label: "FINALITY", value: "< 1000ms" },
         { label: "SETTLEMENT", value: "Instant Exit" },
       ],

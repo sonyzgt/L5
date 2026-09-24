@@ -49,12 +49,12 @@ export const Footer: React.FC = () => {
               Docs
             </Link>
             <a
-              href="https://x.com/layer5dotio"
+              href="https://x.com/aegistak"
               target="_blank"
               rel="noopener noreferrer"
               className="text-[#6B665E] hover:text-[#1C1B18] transition flex items-center gap-1"
             >
-              <span>X (Twitter)</span>
+              <span>X (@aegistak)</span>
               <ArrowUpRight className="w-3 h-3" />
             </a>
           </div>

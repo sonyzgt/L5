@@ -46,8 +46,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Aegis — Staking on Robinhood Chain",
     description: "Aegis is a staking protocol built on Robinhood Chain. Stake, flow, grow, and earn.",
-    creator: "@layer5dotio",
-    site: "@layer5dotio",
+    creator: "@aegistak",
+    site: "@aegistak",
     images: ["/og-image.png"],
   },
 };

@@ -89,7 +89,7 @@ export const Scene07Security: React.FC = () => {
           </h2>
 
           <p className="text-sm sm:text-base font-light text-[#8e95a2] font-sans">
-            Layer5 contracts are non-upgradable and strictly non-custodial. Every invariant is enforced mathematically on Robinhood Chain.
+            Aegis contracts are non-upgradable and strictly non-custodial. Every invariant is enforced mathematically on Robinhood Chain.
           </p>
         </div>
 

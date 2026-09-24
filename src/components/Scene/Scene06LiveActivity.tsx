@@ -17,7 +17,7 @@ interface StreamEvent {
   type: "STAKE" | "CLAIM" | "COMPOUND";
   address: string;
   amount: string;
-  asset: "USDG" | "L5";
+  asset: "USDG" | "AEGIS";
   elapsed: string;
   hash: string;
 }

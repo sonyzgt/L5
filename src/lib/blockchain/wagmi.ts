@@ -34,7 +34,7 @@ const connectors = connectorsForWallets(
     },
   ],
   {
-    appName: "Layer5",
+    appName: "Aegis",
     projectId,
   }
 );

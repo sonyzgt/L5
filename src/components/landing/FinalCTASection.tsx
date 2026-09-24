@@ -159,12 +159,12 @@ export const FinalCTASection: React.FC = () => {
               <ul className="space-y-2 text-[#6B665E]">
                 <li>
                   <a
-                    href="https://x.com/layer5dotio"
+                    href="https://x.com/aegistak"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="hover:text-[#1C1B18] transition-colors flex items-center gap-1"
                   >
-                    <span>X / Twitter</span>
+                    <span>X (@aegistak)</span>
                     <ArrowUpRight className="w-3 h-3" />
                   </a>
                 </li>

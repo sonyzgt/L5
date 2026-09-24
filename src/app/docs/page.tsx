@@ -292,12 +292,12 @@ export default function DocsPage() {
               </span>
               <div className="space-y-1.5 text-[#6B665E]">
                 <a
-                  href="https://x.com/layer5dotio"
+                  href="https://x.com/aegistak"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-between hover:text-[#283615] transition py-1"
                 >
-                  <span>Protocol Twitter / X</span>
+                  <span>Protocol Twitter / X (@aegistak)</span>
                   <ExternalLink className="w-3 h-3" />
                 </a>
                 <a

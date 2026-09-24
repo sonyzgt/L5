@@ -359,14 +359,14 @@ export function useLayer5Staking() {
     }
   };
 
-  // Claim Layer5 (L5) rewards
+  // Claim Aegis rewards
   const claim = async () => {
     if (!contractAddress) return;
     try {
       setTxState({
         step: "CONFIRMING",
-        title: "CLAIMING L5 REWARDS",
-        description: "Confirm L5 reward claim in your wallet (Network Fee: ETH)...",
+        title: "CLAIMING AEGIS REWARDS",
+        description: "Confirm Aegis reward claim in your wallet (Network Fee: ETH)...",
       });
 
       const hash = await writeContractAsync({
@@ -422,6 +422,7 @@ export function useLayer5Staking() {
     totalStakers: totalStakersRaw ? Number(totalStakersRaw) : 0,
     stakingDuration: durationSeconds,
     calculatedApy,
+    aegisState: layer5State,
     layer5State,
     kawaState,
     // Transactions
@@ -434,4 +435,5 @@ export function useLayer5Staking() {
   };
 }
 
+export const useAegisStaking = useLayer5Staking;
 export const useKawaStaking = useLayer5Staking;

@@ -11,6 +11,7 @@ export interface Layer5EmblemProps {
   variant?: "black" | "white";
 }
 
+export type AegisEmblemProps = Layer5EmblemProps;
 export type KawaEmblemProps = Layer5EmblemProps;
 
 export const Layer5Emblem: React.FC<Layer5EmblemProps> = ({

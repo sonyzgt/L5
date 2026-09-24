@@ -15,7 +15,7 @@ export async function GET() {
       totalStaked: "0.00",
       totalUsdStaked: "0.00",
       totalRewardsDistributed: "0.00",
-      totalL5Distributed: "0.00",
+      totalAegisDistributed: "0.00",
       totalKawaDistributed: "0.00",
       totalStakers: 0,
       rewardRate: null,
