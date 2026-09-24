@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { motion, MotionValue } from "framer-motion";
-import { ArrowUpRight, CheckCircle2, ShieldCheck, Sparkles, TrendingUp, Zap } from "lucide-react";
+import { ArrowUpRight, CheckCircle2, ShieldCheck, TrendingUp } from "lucide-react";
 import { formatApy } from "@/lib/utils/formatters";
 
 interface HeroSectionProps {
@@ -24,25 +24,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
       {/* Main Hero Content */}
       <div className="max-w-5xl mx-auto w-full text-center space-y-8 sm:space-y-10 my-auto py-6 sm:py-12">
-        {/* Top Protocol Status Eyebrow */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="inline-flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-xs font-mono uppercase tracking-[0.2em] text-[#A0AA98]"
-        >
-          <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#151e12]/90 border border-white/[0.08] backdrop-blur-md shadow-sm">
-            <span className="w-2 h-2 rounded-full bg-[#B8F34A] animate-pulse" />
-            <span className="text-[#F4F1E8] font-bold">ROBINHOOD CHAIN L2</span>
-          </div>
-          <span className="hidden sm:inline text-white/20">•</span>
-          <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/[0.03] border border-white/[0.06] backdrop-blur-sm">
-            <Zap className="w-3.5 h-3.5 text-[#B8F34A]" />
-            <span className="text-[#F4F1E8] font-semibold text-[11px]">
-              SYNTHETIX O(1) STREAMING
-            </span>
-          </div>
-        </motion.div>
 
         {/* Main Headline */}
         <motion.div
