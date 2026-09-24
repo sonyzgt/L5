@@ -163,7 +163,7 @@ export const StakingDashboard: React.FC = () => {
           </div>
           
           <p className="text-xs sm:text-sm font-mono tracking-[0.05em] text-[#8e95a2] max-w-xl">
-            Deposit USDG to continuously stream Layer5 (L5) tokens per block. Zero lockup epochs, micro-cent gas, instant liquidity exit.
+            Deposit USDG to continuously stream Aegis tokens per block. Zero lockup epochs, micro-cent gas, instant liquidity exit.
           </p>
         </div>
 
@@ -222,7 +222,7 @@ export const StakingDashboard: React.FC = () => {
             <div className="font-mono text-lg sm:text-2xl font-bold text-white tracking-tight truncate">
               0.00
             </div>
-            <div className="text-[10px] font-mono text-[#8e95a2]">L5 Streamed</div>
+            <div className="text-[10px] font-mono text-[#8e95a2]">AEGIS Streamed</div>
           </div>
         </div>
 
@@ -360,19 +360,19 @@ export const StakingDashboard: React.FC = () => {
                   <div>
                     <span className="text-[10px] text-[#8e95a2] block uppercase">DAILY</span>
                     <span className="text-sm font-semibold text-[#c8f53c]">
-                      {calculatedApy && calculatedApy > 0 ? `+${estDaily} L5` : "—"}
+                      {calculatedApy && calculatedApy > 0 ? `+${estDaily} AEGIS` : "—"}
                     </span>
                   </div>
                   <div>
                     <span className="text-[10px] text-[#8e95a2] block uppercase">MONTHLY</span>
                     <span className="text-sm font-semibold text-white">
-                      {calculatedApy && calculatedApy > 0 ? `+${estMonthly} L5` : "—"}
+                      {calculatedApy && calculatedApy > 0 ? `+${estMonthly} AEGIS` : "—"}
                     </span>
                   </div>
                   <div>
                     <span className="text-[10px] text-[#8e95a2] block uppercase">1 YEAR</span>
                     <span className="text-sm font-semibold text-white">
-                      {calculatedApy && calculatedApy > 0 ? `+${estYearly} L5` : "—"}
+                      {calculatedApy && calculatedApy > 0 ? `+${estYearly} AEGIS` : "—"}
                     </span>
                   </div>
                 </div>
@@ -454,7 +454,7 @@ export const StakingDashboard: React.FC = () => {
                   <div className="font-mono text-xl sm:text-2xl font-bold text-[#c8f53c] tracking-tight truncate">
                     {displayPendingRewards}
                   </div>
-                  <span className="text-[10px] text-[#c8f53c] font-mono block">L5 ACCRUING</span>
+                  <span className="text-[10px] text-[#c8f53c] font-mono block">AEGIS ACCRUING</span>
                 </div>
               </div>
 

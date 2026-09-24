@@ -23,7 +23,7 @@ export const Footer: React.FC = () => {
             <Link href="/" className="flex items-center gap-3 group">
               <Layer5Emblem size={24} variant="white" animate={false} />
               <span className="font-editorial text-xl sm:text-2xl font-extrabold tracking-tight text-white uppercase group-hover:text-[#c8f53c] transition">
-                LAYER5 PROTOCOL
+                AEGIS PROTOCOL
               </span>
             </Link>
             <div className="font-cursive text-base text-[#c8f53c] lowercase">
@@ -71,7 +71,7 @@ export const Footer: React.FC = () => {
           </div>
 
           <div className="text-neutral-500 uppercase tracking-widest font-mono text-[10px]">
-            &copy; 2026 LAYER5 PROTOCOL • ALL RIGHTS RESERVED
+            &copy; 2026 AEGIS PROTOCOL • ALL RIGHTS RESERVED
           </div>
         </div>
       </div>

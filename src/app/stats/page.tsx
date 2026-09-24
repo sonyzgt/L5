@@ -2,8 +2,8 @@ import { StatsViewer } from "@/components/Stats/StatsViewer";
 import { Scene06LiveActivity } from "@/components/Scene/Scene06LiveActivity";
 
 export const metadata = {
-  title: "Stats • Layer5",
-  description: "Audited protocol metrics and parameters for Layer5 on Robinhood Chain.",
+  title: "Stats • Aegis",
+  description: "Audited protocol metrics and parameters for Aegis on Robinhood Chain.",
 };
 
 export default function StatsPage() {

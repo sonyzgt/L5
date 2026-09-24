@@ -33,7 +33,7 @@ export const ProtocolStorySection: React.FC = () => {
   });
 
   const narrativeText =
-    "Traditional staking locks liquidity behind artificial epochs and withdrawal queues. Layer5 breaks the paradigm on Robinhood Chain — continuous Synthetix O(1) reward calculation allows instant deposits, real-time per-second yield accretion, and immediate principal exits with zero penalization.";
+    "Traditional staking locks liquidity behind artificial epochs and withdrawal queues. Aegis breaks the paradigm on Robinhood Chain — continuous Synthetix O(1) reward calculation allows instant deposits, real-time per-second yield accretion, and immediate principal exits with zero penalization.";
 
   const words = narrativeText.split(" ");
 

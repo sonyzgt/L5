@@ -11,7 +11,7 @@ export const HowItWorksSection: React.FC = () => {
       action: "DEPOSIT",
       title: "Deposit USDG Liquidity",
       summary:
-        "Supply USDG stablecoin to the Layer5 non-custodial smart contract on Robinhood Chain. No lockup periods or lock-in tiers.",
+        "Supply USDG stablecoin to the Aegis non-custodial smart contract on Robinhood Chain. No lockup periods or lock-in tiers.",
       details: [
         "1:1 USDG asset backing",
         "Self-custodial vault verification",
@@ -22,9 +22,9 @@ export const HowItWorksSection: React.FC = () => {
     {
       number: "02",
       action: "STREAM",
-      title: "Stream L5 Yield Every Block",
+      title: "Stream Aegis Yield Every Block",
       summary:
-        "As soon as your deposit confirms, the Synthetix O(1) mathematical engine calculates and streams Layer5 (L5) reward tokens continuously.",
+        "As soon as your deposit confirms, the Synthetix O(1) mathematical engine calculates and streams Aegis reward tokens continuously.",
       details: [
         "Real-time per-second accrual",
         "Deterministic constant-time logic",
@@ -37,7 +37,7 @@ export const HowItWorksSection: React.FC = () => {
       action: "HARVEST",
       title: "Claim or Exit Anytime",
       summary:
-        "Harvest your accumulated L5 rewards to your wallet, or unstake your USDG principal at will. You retain 100% control of your assets.",
+        "Harvest your accumulated Aegis rewards to your wallet, or unstake your USDG principal at will. You retain 100% control of your assets.",
       details: [
         "Zero unbonding delays",
         "No penalty withdrawal fees",
@@ -154,7 +154,7 @@ export const HowItWorksSection: React.FC = () => {
                 Ready to begin streaming?
               </div>
               <div className="font-sans text-xs sm:text-sm text-[#9AA09A]">
-                Connect your Web3 wallet and deposit USDG to start accumulating Layer5 yield instantly.
+                Connect your Web3 wallet and deposit USDG to start accumulating Aegis yield instantly.
               </div>
             </div>
           </div>

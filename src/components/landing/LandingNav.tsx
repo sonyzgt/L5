@@ -80,7 +80,7 @@ export const LandingNav: React.FC = () => {
             </div>
             <div className="flex flex-col text-left">
               <span className="font-display text-sm sm:text-base font-extrabold tracking-[-0.02em] text-[#F5F7F2] uppercase leading-none">
-                Layer5
+                Aegis
               </span>
               <span className="text-[8px] font-mono tracking-[0.25em] text-[#9AA09A] uppercase pt-1 leading-none">
                 ROBINHOOD CHAIN
@@ -166,7 +166,7 @@ export const LandingNav: React.FC = () => {
               <div className="flex items-center gap-3">
                 <Layer5Emblem size={26} variant="white" animate={false} />
                 <span className="font-display font-bold text-sm tracking-widest text-[#F5F7F2] uppercase">
-                  LAYER5 PROTOCOL
+                  AEGIS PROTOCOL
                 </span>
               </div>
               <div className="flex items-center gap-2 text-[10px] font-mono tracking-widest text-[#9AA09A] uppercase">

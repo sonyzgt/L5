@@ -173,7 +173,7 @@ export const LiveMetricsSection: React.FC<LiveMetricsProps> = ({
             {/* Reward Asset */}
             <div className="space-y-1.5 p-4 rounded-xl bg-white/[0.02] border border-white/[0.05]">
               <div className="text-[#9AA09A] uppercase tracking-wider text-[10px]">
-                REWARD ASSET (L5)
+                REWARD ASSET (AEGIS)
               </div>
               <div className="flex items-center justify-between gap-2 text-[#F5F7F2]">
                 <span className="truncate">

@@ -86,7 +86,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           {/* Supporting Copy */}
           <div className="lg:col-span-6 space-y-4">
             <p className="text-base sm:text-lg md:text-xl text-[#F5F7F2]/90 font-sans leading-relaxed font-normal max-w-xl">
-              Deposit USDG to continuously stream cryptographic Layer5 (L5) yield per block.
+              Deposit USDG to continuously stream cryptographic Aegis yield per block.
             </p>
             <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs sm:text-sm font-mono text-[#9AA09A] uppercase tracking-wider">
               <span className="flex items-center gap-2">

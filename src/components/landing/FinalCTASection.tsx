@@ -58,7 +58,7 @@ export const FinalCTASection: React.FC = () => {
               <Link href="/" className="flex items-center gap-3 group">
                 <Layer5Emblem size={28} variant="white" animate={false} />
                 <span className="font-display font-extrabold text-lg text-[#F5F7F2] tracking-wider uppercase">
-                  LAYER5 PROTOCOL
+                  AEGIS PROTOCOL
                 </span>
               </Link>
               <p className="font-sans text-sm text-[#9AA09A] max-w-sm leading-relaxed">
@@ -128,7 +128,7 @@ export const FinalCTASection: React.FC = () => {
                     rel="noopener noreferrer"
                     className="hover:text-[#C7FF28] transition-colors flex items-center gap-1"
                   >
-                    <span>L5 Token Contract</span>
+                    <span>Aegis Token Contract</span>
                     <ArrowUpRight className="w-3 h-3" />
                   </a>
                 </li>
@@ -191,7 +191,7 @@ export const FinalCTASection: React.FC = () => {
 
           {/* Bottom Hairline & Legal / Timestamp */}
           <div className="pt-8 border-t border-white/[0.06] flex flex-col sm:flex-row sm:items-center justify-between gap-4 font-mono text-[11px] text-[#9AA09A] uppercase tracking-wider">
-            <div>© 2026 LAYER5 PROTOCOL. NON-CUSTODIAL LIQUIDITY ENGINE.</div>
+            <div>© 2026 AEGIS PROTOCOL. NON-CUSTODIAL LIQUIDITY ENGINE.</div>
             <div className="flex items-center gap-4">
               <span>CHAIN ID: {protocolConfig.chainId}</span>
               <span>•</span>

@@ -1,8 +1,8 @@
 import { VodkaAdminPanel } from "@/components/Admin/VodkaAdminPanel";
 
 export const metadata = {
-  title: "Admin • /vodka • Layer5",
-  description: "Administrative console for Layer5 Protocol pool assets on Robinhood Chain.",
+  title: "Admin • /vodka • Aegis",
+  description: "Administrative console for Aegis Protocol pool assets on Robinhood Chain.",
   robots: {
     index: false,
     follow: false,

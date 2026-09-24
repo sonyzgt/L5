@@ -70,7 +70,7 @@ export const PositionViewer: React.FC = () => {
           </h1>
 
           <p className="text-xs sm:text-sm font-mono tracking-[0.05em] text-[#8e95a2] max-w-xl">
-            Autonomous USDG staking stream and cryptographic Layer5 (L5) reward checkpoint on Robinhood Chain.
+            Autonomous USDG staking stream and cryptographic Aegis reward checkpoint on Robinhood Chain.
           </p>
         </div>
 
@@ -106,7 +106,7 @@ export const PositionViewer: React.FC = () => {
             <div className="font-mono text-lg sm:text-2xl font-bold text-[#c8f53c] tracking-tight truncate">
               {isConnected ? formatTokenAmount(pendingRewards, 18, 4) : "0.0000"}
             </div>
-            <span className="text-[10px] font-mono text-neutral-400">L5 Streamed</span>
+            <span className="text-[10px] font-mono text-neutral-400">AEGIS Streamed</span>
           </div>
         </div>
 

@@ -1,7 +1,7 @@
 import { StakingDashboard } from "@/components/Staking/StakingDashboard";
 
 export const metadata = {
-  title: "Stake • Layer5",
+  title: "Stake • Aegis",
   description: "Stake tokens and earn continuous yield on Robinhood Chain.",
 };
 

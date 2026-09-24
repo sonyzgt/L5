@@ -46,12 +46,12 @@ export default function DocsPage() {
       title: "Introduction",
       category: "Protocol",
       icon: BookOpen,
-      description: "Overview, vision, and architectural tenets of Layer5 Protocol.",
+      description: "Overview, vision, and architectural tenets of Aegis Protocol.",
     },
     {
       id: "how-it-works",
       num: "02",
-      title: "How Layer5 Works",
+      title: "How Aegis Works",
       category: "Architecture",
       icon: Layers,
       description: "The perpetual 4-stage cycle: Stake, Flow, Grow, and Reward.",
@@ -174,10 +174,10 @@ export default function DocsPage() {
               </div>
 
               <h1 className="font-editorial text-3xl sm:text-5xl font-extrabold uppercase tracking-tight text-white">
-                LAYER5 PROTOCOL DOCS
+                AEGIS PROTOCOL DOCS
               </h1>
               <p className="text-neutral-400 text-sm sm:text-base max-w-2xl font-sans">
-                Comprehensive technical architecture, non-custodial smart contracts, mathematical yield formulas, and integration references for Layer5 on Robinhood Chain.
+                Comprehensive technical architecture, non-custodial smart contracts, mathematical yield formulas, and integration references for Aegis on Robinhood Chain.
               </p>
             </div>
 
@@ -331,19 +331,19 @@ export default function DocsPage() {
                     <span>OVERVIEW</span>
                   </div>
                   <h2 className="font-editorial text-2xl sm:text-4xl font-extrabold uppercase text-white tracking-tight">
-                    Introduction to Layer5 Protocol
+                    Introduction to Aegis Protocol
                   </h2>
                   <p className="text-neutral-400 text-sm font-sans leading-relaxed">
-                    Layer5 is an institutional-grade, non-custodial decentralized staking protocol natively engineered for Robinhood Chain L2.
+                    Aegis is an institutional-grade, non-custodial decentralized staking protocol natively engineered for Robinhood Chain L2.
                   </p>
                 </div>
 
                 <div className="space-y-4 text-sm text-neutral-300 leading-relaxed font-sans">
                   <p>
-                    Built upon the perpetual cycle of value—<strong className="text-white font-mono">STAKE &rarr; FLOW &rarr; GROW &rarr; REWARD</strong>—Layer5 enables liquid capital to compound autonomously every second without administrative gatekeepers, custody surrender, or lockup restrictions.
+                    Built upon the perpetual cycle of value—<strong className="text-white font-mono">STAKE &rarr; FLOW &rarr; GROW &rarr; REWARD</strong>—Aegis enables liquid capital to compound autonomously every second without administrative gatekeepers, custody surrender, or lockup restrictions.
                   </p>
                   <p>
-                    By coupling mathematically provable yield distributions with zero-fee instant withdrawals, Layer5 serves as the core financial bedrock for autonomous liquidity on the high-throughput Robinhood Chain ecosystem.
+                    By coupling mathematically provable yield distributions with zero-fee instant withdrawals, Aegis serves as the core financial bedrock for autonomous liquidity on the high-throughput Robinhood Chain ecosystem.
                   </p>
                 </div>
 
@@ -393,7 +393,7 @@ export default function DocsPage() {
             )}
 
             {/* =============================================================
-                SECTION 02: HOW LAYER5 WORKS
+                SECTION 02: HOW AEGIS WORKS
                 ============================================================= */}
             {activeSection === "how-it-works" && (
               <article className="space-y-8 animate-fadeIn">
@@ -404,10 +404,10 @@ export default function DocsPage() {
                     <span>ARCHITECTURE & FLOW</span>
                   </div>
                   <h2 className="font-editorial text-2xl sm:text-4xl font-extrabold uppercase text-white tracking-tight">
-                    How Layer5 Works
+                    How Aegis Works
                   </h2>
                   <p className="text-neutral-400 text-sm font-sans leading-relaxed">
-                    A walkthrough of the 4 continuous phases in the Layer5 staking lifecycle.
+                    A walkthrough of the 4 continuous phases in the Aegis staking lifecycle.
                   </p>
                 </div>
 
@@ -434,7 +434,7 @@ export default function DocsPage() {
                       Algorithmic Liquidity Pooling
                     </h3>
                     <p className="text-sm text-neutral-400 leading-relaxed font-sans">
-                      Your position merges with the collective pool. The global reward accumulator (<code className="text-[#c8f53c] font-mono text-xs">rewardPerToken</code>) continuously streams Layer5 (L5) emission tokens based on your proportion of the total staked assets.
+                      Your position merges with the collective pool. The global reward accumulator (<code className="text-[#c8f53c] font-mono text-xs">rewardPerToken</code>) continuously streams Aegis emission tokens based on your proportion of the total staked assets.
                     </p>
                   </div>
 
@@ -460,7 +460,7 @@ export default function DocsPage() {
                       Frictionless Yield Harvest & Exit
                     </h3>
                     <p className="text-sm text-neutral-400 leading-relaxed font-sans">
-                      Execute <code className="text-[#c8f53c] font-mono text-xs">claimReward()</code> to transfer earned Layer5 (L5) tokens to your wallet while keeping your principle active, or invoke <code className="text-[#c8f53c] font-mono text-xs">exit()</code> to simultaneously harvest all rewards and withdraw your entire initial deposit.
+                      Execute <code className="text-[#c8f53c] font-mono text-xs">claimReward()</code> to transfer earned Aegis tokens to your wallet while keeping your principle active, or invoke <code className="text-[#c8f53c] font-mono text-xs">exit()</code> to simultaneously harvest all rewards and withdraw your entire initial deposit.
                     </p>
                   </div>
                 </div>
@@ -536,13 +536,13 @@ export default function DocsPage() {
     // Withdraws staked USDG without forfeiting accrued rewards
     function unstake(uint256 amount) external;
 
-    // Transfers all accumulated Layer5 (L5) rewards to caller
+    // Transfers all accumulated Aegis rewards to caller
     function claimReward() external;
 
     // Atomic combined operation: claims all rewards and withdraws full principle
     function exit() external;
 
-    // View function calculating pending Layer5 (L5) rewards for account
+    // View function calculating pending Aegis rewards for account
     function earned(address account) external view returns (uint256);
 }`}
                   </pre>
@@ -571,7 +571,7 @@ export default function DocsPage() {
 
                 <div className="space-y-4 text-sm text-neutral-300 font-sans leading-relaxed">
                   <p>
-                    Rather than iterating through stakers in expensive and vulnerable loops, Layer5 computes reward distributions continuously using the cumulative integral of yield per token:
+                    Rather than iterating through stakers in expensive and vulnerable loops, Aegis computes reward distributions continuously using the cumulative integral of yield per token:
                   </p>
 
                   <div className="p-5 rounded-xl bg-[#040406] border border-[#c8f53c]/20 font-mono text-xs text-[#c8f53c] leading-relaxed space-y-2">
@@ -868,7 +868,7 @@ export default function DocsPage() {
                       Are my staked USDG tokens locked for any minimum time period?
                     </h3>
                     <p className="text-xs text-neutral-400 leading-relaxed font-sans">
-                      No. Layer5 strictly follows a zero lockup policy. You may unstake any portion or 100% of your principle at any moment without penalty or withdrawal fees.
+                      No. Aegis strictly follows a zero lockup policy. You may unstake any portion or 100% of your principle at any moment without penalty or withdrawal fees.
                     </p>
                   </div>
 
@@ -883,7 +883,7 @@ export default function DocsPage() {
 
                   <div className="p-5 rounded-xl bg-[#040406]/60 border border-white/[0.08] space-y-2">
                     <h3 className="text-white font-bold font-sans text-sm">
-                      Can I claim my Layer5 (L5) rewards without withdrawing my staked USDG?
+                      Can I claim my Aegis rewards without withdrawing my staked USDG?
                     </h3>
                     <p className="text-xs text-neutral-400 leading-relaxed font-sans">
                       Yes. Calling the <code className="text-[#c8f53c] font-mono">claimReward()</code> function transfers all accrued yield directly to your wallet while leaving your staked deposit intact to continue earning.
@@ -892,7 +892,7 @@ export default function DocsPage() {
 
                   <div className="p-5 rounded-xl bg-[#040406]/60 border border-white/[0.08] space-y-2">
                     <h3 className="text-white font-bold font-sans text-sm">
-                      What wallet software is compatible with Layer5?
+                      What wallet software is compatible with Aegis?
                     </h3>
                     <p className="text-xs text-neutral-400 leading-relaxed font-sans">
                       Any standard EVM-compatible Web3 wallet, including MetaMask, Rabby, Coinbase Wallet, Rainbow, and WalletConnect v2 mobile apps.

@@ -297,7 +297,7 @@ export function useLayer5Staking() {
         setTxState({
           step: "SUCCESS",
           title: "STAKE CONFIRMED",
-          description: `${amountStr} USDG is now actively generating Layer5 (L5) rewards.`,
+          description: `${amountStr} USDG is now actively generating Aegis rewards.`,
           txHash: hash,
         });
       }, 2500);
@@ -378,7 +378,7 @@ export function useLayer5Staking() {
       setTxState({
         step: "PENDING",
         title: "CLAIM PENDING",
-        description: "Transferring L5 rewards on Robinhood Chain...",
+        description: "Transferring Aegis rewards on Robinhood Chain...",
         txHash: hash,
       });
 
@@ -386,8 +386,8 @@ export function useLayer5Staking() {
         refetchAll();
         setTxState({
           step: "SUCCESS",
-          title: "L5 REWARDS CLAIMED",
-          description: "Accumulated Layer5 (L5) rewards have been transferred to your wallet.",
+          title: "AEGIS REWARDS CLAIMED",
+          description: "Accumulated Aegis rewards have been transferred to your wallet.",
           txHash: hash,
         });
       }, 2500);

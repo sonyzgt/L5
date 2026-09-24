@@ -33,12 +33,12 @@ export const IntroLoader: React.FC = () => {
               transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
               className="flex items-center gap-3"
             >
-              <span className="font-display font-black text-4xl sm:text-5xl tracking-[-0.04em] text-[#F5F7F2]">
-                L5
+              <span className="font-display font-black text-3xl sm:text-4xl tracking-[-0.04em] text-[#F5F7F2]">
+                AEGIS
               </span>
               <span className="h-6 w-[1.5px] bg-[#C7FF28]/60" />
               <span className="font-mono text-xs sm:text-sm tracking-[0.3em] uppercase text-[#9AA09A]">
-                LAYER5
+                PROTOCOL
               </span>
             </motion.div>
 

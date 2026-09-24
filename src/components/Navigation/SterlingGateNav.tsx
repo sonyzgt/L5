@@ -223,7 +223,7 @@ export const SterlingGateNav: React.FC = () => {
             </div>
             <div className="flex flex-col">
               <span className="text-sm sm:text-base font-bold tracking-[0.2em] sm:tracking-[0.22em] text-white uppercase font-sans">
-                Layer5
+                Aegis
               </span>
               {!isScrolled && (
                 <span className="hidden sm:inline text-[8px] font-mono tracking-[0.3em] text-[#8e95a2] uppercase">
@@ -531,7 +531,7 @@ export const SterlingGateNav: React.FC = () => {
                   </a>
                 </div>
                 <span className="text-[10px] text-neutral-500 font-mono">
-                  LAYER5 PROTOCOL © 2026
+                  AEGIS PROTOCOL © 2026
                 </span>
               </div>
             </div>

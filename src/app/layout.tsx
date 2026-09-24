@@ -14,9 +14,9 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://layerfive.io"),
-  title: "Layer5 — Staking on Robinhood Chain",
-  description: "Layer5 is a staking protocol built on Robinhood Chain. Stake, flow, grow, and earn.",
-  keywords: ["Layer5", "Robinhood Chain", "Staking", "DeFi", "Web3", "Ethereum", "EVM"],
+  title: "Aegis — Staking on Robinhood Chain",
+  description: "Aegis is a staking protocol built on Robinhood Chain. Stake, flow, grow, and earn.",
+  keywords: ["Aegis", "Robinhood Chain", "Staking", "DeFi", "Web3", "Ethereum", "EVM"],
   icons: {
     icon: [
       { url: "/favicon.svg", type: "image/svg+xml" },
@@ -27,16 +27,16 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.png",
   },
   openGraph: {
-    title: "Layer5 — Staking on Robinhood Chain",
-    description: "Layer5 is a staking protocol built on Robinhood Chain. Stake, flow, grow, and earn.",
+    title: "Aegis — Staking on Robinhood Chain",
+    description: "Aegis is a staking protocol built on Robinhood Chain. Stake, flow, grow, and earn.",
     url: "https://layerfive.io",
-    siteName: "Layer5 Protocol",
+    siteName: "Aegis Protocol",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Layer5 Protocol — Robinhood Chain",
+        alt: "Aegis Protocol — Robinhood Chain",
       },
     ],
     locale: "en_US",
@@ -44,8 +44,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Layer5 — Staking on Robinhood Chain",
-    description: "Layer5 is a staking protocol built on Robinhood Chain. Stake, flow, grow, and earn.",
+    title: "Aegis — Staking on Robinhood Chain",
+    description: "Aegis is a staking protocol built on Robinhood Chain. Stake, flow, grow, and earn.",
     creator: "@layer5dotio",
     site: "@layer5dotio",
     images: ["/og-image.png"],

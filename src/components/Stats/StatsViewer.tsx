@@ -71,8 +71,8 @@ export const StatsViewer: React.FC = () => {
 
   const rewardsDistributedFormatted =
     apiStats?.totalRewardsDistributed && apiStats.totalRewardsDistributed !== "0.00"
-      ? `${apiStats.totalRewardsDistributed} L5`
-      : "0.00 L5";
+      ? `${apiStats.totalRewardsDistributed} AEGIS`
+      : "0.00 AEGIS";
 
   const stakersCount =
     totalStakers > 0
@@ -85,9 +85,9 @@ export const StatsViewer: React.FC = () => {
 
   // Timeframe live data
   const timeframeMetrics = {
-    "24H": { volume: "$0.00 USDG", rewards: "0.00 L5", txCount: "0", avgGas: "< 0.0001 ETH" },
-    "7D": { volume: "$0.00 USDG", rewards: "0.00 L5", txCount: "0", avgGas: "< 0.0001 ETH" },
-    "30D": { volume: "$0.00 USDG", rewards: "0.00 L5", txCount: "0", avgGas: "< 0.0001 ETH" },
+    "24H": { volume: "$0.00 USDG", rewards: "0.00 AEGIS", txCount: "0", avgGas: "< 0.0001 ETH" },
+    "7D": { volume: "$0.00 USDG", rewards: "0.00 AEGIS", txCount: "0", avgGas: "< 0.0001 ETH" },
+    "30D": { volume: "$0.00 USDG", rewards: "0.00 AEGIS", txCount: "0", avgGas: "< 0.0001 ETH" },
     "ALL": { volume: stakedFormatted, rewards: rewardsDistributedFormatted, txCount: "0", avgGas: "< 0.0001 ETH" },
   }[timeframe];
 

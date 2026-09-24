@@ -1,7 +1,7 @@
 import { PositionViewer } from "@/components/Position/PositionViewer";
 
 export const metadata = {
-  title: "Position • Layer5",
+  title: "Position • Aegis",
   description: "View and manage your active staking positions on Robinhood Chain.",
 };
 
