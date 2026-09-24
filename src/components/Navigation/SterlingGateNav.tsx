@@ -246,7 +246,7 @@ export const SterlingGateNav: React.FC = () => {
                     setWalletModalOpen(true);
                   }
                 }}
-                className="group relative flex items-center gap-1.5 sm:gap-2.5 px-2.5 sm:px-3.5 py-1.5 rounded-full bg-[#10131d] border border-white/20 hover:border-[#c8f53c] transition-all duration-300 shadow-xl shadow-black/60 hover:shadow-[0_0_18px_rgba(200,245,60,0.25)] cursor-pointer select-none"
+                className="group relative flex items-center gap-2 sm:gap-2.5 px-3.5 sm:px-4 py-2 rounded-full bg-[#10131d] border border-white/20 hover:border-[#c8f53c] transition-all duration-300 shadow-xl shadow-black/60 hover:shadow-[0_0_18px_rgba(200,245,60,0.25)] cursor-pointer select-none"
                 title="View Connected Account & Balances"
               >
                 <span className="relative flex h-2 w-2">
@@ -254,11 +254,11 @@ export const SterlingGateNav: React.FC = () => {
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-[#c8f53c] shadow-[0_0_8px_#c8f53c]" />
                 </span>
 
-                <span className="font-mono text-xs font-bold text-white tracking-wider group-hover:text-[#c8f53c] transition-colors">
+                <span className="font-mono text-xs sm:text-sm font-bold text-white tracking-wider group-hover:text-[#c8f53c] transition-colors">
                   {formatAddress(address)}
                 </span>
 
-                <span className="text-[10px] text-[#8e95a2] font-mono group-hover:text-white transition-colors">
+                <span className="text-xs text-[#8e95a2] font-mono group-hover:text-white transition-colors">
                   ▾
                 </span>
               </button>
@@ -272,10 +272,10 @@ export const SterlingGateNav: React.FC = () => {
                     setWalletModalOpen(true);
                   }
                 }}
-                className="group relative flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-4 py-1.5 rounded-full bg-[#B8F34A] text-[#10170e] hover:bg-[#cbfb65] border border-[#B8F34A] font-mono text-[11px] sm:text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-[0_0_20px_rgba(184,243,74,0.3)] hover:shadow-[0_0_28px_rgba(184,243,74,0.5)] hover:scale-[1.03] active:scale-[0.97] cursor-pointer select-none"
+                className="group relative flex items-center gap-2 sm:gap-2.5 px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full bg-[#B8F34A] text-[#10170e] hover:bg-[#cbfb65] border border-[#B8F34A] font-mono text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-300 shadow-[0_0_20px_rgba(184,243,74,0.3)] hover:shadow-[0_0_28px_rgba(184,243,74,0.5)] hover:scale-[1.03] active:scale-[0.97] cursor-pointer select-none"
                 title="Connect Web3 Wallet"
               >
-                <Wallet className="w-3.5 h-3.5 text-[#10170e] transition-transform group-hover:scale-110" />
+                <Wallet className="w-4 h-4 text-[#10170e] transition-transform group-hover:scale-110" />
                 <span>
                   <span className="hidden sm:inline">CONNECT </span>WALLET
                 </span>

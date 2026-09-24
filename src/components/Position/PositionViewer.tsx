@@ -186,10 +186,10 @@ export const PositionViewer: React.FC = () => {
                       size="xl"
                       onClick={claim}
                       disabled={!hasRewards}
-                      className="w-full sm:flex-1 font-mono text-xs uppercase tracking-wider font-bold"
+                      className="w-full sm:flex-1 font-mono text-sm uppercase tracking-wider font-bold min-h-[54px]"
                     >
                       <span className="flex items-center justify-center gap-2">
-                        CLAIM REWARDS <Sparkles className="w-4 h-4 text-[#F6F3EC]" />
+                        CLAIM REWARDS <Sparkles className="w-4.5 h-4.5 text-[#F6F3EC]" />
                       </span>
                     </LiquidButton>
 
@@ -198,7 +198,7 @@ export const PositionViewer: React.FC = () => {
                       size="xl"
                       onClick={() => setUnstakeModalOpen(true)}
                       disabled={!hasStaked}
-                      className="w-full sm:flex-1 font-mono text-xs uppercase tracking-wider text-[#1C1B18]"
+                      className="w-full sm:flex-1 font-mono text-sm uppercase tracking-wider text-[#1C1B18] font-bold min-h-[54px]"
                     >
                       UNSTAKE LIQUIDITY
                     </LiquidButton>
@@ -207,7 +207,7 @@ export const PositionViewer: React.FC = () => {
                       variant="secondary"
                       size="xl"
                       href="/stake"
-                      className="w-full sm:w-auto px-6 font-mono text-xs uppercase tracking-wider text-[#1C1B18]"
+                      className="w-full sm:w-auto px-7 font-mono text-sm uppercase tracking-wider text-[#1C1B18] font-bold min-h-[54px]"
                     >
                       + ADD CAPITAL
                     </LiquidButton>
@@ -215,9 +215,9 @@ export const PositionViewer: React.FC = () => {
                 ) : (
                   <button
                     onClick={() => setWalletModalOpen(true)}
-                    className="w-full py-4.5 px-8 rounded-full bg-[#1C1B18] hover:bg-[#2d2b27] text-[#F6F3EC] font-mono text-xs font-bold uppercase tracking-[0.14em] transition-all duration-300 shadow-md hover:scale-[1.01] active:scale-[0.99] flex items-center justify-center gap-2 cursor-pointer"
+                    className="w-full min-h-[58px] py-4.5 px-8 rounded-full bg-[#1C1B18] hover:bg-[#283615] text-[#F6F3EC] font-mono text-sm sm:text-base font-bold uppercase tracking-[0.14em] transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-[1.01] active:scale-[0.99] flex items-center justify-center gap-3 cursor-pointer"
                   >
-                    <Wallet className="w-4 h-4 text-[#F6F3EC]" />
+                    <Wallet className="w-5 h-5 text-[#F6F3EC]" />
                     <span>CONNECT WALLET TO VIEW POSITION</span>
                   </button>
                 )}
@@ -281,7 +281,7 @@ export const PositionViewer: React.FC = () => {
               <button
                 type="button"
                 onClick={() => setUnstakeAmount(formatTokenAmount(stakedBalance, stakeDecimals, 6))}
-                className="shrink-0 text-[10px] font-mono px-3 py-1.5 rounded-full bg-white border border-black/10 hover:bg-black/5 text-[#1C1B18] font-bold shadow-sm"
+                className="shrink-0 text-xs font-mono px-4 py-2 rounded-full bg-white border border-black/15 hover:bg-black/5 text-[#1C1B18] font-bold shadow-sm transition cursor-pointer"
               >
                 MAX
               </button>
@@ -292,7 +292,7 @@ export const PositionViewer: React.FC = () => {
                 variant="secondary"
                 size="lg"
                 onClick={() => setUnstakeModalOpen(false)}
-                className="flex-1 font-mono text-xs uppercase"
+                className="flex-1 font-mono text-sm uppercase min-h-[50px]"
               >
                 CANCEL
               </LiquidButton>
@@ -301,7 +301,7 @@ export const PositionViewer: React.FC = () => {
                 size="lg"
                 onClick={handleUnstakeSubmit}
                 disabled={!unstakeAmount || parseFloat(unstakeAmount) <= 0}
-                className="flex-1 font-mono text-xs uppercase font-bold"
+                className="flex-1 font-mono text-sm uppercase font-bold min-h-[50px]"
               >
                 CONFIRM UNSTAKE
               </LiquidButton>

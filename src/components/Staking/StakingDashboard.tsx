@@ -378,9 +378,9 @@ export const StakingDashboard: React.FC = () => {
                     setActiveTab("withdraw");
                     setInputAmount("");
                   }}
-                  className={`px-4 py-1.5 rounded-full font-mono text-xs uppercase tracking-wider font-semibold transition-all duration-200 cursor-pointer ${
+                  className={`px-5 py-2.5 rounded-full font-mono text-xs sm:text-sm uppercase tracking-wider font-bold transition-all duration-200 cursor-pointer ${
                     activeTab === "withdraw"
-                      ? "bg-[#1C1B18] text-[#F6F3EC] shadow-xs"
+                      ? "bg-[#1C1B18] text-[#F6F3EC] shadow-sm"
                       : "text-[#6B665E] hover:text-[#1C1B18]"
                   }`}
                 >
@@ -389,13 +389,13 @@ export const StakingDashboard: React.FC = () => {
               </div>
 
               {/* Amount Input Box */}
-              <div className="space-y-2">
-                <div className="flex items-center justify-between font-mono text-xs text-[#6B665E]">
-                  <span className="uppercase text-[10px] tracking-wider">
+              <div className="space-y-2.5">
+                <div className="flex items-center justify-between font-mono text-xs sm:text-sm text-[#6B665E]">
+                  <span className="uppercase text-[11px] sm:text-xs tracking-wider font-semibold">
                     {activeTab === "deposit" ? "DEPOSIT USDG" : "WITHDRAW USDG"}
                   </span>
                   <div className="flex items-center gap-2">
-                    <span>
+                    <span className="text-xs">
                       BAL: {activeTab === "deposit"
                         ? isConnected ? formatTokenAmount(tokenBalance, stakeDecimals, 2) : "0.00"
                         : isConnected ? formatTokenAmount(stakedBalance, stakeDecimals, 2) : "0.00"}
@@ -403,14 +403,14 @@ export const StakingDashboard: React.FC = () => {
                     <button
                       type="button"
                       onClick={handleMax}
-                      className="px-2 py-0.5 rounded-full bg-[#FAF8F5] border border-[#E5E0D5] text-[10px] font-bold text-[#1C1B18] hover:bg-black/5 cursor-pointer"
+                      className="px-3 py-1 rounded-full bg-[#FAF8F5] border border-[#E5E0D5] text-xs font-bold text-[#1C1B18] hover:bg-black/5 hover:border-black/30 transition cursor-pointer"
                     >
                       MAX
                     </button>
                   </div>
                 </div>
 
-                <div className="flex items-center justify-between rounded-2xl bg-[#FAF8F5] border border-[#E5E0D5] p-3.5 sm:p-4 focus-within:border-[#283615] transition">
+                <div className="flex items-center justify-between rounded-2xl bg-[#FAF8F5] border border-[#E5E0D5] p-4 sm:p-5 focus-within:border-[#283615] transition">
                   <input
                     type="number"
                     placeholder="0.00"
@@ -418,26 +418,26 @@ export const StakingDashboard: React.FC = () => {
                     onChange={(e) => setInputAmount(e.target.value)}
                     className="w-full bg-transparent font-mono text-2xl sm:text-3xl font-bold text-[#1C1B18] outline-none placeholder:text-[#8C877D]/40"
                   />
-                  <div className="flex items-center gap-2 rounded-xl bg-white px-3 py-1.5 border border-[#E5E0D5] shadow-xs shrink-0 ml-3">
+                  <div className="flex items-center gap-2.5 rounded-xl bg-white px-3.5 py-2 border border-[#E5E0D5] shadow-xs shrink-0 ml-3">
                     <Image
                       src="/usdg-icon.png"
                       alt="USDG"
-                      width={18}
-                      height={18}
+                      width={22}
+                      height={22}
                       className="rounded-full"
                     />
-                    <span className="font-mono text-xs font-bold text-[#1C1B18]">USDG</span>
+                    <span className="font-mono text-xs sm:text-sm font-bold text-[#1C1B18]">USDG</span>
                   </div>
                 </div>
 
                 {/* Percentage Shortcuts */}
-                <div className="flex items-center gap-1.5 pt-1">
+                <div className="flex items-center gap-2 pt-1">
                   {[25, 50, 75, 100].map((pct) => (
                     <button
                       key={pct}
                       type="button"
                       onClick={() => handlePercentage(pct)}
-                      className="flex-1 py-1 rounded-lg bg-[#FAF8F5] border border-[#E5E0D5] text-[10px] font-mono text-[#6B665E] hover:text-[#1C1B18] hover:bg-black/5 transition cursor-pointer"
+                      className="flex-1 py-2 sm:py-2.5 rounded-xl bg-[#FAF8F5] border border-[#E5E0D5] text-xs font-mono font-bold text-[#6B665E] hover:text-[#1C1B18] hover:bg-black/5 hover:border-black/30 transition cursor-pointer"
                     >
                       {pct}%
                     </button>
@@ -450,13 +450,13 @@ export const StakingDashboard: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setWalletModalOpen(true)}
-                  className="w-full py-4 rounded-full bg-[#1C1B18] hover:bg-[#283615] text-[#F6F3EC] font-mono text-xs uppercase tracking-wider font-bold transition shadow-sm flex items-center justify-center gap-2 cursor-pointer"
+                  className="w-full min-h-[56px] py-4 px-6 rounded-full bg-[#1C1B18] hover:bg-[#283615] text-[#F6F3EC] font-mono text-sm sm:text-base uppercase tracking-wider font-bold transition shadow-lg hover:shadow-xl hover:scale-[1.01] active:scale-[0.99] flex items-center justify-center gap-3 cursor-pointer"
                 >
-                  <Wallet className="w-4 h-4 text-[#F6F3EC]" />
-                  <span>Connect Wallet</span>
+                  <Wallet className="w-5 h-5 text-[#F6F3EC]" />
+                  <span>CONNECT WALLET TO STAKE</span>
                 </button>
               ) : !isContractConfigured ? (
-                <div className="w-full py-3.5 text-center bg-[#FAF8F5] rounded-full text-[#6B665E] font-mono text-xs tracking-wider uppercase border border-[#E5E0D5]">
+                <div className="w-full min-h-[56px] py-4 text-center bg-[#FAF8F5] rounded-full text-[#6B665E] font-mono text-xs sm:text-sm tracking-wider uppercase border border-[#E5E0D5] flex items-center justify-center">
                   Contract Pending Deployment
                 </div>
               ) : (
@@ -464,10 +464,10 @@ export const StakingDashboard: React.FC = () => {
                   type="button"
                   onClick={handleMainSubmit}
                   disabled={!inputAmount || parseFloat(inputAmount) <= 0}
-                  className="w-full py-4 rounded-full bg-[#1C1B18] hover:bg-[#283615] text-[#F6F3EC] font-mono text-xs uppercase tracking-wider font-bold transition shadow-sm disabled:opacity-40 disabled:cursor-not-allowed flex items-center justify-center gap-2 cursor-pointer"
+                  className="w-full min-h-[56px] py-4 px-6 rounded-full bg-[#1C1B18] hover:bg-[#283615] text-[#F6F3EC] font-mono text-sm sm:text-base uppercase tracking-wider font-bold transition shadow-lg hover:shadow-xl hover:scale-[1.01] active:scale-[0.99] disabled:opacity-40 disabled:cursor-not-allowed flex items-center justify-center gap-3 cursor-pointer"
                 >
                   <span>{activeTab === "deposit" ? "Confirm Deposit USDG" : "Confirm Withdraw USDG"}</span>
-                  <ArrowRight className="w-4 h-4 text-[#F6F3EC]" />
+                  <ArrowRight className="w-5 h-5 text-[#F6F3EC]" />
                 </button>
               )}
 

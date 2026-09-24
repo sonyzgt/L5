@@ -66,15 +66,15 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 sm:gap-5 pt-2">
           <Link
             href="/stake"
-            className="w-full sm:w-auto px-9 py-4.5 rounded-full bg-[#0A0A08] hover:bg-[#1B3822] text-[#FFFFFF] font-display text-xs sm:text-sm font-black uppercase tracking-[0.14em] transition-all duration-300 shadow-[0_8px_24px_rgba(0,0,0,0.3)] hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2 cursor-pointer"
+            className="w-full sm:w-auto min-h-[56px] px-10 py-4 rounded-full bg-[#0A0A08] hover:bg-[#1B3822] text-[#FFFFFF] font-display text-sm sm:text-base font-black uppercase tracking-[0.16em] transition-all duration-300 shadow-[0_8px_24px_rgba(0,0,0,0.3)] hover:scale-[1.03] active:scale-[0.98] flex items-center justify-center gap-2.5 cursor-pointer"
           >
             <span className="text-[#FFFFFF]">START STAKING NOW</span>
-            <ArrowUpRight className="w-4 h-4 text-[#FFFFFF]" />
+            <ArrowUpRight className="w-5 h-5 text-[#FFFFFF]" />
           </Link>
 
           <Link
             href="/position"
-            className="w-full sm:w-auto px-8 py-4.5 rounded-full bg-white hover:bg-[#FAF8F5] text-[#0A0A08] font-mono text-xs sm:text-sm font-bold uppercase tracking-[0.1em] border-2 border-[#0A0A08] hover:border-black transition-all duration-300 shadow-md flex items-center justify-center gap-2 cursor-pointer"
+            className="w-full sm:w-auto min-h-[56px] px-9 py-4 rounded-full bg-white hover:bg-[#FAF8F5] text-[#0A0A08] font-mono text-sm sm:text-base font-bold uppercase tracking-[0.12em] border-2 border-[#0A0A08] hover:border-black transition-all duration-300 shadow-md hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2.5 cursor-pointer"
           >
             <span>VIEW PORTFOLIO</span>
           </Link>

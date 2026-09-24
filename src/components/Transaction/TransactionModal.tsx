@@ -78,10 +78,10 @@ export const TransactionModal: React.FC<TransactionModalProps> = ({ state, onClo
         <div className="pt-2">
           {state.step === "CONFIRMING" && (
             <LiquidButton
-              size="sm"
+              size="default"
               variant="secondary"
               onClick={onClose}
-              className="text-xs font-mono uppercase tracking-wider"
+              className="text-sm font-mono uppercase tracking-wider min-h-[44px]"
             >
               CANCEL
             </LiquidButton>
@@ -92,7 +92,7 @@ export const TransactionModal: React.FC<TransactionModalProps> = ({ state, onClo
               variant="default"
               size="xl"
               onClick={onClose}
-              className="w-full text-xs font-mono uppercase tracking-[0.2em] font-bold shadow-md"
+              className="w-full min-h-[52px] text-sm sm:text-base font-mono uppercase tracking-[0.16em] font-bold shadow-md"
             >
               CLOSE
             </LiquidButton>

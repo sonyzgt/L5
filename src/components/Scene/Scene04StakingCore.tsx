@@ -130,15 +130,15 @@ export const Scene04StakingCore: React.FC = () => {
             {/* Top Bar: Mode Selector + Balance Indicator */}
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/10 pb-6 font-mono text-xs">
               {/* Liquid Mode Tabs */}
-              <div className="inline-flex items-center gap-1.5 p-1 rounded-full liquid-glass-pill border border-white/15">
+              <div className="inline-flex items-center gap-2 p-1.5 rounded-full liquid-glass-pill border border-white/15">
                 <LiquidButton
-                  size="sm"
+                  size="default"
                   variant={activeMode === "stake" ? "kawa" : "default"}
                   onClick={() => {
                     setActiveMode("stake");
                     setAmount("");
                   }}
-                  className={`px-5 font-semibold text-xs tracking-wider uppercase ${
+                  className={`px-6 py-2 min-h-[44px] font-bold text-xs sm:text-sm tracking-wider uppercase ${
                     activeMode === "stake"
                       ? "text-[#c8f53c] font-bold border border-[#c8f53c]/50 bg-[#c8f53c]/15"
                       : "text-neutral-400 hover:text-white"
@@ -148,13 +148,13 @@ export const Scene04StakingCore: React.FC = () => {
                 </LiquidButton>
 
                 <LiquidButton
-                  size="sm"
+                  size="default"
                   variant={activeMode === "unstake" ? "kawa" : "default"}
                   onClick={() => {
                     setActiveMode("unstake");
                     setAmount("");
                   }}
-                  className={`px-5 font-semibold text-xs tracking-wider uppercase ${
+                  className={`px-6 py-2 min-h-[44px] font-bold text-xs sm:text-sm tracking-wider uppercase ${
                     activeMode === "unstake"
                       ? "text-[#c8f53c] font-bold border border-[#c8f53c]/50 bg-[#c8f53c]/15"
                       : "text-neutral-400 hover:text-white"
@@ -166,7 +166,7 @@ export const Scene04StakingCore: React.FC = () => {
 
               {/* Balance Readout */}
               <div className="flex items-center gap-2 text-[#8e95a2]">
-                <Wallet className="w-3.5 h-3.5 text-[#c8f53c]" />
+                <Wallet className="w-4 h-4 text-[#c8f53c]" />
                 <span>
                   {activeMode === "stake" ? "WALLET AVAIL:" : "STAKED PRINCIPAL:"}{" "}
                   <strong className="text-white font-medium">
@@ -179,18 +179,18 @@ export const Scene04StakingCore: React.FC = () => {
             {/* Monumental Central Input */}
             <div className="space-y-4">
               <div className="flex items-center justify-between text-xs font-mono text-[#8e95a2]">
-                <span className="uppercase tracking-widest text-[10px]">
+                <span className="uppercase tracking-widest text-[11px] font-semibold">
                   {activeMode === "stake" ? "STAKE USDG AMOUNT" : "WITHDRAW USDG AMOUNT"}
                 </span>
 
                 {/* Percentage Quick-Selection Pills */}
-                <div className="flex items-center gap-1.5">
+                <div className="flex items-center gap-2">
                   {[25, 50, 75, 100].map((pct) => (
                     <LiquidButton
                       key={pct}
                       size="sm"
                       onClick={() => handlePercentage(pct)}
-                      className="px-2.5 py-0.5 h-6 text-[10px] font-mono text-neutral-300 hover:text-[#c8f53c]"
+                      className="px-3 py-1 min-h-[34px] text-xs font-mono font-bold text-neutral-300 hover:text-[#c8f53c]"
                     >
                       {pct === 100 ? "MAX" : `${pct}%`}
                     </LiquidButton>
@@ -252,12 +252,12 @@ export const Scene04StakingCore: React.FC = () => {
                 variant="kawa"
                 onClick={handleAction}
                 disabled={isTxBusy || (isConnected && parsedAmount <= 0)}
-                className="w-full py-4 text-xs sm:text-sm font-mono tracking-[0.2em] uppercase font-bold text-[#090a0c] shadow-2xl shadow-[#c8f53c]/30"
+                className="w-full min-h-[58px] py-4.5 px-8 text-sm sm:text-base font-mono tracking-[0.16em] uppercase font-bold text-[#090a0c] shadow-2xl shadow-[#c8f53c]/30"
               >
-                <div className="flex items-center justify-center gap-2.5">
+                <div className="flex items-center justify-center gap-3">
                   {!isConnected ? (
                     <>
-                      <Wallet className="w-4 h-4" />
+                      <Wallet className="w-5 h-5" />
                       <span>CONNECT WALLET TO STAKE</span>
                     </>
                   ) : isTxBusy ? (
@@ -265,19 +265,19 @@ export const Scene04StakingCore: React.FC = () => {
                   ) : activeMode === "stake" ? (
                     needsApproval ? (
                       <>
-                        <ShieldCheck className="w-4 h-4" />
+                        <ShieldCheck className="w-5 h-5" />
                         <span>APPROVE USDG SPENDING</span>
                       </>
                     ) : (
                       <>
                         <span>STAKE {parsedAmount > 0 ? `${amount} USDG` : "USDG"}</span>
-                        <ArrowRight className="w-4 h-4" />
+                        <ArrowRight className="w-5 h-5" />
                       </>
                     )
                   ) : (
                     <>
                       <span>WITHDRAW {parsedAmount > 0 ? `${amount} USDG` : "USDG"}</span>
-                      <ArrowRight className="w-4 h-4" />
+                      <ArrowRight className="w-5 h-5" />
                     </>
                   )}
                 </div>
