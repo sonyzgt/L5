@@ -20,7 +20,7 @@ export const FinalCTASection: React.FC = () => {
             <span>06 // FINAL CALL TO YIELD</span>
           </div>
 
-          <h2 className="font-display font-black text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-[-0.04em] uppercase text-[#1C1B18] leading-[0.92]">
+          <h2 className="font-display font-black text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight uppercase text-[#1C1B18] leading-[0.98]">
             BUILT FOR
             <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1C1B18] via-[#283615] to-[#1C1B18]">

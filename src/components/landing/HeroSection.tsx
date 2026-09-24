@@ -31,7 +31,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           className="space-y-3"
         >
-          <h1 className="font-display font-black text-5xl sm:text-7xl md:text-8xl lg:text-[7.25rem] xl:text-[8.25rem] leading-[0.9] tracking-[-0.04em] uppercase text-[#1C1B18]">
+          <h1 className="font-display font-black text-5xl sm:text-7xl md:text-8xl lg:text-[7.25rem] xl:text-[8.25rem] leading-[0.95] tracking-tight uppercase text-[#1C1B18]">
             FLOW CAPITAL.
             <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1C1B18] via-[#283615] to-[#1C1B18]">

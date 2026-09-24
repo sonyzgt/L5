@@ -60,7 +60,7 @@ export const HowItWorksSection: React.FC = () => {
               <span className="w-1.5 h-1.5 rounded-full bg-[#283615]" />
               <span>03 // EXECUTION ARCHITECTURE</span>
             </div>
-            <h2 className="font-display font-black text-3xl sm:text-5xl lg:text-7xl tracking-[-0.04em] uppercase text-[#1C1B18]">
+            <h2 className="font-display font-black text-3xl sm:text-5xl lg:text-7xl tracking-tight uppercase text-[#1C1B18]">
               HOW CAPITAL
               <br />
               <span className="text-[#283615]">STREAMS.</span>

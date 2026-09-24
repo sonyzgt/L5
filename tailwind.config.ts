@@ -33,8 +33,9 @@ const config: Config = {
         },
       },
       fontFamily: {
-        display: ["Unbounded", "Syne", "-apple-system", "sans-serif"],
-        editorial: ["Syne", "PP Neue Corp Tight", "-apple-system", "sans-serif"],
+        norse: ["Norse", "sans-serif"],
+        display: ["Norse", "Unbounded", "Syne", "-apple-system", "sans-serif"],
+        editorial: ["Norse", "Syne", "PP Neue Corp Tight", "-apple-system", "sans-serif"],
         cursive: ["Caveat", "cursive", "Georgia", "serif"],
         mono: ["Space Grotesk", "Geist Mono", "ui-monospace", "monospace"],
         sans: ["Geist", "Inter", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "sans-serif"],

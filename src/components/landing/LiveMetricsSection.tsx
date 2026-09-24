@@ -69,7 +69,7 @@ export const LiveMetricsSection: React.FC<LiveMetricsProps> = ({
               <span className="w-1.5 h-1.5 rounded-full bg-[#283615]" />
               <span>04 // ON-CHAIN TELEMETRY</span>
             </div>
-            <h2 className="font-display font-black text-3xl sm:text-5xl lg:text-7xl tracking-[-0.04em] uppercase text-[#1C1B18]">
+            <h2 className="font-display font-black text-3xl sm:text-5xl lg:text-7xl tracking-tight uppercase text-[#1C1B18]">
               VERIFIABLE
               <br />
               <span className="text-[#283615]">PROTOCOL STATE.</span>
