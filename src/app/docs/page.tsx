@@ -158,25 +158,22 @@ export default function DocsPage() {
       <div className="max-w-7xl mx-auto space-y-8">
         
         {/* Top Header Banner */}
-        <div className="liquid-glass-subcard rounded-2xl p-6 sm:p-10 border border-white/[0.08] relative overflow-hidden">
-          {/* Subtle Ambient Accent Glow */}
-          <div className="absolute top-0 right-0 w-96 h-96 bg-[#c8f53c]/[0.04] blur-[120px] rounded-full pointer-events-none" />
-          
+        <div className="bg-white rounded-3xl p-6 sm:p-10 border border-black/[0.08] shadow-sm relative overflow-hidden">
           <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
             <div className="space-y-3">
               <div className="flex items-center gap-3">
-                <Layer5Emblem size={32} variant="white" animate={false} />
-                <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-[#c8f53c]/10 border border-[#c8f53c]/20 text-[10px] font-mono tracking-widest text-[#c8f53c] uppercase">
+                <Layer5Emblem size={32} variant="black" animate={false} />
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#283615]/10 border border-[#283615]/20 text-[10px] font-mono tracking-widest text-[#283615] uppercase font-bold">
                   <span>ROBINHOOD CHAIN L2</span>
                   <span>•</span>
                   <span>OFFICIAL DOCUMENTATION</span>
                 </div>
               </div>
 
-              <h1 className="font-editorial text-3xl sm:text-5xl font-extrabold uppercase tracking-tight text-white">
+              <h1 className="font-display font-black text-3xl sm:text-5xl uppercase tracking-tight text-[#1C1B18]">
                 AEGIS PROTOCOL DOCS
               </h1>
-              <p className="text-neutral-400 text-sm sm:text-base max-w-2xl font-sans">
+              <p className="text-[#6B665E] text-sm sm:text-base max-w-2xl font-sans">
                 Comprehensive technical architecture, non-custodial smart contracts, mathematical yield formulas, and integration references for Aegis on Robinhood Chain.
               </p>
             </div>
@@ -186,14 +183,14 @@ export default function DocsPage() {
               <button
                 type="button"
                 onClick={handleAddNetwork}
-                className="px-3.5 py-2 rounded-xl bg-white/[0.05] hover:bg-white/[0.1] border border-white/[0.08] hover:border-[#c8f53c]/40 text-neutral-300 hover:text-white transition flex items-center gap-2"
+                className="px-4 py-2.5 rounded-full bg-[#FAF8F5] hover:bg-black/5 border border-black/[0.08] text-[#1C1B18] font-bold transition flex items-center gap-2 cursor-pointer shadow-sm"
               >
-                <Network className="w-3.5 h-3.5 text-[#c8f53c]" />
+                <Network className="w-3.5 h-3.5 text-[#283615]" />
                 <span>Add Robinhood Chain</span>
               </button>
               <Link
                 href="/stake"
-                className="px-4 py-2 rounded-xl bg-[#c8f53c] hover:bg-[#d6ff47] text-[#08090c] font-bold transition flex items-center gap-2"
+                className="px-5 py-2.5 rounded-full bg-[#1C1B18] hover:bg-[#2d2b27] text-[#F6F3EC] font-bold transition flex items-center gap-2 shadow-sm hover:scale-[1.02] active:scale-[0.98]"
               >
                 <span>Launch App</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -203,19 +200,19 @@ export default function DocsPage() {
 
           {/* Search Input Bar */}
           <div className="relative mt-8">
-            <Search className="w-4 h-4 text-neutral-500 absolute left-4 top-1/2 -translate-y-1/2" />
+            <Search className="w-4 h-4 text-[#6B665E] absolute left-4 top-1/2 -translate-y-1/2" />
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search documentation (e.g. stake, reward rate, contract address, RPC)..."
-              className="w-full bg-[#040406]/60 border border-white/[0.08] rounded-xl pl-11 pr-4 py-3 text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-[#c8f53c]/60 transition font-mono"
+              className="w-full bg-[#FAF8F5] border border-black/[0.1] rounded-2xl pl-11 pr-4 py-3.5 text-sm text-[#1C1B18] placeholder-[#6B665E]/50 focus:outline-none focus:border-[#283615] transition font-mono"
             />
             {searchQuery && (
               <button
                 type="button"
                 onClick={() => setSearchQuery("")}
-                className="absolute right-4 top-1/2 -translate-y-1/2 text-xs text-neutral-500 hover:text-white font-mono"
+                className="absolute right-4 top-1/2 -translate-y-1/2 text-xs text-[#6B665E] hover:text-[#1C1B18] font-mono cursor-pointer"
               >
                 CLEAR
               </button>
@@ -235,13 +232,13 @@ export default function DocsPage() {
                 onClick={() => {
                   setActiveSection(sec.id);
                 }}
-                className={`shrink-0 flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-mono transition whitespace-nowrap ${
+                className={`shrink-0 flex items-center gap-2 px-4 py-2 rounded-full text-xs font-mono transition whitespace-nowrap cursor-pointer ${
                   isActive
-                    ? "bg-[#c8f53c] text-[#08090c] font-bold shadow-[0_0_15px_rgba(200,245,60,0.3)]"
-                    : "liquid-glass-subcard text-neutral-300 border border-white/10"
+                    ? "bg-[#1C1B18] text-[#F6F3EC] font-bold shadow-sm"
+                    : "bg-white text-[#6B665E] border border-black/[0.08]"
                 }`}
               >
-                <Icon className={`w-3.5 h-3.5 ${isActive ? "text-[#08090c]" : "text-[#c8f53c]"}`} />
+                <Icon className={`w-3.5 h-3.5 ${isActive ? "text-[#F6F3EC]" : "text-[#283615]"}`} />
                 <span>{sec.title}</span>
               </button>
             );
@@ -252,9 +249,9 @@ export default function DocsPage() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
           {/* Left Sticky Navigation Column (Desktop only) */}
-          <aside className="hidden lg:block lg:col-span-4 xl:col-span-3 lg:sticky lg:top-28 space-y-2">
-            <div className="liquid-glass-subcard rounded-2xl p-3 border border-white/[0.08] space-y-1">
-              <div className="px-3 py-2 text-[10px] font-mono tracking-widest text-[#8e95a2] uppercase border-b border-white/[0.06] mb-1">
+          <aside className="hidden lg:block lg:col-span-4 xl:col-span-3 lg:sticky lg:top-28 space-y-3">
+            <div className="bg-white rounded-3xl p-3 border border-black/[0.08] space-y-1 shadow-sm">
+              <div className="px-3 py-2 text-[10px] font-mono tracking-widest text-[#6B665E] uppercase border-b border-black/[0.08] mb-1 font-bold">
                 SECTIONS ({filteredSections.length})
               </div>
 
@@ -270,17 +267,17 @@ export default function DocsPage() {
                       setActiveSection(sec.id);
                       window.scrollTo({ top: 120, behavior: "smooth" });
                     }}
-                    className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-left transition font-mono text-xs ${
+                    className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-left transition font-mono text-xs cursor-pointer ${
                       isActive
-                        ? "bg-[#c8f53c] text-[#08090c] font-bold shadow-[0_0_20px_rgba(200,245,60,0.2)]"
-                        : "text-neutral-400 hover:text-white hover:bg-white/[0.04]"
+                        ? "bg-[#1C1B18] text-[#F6F3EC] font-bold shadow-sm"
+                        : "text-[#6B665E] hover:text-[#1C1B18] hover:bg-black/[0.03]"
                     }`}
                   >
                     <div className="flex items-center gap-2.5 truncate">
-                      <Icon className={`w-3.5 h-3.5 shrink-0 ${isActive ? "text-[#08090c]" : "text-[#c8f53c]"}`} />
+                      <Icon className={`w-3.5 h-3.5 shrink-0 ${isActive ? "text-[#F6F3EC]" : "text-[#283615]"}`} />
                       <span className="truncate">{sec.title}</span>
                     </div>
-                    <span className={`text-[10px] font-mono shrink-0 ml-2 ${isActive ? "text-[#08090c]/70" : "text-neutral-600"}`}>
+                    <span className={`text-[10px] font-mono shrink-0 ml-2 ${isActive ? "text-[#F6F3EC]/70" : "text-[#6B665E]/60"}`}>
                       {sec.num}
                     </span>
                   </button>
@@ -289,16 +286,16 @@ export default function DocsPage() {
             </div>
 
             {/* Support / Community Card */}
-            <div className="liquid-glass-subcard rounded-2xl p-4 border border-white/[0.06] text-xs font-mono space-y-3">
-              <span className="text-[10px] uppercase text-[#8e95a2] tracking-wider block">
+            <div className="bg-white rounded-3xl p-4 border border-black/[0.08] text-xs font-mono space-y-3 shadow-sm">
+              <span className="text-[10px] uppercase text-[#6B665E] tracking-wider block font-bold">
                 DEVELOPER RESOURCES
               </span>
-              <div className="space-y-1.5 text-neutral-400">
+              <div className="space-y-1.5 text-[#6B665E]">
                 <a
                   href="https://x.com/layer5dotio"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-between hover:text-[#c8f53c] transition py-1"
+                  className="flex items-center justify-between hover:text-[#283615] transition py-1"
                 >
                   <span>Protocol Twitter / X</span>
                   <ExternalLink className="w-3 h-3" />
@@ -307,7 +304,7 @@ export default function DocsPage() {
                   href={protocolConfig.explorerUrl || "https://explorer.robinhood.com"}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-between hover:text-[#c8f53c] transition py-1"
+                  className="flex items-center justify-between hover:text-[#283615] transition py-1"
                 >
                   <span>Block Explorer</span>
                   <ExternalLink className="w-3 h-3" />
@@ -317,23 +314,23 @@ export default function DocsPage() {
           </aside>
 
           {/* Right Main Article Reader */}
-          <main className="lg:col-span-8 xl:col-span-9 liquid-glass-subcard rounded-2xl p-6 sm:p-10 border border-white/[0.08] space-y-10 min-h-[600px]">
+          <main className="lg:col-span-8 xl:col-span-9 bg-white rounded-3xl p-6 sm:p-10 border border-black/[0.08] space-y-10 min-h-[600px] text-[#1C1B18] shadow-sm">
             
             {/* =============================================================
                 SECTION 01: INTRODUCTION
                 ============================================================= */}
             {activeSection === "intro" && (
               <article className="space-y-8 animate-fadeIn">
-                <div className="space-y-2 border-b border-white/[0.08] pb-6">
-                  <div className="flex items-center gap-2 text-xs font-mono text-[#c8f53c] uppercase tracking-widest">
+                <div className="space-y-2 border-b border-black/[0.08] pb-6">
+                  <div className="flex items-center gap-2 text-xs font-mono text-[#283615] uppercase tracking-widest font-bold">
                     <span>SECTION 01</span>
                     <span>•</span>
                     <span>OVERVIEW</span>
                   </div>
-                  <h2 className="font-editorial text-2xl sm:text-4xl font-extrabold uppercase text-white tracking-tight">
+                  <h2 className="font-display font-black text-2xl sm:text-4xl uppercase text-[#1C1B18] tracking-tight">
                     Introduction to Aegis Protocol
                   </h2>
-                  <p className="text-neutral-400 text-sm font-sans leading-relaxed">
+                  <p className="text-[#6B665E] text-sm font-sans leading-relaxed">
                     Aegis is an institutional-grade, non-custodial decentralized staking protocol natively engineered for Robinhood Chain L2.
                   </p>
                 </div>
@@ -349,42 +346,42 @@ export default function DocsPage() {
 
                 {/* 4 Pillars Bento Grid */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-                  <div className="p-5 rounded-xl bg-white/[0.02] border border-white/[0.06] space-y-2">
-                    <div className="flex items-center gap-2 text-white font-bold font-mono text-xs uppercase">
-                      <Zap className="w-4 h-4 text-[#c8f53c]" />
+                  <div className="p-5 rounded-xl bg-white/[0.02] border border-black/[0.06] space-y-2">
+                    <div className="flex items-center gap-2 text-[#1C1B18] font-bold font-mono text-xs uppercase">
+                      <Zap className="w-4 h-4 text-[#283615]" />
                       <span>Continuous Compounding</span>
                     </div>
-                    <p className="text-xs text-neutral-400 leading-relaxed">
+                    <p className="text-xs text-[#6B665E] leading-relaxed">
                       Yield accrues in real-time on every L2 block without requiring manual re-staking or batch processing.
                     </p>
                   </div>
 
-                  <div className="p-5 rounded-xl bg-white/[0.02] border border-white/[0.06] space-y-2">
-                    <div className="flex items-center gap-2 text-white font-bold font-mono text-xs uppercase">
-                      <Lock className="w-4 h-4 text-[#c8f53c]" />
+                  <div className="p-5 rounded-xl bg-white/[0.02] border border-black/[0.06] space-y-2">
+                    <div className="flex items-center gap-2 text-[#1C1B18] font-bold font-mono text-xs uppercase">
+                      <Lock className="w-4 h-4 text-[#283615]" />
                       <span>Zero Lockup Policy</span>
                     </div>
-                    <p className="text-xs text-neutral-400 leading-relaxed">
+                    <p className="text-xs text-[#6B665E] leading-relaxed">
                       Stakers retain complete sovereign ownership. Withdraw 100% of your principle anytime in a single atomic transaction.
                     </p>
                   </div>
 
-                  <div className="p-5 rounded-xl bg-white/[0.02] border border-white/[0.06] space-y-2">
-                    <div className="flex items-center gap-2 text-white font-bold font-mono text-xs uppercase">
-                      <ShieldCheck className="w-4 h-4 text-[#c8f53c]" />
+                  <div className="p-5 rounded-xl bg-white/[0.02] border border-black/[0.06] space-y-2">
+                    <div className="flex items-center gap-2 text-[#1C1B18] font-bold font-mono text-xs uppercase">
+                      <ShieldCheck className="w-4 h-4 text-[#283615]" />
                       <span>Synthetix Math Engine</span>
                     </div>
-                    <p className="text-xs text-neutral-400 leading-relaxed">
+                    <p className="text-xs text-[#6B665E] leading-relaxed">
                       Battle-tested reward calculation algorithms with O(1) gas consumption, immune to unbounded looping exploits.
                     </p>
                   </div>
 
-                  <div className="p-5 rounded-xl bg-white/[0.02] border border-white/[0.06] space-y-2">
-                    <div className="flex items-center gap-2 text-white font-bold font-mono text-xs uppercase">
-                      <Cpu className="w-4 h-4 text-[#c8f53c]" />
+                  <div className="p-5 rounded-xl bg-white/[0.02] border border-black/[0.06] space-y-2">
+                    <div className="flex items-center gap-2 text-[#1C1B18] font-bold font-mono text-xs uppercase">
+                      <Cpu className="w-4 h-4 text-[#283615]" />
                       <span>Robinhood Chain Native</span>
                     </div>
-                    <p className="text-xs text-neutral-400 leading-relaxed">
+                    <p className="text-xs text-[#6B665E] leading-relaxed">
                       Sub-second finality and near-zero gas costs enable micro-yield claims and seamless automated execution.
                     </p>
                   </div>
@@ -397,8 +394,8 @@ export default function DocsPage() {
                 ============================================================= */}
             {activeSection === "how-it-works" && (
               <article className="space-y-8 animate-fadeIn">
-                <div className="space-y-2 border-b border-white/[0.08] pb-6">
-                  <div className="flex items-center gap-2 text-xs font-mono text-[#c8f53c] uppercase tracking-widest">
+                <div className="space-y-2 border-b border-black/[0.08] pb-6">
+                  <div className="flex items-center gap-2 text-xs font-mono text-[#283615] uppercase tracking-widest">
                     <span>SECTION 02</span>
                     <span>•</span>
                     <span>ARCHITECTURE & FLOW</span>
@@ -406,61 +403,61 @@ export default function DocsPage() {
                   <h2 className="font-editorial text-2xl sm:text-4xl font-extrabold uppercase text-white tracking-tight">
                     How Aegis Works
                   </h2>
-                  <p className="text-neutral-400 text-sm font-sans leading-relaxed">
+                  <p className="text-[#6B665E] text-sm font-sans leading-relaxed">
                     A walkthrough of the 4 continuous phases in the Aegis staking lifecycle.
                   </p>
                 </div>
 
                 <div className="space-y-6">
-                  <div className="p-6 rounded-2xl bg-[#040406]/60 border border-white/[0.08] space-y-3 relative overflow-hidden">
+                  <div className="p-6 rounded-2xl bg-[#FAF8F5] text-[#1C1B18]/60 border border-black/[0.08] space-y-3 relative overflow-hidden">
                     <div className="flex items-center justify-between text-xs font-mono">
-                      <span className="text-[#c8f53c] font-bold tracking-wider">PHASE 01 • STAKE</span>
+                      <span className="text-[#283615] font-bold tracking-wider">PHASE 01 • STAKE</span>
                       <span className="text-neutral-500">ENTRYPOINT</span>
                     </div>
                     <h3 className="text-lg font-bold text-white uppercase font-sans">
                       Non-Custodial Asset Commitment
                     </h3>
-                    <p className="text-sm text-neutral-400 leading-relaxed font-sans">
-                      You approve and transfer USDG tokens into the immutable <code className="text-[#c8f53c] font-mono text-xs">KAWAStaking.sol</code> vault. The smart contract captures your balance snapshot and timestamp instantly on Robinhood Chain.
+                    <p className="text-sm text-[#6B665E] leading-relaxed font-sans">
+                      You approve and transfer USDG tokens into the immutable <code className="text-[#283615] font-mono text-xs">KAWAStaking.sol</code> vault. The smart contract captures your balance snapshot and timestamp instantly on Robinhood Chain.
                     </p>
                   </div>
 
-                  <div className="p-6 rounded-2xl bg-[#040406]/60 border border-white/[0.08] space-y-3 relative overflow-hidden">
+                  <div className="p-6 rounded-2xl bg-[#FAF8F5] text-[#1C1B18]/60 border border-black/[0.08] space-y-3 relative overflow-hidden">
                     <div className="flex items-center justify-between text-xs font-mono">
-                      <span className="text-[#c8f53c] font-bold tracking-wider">PHASE 02 • FLOW</span>
+                      <span className="text-[#283615] font-bold tracking-wider">PHASE 02 • FLOW</span>
                       <span className="text-neutral-500">AGGREGATION</span>
                     </div>
                     <h3 className="text-lg font-bold text-white uppercase font-sans">
                       Algorithmic Liquidity Pooling
                     </h3>
-                    <p className="text-sm text-neutral-400 leading-relaxed font-sans">
-                      Your position merges with the collective pool. The global reward accumulator (<code className="text-[#c8f53c] font-mono text-xs">rewardPerToken</code>) continuously streams Aegis emission tokens based on your proportion of the total staked assets.
+                    <p className="text-sm text-[#6B665E] leading-relaxed font-sans">
+                      Your position merges with the collective pool. The global reward accumulator (<code className="text-[#283615] font-mono text-xs">rewardPerToken</code>) continuously streams Aegis emission tokens based on your proportion of the total staked assets.
                     </p>
                   </div>
 
-                  <div className="p-6 rounded-2xl bg-[#040406]/60 border border-white/[0.08] space-y-3 relative overflow-hidden">
+                  <div className="p-6 rounded-2xl bg-[#FAF8F5] text-[#1C1B18]/60 border border-black/[0.08] space-y-3 relative overflow-hidden">
                     <div className="flex items-center justify-between text-xs font-mono">
-                      <span className="text-[#c8f53c] font-bold tracking-wider">PHASE 03 • GROW</span>
+                      <span className="text-[#283615] font-bold tracking-wider">PHASE 03 • GROW</span>
                       <span className="text-neutral-500">VISUAL STATE</span>
                     </div>
                     <h3 className="text-lg font-bold text-white uppercase font-sans">
                       Kawa Core Emblem Morphing
                     </h3>
-                    <p className="text-sm text-neutral-400 leading-relaxed font-sans">
+                    <p className="text-sm text-[#6B665E] leading-relaxed font-sans">
                       As your staking duration increases, your client-side Kawa Core entity dynamically evolves through 5 harmonic phases: <span className="text-white font-mono">Dormant &rarr; Activated &rarr; Growing &rarr; Mature &rarr; Awakened</span>.
                     </p>
                   </div>
 
-                  <div className="p-6 rounded-2xl bg-[#040406]/60 border border-white/[0.08] space-y-3 relative overflow-hidden">
+                  <div className="p-6 rounded-2xl bg-[#FAF8F5] text-[#1C1B18]/60 border border-black/[0.08] space-y-3 relative overflow-hidden">
                     <div className="flex items-center justify-between text-xs font-mono">
-                      <span className="text-[#c8f53c] font-bold tracking-wider">PHASE 04 • REWARD</span>
+                      <span className="text-[#283615] font-bold tracking-wider">PHASE 04 • REWARD</span>
                       <span className="text-neutral-500">SETTLEMENT</span>
                     </div>
                     <h3 className="text-lg font-bold text-white uppercase font-sans">
                       Frictionless Yield Harvest & Exit
                     </h3>
-                    <p className="text-sm text-neutral-400 leading-relaxed font-sans">
-                      Execute <code className="text-[#c8f53c] font-mono text-xs">claimReward()</code> to transfer earned Aegis tokens to your wallet while keeping your principle active, or invoke <code className="text-[#c8f53c] font-mono text-xs">exit()</code> to simultaneously harvest all rewards and withdraw your entire initial deposit.
+                    <p className="text-sm text-[#6B665E] leading-relaxed font-sans">
+                      Execute <code className="text-[#283615] font-mono text-xs">claimReward()</code> to transfer earned Aegis tokens to your wallet while keeping your principle active, or invoke <code className="text-[#283615] font-mono text-xs">exit()</code> to simultaneously harvest all rewards and withdraw your entire initial deposit.
                     </p>
                   </div>
                 </div>
@@ -472,8 +469,8 @@ export default function DocsPage() {
                 ============================================================= */}
             {activeSection === "staking" && (
               <article className="space-y-8 animate-fadeIn">
-                <div className="space-y-2 border-b border-white/[0.08] pb-6">
-                  <div className="flex items-center gap-2 text-xs font-mono text-[#c8f53c] uppercase tracking-widest">
+                <div className="space-y-2 border-b border-black/[0.08] pb-6">
+                  <div className="flex items-center gap-2 text-xs font-mono text-[#283615] uppercase tracking-widest">
                     <span>SECTION 03</span>
                     <span>•</span>
                     <span>EXECUTION PIPELINE</span>
@@ -481,7 +478,7 @@ export default function DocsPage() {
                   <h2 className="font-editorial text-2xl sm:text-4xl font-extrabold uppercase text-white tracking-tight">
                     Staking Mechanics
                   </h2>
-                  <p className="text-neutral-400 text-sm font-sans leading-relaxed">
+                  <p className="text-[#6B665E] text-sm font-sans leading-relaxed">
                     Standardized 2-step EVM pipeline: Approval & Deposit.
                   </p>
                 </div>
@@ -492,17 +489,17 @@ export default function DocsPage() {
                   </p>
 
                   <ol className="list-decimal list-inside space-y-2 text-xs font-mono text-neutral-300 pl-2">
-                    <li><strong className="text-white">Check Allowance:</strong> Read <code className="text-[#c8f53c]">allowance(user, stakingContract)</code>.</li>
-                    <li><strong className="text-white">Approve (if insufficient):</strong> Call <code className="text-[#c8f53c]">token.approve(stakingContract, amount)</code>.</li>
-                    <li><strong className="text-white">Execute Stake:</strong> Call <code className="text-[#c8f53c]">stakingContract.stake(amount)</code>.</li>
+                    <li><strong className="text-white">Check Allowance:</strong> Read <code className="text-[#283615]">allowance(user, stakingContract)</code>.</li>
+                    <li><strong className="text-white">Approve (if insufficient):</strong> Call <code className="text-[#283615]">token.approve(stakingContract, amount)</code>.</li>
+                    <li><strong className="text-white">Execute Stake:</strong> Call <code className="text-[#283615]">stakingContract.stake(amount)</code>.</li>
                   </ol>
                 </div>
 
                 {/* Solidity Interface Code Block */}
-                <div className="rounded-xl bg-[#040406] border border-white/[0.08] overflow-hidden font-mono text-xs">
-                  <div className="flex items-center justify-between px-4 py-2.5 bg-white/[0.02] border-b border-white/[0.06] text-neutral-400">
+                <div className="rounded-xl bg-[#FAF8F5] text-[#1C1B18] border border-black/[0.08] overflow-hidden font-mono text-xs">
+                  <div className="flex items-center justify-between px-4 py-2.5 bg-white/[0.02] border-b border-black/[0.06] text-[#6B665E]">
                     <span className="flex items-center gap-2">
-                      <Terminal className="w-3.5 h-3.5 text-[#c8f53c]" />
+                      <Terminal className="w-3.5 h-3.5 text-[#283615]" />
                       <span>IKAWAStaking.sol</span>
                     </span>
                     <button
@@ -517,8 +514,8 @@ export default function DocsPage() {
                     >
                       {copiedKey === "sol-interface" ? (
                         <>
-                          <Check className="w-3.5 h-3.5 text-[#c8f53c]" />
-                          <span className="text-[#c8f53c]">Copied</span>
+                          <Check className="w-3.5 h-3.5 text-[#283615]" />
+                          <span className="text-[#283615]">Copied</span>
                         </>
                       ) : (
                         <>
@@ -555,8 +552,8 @@ export default function DocsPage() {
                 ============================================================= */}
             {activeSection === "rewards" && (
               <article className="space-y-8 animate-fadeIn">
-                <div className="space-y-2 border-b border-white/[0.08] pb-6">
-                  <div className="flex items-center gap-2 text-xs font-mono text-[#c8f53c] uppercase tracking-widest">
+                <div className="space-y-2 border-b border-black/[0.08] pb-6">
+                  <div className="flex items-center gap-2 text-xs font-mono text-[#283615] uppercase tracking-widest">
                     <span>SECTION 04</span>
                     <span>•</span>
                     <span>MATHEMATICAL FOUNDATION</span>
@@ -564,7 +561,7 @@ export default function DocsPage() {
                   <h2 className="font-editorial text-2xl sm:text-4xl font-extrabold uppercase text-white tracking-tight">
                     Reward Mathematics
                   </h2>
-                  <p className="text-neutral-400 text-sm font-sans leading-relaxed">
+                  <p className="text-[#6B665E] text-sm font-sans leading-relaxed">
                     Synthetix-grade reward distribution engine with constant O(1) gas complexity.
                   </p>
                 </div>
@@ -574,8 +571,8 @@ export default function DocsPage() {
                     Rather than iterating through stakers in expensive and vulnerable loops, Aegis computes reward distributions continuously using the cumulative integral of yield per token:
                   </p>
 
-                  <div className="p-5 rounded-xl bg-[#040406] border border-[#c8f53c]/20 font-mono text-xs text-[#c8f53c] leading-relaxed space-y-2">
-                    <div className="text-neutral-400 text-[10px] uppercase tracking-wider">// Global Reward Index Accumulator</div>
+                  <div className="p-5 rounded-xl bg-[#FAF8F5] text-[#1C1B18] border border-[#283615]/20 font-mono text-xs text-[#283615] leading-relaxed space-y-2">
+                    <div className="text-[#6B665E] text-[10px] uppercase tracking-wider">// Global Reward Index Accumulator</div>
                     <div>
                       R(t) = R(t₀) + [ (t - t₀) × rewardRate × 1e18 ] / totalStaked
                     </div>
@@ -585,16 +582,16 @@ export default function DocsPage() {
                     When any user interacts with the contract or queries their pending balance, their earned rewards are derived in a single math step:
                   </p>
 
-                  <div className="p-5 rounded-xl bg-[#040406] border border-white/[0.08] font-mono text-xs text-white leading-relaxed space-y-2">
-                    <div className="text-neutral-400 text-[10px] uppercase tracking-wider">// User Earned Calculation</div>
+                  <div className="p-5 rounded-xl bg-[#FAF8F5] text-[#1C1B18] border border-black/[0.08] font-mono text-xs text-white leading-relaxed space-y-2">
+                    <div className="text-[#6B665E] text-[10px] uppercase tracking-wider">// User Earned Calculation</div>
                     <div>
                       earned(user) = [ balance(user) × ( R(t) - userRewardPerTokenPaid(user) ) ] / 1e18 + storedRewards(user)
                     </div>
                   </div>
 
-                  <div className="p-4 rounded-xl bg-white/[0.02] border border-white/[0.06] text-xs font-mono text-neutral-400 space-y-2">
-                    <div className="text-white font-bold uppercase tracking-wider flex items-center gap-2">
-                      <ShieldCheck className="w-3.5 h-3.5 text-[#c8f53c]" />
+                  <div className="p-4 rounded-xl bg-white/[0.02] border border-black/[0.06] text-xs font-mono text-[#6B665E] space-y-2">
+                    <div className="text-[#1C1B18] font-bold uppercase tracking-wider flex items-center gap-2">
+                      <ShieldCheck className="w-3.5 h-3.5 text-[#283615]" />
                       <span>Mathematical Invariants</span>
                     </div>
                     <ul className="list-disc list-inside space-y-1">
@@ -612,8 +609,8 @@ export default function DocsPage() {
                 ============================================================= */}
             {activeSection === "contracts" && (
               <article className="space-y-8 animate-fadeIn">
-                <div className="space-y-2 border-b border-white/[0.08] pb-6">
-                  <div className="flex items-center gap-2 text-xs font-mono text-[#c8f53c] uppercase tracking-widest">
+                <div className="space-y-2 border-b border-black/[0.08] pb-6">
+                  <div className="flex items-center gap-2 text-xs font-mono text-[#283615] uppercase tracking-widest">
                     <span>SECTION 05</span>
                     <span>•</span>
                     <span>ON-CHAIN REGISTRY</span>
@@ -621,17 +618,17 @@ export default function DocsPage() {
                   <h2 className="font-editorial text-2xl sm:text-4xl font-extrabold uppercase text-white tracking-tight">
                     Smart Contracts & Addresses
                   </h2>
-                  <p className="text-neutral-400 text-sm font-sans leading-relaxed">
+                  <p className="text-[#6B665E] text-sm font-sans leading-relaxed">
                     Verified smart contract deployments on Robinhood Chain L2.
                   </p>
                 </div>
 
                 <div className="space-y-4">
                   {/* Staking Vault Contract */}
-                  <div className="p-5 rounded-xl bg-[#040406]/60 border border-white/[0.08] space-y-2">
+                  <div className="p-5 rounded-xl bg-[#FAF8F5] text-[#1C1B18]/60 border border-black/[0.08] space-y-2">
                     <div className="flex items-center justify-between text-xs font-mono">
-                      <span className="text-white font-bold uppercase">Staking Vault Contract</span>
-                      <span className="text-[#c8f53c] text-[10px] bg-[#c8f53c]/10 px-2 py-0.5 rounded">Core Contract</span>
+                      <span className="text-[#1C1B18] font-bold uppercase">Staking Vault Contract</span>
+                      <span className="text-[#283615] text-[10px] bg-[#283615]/10 px-2 py-0.5 rounded">Core Contract</span>
                     </div>
                     <div className="flex items-center justify-between bg-black/40 p-3 rounded-lg border border-white/[0.04] text-xs font-mono">
                       <span className="text-neutral-300 truncate mr-2 select-all">
@@ -646,10 +643,10 @@ export default function DocsPage() {
                               "addr-vault"
                             )
                           }
-                          className="text-neutral-400 hover:text-white transition shrink-0 p-1"
+                          className="text-[#6B665E] hover:text-white transition shrink-0 p-1"
                         >
                           {copiedKey === "addr-vault" ? (
-                            <Check className="w-3.5 h-3.5 text-[#c8f53c]" />
+                            <Check className="w-3.5 h-3.5 text-[#283615]" />
                           ) : (
                             <Copy className="w-3.5 h-3.5" />
                           )}
@@ -659,10 +656,10 @@ export default function DocsPage() {
                   </div>
 
                   {/* Staking Asset (USDG) */}
-                  <div className="p-5 rounded-xl bg-[#040406]/60 border border-white/[0.08] space-y-2">
+                  <div className="p-5 rounded-xl bg-[#FAF8F5] text-[#1C1B18]/60 border border-black/[0.08] space-y-2">
                     <div className="flex items-center justify-between text-xs font-mono">
-                      <span className="text-white font-bold uppercase">Staking Asset (USDG Token)</span>
-                      <span className="text-neutral-400 text-[10px]">ERC-20 (18 Decimals)</span>
+                      <span className="text-[#1C1B18] font-bold uppercase">Staking Asset (USDG Token)</span>
+                      <span className="text-[#6B665E] text-[10px]">ERC-20 (18 Decimals)</span>
                     </div>
                     <div className="flex items-center justify-between bg-black/40 p-3 rounded-lg border border-white/[0.04] text-xs font-mono">
                       <span className="text-neutral-300 truncate mr-2 select-all">
@@ -677,10 +674,10 @@ export default function DocsPage() {
                               "addr-usdg"
                             )
                           }
-                          className="text-neutral-400 hover:text-white transition shrink-0 p-1"
+                          className="text-[#6B665E] hover:text-white transition shrink-0 p-1"
                         >
                           {copiedKey === "addr-usdg" ? (
-                            <Check className="w-3.5 h-3.5 text-[#c8f53c]" />
+                            <Check className="w-3.5 h-3.5 text-[#283615]" />
                           ) : (
                             <Copy className="w-3.5 h-3.5" />
                           )}
@@ -690,10 +687,10 @@ export default function DocsPage() {
                   </div>
 
                   {/* Reward Token */}
-                  <div className="p-5 rounded-xl bg-[#040406]/60 border border-white/[0.08] space-y-2">
+                  <div className="p-5 rounded-xl bg-[#FAF8F5] text-[#1C1B18]/60 border border-black/[0.08] space-y-2">
                     <div className="flex items-center justify-between text-xs font-mono">
-                      <span className="text-white font-bold uppercase">Reward Asset</span>
-                      <span className="text-neutral-400 text-[10px]">ERC-20 (18 Decimals)</span>
+                      <span className="text-[#1C1B18] font-bold uppercase">Reward Asset</span>
+                      <span className="text-[#6B665E] text-[10px]">ERC-20 (18 Decimals)</span>
                     </div>
                     <div className="flex items-center justify-between bg-black/40 p-3 rounded-lg border border-white/[0.04] text-xs font-mono">
                       <span className="text-neutral-300 truncate mr-2 select-all">
@@ -708,10 +705,10 @@ export default function DocsPage() {
                               "addr-reward"
                             )
                           }
-                          className="text-neutral-400 hover:text-white transition shrink-0 p-1"
+                          className="text-[#6B665E] hover:text-white transition shrink-0 p-1"
                         >
                           {copiedKey === "addr-reward" ? (
-                            <Check className="w-3.5 h-3.5 text-[#c8f53c]" />
+                            <Check className="w-3.5 h-3.5 text-[#283615]" />
                           ) : (
                             <Copy className="w-3.5 h-3.5" />
                           )}
@@ -728,8 +725,8 @@ export default function DocsPage() {
                 ============================================================= */}
             {activeSection === "security" && (
               <article className="space-y-8 animate-fadeIn">
-                <div className="space-y-2 border-b border-white/[0.08] pb-6">
-                  <div className="flex items-center gap-2 text-xs font-mono text-[#c8f53c] uppercase tracking-widest">
+                <div className="space-y-2 border-b border-black/[0.08] pb-6">
+                  <div className="flex items-center gap-2 text-xs font-mono text-[#283615] uppercase tracking-widest">
                     <span>SECTION 06</span>
                     <span>•</span>
                     <span>AUDIT & INTEGRITY</span>
@@ -737,39 +734,39 @@ export default function DocsPage() {
                   <h2 className="font-editorial text-2xl sm:text-4xl font-extrabold uppercase text-white tracking-tight">
                     Security Architecture
                   </h2>
-                  <p className="text-neutral-400 text-sm font-sans leading-relaxed">
+                  <p className="text-[#6B665E] text-sm font-sans leading-relaxed">
                     Formal defenses against common smart contract vulnerabilities.
                   </p>
                 </div>
 
                 <div className="space-y-4">
-                  <div className="p-5 rounded-xl bg-white/[0.02] border border-white/[0.06] space-y-2">
-                    <div className="flex items-center gap-2 text-white font-bold font-mono text-xs uppercase">
-                      <ShieldCheck className="w-4 h-4 text-[#c8f53c]" />
+                  <div className="p-5 rounded-xl bg-white/[0.02] border border-black/[0.06] space-y-2">
+                    <div className="flex items-center gap-2 text-[#1C1B18] font-bold font-mono text-xs uppercase">
+                      <ShieldCheck className="w-4 h-4 text-[#283615]" />
                       <span>Reentrancy Protection</span>
                     </div>
-                    <p className="text-xs text-neutral-400 leading-relaxed font-sans">
-                      All state-changing functions enforce OpenZeppelin's <code className="text-[#c8f53c] font-mono">ReentrancyGuard</code>. Internal accounting balances are decremented before external token transfers take place (Checks-Effects-Interactions pattern).
+                    <p className="text-xs text-[#6B665E] leading-relaxed font-sans">
+                      All state-changing functions enforce OpenZeppelin's <code className="text-[#283615] font-mono">ReentrancyGuard</code>. Internal accounting balances are decremented before external token transfers take place (Checks-Effects-Interactions pattern).
                     </p>
                   </div>
 
-                  <div className="p-5 rounded-xl bg-white/[0.02] border border-white/[0.06] space-y-2">
-                    <div className="flex items-center gap-2 text-white font-bold font-mono text-xs uppercase">
-                      <Lock className="w-4 h-4 text-[#c8f53c]" />
+                  <div className="p-5 rounded-xl bg-white/[0.02] border border-black/[0.06] space-y-2">
+                    <div className="flex items-center gap-2 text-[#1C1B18] font-bold font-mono text-xs uppercase">
+                      <Lock className="w-4 h-4 text-[#283615]" />
                       <span>Zero Custody Backdoors</span>
                     </div>
-                    <p className="text-xs text-neutral-400 leading-relaxed font-sans">
+                    <p className="text-xs text-[#6B665E] leading-relaxed font-sans">
                       The protocol contains zero admin withdrawal functions for user principle. Even protocol owners cannot touch or freeze stakers' deposited tokens.
                     </p>
                   </div>
 
-                  <div className="p-5 rounded-xl bg-white/[0.02] border border-white/[0.06] space-y-2">
-                    <div className="flex items-center gap-2 text-white font-bold font-mono text-xs uppercase">
-                      <FileCode className="w-4 h-4 text-[#c8f53c]" />
+                  <div className="p-5 rounded-xl bg-white/[0.02] border border-black/[0.06] space-y-2">
+                    <div className="flex items-center gap-2 text-[#1C1B18] font-bold font-mono text-xs uppercase">
+                      <FileCode className="w-4 h-4 text-[#283615]" />
                       <span>SafeERC20 Token Wrappers</span>
                     </div>
-                    <p className="text-xs text-neutral-400 leading-relaxed font-sans">
-                      All token transfers use OpenZeppelin's <code className="text-[#c8f53c] font-mono">SafeERC20</code>, ensuring proper handling of non-standard ERC-20 return values and revert cases.
+                    <p className="text-xs text-[#6B665E] leading-relaxed font-sans">
+                      All token transfers use OpenZeppelin's <code className="text-[#283615] font-mono">SafeERC20</code>, ensuring proper handling of non-standard ERC-20 return values and revert cases.
                     </p>
                   </div>
                 </div>
@@ -781,8 +778,8 @@ export default function DocsPage() {
                 ============================================================= */}
             {activeSection === "robinhood-chain" && (
               <article className="space-y-8 animate-fadeIn">
-                <div className="space-y-2 border-b border-white/[0.08] pb-6">
-                  <div className="flex items-center gap-2 text-xs font-mono text-[#c8f53c] uppercase tracking-widest">
+                <div className="space-y-2 border-b border-black/[0.08] pb-6">
+                  <div className="flex items-center gap-2 text-xs font-mono text-[#283615] uppercase tracking-widest">
                     <span>SECTION 07</span>
                     <span>•</span>
                     <span>NETWORK CONFIGURATION</span>
@@ -790,38 +787,38 @@ export default function DocsPage() {
                   <h2 className="font-editorial text-2xl sm:text-4xl font-extrabold uppercase text-white tracking-tight">
                     Robinhood Chain L2
                   </h2>
-                  <p className="text-neutral-400 text-sm font-sans leading-relaxed">
+                  <p className="text-[#6B665E] text-sm font-sans leading-relaxed">
                     Network parameters and direct wallet RPC connection details.
                   </p>
                 </div>
 
                 <div className="space-y-3 font-mono text-xs">
-                  <div className="p-4 rounded-xl bg-[#040406]/60 border border-white/[0.08] flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-                    <span className="text-neutral-400 uppercase">Network Name</span>
-                    <span className="text-white font-bold">{protocolConfig.chainName}</span>
+                  <div className="p-4 rounded-xl bg-[#FAF8F5] text-[#1C1B18]/60 border border-black/[0.08] flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                    <span className="text-[#6B665E] uppercase">Network Name</span>
+                    <span className="text-[#1C1B18] font-bold">{protocolConfig.chainName}</span>
                   </div>
 
-                  <div className="p-4 rounded-xl bg-[#040406]/60 border border-white/[0.08] flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-                    <span className="text-neutral-400 uppercase">Chain ID</span>
-                    <span className="text-[#c8f53c] font-bold">{protocolConfig.chainId}</span>
+                  <div className="p-4 rounded-xl bg-[#FAF8F5] text-[#1C1B18]/60 border border-black/[0.08] flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                    <span className="text-[#6B665E] uppercase">Chain ID</span>
+                    <span className="text-[#283615] font-bold">{protocolConfig.chainId}</span>
                   </div>
 
-                  <div className="p-4 rounded-xl bg-[#040406]/60 border border-white/[0.08] flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-                    <span className="text-neutral-400 uppercase">Gas Currency</span>
-                    <span className="text-white font-bold">{protocolConfig.gasAsset} (18 Decimals)</span>
+                  <div className="p-4 rounded-xl bg-[#FAF8F5] text-[#1C1B18]/60 border border-black/[0.08] flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                    <span className="text-[#6B665E] uppercase">Gas Currency</span>
+                    <span className="text-[#1C1B18] font-bold">{protocolConfig.gasAsset} (18 Decimals)</span>
                   </div>
 
-                  <div className="p-4 rounded-xl bg-[#040406]/60 border border-white/[0.08] flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-                    <span className="text-neutral-400 uppercase">RPC Endpoint</span>
+                  <div className="p-4 rounded-xl bg-[#FAF8F5] text-[#1C1B18]/60 border border-black/[0.08] flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                    <span className="text-[#6B665E] uppercase">RPC Endpoint</span>
                     <div className="flex items-center gap-2">
                       <span className="text-neutral-300 select-all">{protocolConfig.rpcUrl}</span>
                       <button
                         type="button"
                         onClick={() => handleCopy(protocolConfig.rpcUrl, "rpc-url")}
-                        className="text-neutral-400 hover:text-white"
+                        className="text-[#6B665E] hover:text-white"
                       >
                         {copiedKey === "rpc-url" ? (
-                          <Check className="w-3.5 h-3.5 text-[#c8f53c]" />
+                          <Check className="w-3.5 h-3.5 text-[#283615]" />
                         ) : (
                           <Copy className="w-3.5 h-3.5" />
                         )}
@@ -833,7 +830,7 @@ export default function DocsPage() {
                     <button
                       type="button"
                       onClick={handleAddNetwork}
-                      className="w-full py-3.5 rounded-xl bg-[#c8f53c] hover:bg-[#d6ff47] text-[#08090c] font-bold tracking-wider transition uppercase flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(200,245,60,0.2)]"
+                      className="w-full py-3.5 rounded-xl bg-[#1C1B18] hover:bg-[#d6ff47] text-[#08090c] font-bold tracking-wider transition uppercase flex items-center justify-center gap-2 shadow-sm"
                     >
                       <Network className="w-4 h-4" />
                       <span>Connect / Add Network to MetaMask & Rabby</span>
@@ -848,8 +845,8 @@ export default function DocsPage() {
                 ============================================================= */}
             {activeSection === "faq" && (
               <article className="space-y-8 animate-fadeIn">
-                <div className="space-y-2 border-b border-white/[0.08] pb-6">
-                  <div className="flex items-center gap-2 text-xs font-mono text-[#c8f53c] uppercase tracking-widest">
+                <div className="space-y-2 border-b border-black/[0.08] pb-6">
+                  <div className="flex items-center gap-2 text-xs font-mono text-[#283615] uppercase tracking-widest">
                     <span>SECTION 08</span>
                     <span>•</span>
                     <span>QUESTIONS & ANSWERS</span>
@@ -857,44 +854,44 @@ export default function DocsPage() {
                   <h2 className="font-editorial text-2xl sm:text-4xl font-extrabold uppercase text-white tracking-tight">
                     Frequently Asked Questions
                   </h2>
-                  <p className="text-neutral-400 text-sm font-sans leading-relaxed">
+                  <p className="text-[#6B665E] text-sm font-sans leading-relaxed">
                     Clear answers to protocol fundamentals, yield mechanics, and security guarantees.
                   </p>
                 </div>
 
                 <div className="space-y-4">
-                  <div className="p-5 rounded-xl bg-[#040406]/60 border border-white/[0.08] space-y-2">
-                    <h3 className="text-white font-bold font-sans text-sm">
+                  <div className="p-5 rounded-xl bg-[#FAF8F5] text-[#1C1B18]/60 border border-black/[0.08] space-y-2">
+                    <h3 className="text-[#1C1B18] font-bold font-sans text-sm">
                       Are my staked USDG tokens locked for any minimum time period?
                     </h3>
-                    <p className="text-xs text-neutral-400 leading-relaxed font-sans">
+                    <p className="text-xs text-[#6B665E] leading-relaxed font-sans">
                       No. Aegis strictly follows a zero lockup policy. You may unstake any portion or 100% of your principle at any moment without penalty or withdrawal fees.
                     </p>
                   </div>
 
-                  <div className="p-5 rounded-xl bg-[#040406]/60 border border-white/[0.08] space-y-2">
-                    <h3 className="text-white font-bold font-sans text-sm">
+                  <div className="p-5 rounded-xl bg-[#FAF8F5] text-[#1C1B18]/60 border border-black/[0.08] space-y-2">
+                    <h3 className="text-[#1C1B18] font-bold font-sans text-sm">
                       How frequently do staking rewards accrue?
                     </h3>
-                    <p className="text-xs text-neutral-400 leading-relaxed font-sans">
+                    <p className="text-xs text-[#6B665E] leading-relaxed font-sans">
                       Rewards accrue continuously per second / per block. Your pending balance updates in real-time on your dashboard as new blocks are finalized on Robinhood Chain.
                     </p>
                   </div>
 
-                  <div className="p-5 rounded-xl bg-[#040406]/60 border border-white/[0.08] space-y-2">
-                    <h3 className="text-white font-bold font-sans text-sm">
+                  <div className="p-5 rounded-xl bg-[#FAF8F5] text-[#1C1B18]/60 border border-black/[0.08] space-y-2">
+                    <h3 className="text-[#1C1B18] font-bold font-sans text-sm">
                       Can I claim my Aegis rewards without withdrawing my staked USDG?
                     </h3>
-                    <p className="text-xs text-neutral-400 leading-relaxed font-sans">
-                      Yes. Calling the <code className="text-[#c8f53c] font-mono">claimReward()</code> function transfers all accrued yield directly to your wallet while leaving your staked deposit intact to continue earning.
+                    <p className="text-xs text-[#6B665E] leading-relaxed font-sans">
+                      Yes. Calling the <code className="text-[#283615] font-mono">claimReward()</code> function transfers all accrued yield directly to your wallet while leaving your staked deposit intact to continue earning.
                     </p>
                   </div>
 
-                  <div className="p-5 rounded-xl bg-[#040406]/60 border border-white/[0.08] space-y-2">
-                    <h3 className="text-white font-bold font-sans text-sm">
+                  <div className="p-5 rounded-xl bg-[#FAF8F5] text-[#1C1B18]/60 border border-black/[0.08] space-y-2">
+                    <h3 className="text-[#1C1B18] font-bold font-sans text-sm">
                       What wallet software is compatible with Aegis?
                     </h3>
-                    <p className="text-xs text-neutral-400 leading-relaxed font-sans">
+                    <p className="text-xs text-[#6B665E] leading-relaxed font-sans">
                       Any standard EVM-compatible Web3 wallet, including MetaMask, Rabby, Coinbase Wallet, Rainbow, and WalletConnect v2 mobile apps.
                     </p>
                   </div>
@@ -903,7 +900,7 @@ export default function DocsPage() {
             )}
 
             {/* Bottom Section Pager Navigation */}
-            <div className="pt-8 border-t border-white/[0.08] flex items-center justify-between text-xs font-mono">
+            <div className="pt-8 border-t border-black/[0.08] flex items-center justify-between text-xs font-mono">
               {prevSection ? (
                 <button
                   type="button"
@@ -911,7 +908,7 @@ export default function DocsPage() {
                     setActiveSection(prevSection.id);
                     window.scrollTo({ top: 120, behavior: "smooth" });
                   }}
-                  className="flex items-center gap-2 text-neutral-400 hover:text-white transition"
+                  className="flex items-center gap-2 text-[#6B665E] hover:text-white transition"
                 >
                   <ArrowLeft className="w-3.5 h-3.5" />
                   <span>{prevSection.title}</span>
@@ -927,7 +924,7 @@ export default function DocsPage() {
                     setActiveSection(nextSection.id);
                     window.scrollTo({ top: 120, behavior: "smooth" });
                   }}
-                  className="flex items-center gap-2 text-[#c8f53c] hover:text-[#d6ff47] transition font-bold"
+                  className="flex items-center gap-2 text-[#283615] hover:text-[#d6ff47] transition font-bold"
                 >
                   <span>{nextSection.title}</span>
                   <ArrowRight className="w-3.5 h-3.5" />

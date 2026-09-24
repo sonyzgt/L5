@@ -60,19 +60,19 @@ const liquidbuttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-[#151e12] text-[#F4F1E8] border border-white/12 hover:border-white/30 hover:bg-[#1a2517] hover:scale-[1.03] active:scale-[0.97] shadow-lg shadow-black/50",
+          "bg-[#1C1B18] text-[#F6F3EC] border border-black/10 hover:bg-[#2d2b27] hover:scale-[1.02] active:scale-[0.98] shadow-md shadow-black/10",
         kawa:
-          "bg-[#B8F34A] text-[#10170e] font-bold border border-[#B8F34A] hover:bg-[#cbfb65] hover:shadow-[0_0_24px_rgba(184,243,74,0.45)] hover:scale-[1.03] active:scale-[0.97]",
+          "bg-[#283615] text-[#F6F3EC] font-bold border border-[#283615] hover:bg-[#34461c] hover:shadow-[0_4px_20px_rgba(40,54,21,0.25)] hover:scale-[1.02] active:scale-[0.98]",
         secondary:
-          "bg-[#1a2517] text-[#A0AA98] border border-white/10 hover:border-[#B8F34A]/40 hover:text-[#F4F1E8] hover:scale-[1.02] active:scale-[0.97]",
+          "bg-white text-[#1C1B18] border border-black/12 hover:border-black/30 hover:bg-[#FAF8F5] hover:scale-[1.02] active:scale-[0.98] shadow-sm",
         outline:
-          "bg-transparent text-[#F4F1E8] border border-white/15 hover:border-white/40 hover:bg-white/5",
+          "bg-transparent text-[#1C1B18] border border-black/15 hover:border-black/30 hover:bg-black/5",
         ghost:
-          "bg-transparent text-[#A0AA98] hover:text-[#F4F1E8] hover:bg-white/5",
+          "bg-transparent text-[#6B665E] hover:text-[#1C1B18] hover:bg-black/5",
         destructive:
-          "bg-rose-600 text-white hover:bg-rose-500 shadow-lg shadow-rose-900/30",
+          "bg-rose-600 text-white hover:bg-rose-500 shadow-md shadow-rose-900/20",
         link:
-          "text-[#B8F34A] underline-offset-4 hover:underline bg-transparent",
+          "text-[#283615] underline-offset-4 hover:underline bg-transparent",
       },
       size: {
         default: "h-9 px-4 py-2 text-xs",

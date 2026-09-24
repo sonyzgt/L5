@@ -18,15 +18,15 @@ export const TransactionModal: React.FC<TransactionModalProps> = ({ state, onClo
   const isClosable = state.step === "SUCCESS" || state.step === "FAILED";
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-md animate-in fade-in duration-150 font-sans">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm animate-in fade-in duration-150 font-sans">
       <div
-        className="relative w-full max-w-sm liquid-glass-modal rounded-3xl p-6 sm:p-8 shadow-2xl text-center space-y-6 text-white"
+        className="relative w-full max-w-sm bg-white border border-black/10 rounded-3xl p-6 sm:p-8 shadow-2xl text-center space-y-6 text-[#1C1B18]"
         onClick={(e) => e.stopPropagation()}
       >
         {isClosable && (
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 p-1.5 rounded-full liquid-glass-pill text-neutral-400 hover:text-white transition"
+            className="absolute top-4 right-4 p-2 rounded-full bg-[#FAF8F5] border border-black/[0.08] text-[#6B665E] hover:text-[#1C1B18] transition"
             aria-label="Close"
           >
             <X className="w-4 h-4" />
@@ -35,10 +35,10 @@ export const TransactionModal: React.FC<TransactionModalProps> = ({ state, onClo
 
         {/* Central Graphic */}
         <div className="flex justify-center pt-2">
-          <div className="p-4 liquid-glass-subcard rounded-full shadow-inner">
+          <div className="p-4 bg-[#FAF8F5] border border-black/[0.08] rounded-full shadow-inner">
             <Layer5Emblem
               size={56}
-              variant="white"
+              variant="black"
               animate={state.step === "CONFIRMING" || state.step === "PENDING"}
               state={state.step === "SUCCESS" ? "awakened" : "dormant"}
             />
@@ -47,10 +47,10 @@ export const TransactionModal: React.FC<TransactionModalProps> = ({ state, onClo
 
         {/* Status Text */}
         <div className="space-y-2">
-          <h3 className="text-xs font-mono tracking-[0.25em] uppercase text-white font-semibold">
+          <h3 className="text-xs font-mono tracking-[0.25em] uppercase text-[#1C1B18] font-bold">
             {state.title}
           </h3>
-          <p className="text-xs text-[#8e95a2] leading-relaxed font-sans max-w-xs mx-auto">
+          <p className="text-xs text-[#6B665E] leading-relaxed font-sans max-w-xs mx-auto">
             {state.description}
           </p>
         </div>
@@ -79,8 +79,9 @@ export const TransactionModal: React.FC<TransactionModalProps> = ({ state, onClo
           {state.step === "CONFIRMING" && (
             <LiquidButton
               size="sm"
+              variant="secondary"
               onClick={onClose}
-              className="text-xs font-mono text-neutral-400 hover:text-white uppercase tracking-wider"
+              className="text-xs font-mono uppercase tracking-wider"
             >
               CANCEL
             </LiquidButton>
@@ -88,10 +89,10 @@ export const TransactionModal: React.FC<TransactionModalProps> = ({ state, onClo
 
           {isClosable && (
             <LiquidButton
-              variant="kawa"
+              variant="default"
               size="xl"
               onClick={onClose}
-              className="w-full text-xs font-mono uppercase tracking-[0.2em] font-semibold shadow-xl shadow-black/40"
+              className="w-full text-xs font-mono uppercase tracking-[0.2em] font-bold shadow-md"
             >
               CLOSE
             </LiquidButton>

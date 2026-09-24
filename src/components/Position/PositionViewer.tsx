@@ -51,86 +51,86 @@ export const PositionViewer: React.FC = () => {
   };
 
   return (
-    <div className="w-full space-y-8 font-sans text-left text-white">
-      {/* 1. Sterling Gate Editorial Header */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-white/[0.08] pb-6">
+    <div className="w-full space-y-8 font-sans text-left text-[#1C1B18]">
+      {/* 1. Warm Paper Editorial Header */}
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-black/[0.08] pb-6">
         <div className="space-y-2">
           <div className="flex items-center gap-3">
-            <span className="text-[10px] font-mono tracking-[0.3em] text-[#8e95a2] uppercase">
+            <span className="text-[10px] font-mono tracking-[0.3em] text-[#6B665E] uppercase">
               03 // PORTFOLIO TELEMETRY
             </span>
-            <span className="w-1.5 h-1.5 rounded-full bg-[#c8f53c] shadow-[0_0_6px_#c8f53c] animate-pulse" />
-            <span className="font-cursive text-[#c8f53c] text-lg tracking-normal lowercase">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#283615]" />
+            <span className="font-cursive text-[#283615] text-lg tracking-normal lowercase">
               ~ live non-custodial ~
             </span>
           </div>
 
-          <h1 className="font-editorial text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-[-0.02em] text-white uppercase leading-tight">
-            USER <span className="text-[#c8f53c]">POSITION</span>
+          <h1 className="font-display font-black text-3xl sm:text-5xl lg:text-6xl tracking-tight text-[#1C1B18] uppercase leading-tight">
+            USER <span className="text-[#283615]">POSITION</span>
           </h1>
 
-          <p className="text-xs sm:text-sm font-mono tracking-[0.05em] text-[#8e95a2] max-w-xl">
+          <p className="text-xs sm:text-sm font-sans tracking-normal text-[#6B665E] max-w-xl leading-relaxed">
             Autonomous USDG staking stream and cryptographic Aegis reward checkpoint on Robinhood Chain.
           </p>
         </div>
 
         {isConnected && address && (
           <div className="flex items-center gap-3 shrink-0">
-            <span className="text-[11px] font-mono text-neutral-200 liquid-glass-pill px-4 py-2 rounded-full flex items-center gap-2 border border-white/10">
-              <span className="w-2 h-2 rounded-full bg-[#c8f53c] shadow-[0_0_8px_#c8f53c]" />
+            <span className="text-[11px] font-mono text-[#1C1B18] liquid-glass-pill px-4 py-2 rounded-full flex items-center gap-2 border border-black/10 bg-white shadow-sm">
+              <span className="w-2 h-2 rounded-full bg-[#283615]" />
               {formatAddress(address)}
             </span>
           </div>
         )}
       </div>
 
-      {/* 2. Top Metric Ribbon (4 Tiered Tiles) */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4">
+      {/* 2. Top Metric Ribbon (4 Warm Paper Tiles) */}
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
         <div className="sg-tier-container">
           <div className="sg-tier-underlay-1" />
           <div className="sg-tier-underlay-2" />
-          <div className="sg-tier-main p-3.5 sm:p-5 space-y-1">
-            <span className="text-[10px] font-mono text-[#8e95a2] uppercase block">TOTAL STAKED</span>
-            <div className="font-mono text-lg sm:text-2xl font-bold text-white tracking-tight truncate">
+          <div className="sg-tier-main p-4 sm:p-5 space-y-1">
+            <span className="text-[10px] font-mono text-[#6B665E] uppercase block tracking-wider">TOTAL STAKED</span>
+            <div className="font-mono text-lg sm:text-2xl font-bold text-[#1C1B18] tracking-tight truncate">
               {isConnected ? formatTokenAmount(stakedBalance, stakeDecimals, 2) : "0.00"}
             </div>
-            <span className="text-[10px] font-mono text-[#c8f53c]">USDG Principal</span>
+            <span className="text-[10px] font-mono text-[#283615] font-semibold">USDG Principal</span>
           </div>
         </div>
 
         <div className="sg-tier-container">
           <div className="sg-tier-underlay-1" />
           <div className="sg-tier-underlay-2" />
-          <div className="sg-tier-main p-3.5 sm:p-5 space-y-1">
-            <span className="text-[10px] font-mono text-[#8e95a2] uppercase block">UNCLAIMED REWARDS</span>
-            <div className="font-mono text-lg sm:text-2xl font-bold text-[#c8f53c] tracking-tight truncate">
+          <div className="sg-tier-main p-4 sm:p-5 space-y-1">
+            <span className="text-[10px] font-mono text-[#6B665E] uppercase block tracking-wider">UNCLAIMED REWARDS</span>
+            <div className="font-mono text-lg sm:text-2xl font-bold text-[#283615] tracking-tight truncate">
               {isConnected ? formatTokenAmount(pendingRewards, 18, 4) : "0.0000"}
             </div>
-            <span className="text-[10px] font-mono text-neutral-400">AEGIS Streamed</span>
+            <span className="text-[10px] font-mono text-[#6B665E]">AEGIS Streamed</span>
           </div>
         </div>
 
         <div className="sg-tier-container">
           <div className="sg-tier-underlay-1" />
           <div className="sg-tier-underlay-2" />
-          <div className="sg-tier-main p-3.5 sm:p-5 space-y-1">
-            <span className="text-[10px] font-mono text-[#8e95a2] uppercase block">EFFECTIVE RATE</span>
-            <div className="font-mono text-lg sm:text-2xl font-bold text-white tracking-tight truncate">
+          <div className="sg-tier-main p-4 sm:p-5 space-y-1">
+            <span className="text-[10px] font-mono text-[#6B665E] uppercase block tracking-wider">EFFECTIVE RATE</span>
+            <div className="font-mono text-lg sm:text-2xl font-bold text-[#1C1B18] tracking-tight truncate">
               {calculatedApy !== undefined && calculatedApy > 0 ? formatApy(calculatedApy) : "0.00%"}
             </div>
-            <span className="text-[10px] font-mono text-[#8e95a2]">Synthetix O(1)</span>
+            <span className="text-[10px] font-mono text-[#6B665E]">Synthetix O(1)</span>
           </div>
         </div>
 
         <div className="sg-tier-container">
           <div className="sg-tier-underlay-1" />
           <div className="sg-tier-underlay-2" />
-          <div className="sg-tier-main p-3.5 sm:p-5 space-y-1">
-            <span className="text-[10px] font-mono text-[#8e95a2] uppercase block">STAKING DURATION</span>
-            <div className="font-mono text-lg sm:text-2xl font-bold text-white tracking-tight truncate">
+          <div className="sg-tier-main p-4 sm:p-5 space-y-1">
+            <span className="text-[10px] font-mono text-[#6B665E] uppercase block tracking-wider">STAKING DURATION</span>
+            <div className="font-mono text-lg sm:text-2xl font-bold text-[#1C1B18] tracking-tight truncate">
               {isConnected && hasStaked ? formatDuration(stakingDuration) : "0d"}
             </div>
-            <span className="text-[10px] font-mono text-[#c8f53c]">0s Lockup</span>
+            <span className="text-[10px] font-mono text-[#283615] font-semibold">0s Lockup</span>
           </div>
         </div>
       </div>
@@ -142,33 +142,39 @@ export const PositionViewer: React.FC = () => {
           <div className="sg-tier-container">
             <div className="sg-tier-underlay-1" />
             <div className="sg-tier-underlay-2" />
-            <div className="sg-tier-main p-4 sm:p-8 space-y-5 sm:space-y-6">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-white/[0.08] pb-4">
+            <div className="sg-tier-main p-5 sm:p-8 space-y-5 sm:space-y-6">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-black/[0.08] pb-4">
                 <div className="flex items-center gap-3">
-                  <div className="p-2.5 sm:p-3 rounded-2xl liquid-glass-subcard border border-white/10 shrink-0">
-                    <Layer5Emblem size={24} variant="white" animate={hasStaked} state={kawaState} />
+                  <div className="p-2.5 sm:p-3 rounded-2xl bg-[#FAF8F5] border border-black/[0.08] shrink-0 shadow-sm">
+                    <Layer5Emblem size={26} variant="black" animate={hasStaked} state={kawaState} />
                   </div>
                   <div>
-                    <h2 className="font-editorial text-lg sm:text-2xl font-bold uppercase text-white">
+                    <h2 className="font-display font-black text-lg sm:text-2xl uppercase text-[#1C1B18] tracking-tight">
                       LIQUID POSITION STATUS
                     </h2>
-                    <span className="text-xs font-mono text-[#8e95a2]">
+                    <span className="text-xs font-mono text-[#6B665E]">
                       Contract: {formatAddress(protocolConfig.stakingContractAddress)}
                     </span>
                   </div>
                 </div>
 
-                <span className="w-fit liquid-glass-pill px-3 py-1 rounded-full text-xs font-mono text-[#c8f53c] font-semibold border border-[#c8f53c]/30">
+                <span
+                  className={`w-fit px-3 py-1 rounded-full text-xs font-mono font-bold tracking-wider ${
+                    hasStaked
+                      ? "bg-[#283615]/10 text-[#283615] border border-[#283615]/30"
+                      : "bg-black/[0.04] text-[#6B665E] border border-black/10"
+                  }`}
+                >
                   {hasStaked ? "ACTIVE" : "INACTIVE"}
                 </span>
               </div>
 
               {/* State Narrative */}
-              <div className="p-3.5 sm:p-4 rounded-2xl liquid-glass-subcard border border-white/5 space-y-1 text-xs font-mono">
-                <span className="text-[#8e95a2] uppercase tracking-wider text-[10px] block">
+              <div className="p-4 rounded-2xl bg-[#FAF8F5] border border-black/[0.06] space-y-1 text-xs font-mono">
+                <span className="text-[#6B665E] uppercase tracking-wider text-[10px] font-semibold block">
                   POSITION STATE DIAGNOSTIC
                 </span>
-                <p className="text-neutral-200 leading-relaxed">{getStateDescription()}</p>
+                <p className="text-[#1C1B18] leading-relaxed">{getStateDescription()}</p>
               </div>
 
               {/* Position Action Trigger Buttons */}
@@ -180,42 +186,40 @@ export const PositionViewer: React.FC = () => {
                       size="xl"
                       onClick={claim}
                       disabled={!hasRewards}
-                      className="w-full sm:flex-1 font-mono text-xs uppercase tracking-wider font-bold shadow-xl shadow-[#c8f53c]/20"
+                      className="w-full sm:flex-1 font-mono text-xs uppercase tracking-wider font-bold"
                     >
                       <span className="flex items-center justify-center gap-2">
-                        CLAIM REWARDS <Sparkles className="w-4 h-4 text-[#c8f53c]" />
+                        CLAIM REWARDS <Sparkles className="w-4 h-4 text-[#F6F3EC]" />
                       </span>
                     </LiquidButton>
 
                     <LiquidButton
-                      variant="default"
+                      variant="secondary"
                       size="xl"
                       onClick={() => setUnstakeModalOpen(true)}
                       disabled={!hasStaked}
-                      className="w-full sm:flex-1 font-mono text-xs uppercase tracking-wider text-neutral-300 hover:text-white"
+                      className="w-full sm:flex-1 font-mono text-xs uppercase tracking-wider text-[#1C1B18]"
                     >
                       UNSTAKE LIQUIDITY
                     </LiquidButton>
 
                     <LiquidButton
-                      variant="default"
+                      variant="secondary"
                       size="xl"
                       href="/stake"
-                      className="w-full sm:w-auto px-6 font-mono text-xs uppercase tracking-wider text-neutral-300 hover:text-white"
+                      className="w-full sm:w-auto px-6 font-mono text-xs uppercase tracking-wider text-[#1C1B18]"
                     >
                       + ADD CAPITAL
                     </LiquidButton>
                   </>
                 ) : (
-                  <LiquidButton
-                    size="xl"
+                  <button
                     onClick={() => setWalletModalOpen(true)}
-                    className="w-full flex items-center justify-center font-mono uppercase tracking-[0.2em] text-white shadow-xl shadow-black/40"
+                    className="w-full py-4.5 px-8 rounded-full bg-[#1C1B18] hover:bg-[#2d2b27] text-[#F6F3EC] font-mono text-xs font-bold uppercase tracking-[0.14em] transition-all duration-300 shadow-md hover:scale-[1.01] active:scale-[0.99] flex items-center justify-center gap-2 cursor-pointer"
                   >
-                    <span className="flex items-center gap-2 text-xs font-semibold">
-                      <Wallet className="w-4 h-4 text-[#c8f53c]" /> CONNECT WALLET TO VIEW POSITION
-                    </span>
-                  </LiquidButton>
+                    <Wallet className="w-4 h-4 text-[#F6F3EC]" />
+                    <span>CONNECT WALLET TO VIEW POSITION</span>
+                  </button>
                 )}
               </div>
             </div>
@@ -224,29 +228,29 @@ export const PositionViewer: React.FC = () => {
 
         {/* Right Column (4 cols): Protocol Invariants */}
         <div className="lg:col-span-4 space-y-6">
-          <div className="liquid-glass-card rounded-3xl p-6 space-y-4">
-            <div className="flex items-center justify-between border-b border-white/[0.08] pb-3 text-xs font-mono">
-              <span className="text-white font-bold uppercase tracking-wider">PROTOCOL GUARANTEES</span>
-              <ShieldCheck className="w-4 h-4 text-[#c8f53c]" />
+          <div className="liquid-glass-card rounded-3xl p-6 sm:p-7 space-y-4 bg-white border border-black/[0.08]">
+            <div className="flex items-center justify-between border-b border-black/[0.08] pb-3 text-xs font-mono">
+              <span className="text-[#1C1B18] font-bold uppercase tracking-wider">PROTOCOL GUARANTEES</span>
+              <ShieldCheck className="w-4 h-4 text-[#283615]" />
             </div>
 
             <div className="space-y-3 text-xs font-mono">
-              <div className="p-3 rounded-xl liquid-glass-subcard border border-white/5 space-y-1">
-                <span className="text-[10px] text-[#8e95a2] uppercase block">UNBONDING SCHEDULE</span>
-                <span className="text-white font-semibold">Instant (0 Blocks)</span>
-                <span className="text-[10px] text-neutral-500 block">No lockup or cooldown periods</span>
+              <div className="p-3.5 rounded-2xl bg-[#FAF8F5] border border-black/[0.06] space-y-1">
+                <span className="text-[10px] text-[#6B665E] uppercase block tracking-wider">UNBONDING SCHEDULE</span>
+                <span className="text-[#1C1B18] font-bold text-sm block">Instant (0 Blocks)</span>
+                <span className="text-[10px] text-[#6B665E] block">No lockup or cooldown periods</span>
               </div>
 
-              <div className="p-3 rounded-xl liquid-glass-subcard border border-white/5 space-y-1">
-                <span className="text-[10px] text-[#8e95a2] uppercase block">SETTLEMENT GUARANTEE</span>
-                <span className="text-white font-semibold">Micro-cent Execution</span>
-                <span className="text-[10px] text-neutral-500 block">Sub-second Robinhood Chain finality</span>
+              <div className="p-3.5 rounded-2xl bg-[#FAF8F5] border border-black/[0.06] space-y-1">
+                <span className="text-[10px] text-[#6B665E] uppercase block tracking-wider">SETTLEMENT GUARANTEE</span>
+                <span className="text-[#1C1B18] font-bold text-sm block">Micro-cent Execution</span>
+                <span className="text-[10px] text-[#6B665E] block">Sub-second Robinhood Chain finality</span>
               </div>
 
-              <div className="p-3 rounded-xl liquid-glass-subcard border border-white/5 space-y-1">
-                <span className="text-[10px] text-[#8e95a2] uppercase block">SECURITY AUDIT</span>
-                <span className="text-[#c8f53c] font-semibold">Synthetix Non-Custodial</span>
-                <span className="text-[10px] text-neutral-500 block">OpenZeppelin audited libraries</span>
+              <div className="p-3.5 rounded-2xl bg-[#FAF8F5] border border-black/[0.06] space-y-1">
+                <span className="text-[10px] text-[#6B665E] uppercase block tracking-wider">SECURITY AUDIT</span>
+                <span className="text-[#283615] font-bold text-sm block">Synthetix Non-Custodial</span>
+                <span className="text-[10px] text-[#6B665E] block">OpenZeppelin audited libraries</span>
               </div>
             </div>
           </div>
@@ -259,53 +263,48 @@ export const PositionViewer: React.FC = () => {
 
       {/* Exit Pool Unstake Modal */}
       {unstakeModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-md">
-          <div className="sg-tier-container max-w-md w-full">
-            <div className="sg-tier-underlay-1" />
-            <div className="sg-tier-underlay-2" />
-            <div className="sg-tier-main p-6 space-y-4">
-              <h3 className="font-editorial text-2xl font-bold uppercase text-white">UNSTAKE CAPITAL</h3>
-              <p className="text-xs font-mono text-neutral-400">
-                Enter USDG amount to unstake. Max balance: {formatTokenAmount(stakedBalance, stakeDecimals, 2)} USDG
-              </p>
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm animate-in fade-in duration-150">
+          <div className="bg-white rounded-3xl p-6 sm:p-8 space-y-5 border border-black/10 shadow-2xl max-w-md w-full text-[#1C1B18]">
+            <h3 className="font-display font-black text-2xl uppercase text-[#1C1B18] tracking-tight">UNSTAKE CAPITAL</h3>
+            <p className="text-xs font-mono text-[#6B665E]">
+              Enter USDG amount to unstake. Max balance: {formatTokenAmount(stakedBalance, stakeDecimals, 2)} USDG
+            </p>
 
-              <div className="liquid-glass-input rounded-xl p-3 flex items-center justify-between">
-                <input
-                  type="number"
-                  placeholder="0.00"
-                  value={unstakeAmount}
-                  onChange={(e) => setUnstakeAmount(e.target.value)}
-                  className="w-full bg-transparent font-editorial text-2xl text-white outline-none font-bold"
-                />
-                <LiquidButton
-                  type="button"
-                  size="sm"
-                  onClick={() => setUnstakeAmount(formatTokenAmount(stakedBalance, stakeDecimals, 6))}
-                  className="shrink-0 text-[10px] font-mono px-3 py-1"
-                >
-                  MAX
-                </LiquidButton>
-              </div>
+            <div className="liquid-glass-input rounded-2xl p-3.5 flex items-center justify-between bg-[#FAF8F5] border border-black/[0.1]">
+              <input
+                type="number"
+                placeholder="0.00"
+                value={unstakeAmount}
+                onChange={(e) => setUnstakeAmount(e.target.value)}
+                className="w-full bg-transparent font-mono text-2xl text-[#1C1B18] outline-none font-bold"
+              />
+              <button
+                type="button"
+                onClick={() => setUnstakeAmount(formatTokenAmount(stakedBalance, stakeDecimals, 6))}
+                className="shrink-0 text-[10px] font-mono px-3 py-1.5 rounded-full bg-white border border-black/10 hover:bg-black/5 text-[#1C1B18] font-bold shadow-sm"
+              >
+                MAX
+              </button>
+            </div>
 
-              <div className="flex gap-3 pt-2">
-                <LiquidButton
-                  variant="default"
-                  size="lg"
-                  onClick={() => setUnstakeModalOpen(false)}
-                  className="flex-1 font-mono text-xs uppercase"
-                >
-                  CANCEL
-                </LiquidButton>
-                <LiquidButton
-                  variant="kawa"
-                  size="lg"
-                  onClick={handleUnstakeSubmit}
-                  disabled={!unstakeAmount || parseFloat(unstakeAmount) <= 0}
-                  className="flex-1 font-mono text-xs uppercase font-bold"
-                >
-                  CONFIRM UNSTAKE
-                </LiquidButton>
-              </div>
+            <div className="flex gap-3 pt-2">
+              <LiquidButton
+                variant="secondary"
+                size="lg"
+                onClick={() => setUnstakeModalOpen(false)}
+                className="flex-1 font-mono text-xs uppercase"
+              >
+                CANCEL
+              </LiquidButton>
+              <LiquidButton
+                variant="kawa"
+                size="lg"
+                onClick={handleUnstakeSubmit}
+                disabled={!unstakeAmount || parseFloat(unstakeAmount) <= 0}
+                className="flex-1 font-mono text-xs uppercase font-bold"
+              >
+                CONFIRM UNSTAKE
+              </LiquidButton>
             </div>
           </div>
         </div>
