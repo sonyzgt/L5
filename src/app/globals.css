@@ -1,18 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Syne:wght@700;800&family=Space+Grotesk:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700;800;900&family=Syne:wght@700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --background: #08090c;
-  --background-subtle: #0f1117;
-  --background-elevated: #151821;
-  --foreground: #f4f5f8;
-  --foreground-muted: #8e95a2;
-  --border-hairline: rgba(255, 255, 255, 0.08);
-  --accent-lime: #c8f53c;
-  --accent-lime-glow: rgba(200, 245, 60, 0.35);
+  --background: #050706;
+  --background-subtle: #080B09;
+  --background-elevated: #0f1411;
+  --foreground: #F5F7F2;
+  --foreground-muted: #9AA09A;
+  --border-hairline: rgba(255, 255, 255, 0.12);
+  --accent-lime: #C7FF28;
+  --accent-lime-glow: rgba(199, 255, 40, 0.25);
 }
 
 body {

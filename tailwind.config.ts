@@ -11,6 +11,15 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        l5: {
+          bg: "#050706",
+          bgSubtle: "#080B09",
+          card: "#0d120f",
+          border: "rgba(255, 255, 255, 0.12)",
+          lime: "#C7FF28",
+          text: "#F5F7F2",
+          muted: "#9AA09A",
+        },
         kawa: {
           lime: "#c8f53c",
           dark: "#08090c",
@@ -19,6 +28,7 @@ const config: Config = {
         },
       },
       fontFamily: {
+        display: ["Unbounded", "Syne", "-apple-system", "sans-serif"],
         editorial: ["Syne", "PP Neue Corp Tight", "-apple-system", "sans-serif"],
         cursive: ["Caveat", "cursive", "Georgia", "serif"],
         mono: ["Space Grotesk", "Geist Mono", "ui-monospace", "monospace"],

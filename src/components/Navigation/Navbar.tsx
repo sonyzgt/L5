@@ -1,10 +1,10 @@
 "use client";
 
 import React from "react";
-import { SterlingGateNav } from "./SterlingGateNav";
+import { LandingNav } from "../landing/LandingNav";
 
 export const Navbar: React.FC = () => {
-  return <SterlingGateNav />;
+  return <LandingNav />;
 };
 
 export default Navbar;
