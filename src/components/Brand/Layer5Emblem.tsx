@@ -18,9 +18,9 @@ export const Layer5Emblem: React.FC<Layer5EmblemProps> = ({
   className = "",
   state = "dormant",
   animate = false,
-  variant = "white",
+  variant = "black",
 }) => {
-  const src = "/aegis-logo-transparent.png";
+  const src = variant === "white" ? "/aegis-logo-white.png" : "/aegis-logo-black.png";
 
   return (
     <div
