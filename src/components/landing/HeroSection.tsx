@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, MotionValue } from "framer-motion";
 import { ArrowUpRight, CheckCircle2, ShieldCheck, TrendingUp } from "lucide-react";
 import { formatApy } from "@/lib/utils/formatters";
@@ -19,6 +20,19 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 }) => {
   return (
     <section className="relative min-h-[100dvh] w-full flex flex-col justify-between pt-32 sm:pt-36 lg:pt-40 pb-10 sm:pb-12 px-4 sm:px-8 lg:px-12 select-none overflow-hidden bg-[#F6F3EC]">
+      {/* Background Heroic Artwork */}
+      <div className="absolute inset-0 pointer-events-none select-none overflow-hidden" aria-hidden="true">
+        <Image
+          src="/aegis-hero-bg.jpg"
+          alt="Aegis Ancient Greek Hero Background"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-[center_32%] opacity-[0.18] filter contrast-110 mix-blend-multiply"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#F6F3EC]/90 via-[#F6F3EC]/70 to-[#F6F3EC]" />
+      </div>
+
       {/* Ambient Warm Paper Lighting Fields */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] sm:w-[950px] h-[520px] bg-gradient-to-b from-[#EAE4D6]/70 via-[#E2DDD0]/40 to-transparent blur-[160px] rounded-full pointer-events-none -z-10" />
 

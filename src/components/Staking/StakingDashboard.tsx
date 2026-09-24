@@ -181,6 +181,21 @@ export const StakingDashboard: React.FC = () => {
       {/* 1. HERO BANNER: Denar-style Editorial Hero with Dual Floating Emblems      */}
       {/* ========================================================================= */}
       <section className="relative overflow-hidden rounded-3xl border border-[#E5E0D5] bg-white p-7 sm:p-12 md:p-14 shadow-[0_12px_40px_rgba(28,27,24,0.04)]">
+        {/* Background Artwork */}
+        <div className="absolute inset-0 pointer-events-none select-none overflow-hidden" aria-hidden="true">
+          <Image
+            src="/aegis-hero-bg.jpg"
+            alt="Aegis Heroic Background"
+            fill
+            sizes="(max-width: 1280px) 100vw, 1280px"
+            className="object-cover object-[center_28%] opacity-[0.28] filter contrast-[1.08]"
+            priority
+          />
+          {/* Subtle gradient wash for maximum legibility */}
+          <div className="absolute inset-0 bg-gradient-to-r from-white via-white/85 to-white/30" />
+          <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent opacity-80" />
+        </div>
+
         {/* Guilloche ornament at top border */}
         <div className="pointer-events-none absolute inset-x-0 top-0 h-8 text-[#283615] opacity-[0.18]">
           <GuillocheWave />
@@ -190,7 +205,7 @@ export const StakingDashboard: React.FC = () => {
         <div className="pointer-events-none absolute right-8 top-1/2 hidden -translate-y-1/2 md:block lg:right-12" aria-hidden="true">
           <div className="relative w-72 h-72">
             {/* Background floating Aegis Solid Shield */}
-            <div className="absolute -top-10 -right-2 h-44 w-44 rounded-full bg-[#FAF8F5] border border-[#E5E0D5] p-6 shadow-[0_16px_36px_rgba(0,0,0,0.08)] rotate-[12deg] opacity-95 transition-transform duration-700 hover:rotate-6">
+            <div className="absolute -top-10 -right-2 h-44 w-44 rounded-full bg-[#FAF8F5]/90 border border-[#E5E0D5] p-6 shadow-[0_16px_36px_rgba(0,0,0,0.08)] rotate-[12deg] opacity-95 transition-transform duration-700 hover:rotate-6 backdrop-blur-xs">
               <div className="relative w-full h-full">
                 <Image
                   src="/aegis-logo-black.png"
@@ -204,7 +219,7 @@ export const StakingDashboard: React.FC = () => {
             </div>
 
             {/* Foreground floating USDG Coin */}
-            <div className="relative mt-8 ml-2 h-56 w-56 rounded-full bg-white border border-[#E5E0D5] p-5 shadow-[0_20px_48px_rgba(40,54,21,0.14)] -rotate-6 transition-transform duration-700 hover:-rotate-2">
+            <div className="relative mt-8 ml-2 h-56 w-56 rounded-full bg-white/95 border border-[#E5E0D5] p-5 shadow-[0_20px_48px_rgba(40,54,21,0.14)] -rotate-6 transition-transform duration-700 hover:-rotate-2 backdrop-blur-xs">
               <div className="relative w-full h-full rounded-full overflow-hidden">
                 <Image
                   src="/usdg-icon.png"
